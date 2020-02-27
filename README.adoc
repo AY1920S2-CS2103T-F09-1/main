@@ -1,4 +1,6 @@
 = Address Book (Level 3)
+
+image:https://api.codacy.com/project/badge/Grade/4c8b6dc7c5e1485da39974443e53dcc1[link="https://app.codacy.com/gh/AY1920S2-CS2103T-F09-1/main?utm_source=github.com&utm_medium=referral&utm_content=AY1920S2-CS2103T-F09-1/main&utm_campaign=Badge_Grade_Dashboard"]
 ifdef::env-github,env-browser[:relfileprefix: docs/]
 
 https://travis-ci.org/AY1920S2-CS2103T-F09-1/main[image:https://travis-ci.org/AY1920S2-CS2103T-F09-1/main.svg?branch=master[Build Status]]
