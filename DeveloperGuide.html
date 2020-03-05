@@ -77,7 +77,8 @@
 <div class="title">Figure 1. Architecture Diagram</div>
 </div>
 <div class="paragraph">
-<p>The <strong><em>Architecture Diagram</em></strong> given above explains the high-level design of the App. Given below is a quick overview of each component.</p>
+<p>The <strong><em>Architecture Diagram</em></strong> given above explains the high-level design of the App.
+Given below is a quick overview of each component.</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -93,7 +94,8 @@ Refer to the <a href="UsingPlantUml.html">Using PlantUML guide</a> to learn how 
 </table>
 </div>
 <div class="paragraph">
-<p><code>Main</code> has two classes called <a href="https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/Main.java"><code>Main</code></a> and <a href="https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/MainApp.java"><code>MainApp</code></a>. It is responsible for,</p>
+<p><code>Main</code> has two classes called <a href="https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/Main.java"><code>Main</code></a> and <a href="https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/MainApp.java"><code>MainApp</code></a>.
+It is responsible for,</p>
 </div>
 <div class="ulist">
 <ul>
@@ -183,10 +185,13 @@ The following class plays an important role at the architecture level:</p>
 <p><strong>API</strong> : <a href="https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/Ui.java"><code>Ui.java</code></a></p>
 </div>
 <div class="paragraph">
-<p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>PersonListPanel</code>, <code>StatusBarFooter</code> etc. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
+<p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>PersonListPanel</code>, <code>StatusBarFooter</code> etc.
+All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
 </div>
 <div class="paragraph">
-<p>The <code>UI</code> component uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/se-edu/addressbook-level3/tree/master/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
+<p>The <code>UI</code> component uses JavaFx UI framework.
+The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder.
+For example, the layout of the <a href="https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/se-edu/addressbook-level3/tree/master/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
 </div>
 <div class="paragraph">
 <p>The <code>UI</code> component,</p>
@@ -292,7 +297,9 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book</code>, which <code>Person</code> can reference. This would allow <code>Address Book</code> to only require one <code>Tag</code> object per unique <code>Tag</code>, instead of each <code>Person</code> needing their own <code>Tag</code> object. An example of how such a model may look like is given below.<br>
+As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book</code>, which <code>Person</code> can reference.
+This would allow <code>Address Book</code> to only require one <code>Tag</code> object per unique <code>Tag</code>, instead of each <code>Person</code> needing their own <code>Tag</code> object.
+An example of how such a model may look like is given below.<br>
 <br>
 <span class="image"><img src="images/BetterModelClassDiagram.png" alt="BetterModelClassDiagram"></span>
 </td>
@@ -368,7 +375,8 @@ Additionally, it implements the following operations:</p>
 <p>Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.</p>
 </div>
 <div class="paragraph">
-<p>Step 1. The user launches the application for the first time. The <code>VersionedAddressBook</code> will be initialized with the initial address book state, and the <code>currentStatePointer</code> pointing to that single address book state.</p>
+<p>Step 1. The user launches the application for the first time.
+The <code>VersionedAddressBook</code> will be initialized with the initial address book state, and the <code>currentStatePointer</code> pointing to that single address book state.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -376,7 +384,8 @@ Additionally, it implements the following operations:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Step 2. The user executes <code>delete 5</code> command to delete the 5th person in the address book. The <code>delete</code> command calls <code>Model#commitAddressBook()</code>, causing the modified state of the address book after the <code>delete 5</code> command executes to be saved in the <code>addressBookStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted address book state.</p>
+<p>Step 2. The user executes <code>delete 5</code> command to delete the 5th person in the address book.
+The <code>delete</code> command calls <code>Model#commitAddressBook()</code>, causing the modified state of the address book after the <code>delete 5</code> command executes to be saved in the <code>addressBookStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted address book state.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -384,7 +393,8 @@ Additionally, it implements the following operations:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Step 3. The user executes <code>add n/David &#8230;&#8203;</code> to add a new person. The <code>add</code> command also calls <code>Model#commitAddressBook()</code>, causing another modified address book state to be saved into the <code>addressBookStateList</code>.</p>
+<p>Step 3. The user executes <code>add n/David &#8230;&#8203;</code> to add a new person.
+The <code>add</code> command also calls <code>Model#commitAddressBook()</code>, causing another modified address book state to be saved into the <code>addressBookStateList</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -404,7 +414,8 @@ If a command fails its execution, it will not call <code>Model#commitAddressBook
 </table>
 </div>
 <div class="paragraph">
-<p>Step 4. The user now decides that adding the person was a mistake, and decides to undo that action by executing the <code>undo</code> command. The <code>undo</code> command will call <code>Model#undoAddressBook()</code>, which will shift the <code>currentStatePointer</code> once to the left, pointing it to the previous address book state, and restores the address book to that state.</p>
+<p>Step 4. The user now decides that adding the person was a mistake, and decides to undo that action by executing the <code>undo</code> command.
+The <code>undo</code> command will call <code>Model#undoAddressBook()</code>, which will shift the <code>currentStatePointer</code> once to the left, pointing it to the previous address book state, and restores the address book to that state.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -418,7 +429,9 @@ If a command fails its execution, it will not call <code>Model#commitAddressBook
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If the <code>currentStatePointer</code> is at index 0, pointing to the initial address book state, then there are no previous address book states to restore. The <code>undo</code> command uses <code>Model#canUndoAddressBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the undo.
+If the <code>currentStatePointer</code> is at index 0, pointing to the initial address book state, then there are no previous address book states to restore.
+The <code>undo</code> command uses <code>Model#canUndoAddressBook()</code> to check if this is the case.
+If so, it will return an error to the user rather than attempting to perform the undo.
 </td>
 </tr>
 </table>
@@ -453,13 +466,17 @@ The lifeline for <code>UndoCommand</code> should end at the destroy marker (X) b
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If the <code>currentStatePointer</code> is at index <code>addressBookStateList.size() - 1</code>, pointing to the latest address book state, then there are no undone address book states to restore. The <code>redo</code> command uses <code>Model#canRedoAddressBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
+If the <code>currentStatePointer</code> is at index <code>addressBookStateList.size() - 1</code>, pointing to the latest address book state, then there are no undone address book states to restore.
+The <code>redo</code> command uses <code>Model#canRedoAddressBook()</code> to check if this is the case.
+If so, it will return an error to the user rather than attempting to perform the redo.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Step 5. The user then decides to execute the command <code>list</code>. Commands that do not modify the address book, such as <code>list</code>, will usually not call <code>Model#commitAddressBook()</code>, <code>Model#undoAddressBook()</code> or <code>Model#redoAddressBook()</code>. Thus, the <code>addressBookStateList</code> remains unchanged.</p>
+<p>Step 5. The user then decides to execute the command <code>list</code>.
+Commands that do not modify the address book, such as <code>list</code>, will usually not call <code>Model#commitAddressBook()</code>, <code>Model#undoAddressBook()</code> or <code>Model#redoAddressBook()</code>.
+Thus, the <code>addressBookStateList</code> remains unchanged.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -467,7 +484,10 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="paragraph">
-<p>Step 6. The user executes <code>clear</code>, which calls <code>Model#commitAddressBook()</code>. Since the <code>currentStatePointer</code> is not pointing at the end of the <code>addressBookStateList</code>, all address book states after the <code>currentStatePointer</code> will be purged. We designed it this way because it no longer makes sense to redo the <code>add n/David &#8230;&#8203;</code> command. This is the behavior that most modern desktop applications follow.</p>
+<p>Step 6. The user executes <code>clear</code>, which calls <code>Model#commitAddressBook()</code>.
+Since the <code>currentStatePointer</code> is not pointing at the end of the <code>addressBookStateList</code>, all address book states after the <code>currentStatePointer</code> will be purged.
+We designed it this way because it no longer makes sense to redo the <code>add n/David &#8230;&#8203;</code> command.
+This is the behavior that most modern desktop applications follow.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -530,7 +550,8 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <p>Pros: Easy for new Computer Science student undergraduates to understand, who are likely to be the new incoming developers of our project.</p>
 </li>
 <li>
-<p>Cons: Logic is duplicated twice. For example, when a new command is executed, we must remember to update both <code>HistoryManager</code> and <code>VersionedAddressBook</code>.</p>
+<p>Cons: Logic is duplicated twice.
+For example, when a new command is executed, we must remember to update both <code>HistoryManager</code> and <code>VersionedAddressBook</code>.</p>
 </li>
 </ul>
 </div>
@@ -543,7 +564,8 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <p>Pros: We do not need to maintain a separate list, and just reuse what is already in the codebase.</p>
 </li>
 <li>
-<p>Cons: Requires dealing with commands that have already been undone: We must remember to skip these commands. Violates Single Responsibility Principle and Separation of Concerns as <code>HistoryManager</code> now needs to do two different things.</p>
+<p>Cons: Requires dealing with commands that have already been undone: We must remember to skip these commands.
+Violates Single Responsibility Principle and Separation of Concerns as <code>HistoryManager</code> now needs to do two different things.</p>
 </li>
 </ul>
 </div>
@@ -562,7 +584,8 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="sect2">
 <h3 id="logging"><a class="link" href="#logging">3.3. Logging</a></h3>
 <div class="paragraph">
-<p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
+<p>We are using <code>java.util.logging</code> package for logging.
+The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -660,9 +683,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <h2 id="user-stories"><a class="link" href="#user-stories">Appendix B: User Stories</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Priorities: epic (must have) - * * * *,
-rare (nice to have) - * * * ,
-comon (unlikely to have) - * *, rabak (will negatively affect the application) - *</p>
+<p>Priorities: epic (must have) - * * * *, rare (nice to have) - * * * , comon (unlikely to have) - * *, rabak (will negatively affect the application) - *</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width: 59%;">
 <caption class="title">Table 1. User stories and their priorities</caption>
@@ -875,8 +896,8 @@ comon (unlikely to have) - * *, rabak (will negatively affect the application) -
 <h2 id="use-cases"><a class="link" href="#use-cases">Appendix C: Use Cases</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This is a list of Use-Cases for STASH,
-a coupon stash application. Primary actor is the user.</p>
+<p>This is a list of Use-Cases for STASH, a coupon stash application.
+Primary actor is the user.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -887,8 +908,7 @@ a coupon stash application. Primary actor is the user.</p>
 <h3 id="strong-em-use-case-uc1-add-a-new-coupon-entry-em-strong" class="discrete"><strong><em>Use Case: UC1 - Add  a new coupon entry</em></strong></h3>
 <div class="paragraph">
 <p>Actor: User<br>
-This use case describes how a user uses STASH to add
-and save a new coupon entry.<br></p>
+This use case describes how a user uses STASH to add and save a new coupon entry.<br></p>
 </div>
 <div class="paragraph">
 <p>MSS:</p>
@@ -909,8 +929,7 @@ and save a new coupon entry.<br></p>
 <div class="sect2">
 <h3 id="strong-em-use-case-uc2-listing-all-the-coupon-entries-em-strong"><a class="link" href="#strong-em-use-case-uc2-listing-all-the-coupon-entries-em-strong">C.1. <strong><em>Use Case: UC2 - Listing all the coupon entries</em></strong></a></h3>
 <div class="paragraph">
-<p>This use case describes how a user uses STASH to list all the
-coupon entries.<br></p>
+<p>This use case describes how a user uses STASH to list all the coupon entries.<br></p>
 </div>
 <div class="paragraph">
 <p>MSS:</p>
@@ -991,34 +1010,34 @@ coupon entries.<br></p>
 <ol class="arabic">
 <li>
 <p>Coupon Stash works on <code><em>common operating systems
-(OS)</em></code> that have <code><em>Java 11</em></code> installed</p>
+(OS)</em></code> that have <code><em>Java 11</em></code> or above installed.</p>
 </li>
 <li>
-<p>Continue adding</p>
+<p>Coupon Stash can hold at least 500 coupons comfortably, and still operate without noticeable lag when entering commands or interacting with the UI.</p>
 </li>
 <li>
-<p>Continue adding</p>
+<p>Coupon Stash caters to users who have above average typing speed, and these users should be able to get tasks completed faster in the application by typing, rather than using the mouse and the UI.</p>
 </li>
 <li>
-<p>Continue adding</p>
+<p>Coupon Stash source code should be covered by tests as much as possible.</p>
 </li>
 <li>
-<p>Continue adding</p>
+<p>Stash should be easy to use for users, who are not familiar with coding.</p>
 </li>
 <li>
-<p>Continue adding</p>
+<p>All monetary amounts should be accurate up to 2 decimal places.</p>
 </li>
 <li>
-<p>Continue adding</p>
+<p>Coupon Stash should be portable.</p>
 </li>
 <li>
-<p>Continue adding</p>
+<p>Data files should remain unchanged when moving from OS to OS.</p>
 </li>
 <li>
-<p>Continue adding</p>
+<p>Coupon Stash works perfectly without access to the internet.</p>
 </li>
 <li>
-<p>Continue adding</p>
+<p>Coupon Stash supports various types of coupons (e.g. promotional codes, QR code, or barcode) (coming in in v2.0)</p>
 </li>
 </ol>
 </div>
@@ -1027,22 +1046,7 @@ coupon entries.<br></p>
 <div class="sect1">
 <h2 id="glossary"><a class="link" href="#glossary">Appendix E: Glossary</a></h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>Highlighted and italicised terms, (e.g operating system) can be
-found with definitions here.</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p><strong>Apple</strong> - American technology company well known for
-lifestyle devices like iPhone and iPad, which are manufactured
-exclusively by exploited minimum wage workers in China and Taiwan</p>
-</li>
-<li>
-<p>Continue adding</p>
-</li>
-</ol>
-</div>
+
 </div>
 </div>
 <div class="sect1">
@@ -1127,15 +1131,13 @@ Expected: Shows the GUI with a set of sample contacts. The window size may not b
 </li>
 <li>
 <p>Re-launch the app by double-clicking the jar file.<br>
-Expected: The most recent window size and location is retained.</p>
+   Expected: The most recent window size and location is retained.
+<em>{ more test cases &#8230;&#8203; }</em></p>
 </li>
 </ol>
 </div>
 </li>
 </ol>
-</div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
 </div>
 </div>
 <div class="sect2">
@@ -1151,11 +1153,15 @@ Expected: The most recent window size and location is retained.</p>
 </li>
 <li>
 <p>Test case: <code>delete 1</code><br>
-Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.</p>
+   Expected: First contact is deleted from the list.
+Details of the deleted contact shown in the status message.
+Timestamp in the status bar is updated.</p>
 </li>
 <li>
 <p>Test case: <code>delete 0</code><br>
-Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.</p>
+   Expected: No person is deleted.
+Error details shown in the status message.
+Status bar remains the same.</p>
 </li>
 <li>
 <p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size) <em>{give more}</em><br>
@@ -1179,16 +1185,14 @@ Expected: Similar to previous.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p><em>{explain how to simulate a missing/corrupted file and the expected behavior}</em></p>
+<p><em>{explain how to simulate a missing/corrupted file and the expected behavior}</em>
+<em>{ more test cases &#8230;&#8203; }</em></p>
 </li>
 </ol>
 </div>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
 </div>
 </div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-05 15:41:11 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-05 15:49:06 UTC</div></div></div></body></html>
