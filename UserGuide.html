@@ -123,11 +123,17 @@
 <li><a href="#exiting-the-program-code-exit-code">3.9. Exiting the program: <code>exit</code></a></li>
 <li><a href="#saving-the-data">3.10. Saving the data</a></li>
 <li><a href="#adding-a-reminder-code-remind-code">3.11. Adding a reminder: <code>remind</code></a></li>
+<li><a href="#undo-the-previous-command-code-undo-code">3.12. Undo the previous command: <code>undo</code></a></li>
+<li><a href="#redo-the-undone-command-code-redo-code">3.13. Redo the undone command: <code>redo</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
 <li><a href="#command-summary">5. Command Summary</a></li>
-<li><a href="#appendix">6. Appendix</a></li>
+<li><a href="#appendix">6. Appendix</a>
+<ul class="sectlevel2">
+<li><a href="#strong-query-expressions-coming-in-v2-0-strong">6.1. <strong>Query expressions (coming in v2.0)</strong></a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -531,6 +537,54 @@ Reminders will be displayed as a pop up when you launch the app.</p>
 </ul>
 </div>
 </div>
+<div class="sect2">
+<h3 id="undo-the-previous-command-code-undo-code"><a class="link" href="#undo-the-previous-command-code-undo-code">3.12. Undo the previous command: <code>undo</code></a></h3>
+<div class="paragraph">
+<p>Undo previous operation. Has no effect if there is no previous operation.</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>remind 1 /p 5 days</code><br>
+  <code>undo</code><br>
+Undo the <code>remind</code> command. Reminder is removed.</p>
+</li>
+<li>
+<p><code>edit 1 d/50% off</code><br>
+  <code>undo</code><br>
+Revert the edit that was performed. Has no effect if nothing was undone before.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="redo-the-undone-command-code-redo-code"><a class="link" href="#redo-the-undone-command-code-redo-code">3.13. Redo the undone command: <code>redo</code></a></h3>
+<div class="paragraph">
+<p>Redo the previously undone command.</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>remind 1 /p 5 days</code><br>
+  <code>undo</code><br>
+  <code>redo</code><br>
+Un-undo the <code>remind</code> command.</p>
+</li>
+<li>
+<p><code>edit 1 d/50% off</code><br>
+  <code>undo</code><br>
+  <code>redo</code>
+Un-undo the <code>redit</code> command.</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -588,12 +642,170 @@ calculate the values saved based on the details of the coupon.
 <div class="sect1">
 <h2 id="command-summary"><a class="link" href="#command-summary">5. Command Summary</a></h2>
 <div class="sectionbody">
-
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Add:</strong> <code>add n/NAME d/DETAILS s/START DATE [e/EXPIRY] [t/TAG]…</code>​<br>
+e.g. <code>add n/The Deck Chicken Rice d/20% off s/2/3/2020 t/friend t/value</code></p>
+</li>
+<li>
+<p><strong>Clear</strong>: <code>clear</code></p>
+</li>
+<li>
+<p><strong>Delete</strong>: <code>delete INDEX</code><br>
+e.g. <code>delete 3</code></p>
+</li>
+<li>
+<p><strong>Edit</strong>: <code>edit INDEX [n/NAME] [d/DETAILS] [s/START DATE] [e/EXPIRY]
+[t/TAG]…</code>​<br>
+e.g. <code>edit 2 n/Chicken Up d/50% off</code></p>
+</li>
+<li>
+<p><strong>Find</strong>: <code>find KEYWORD [MORE_KEYWORDS]</code><br>
+e.g. <code>find western chick</code></p>
+</li>
+<li>
+<p><strong>List</strong>: <code>list</code></p>
+</li>
+<li>
+<p><strong>Used</strong>:</p>
+</li>
+<li>
+<p><strong>Expiring</strong>:</p>
+</li>
+<li>
+<p><strong>Remind</strong>:</p>
+</li>
+<li>
+<p><strong>Saved</strong>:</p>
+</li>
+<li>
+<p><strong>Help</strong>: help</p>
+</li>
+<li>
+<p><strong>Undo</strong>:</p>
+</li>
+<li>
+<p><strong>Redo</strong>:</p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="appendix"><a class="link" href="#appendix">6. Appendix</a></h2>
 <div class="sectionbody">
-
+<div class="sect2">
+<h3 id="strong-query-expressions-coming-in-v2-0-strong"><a class="link" href="#strong-query-expressions-coming-in-v2-0-strong">6.1. <strong>Query expressions (coming in v2.0)</strong></a></h3>
+<div class="paragraph">
+<p>Query expressions serve to enable users to perform efficient batch
+operations on stored coupons using SQL-like syntax.</p>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-05 11:44:09 UTC</div></div></div></body></html>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>edit favorites set tag=hated where expiry &lt; 19/2/2020</code><br>
+For all coupons tagged as <code>favorites'', set their tag to </code>hated'' if
+they expire before the 19th Feb 2020.</p>
+</li>
+<li>
+<p><code>delete favorites where expiry &lt; 19/2/2020</code><br>
+For all coupons tagged as ``favorites'', delete them if they expire
+before the 19th Feb 2020.</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="strong-bulk-edit-strong"><a class="link" href="#strong-bulk-edit-strong">6.1.1. <strong>Bulk edit</strong></a></h4>
+<div class="paragraph">
+<p>Format: <code>edit <em>tag</em> set <em>field1=value1, field2=value2, …</em> [where
+condition]</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>edit</code> keyword is compulsory.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>If selecting all tags, put tag as <code>*</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>The <code>set</code> keyword is compulsory.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>If the field is present in a coupon, update the value, else create
+the field and value.</p>
+</li>
+<li>
+<p>At least 1 field must be updated/added per edit operation.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>The <code>where</code> keyword is optional.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>==</code>, <code>&gt;=</code>, <code>&#8656;</code>, <code>&gt;</code>, <code>&lt;</code>, <code>!=</code>, operators are
+supported in the condition.</p>
+</li>
+<li>
+<p>Only default fields can be compared.</p>
+</li>
+<li>
+<p>Condition syntax: <code>DEFAULT_FIELD <em>operator</em> LITERAL_VALUE</code></p>
+</li>
+<li>
+<p><code>AND</code>/<code>OR</code> functionality is not available.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="strong-bulk-delete-strong"><a class="link" href="#strong-bulk-delete-strong">6.1.2. <strong>Bulk delete</strong></a></h4>
+<div class="paragraph">
+<p>Format: <code>delete <em>tag</em> [where condition]</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The `delet`e keyword is compulsory.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>If selecting all tags, put tag as ``*''.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>The <code>where</code> keyword is optional.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>If the <code>where</code> keyword is omitted, deletes all coupons with that tag.</p>
+</li>
+<li>
+<p>Follows syntax explained above.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-05 13:32:11 UTC</div></div></div></body></html>
