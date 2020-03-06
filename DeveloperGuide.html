@@ -35,14 +35,15 @@
 <li><a href="#user-stories">Appendix B: User Stories</a></li>
 <li><a href="#use-cases">Appendix C: Use Cases</a>
 <ul class="sectlevel2">
-<li><a href="#strong-em-use-case-uc2-listing-all-the-coupon-entries-em-strong">C.1. <strong><em>Use Case: UC2 - Listing all the coupon entries</em></strong></a></li>
-<li><a href="#strong-em-use-case-uc3-em-strong">C.2. <strong><em>Use Case: UC3</em></strong></a></li>
-<li><a href="#strong-em-use-case-uc4-em-strong">C.3. <strong><em>Use Case: UC4</em></strong></a></li>
-<li><a href="#strong-use-case-uc5-edit-coupon-s-details-strong">C.4. <strong>Use Case: UC5 - Edit coupon&#8217;s details</strong></a></li>
-<li><a href="#strong-use-case-uc6-set-reminder-strong">C.5. <strong>Use Case: UC6 - Set reminder</strong></a></li>
-<li><a href="#strong-use-case-uc7-list-coupon-s-expiring-before-date-strong">C.6. <strong>Use Case: UC7 - List coupon(s) expiring before date</strong></a></li>
-<li><a href="#strong-use-case-uc8-delete-coupon-strong">C.7. <strong>Use Case: UC8 - Delete coupon</strong></a></li>
-<li><a href="#strong-use-case-uc9-undo-previous-command-strong">C.8. <strong>Use Case: UC9 - Undo previous command</strong></a></li>
+<li><a href="#strong-use-case-uc1-add-coupon-strong">C.1. <strong>Use Case: UC1 -  Add Coupon</strong></a></li>
+<li><a href="#strong-use-case-uc2-listing-all-the-coupon-entries-strong">C.2. <strong>Use Case: UC2 - Listing all the coupon entries</strong></a></li>
+<li><a href="#strong-em-use-case-uc3-mark-a-coupon-as-used-em-strong">C.3. <strong><em>Use Case: UC3 - Mark a coupon as used</em></strong></a></li>
+<li><a href="#strong-em-use-case-uc4-find-coupon-s-by-keyword-s-em-strong">C.4. <strong><em>Use Case: UC4 - Find coupon(s) by keyword(s)</em></strong></a></li>
+<li><a href="#strong-use-case-uc5-edit-coupon-s-details-strong">C.5. <strong>Use Case: UC5 - Edit coupon&#8217;s details</strong></a></li>
+<li><a href="#strong-use-case-uc6-set-reminder-strong">C.6. <strong>Use Case: UC6 - Set reminder</strong></a></li>
+<li><a href="#strong-use-case-uc7-list-coupon-s-expiring-before-date-strong">C.7. <strong>Use Case: UC7 - List coupon(s) expiring before date</strong></a></li>
+<li><a href="#strong-use-case-uc8-delete-coupon-strong">C.8. <strong>Use Case: UC8 - Delete coupon</strong></a></li>
+<li><a href="#strong-use-case-uc9-undo-previous-command-strong">C.9. <strong>Use Case: UC9 - Undo previous command</strong></a></li>
 </ul>
 </li>
 <li><a href="#non-functional-requirements">Appendix D: Non-Functional Requirements</a></li>
@@ -898,80 +899,269 @@ Primary actor is the user.</p>
 </div>
 <div class="title">Figure 9. Use Cases Overview for STASH</div>
 </div>
-<h3 id="strong-em-use-case-uc1-add-a-new-coupon-entry-em-strong" class="discrete"><strong><em>Use Case: UC1 - Add  a new coupon entry</em></strong></h3>
+<div class="sect2">
+<h3 id="strong-use-case-uc1-add-coupon-strong"><a class="link" href="#strong-use-case-uc1-add-coupon-strong">C.1. <strong>Use Case: UC1 -  Add Coupon</strong></a></h3>
 <div class="paragraph">
-<p>Actor: User<br>
-This use case describes how a user uses STASH to add and save a new coupon entry.<br></p>
+<p><strong>Actor</strong>: <code>user</code></p>
 </div>
 <div class="paragraph">
-<p>MSS:</p>
+<p>This use case describes how a user uses STASH to add a new coupon entry.</p>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
-<ol class="arabic" start="1">
+<ol class="arabic">
 <li>
 <p>User keys in command to add a coupon entry.</p>
 </li>
 <li>
-<p>STASH evaluates input details and adds the coupon entry.</p>
-</li>
-<li>
-<p>STASH inform user that entry is added</p>
+<p>STASH informs the user that the entry is added.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
 </li>
 </ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. STASH detects an error in the entered data.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. STASH requests the user to enter the details with the correct format.</p>
+</li>
+<li>
+<p>1a2. User enters new data.</p>
+</li>
+<li>
+<p>Steps 1a1 - 1a2 are repeated until the data entered are correct.</p>
+</li>
+<li>
+<p>Use case resumes from step 2.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </div>
 <div class="sect2">
-<h3 id="strong-em-use-case-uc2-listing-all-the-coupon-entries-em-strong"><a class="link" href="#strong-em-use-case-uc2-listing-all-the-coupon-entries-em-strong">C.1. <strong><em>Use Case: UC2 - Listing all the coupon entries</em></strong></a></h3>
+<h3 id="strong-use-case-uc2-listing-all-the-coupon-entries-strong"><a class="link" href="#strong-use-case-uc2-listing-all-the-coupon-entries-strong">C.2. <strong>Use Case: UC2 - Listing all the coupon entries</strong></a></h3>
 <div class="paragraph">
-<p>This use case describes how a user uses STASH to list all the coupon entries.<br></p>
+<p><strong>Actor</strong>: <code>user</code></p>
 </div>
 <div class="paragraph">
-<p>MSS:</p>
+<p>This use case describes how a user uses STASH to list out all the coupon entries.</p>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
-<ol class="arabic" start="1">
+<ol class="arabic">
 <li>
-<p>User keys in command to list all the coupons.</p>
+<p>User keys in command to add a coupon entry.</p>
 </li>
 <li>
-<p>STASH evaluates input details and prints out all coupons.<br></p>
+<p>STASH lists out all coupons.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p>Extensions:</p>
+<p><strong>Extensions</strong></p>
 </div>
-<div class="olist arabic">
-<ol class="arabic" start="2">
+<div class="ulist none">
+<ul class="none">
 <li>
-<p>STASH detects that the data list is empty.<br></p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
+<p>1a. STASH detects an error in the entered data.</p>
+<div class="ulist none">
+<ul class="none">
 <li>
-<p>STASH will inform the user that the list is empty.<br></p>
+<p>1a1. STASH requests the user to enter the details with the correct format.</p>
+</li>
+<li>
+<p>1a2. User enters new data.</p>
+</li>
+<li>
+<p>Steps 1a1 - 1a2 are repeated until the data entered are correct.</p>
+</li>
+<li>
+<p>Use case resumes from step 2.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b. STASH detects that the data list is empty.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. STASH informs the user that the list is empty.</p>
 </li>
 <li>
 <p>Use case ends</p>
 </li>
-</ol>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="strong-em-use-case-uc3-mark-a-coupon-as-used-em-strong"><a class="link" href="#strong-em-use-case-uc3-mark-a-coupon-as-used-em-strong">C.3. <strong><em>Use Case: UC3 - Mark a coupon as used</em></strong></a></h3>
+<div class="paragraph">
+<p><strong>Actor</strong>: <code>user</code></p>
+</div>
+<div class="paragraph">
+<p>This use case describes how a user uses STASH to mark a coupon entry as used.</p>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User keys in command to mark a coupon as used.</p>
+</li>
+<li>
+<p>STASH marks the coupon as used.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
 </div>
 </li>
 </ol>
 </div>
-</div>
-<div class="sect2">
-<h3 id="strong-em-use-case-uc3-em-strong"><a class="link" href="#strong-em-use-case-uc3-em-strong">C.2. <strong><em>Use Case: UC3</em></strong></a></h3>
 <div class="paragraph">
-<p>Continue adding</p>
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. STASH detects an error in the entered data.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. STASH requests the user to enter the details with the correct format.</p>
+</li>
+<li>
+<p>1a2. User enters new data.</p>
+</li>
+<li>
+<p>Steps 1a1 - 1a2 are repeated until the data entered are correct.</p>
+</li>
+<li>
+<p>Use case resumes from step 2.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b. STASH detects that the specified coupon does not exist.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. STASH requests the user to enter an index that corresponds with an existing coupon.</p>
+</li>
+<li>
+<p>1b2. User enters new index.</p>
+</li>
+<li>
+<p>Use case resumes from step 2.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="strong-em-use-case-uc4-em-strong"><a class="link" href="#strong-em-use-case-uc4-em-strong">C.3. <strong><em>Use Case: UC4</em></strong></a></h3>
+<h3 id="strong-em-use-case-uc4-find-coupon-s-by-keyword-s-em-strong"><a class="link" href="#strong-em-use-case-uc4-find-coupon-s-by-keyword-s-em-strong">C.4. <strong><em>Use Case: UC4 - Find coupon(s) by keyword(s)</em></strong></a></h3>
 <div class="paragraph">
-<p>Continue adding</p>
+<p><strong>Actor</strong>: <code>user</code></p>
+</div>
+<div class="paragraph">
+<p>This use case describes how a user uses STASH to find the coupon(s) with keyword(s).</p>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User keys in command to find a coupon based on keyword(s).</p>
+</li>
+<li>
+<p>Matched coupons are displayed to the user.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. STASH detects an error in the entered data.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. STASH requests the user to enter the details with the correct format.</p>
+</li>
+<li>
+<p>1a2. User enters new data.</p>
+</li>
+<li>
+<p>Steps 1a1 - 1a2 are repeated until the data entered are correct.</p>
+</li>
+<li>
+<p>Use case resumes from step 2.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b. STASH detects that the specified coupon does not exist.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. STASH requests the user to enter an index that corresponds with an existing coupon.</p>
+</li>
+<li>
+<p>1b2. User enters new index.</p>
+</li>
+<li>
+<p>Use case resumes from step 2.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="strong-use-case-uc5-edit-coupon-s-details-strong"><a class="link" href="#strong-use-case-uc5-edit-coupon-s-details-strong">C.4. <strong>Use Case: UC5 - Edit coupon&#8217;s details</strong></a></h3>
+<h3 id="strong-use-case-uc5-edit-coupon-s-details-strong"><a class="link" href="#strong-use-case-uc5-edit-coupon-s-details-strong">C.5. <strong>Use Case: UC5 - Edit coupon&#8217;s details</strong></a></h3>
 <div class="paragraph">
 <p><strong>Actor</strong>: <code>user</code></p>
 </div>
@@ -1065,7 +1255,7 @@ This use case describes how a user uses STASH to add and save a new coupon entry
 </div>
 </div>
 <div class="sect2">
-<h3 id="strong-use-case-uc6-set-reminder-strong"><a class="link" href="#strong-use-case-uc6-set-reminder-strong">C.5. <strong>Use Case: UC6 - Set reminder</strong></a></h3>
+<h3 id="strong-use-case-uc6-set-reminder-strong"><a class="link" href="#strong-use-case-uc6-set-reminder-strong">C.6. <strong>Use Case: UC6 - Set reminder</strong></a></h3>
 <div class="paragraph">
 <p><strong>Actor</strong>: <code>user</code></p>
 </div>
@@ -1136,7 +1326,7 @@ This use case describes how a user uses STASH to add and save a new coupon entry
 </div>
 </div>
 <div class="sect2">
-<h3 id="strong-use-case-uc7-list-coupon-s-expiring-before-date-strong"><a class="link" href="#strong-use-case-uc7-list-coupon-s-expiring-before-date-strong">C.6. <strong>Use Case: UC7 - List coupon(s) expiring before date</strong></a></h3>
+<h3 id="strong-use-case-uc7-list-coupon-s-expiring-before-date-strong"><a class="link" href="#strong-use-case-uc7-list-coupon-s-expiring-before-date-strong">C.7. <strong>Use Case: UC7 - List coupon(s) expiring before date</strong></a></h3>
 <div class="paragraph">
 <p><strong>Actor</strong>: <code>user</code></p>
 </div>
@@ -1207,7 +1397,7 @@ This use case describes how a user uses STASH to add and save a new coupon entry
 </div>
 </div>
 <div class="sect2">
-<h3 id="strong-use-case-uc8-delete-coupon-strong"><a class="link" href="#strong-use-case-uc8-delete-coupon-strong">C.7. <strong>Use Case: UC8 - Delete coupon</strong></a></h3>
+<h3 id="strong-use-case-uc8-delete-coupon-strong"><a class="link" href="#strong-use-case-uc8-delete-coupon-strong">C.8. <strong>Use Case: UC8 - Delete coupon</strong></a></h3>
 <div class="paragraph">
 <p><strong>Actor</strong>: <code>user</code></p>
 </div>
@@ -1238,7 +1428,7 @@ This use case describes how a user uses STASH to add and save a new coupon entry
 </div>
 </div>
 <div class="sect2">
-<h3 id="strong-use-case-uc9-undo-previous-command-strong"><a class="link" href="#strong-use-case-uc9-undo-previous-command-strong">C.8. <strong>Use Case: UC9 - Undo previous command</strong></a></h3>
+<h3 id="strong-use-case-uc9-undo-previous-command-strong"><a class="link" href="#strong-use-case-uc9-undo-previous-command-strong">C.9. <strong>Use Case: UC9 - Undo previous command</strong></a></h3>
 <div class="paragraph">
 <p><strong>Actor</strong>: <code>user</code></p>
 </div>
@@ -1582,4 +1772,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-06 00:15:23 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-06 00:43:49 UTC</div></div></div></body></html>
