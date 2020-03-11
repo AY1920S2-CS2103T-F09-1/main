@@ -222,7 +222,7 @@ For example, the layout of the <a href="https://github.com/se-edu/addressbook-le
 <p>This results in a <code>Command</code> object which is executed by the <code>LogicManager</code>.</p>
 </li>
 <li>
-<p>The command execution can affect the <code>Model</code> (e.g. adding a person).</p>
+<p>The command execution can affect the <code>Model</code> (e.g. adding a coupon).</p>
 </li>
 <li>
 <p>The result of the command execution is encapsulated as a <code>CommandResult</code> object which is passed back to the <code>Ui</code>.</p>
@@ -378,7 +378,7 @@ The <code>VersionedAddressBook</code> will be initialized with the initial addre
 </div>
 </div>
 <div class="paragraph">
-<p>Step 2. The user executes <code>delete 5</code> command to delete the 5th person in the address book.
+<p>Step 2. The user executes <code>delete 5</code> command to delete the 5th coupon in the address book.
 The <code>delete</code> command calls <code>Model#commitAddressBook()</code>, causing the modified state of the address book after the <code>delete 5</code> command executes to be saved in the <code>addressBookStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted address book state.</p>
 </div>
 <div class="imageblock">
@@ -387,7 +387,7 @@ The <code>delete</code> command calls <code>Model#commitAddressBook()</code>, ca
 </div>
 </div>
 <div class="paragraph">
-<p>Step 3. The user executes <code>add n/David &#8230;&#8203;</code> to add a new person.
+<p>Step 3. The user executes <code>add n/David &#8230;&#8203;</code> to add a new coupon.
 The <code>add</code> command also calls <code>Model#commitAddressBook()</code>, causing another modified address book state to be saved into the <code>addressBookStateList</code>.</p>
 </div>
 <div class="imageblock">
@@ -408,7 +408,7 @@ If a command fails its execution, it will not call <code>Model#commitAddressBook
 </table>
 </div>
 <div class="paragraph">
-<p>Step 4. The user now decides that adding the person was a mistake, and decides to undo that action by executing the <code>undo</code> command.
+<p>Step 4. The user now decides that adding the coupon was a mistake, and decides to undo that action by executing the <code>undo</code> command.
 The <code>undo</code> command will call <code>Model#undoAddressBook()</code>, which will shift the <code>currentStatePointer</code> once to the left, pointing it to the previous address book state, and restores the address book to that state.</p>
 </div>
 <div class="imageblock">
@@ -521,7 +521,7 @@ This is the behavior that most modern desktop applications follow.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Will use less memory (e.g. for <code>delete</code>, just save the person being deleted).</p>
+<p>Pros: Will use less memory (e.g. for <code>delete</code>, just save the coupon being deleted).</p>
 </li>
 <li>
 <p>Cons: We must ensure that the implementation of each individual command are correct.</p>
@@ -1825,7 +1825,7 @@ Primary actor is the user.</p>
 <p><strong>Stash</strong> - a group of something valuable that the user would like to keep securely, ideally using our <code><em>Coupon Stash</em></code> application.</p>
 </li>
 <li>
-<p><strong>UI (User Interface)</strong> - a catch-all term referring to how a computer system and a person interacts, usually referring to specific elements displayed on the computer screen that the user may interact with such as buttons or text boxes, as well as areas where the computer application displays certain outputs to the user.</p>
+<p><strong>UI (User Interface)</strong> - a catch-all term referring to how a computer system and a coupon interacts, usually referring to specific elements displayed on the computer screen that the user may interact with such as buttons or text boxes, as well as areas where the computer application displays certain outputs to the user.</p>
 </li>
 </ol>
 </div>
@@ -1921,16 +1921,16 @@ Expected: Shows the GUI with a set of sample contacts. The window size may not b
 </ol>
 </div>
 <div class="paragraph">
-<p>=== Deleting a person</p>
+<p>=== Deleting a coupon</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Deleting a person while all persons are listed</p>
+<p>Deleting a coupon while all coupons are listed</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: List all persons using the <code>list</code> command. Multiple persons in the list.</p>
+<p>Prerequisites: List all coupons using the <code>list</code> command. Multiple coupons in the list.</p>
 </li>
 <li>
 <p>Test case: <code>delete 1</code><br>
@@ -1940,7 +1940,7 @@ Timestamp in the status bar is updated.</p>
 </li>
 <li>
 <p>Test case: <code>delete 0</code><br>
-   Expected: No person is deleted.
+   Expected: No coupon is deleted.
 Error details shown in the status message.
 Status bar remains the same.</p>
 </li>
@@ -1977,4 +1977,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-10 14:17:56 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-11 07:18:05 UTC</div></div></div></body></html>
