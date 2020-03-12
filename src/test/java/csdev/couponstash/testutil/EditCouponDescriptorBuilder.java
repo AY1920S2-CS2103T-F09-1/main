@@ -7,7 +7,6 @@ import java.util.stream.Stream;
 import csdev.couponstash.logic.commands.EditCommand;
 import csdev.couponstash.logic.commands.EditCommand.EditCouponDescriptor;
 import csdev.couponstash.model.coupon.Coupon;
-import csdev.couponstash.model.coupon.Email;
 import csdev.couponstash.model.coupon.Name;
 import csdev.couponstash.model.coupon.Phone;
 import csdev.couponstash.model.tag.Tag;
@@ -34,7 +33,6 @@ public class EditCouponDescriptorBuilder {
         descriptor = new EditCouponDescriptor();
         descriptor.setName(coupon.getName());
         descriptor.setPhone(coupon.getPhone());
-        descriptor.setEmail(coupon.getEmail());
         descriptor.setTags(coupon.getTags());
     }
 
@@ -51,14 +49,6 @@ public class EditCouponDescriptorBuilder {
      */
     public EditCouponDescriptorBuilder withPhone(String phone) {
         descriptor.setPhone(new Phone(phone));
-        return this;
-    }
-
-    /**
-     * Sets the {@code Email} of the {@code EditCouponDescriptor} that we are building.
-     */
-    public EditCouponDescriptorBuilder withEmail(String email) {
-        descriptor.setEmail(new Email(email));
         return this;
     }
 

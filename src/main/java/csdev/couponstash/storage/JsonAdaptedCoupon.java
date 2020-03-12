@@ -11,7 +11,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import csdev.couponstash.commons.exceptions.IllegalValueException;
 import csdev.couponstash.model.coupon.Coupon;
-import csdev.couponstash.model.coupon.Email;
 import csdev.couponstash.model.coupon.Name;
 import csdev.couponstash.model.coupon.Phone;
 import csdev.couponstash.model.tag.Tag;
@@ -25,7 +24,6 @@ class JsonAdaptedCoupon {
 
     private final String name;
     private final String phone;
-    private final String email;
     private final List<JsonAdaptedTag> tagged = new ArrayList<>();
 
     /**
@@ -33,11 +31,9 @@ class JsonAdaptedCoupon {
      */
     @JsonCreator
     public JsonAdaptedCoupon(@JsonProperty("name") String name, @JsonProperty("phone") String phone,
-                             @JsonProperty("email") String email,
                              @JsonProperty("tagged") List<JsonAdaptedTag> tagged) {
         this.name = name;
         this.phone = phone;
-        this.email = email;
         if (tagged != null) {
             this.tagged.addAll(tagged);
         }
@@ -49,7 +45,6 @@ class JsonAdaptedCoupon {
     public JsonAdaptedCoupon(Coupon source) {
         name = source.getName().fullName;
         phone = source.getPhone().value;
-        email = source.getEmail().value;
         tagged.addAll(source.getTags().stream()
                 .map(JsonAdaptedTag::new)
                 .collect(Collectors.toList()));
@@ -82,16 +77,8 @@ class JsonAdaptedCoupon {
         }
         final Phone modelPhone = new Phone(phone);
 
-        if (email == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Email.class.getSimpleName()));
-        }
-        if (!Email.isValidEmail(email)) {
-            throw new IllegalValueException(Email.MESSAGE_CONSTRAINTS);
-        }
-        final Email modelEmail = new Email(email);
-
         final Set<Tag> modelTags = new HashSet<>(couponTags);
-        return new Coupon(modelName, modelPhone, modelEmail, modelTags);
+        return new Coupon(modelName, modelPhone, modelTags);
     }
 
 }

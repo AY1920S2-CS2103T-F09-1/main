@@ -1,7 +1,5 @@
 package csdev.couponstash.testutil;
 
-import static csdev.couponstash.logic.commands.CommandTestUtil.VALID_EMAIL_AMY;
-import static csdev.couponstash.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
 import static csdev.couponstash.logic.commands.CommandTestUtil.VALID_NAME_AMY;
 import static csdev.couponstash.logic.commands.CommandTestUtil.VALID_NAME_BOB;
 import static csdev.couponstash.logic.commands.CommandTestUtil.VALID_PHONE_AMY;
@@ -22,34 +20,33 @@ import csdev.couponstash.model.coupon.Coupon;
 public class TypicalCoupons {
 
     public static final Coupon ALICE = new CouponBuilder().withName("Alice Pauline")
-            .withEmail("alice@example.com")
             .withPhone("94351253")
             .withTags("friends").build();
     public static final Coupon BENSON = new CouponBuilder().withName("Benson Meier")
-            .withEmail("johnd@example.com").withPhone("98765432")
+            .withPhone("98765432")
             .withTags("owesMoney", "friends").build();
-    public static final Coupon CARL = new CouponBuilder().withName("Carl Kurz").withPhone("95352563")
-            .withEmail("heinz@example.com").build();
+    public static final Coupon CARL = new CouponBuilder().withName("Carl Kurz")
+            .withPhone("95352563").build();
     public static final Coupon DANIEL = new CouponBuilder().withName("Daniel Meier").withPhone("87652533")
-            .withEmail("cornelia@example.com").withTags("friends").build();
+            .withTags("friends").build();
     public static final Coupon ELLE = new CouponBuilder().withName("Elle Meyer").withPhone("9482224")
-            .withEmail("werner@example.com").build();
+            .build();
     public static final Coupon FIONA = new CouponBuilder().withName("Fiona Kunz").withPhone("9482427")
-            .withEmail("lydia@example.com").build();
+            .build();
     public static final Coupon GEORGE = new CouponBuilder().withName("George Best").withPhone("9482442")
-            .withEmail("anna@example.com").build();
+            .build();
 
     // Manually added
     public static final Coupon HOON = new CouponBuilder().withName("Hoon Meier").withPhone("8482424")
-            .withEmail("stefan@example.com").build();
+            .build();
     public static final Coupon IDA = new CouponBuilder().withName("Ida Mueller").withPhone("8482131")
-            .withEmail("hans@example.com").build();
+            .build();
 
     // Manually added - Coupon's details found in {@code CommandTestUtil}
     public static final Coupon AMY = new CouponBuilder().withName(VALID_NAME_AMY).withPhone(VALID_PHONE_AMY)
-            .withEmail(VALID_EMAIL_AMY).withTags(VALID_TAG_FRIEND).build();
+            .withTags(VALID_TAG_FRIEND).build();
     public static final Coupon BOB = new CouponBuilder().withName(VALID_NAME_BOB).withPhone(VALID_PHONE_BOB)
-            .withEmail(VALID_EMAIL_BOB).withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND)
+            .withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND)
             .build();
 
     public static final String KEYWORD_MATCHING_MEIER = "Meier"; // A keyword that matches MEIER

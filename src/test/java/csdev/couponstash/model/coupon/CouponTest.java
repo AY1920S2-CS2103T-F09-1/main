@@ -26,26 +26,16 @@ public class CouponTest {
         // null -> returns false
         assertFalse(TypicalCoupons.ALICE.isSameCoupon(null));
 
-        // different phone and email -> returns false
-        Coupon editedAlice = new CouponBuilder(TypicalCoupons.ALICE)
-                .withPhone(CommandTestUtil.VALID_PHONE_BOB).withEmail(CommandTestUtil.VALID_EMAIL_BOB).build();
-        assertFalse(TypicalCoupons.ALICE.isSameCoupon(editedAlice));
-
         // different name -> returns false
-        editedAlice = new CouponBuilder(TypicalCoupons.ALICE).withName(CommandTestUtil.VALID_NAME_BOB).build();
+        Coupon editedAlice = new CouponBuilder(TypicalCoupons.ALICE).withName(CommandTestUtil.VALID_NAME_BOB).build();
         assertFalse(TypicalCoupons.ALICE.isSameCoupon(editedAlice));
 
         // same name, same phone, different attributes -> returns true
-        editedAlice = new CouponBuilder(TypicalCoupons.ALICE).withEmail(CommandTestUtil.VALID_EMAIL_BOB)
+        editedAlice = new CouponBuilder(TypicalCoupons.ALICE)
                 .withTags(CommandTestUtil.VALID_TAG_HUSBAND).build();
         assertTrue(TypicalCoupons.ALICE.isSameCoupon(editedAlice));
 
-        // same name, same email, different attributes -> returns true
-        editedAlice = new CouponBuilder(TypicalCoupons.ALICE).withPhone(CommandTestUtil.VALID_PHONE_BOB)
-                .withTags(CommandTestUtil.VALID_TAG_HUSBAND).build();
-        assertTrue(TypicalCoupons.ALICE.isSameCoupon(editedAlice));
-
-        // same name, same phone, same email, different attributes -> returns true
+        // same name, same phone, different attributes -> returns true
         editedAlice = new CouponBuilder(TypicalCoupons.ALICE).withTags(CommandTestUtil.VALID_TAG_HUSBAND).build();
         assertTrue(TypicalCoupons.ALICE.isSameCoupon(editedAlice));
     }
@@ -74,10 +64,6 @@ public class CouponTest {
 
         // different phone -> returns false
         editedAlice = new CouponBuilder(TypicalCoupons.ALICE).withPhone(CommandTestUtil.VALID_PHONE_BOB).build();
-        assertFalse(TypicalCoupons.ALICE.equals(editedAlice));
-
-        // different email -> returns false
-        editedAlice = new CouponBuilder(TypicalCoupons.ALICE).withEmail(CommandTestUtil.VALID_EMAIL_BOB).build();
         assertFalse(TypicalCoupons.ALICE.equals(editedAlice));
 
         // different tags -> returns false

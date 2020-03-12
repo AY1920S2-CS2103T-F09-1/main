@@ -15,7 +15,6 @@ import csdev.couponstash.logic.commands.exceptions.CommandException;
 import csdev.couponstash.logic.parser.CliSyntax;
 import csdev.couponstash.model.Model;
 import csdev.couponstash.model.coupon.Coupon;
-import csdev.couponstash.model.coupon.Email;
 import csdev.couponstash.model.coupon.Name;
 import csdev.couponstash.model.coupon.Phone;
 import csdev.couponstash.model.tag.Tag;
@@ -33,11 +32,9 @@ public class EditCommand extends Command {
             + "Parameters: INDEX (must be a positive integer) "
             + "[" + CliSyntax.PREFIX_NAME + "NAME] "
             + "[" + CliSyntax.PREFIX_PHONE + "PHONE] "
-            + "[" + CliSyntax.PREFIX_EMAIL + "EMAIL] "
             + "[" + CliSyntax.PREFIX_TAG + "TAG]...\n"
             + "Example: " + COMMAND_WORD + " 1 "
-            + CliSyntax.PREFIX_PHONE + "91234567 "
-            + CliSyntax.PREFIX_EMAIL + "johndoe@example.com";
+            + CliSyntax.PREFIX_PHONE + "91234567 ";
 
     public static final String MESSAGE_EDIT_COUPON_SUCCESS = "Edited Coupon: %1$s";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
@@ -88,10 +85,9 @@ public class EditCommand extends Command {
 
         Name updatedName = editCouponDescriptor.getName().orElse(couponToEdit.getName());
         Phone updatedPhone = editCouponDescriptor.getPhone().orElse(couponToEdit.getPhone());
-        Email updatedEmail = editCouponDescriptor.getEmail().orElse(couponToEdit.getEmail());
         Set<Tag> updatedTags = editCouponDescriptor.getTags().orElse(couponToEdit.getTags());
 
-        return new Coupon(updatedName, updatedPhone, updatedEmail, updatedTags);
+        return new Coupon(updatedName, updatedPhone, updatedTags);
     }
 
     @Override
@@ -119,7 +115,6 @@ public class EditCommand extends Command {
     public static class EditCouponDescriptor {
         private Name name;
         private Phone phone;
-        private Email email;
         private Set<Tag> tags;
 
         public EditCouponDescriptor() {}
@@ -131,7 +126,6 @@ public class EditCommand extends Command {
         public EditCouponDescriptor(EditCouponDescriptor toCopy) {
             setName(toCopy.name);
             setPhone(toCopy.phone);
-            setEmail(toCopy.email);
             setTags(toCopy.tags);
         }
 
@@ -139,7 +133,7 @@ public class EditCommand extends Command {
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(name, phone, email, tags);
+            return CollectionUtil.isAnyNonNull(name, phone, tags);
         }
 
         public void setName(Name name) {
@@ -156,14 +150,6 @@ public class EditCommand extends Command {
 
         public Optional<Phone> getPhone() {
             return Optional.ofNullable(phone);
-        }
-
-        public void setEmail(Email email) {
-            this.email = email;
-        }
-
-        public Optional<Email> getEmail() {
-            return Optional.ofNullable(email);
         }
 
         /**
@@ -200,7 +186,6 @@ public class EditCommand extends Command {
 
             return getName().equals(e.getName())
                     && getPhone().equals(e.getPhone())
-                    && getEmail().equals(e.getEmail())
                     && getTags().equals(e.getTags());
         }
     }

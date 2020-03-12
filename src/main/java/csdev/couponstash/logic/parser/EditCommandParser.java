@@ -31,7 +31,6 @@ public class EditCommandParser implements Parser<EditCommand> {
                         args,
                         CliSyntax.PREFIX_NAME,
                         CliSyntax.PREFIX_PHONE,
-                        CliSyntax.PREFIX_EMAIL,
                         CliSyntax.PREFIX_TAG);
 
         Index index;
@@ -49,9 +48,7 @@ public class EditCommandParser implements Parser<EditCommand> {
         if (argMultimap.getValue(CliSyntax.PREFIX_PHONE).isPresent()) {
             editCouponDescriptor.setPhone(ParserUtil.parsePhone(argMultimap.getValue(CliSyntax.PREFIX_PHONE).get()));
         }
-        if (argMultimap.getValue(CliSyntax.PREFIX_EMAIL).isPresent()) {
-            editCouponDescriptor.setEmail(ParserUtil.parseEmail(argMultimap.getValue(CliSyntax.PREFIX_EMAIL).get()));
-        }
+
         parseTagsForEdit(argMultimap.getAllValues(CliSyntax.PREFIX_TAG)).ifPresent(editCouponDescriptor::setTags);
 
         if (!editCouponDescriptor.isAnyFieldEdited()) {
