@@ -14,4 +14,5 @@ public class CliSyntax {
     public static final Prefix PREFIX_SAVINGS = new Prefix("s/");
     public static final Prefix PREFIX_EXPIRY_DATE = new Prefix("e/");
     //public static final Prefix PREFIX_STARTDATE = new Prefix("s/");
+    public static final Prefix PREFIX_REMIND = new Prefix("r/");
 }

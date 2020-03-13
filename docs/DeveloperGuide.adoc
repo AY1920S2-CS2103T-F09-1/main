@@ -312,43 +312,44 @@ Refer to the guide <<DevOps#, here>>.
 [appendix]
 == User Stories
 
-Priorities: epic++ (must have) - * * * *, rare++ (nice to have) - * * * , comon (unlikely to have) - * *, rabak (will negatively affect the application) - *
+Priorities: +
+* * * * - epic++ (must have) || * * * - rare++ (nice to have) ||
+* * - comon (unlikely to have) || * - rabak (will negatively affect the application)
 
 .User stories and their priorities
 [width="59%",cols="22%,<23%,<25%,<30%",options="header",]
 |====================================================================================================================================================================
 |Priority |As a ... |I want to ... |so that I can ...
-|* * * * |forgetful student |keep track of all the _promo codes_/coupons that I collected |use them at their respective shops
-|* * * * |_SoC_ student |quickly input the coupons that I collected from welfare packs |have a digital record of all the vouchers I have
+|* * * * |forgetful student |keep track of all the _promo codes_/coupons |redeem it at their respective stores.
+|* * * * |_SoC_ student |quickly input the coupons that I collected from welfare packs |have a digital record of all the coupon in a safe place
 |* * * * |user |get a list of all the vouchers/_promo codes_ that are expiring soon |make use of them before they expire
 |* * * * |user |track how many times I can use the _promo codes_/coupons |use them multiple times if possible
-|* * * * |user |track how much I have saved from using these _promo codes_/coupons |know how much I save
-|* * * * |thrifty student with student loan |discover and apply discount codes/coupons |maximise my savings
-|* * * * |highly competent _SoC_ student |showcase how easy it is to use command-line |execute simple tasks like add, sorting and finding a coupon
-|* * * * |organized student |have a easy visualisation representation of all my coupons |
+|* * * * |user |track how much I have saved from using these _promo codes_/coupons |know how much I save within a period.
+|* * * * |thrifty student with student loan |apply discount codes/coupons |maximise my savings
+|* * * * |highly competent _SoC_ student |execute simple tasks like add, sorting and finding a coupon |showcase how easy it is to use command-line
+|* * * * |organized student |have a easy visualisation representation of all my coupons |can efficiently update any coupons' details
 |* * * * |store owner |able to search for coupons by store |customers do not waste too much time finding their coupons
-|* * * * |conscientious couponer |want to be reminded of the soon-to-be expire coupon |use it before it expires
+|* * * * |conscientious coupon-er |want to be reminded of the soon-to-be expire coupon |use it before it expires
 |* * * |command-line enthusiast |make use of my fast typing speed to organise my coupons in seconds |spend the rest of my time drinking over a lack of friends
 |* * * |canteen stall owner |promote my store by giving out coupons and vouchers |students can benefit from my amazing culinary skills
 |* * * |business owner |let potential consumers discover my discount codes/coupons |advertise and market my products/services
-|* * * |user |track how much I have spent from using these _promo codes_/coupons |
-|* * * |financial-aid _SoC_ student |quickly store the _promo code_ shared by my peers and use them later for critical necessity like KBBQ and escape room |
-|* * * |exchange student attached to _SoC_ |keep track of the good deals in Singapore and visit them |
-|* * * |time-conscious student |using command line to access my coupons |save time
-|* * * |lazy student |easy input of coupon details |
-|* * * |influencer |import my friend's coupons |
-|* * * |forgetful user |search prediction |
-|* * * |digital nomad |share coupons easily with friends while I'm on the go |
+|* * * |user |track how much I have spent from using these _promo codes_/coupons |plan my expenses for the month
+|* * * |financial-aid _SoC_ student |quickly store the _promo code_ shared by my peers and use them later for critical necessity like KBBQ and escape room |maximise my savings
+|* * * |exchange student attached to _SoC_ |keep track of the good deals in Singapore |explore Singapore on a tight budget
+|* * * |time-conscious student |use command line to access my coupons |spend more time with my family
+|* * * |lazy student |input coupon details with ease | life is worth living
+|* * * |influencer |keep track of all my client's coupon code |share the codes at my IG
+|* * * |digital nomad |access all the coupons while I am on the go|reduce my spending
 |* * |consumer |check if the store has any ongoing discount/promotions before making payment |save some money from it
 |* * |bargain hunter |know which coupon requires group purchase |quickly share it to my peers
 |* * |_SoC_ lecturer |share my wealth of coupons with students |students will think I am cool and hip instead of another boring lecturer
 |* * |exchange student |find the best food and attractions in Singapore easily |make good use of my time here
-|* * |block head |share coupons to all my hall members |
+|* * |block head |share relevant club's coupons to all my hall members |get more financial support from respective sponsors
 |* * |mobile phone user |email the coupon details to myself |easily access them when I’m outside
 |* |_SoC_ cleaner |make use of the rubbish that students always leave behind after orientation camps |make use of necessary services like Korean BBQ and escape rooms
-|* |mother of 5 _SoC_ students |always looking out for the best and hottest deals in town |finance my childrens’ education
-|* |computing student |data saved by the app to be easily parsable |create alternative clients
-|* |infosec student |coupon data to be encrypted |hackers cannot hack my coupons
+|* |mother of 5 _SoC_ students |look out for the hottest deals in town | finance my childrens’ education
+|* |computing student |save data such that it is easily parsable |create alternative clients
+|* |infosec student | encrypt all coupons in one place| prevent hackers to hack my coupons
 |====================================================================================================================================================================
 
 [appendix]
@@ -697,20 +698,21 @@ Use case ends.
 . Coupon Stash works on `_common operating systems
 (OS)_` that have `_Java 11_` or above installed.
 
-. Coupon Stash can hold at least 500 coupons comfortably, and still operate without noticeable lag when entering commands or interacting with the UI.
+. Coupon Stash can store at least 500 coupons without crashing the application.
+. Coupon Stash can operate without noticeable lag (~2s) when entering commands or interacting with the UI.
 . Coupon Stash caters to users who have above average typing speed, and these users should be able to get tasks completed faster in the application by typing, rather than using the mouse and the UI.
 . Coupon Stash source code should be covered by tests as much as possible.
-. Stash should be easy to use for users, who are not familiar with coding.
+. Coupon Stash should be easy to use for users, who are not familiar with coding.
 . All monetary amounts should be accurate up to 2 decimal places.
 . Coupon Stash should be portable.
-. Data files should remain unchanged when moving from OS to OS.
+. Data files should remain unchanged when transferring from OS to OS.
 . Coupon Stash works perfectly without access to the internet.
 . Coupon Stash supports various types of coupons (e.g. promotional codes, QR code, or barcode) (coming in in v2.0)
 
 [appendix]
 == Glossary
 
-Terms that are italicised inline code (e.g `_operating system_`) can be found with definitions here.
+[red]# Terms that are italicised inline code (e.g `_operating system_`) can be found with definitions here. #
 
 . **Apple** - American technology company well known for lifestyle devices like iPhone and iPad, which are manufactured exclusively by exploited minimum wage workers in China and Taiwan.
 . **coding** - the process of writing code that represents a computer program, or using a programming language to get a computer to behave how you want it to.

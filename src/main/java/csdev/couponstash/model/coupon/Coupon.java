@@ -20,6 +20,7 @@ public class Coupon {
     private final Name name;
     private final Phone phone;
     private final ExpiryDate expiryDate;
+    private final Remind remind;
 
     // Savings field
     private final Savings savings;
@@ -27,6 +28,8 @@ public class Coupon {
     // Data fields
     private final Usage usage;
     private final Set<Tag> tags = new HashSet<>();
+
+
 
     /**
      * Every field must be present and not null.
@@ -37,10 +40,15 @@ public class Coupon {
         this.phone = phone;
         this.savings = savings;
         this.expiryDate = expiryDate;
+        this.remind = new Remind();
         this.usage = usage;
         this.tags.addAll(tags);
     }
 
+    public Remind getRemind() { 
+        return remind; 
+    }
+    
     public Name getName() {
         return name;
     }
