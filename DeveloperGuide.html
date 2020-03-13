@@ -677,7 +677,9 @@ The <code>LogsCenter</code> class is used to manage the logging levels and loggi
 <h2 id="user-stories"><a class="link" href="#user-stories">Appendix B: User Stories</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Priorities: epic (must have) - * * * *, rare (nice to have) - * * * , comon (unlikely to have) - * *, rabak (will negatively affect the application) - *</p>
+<p>Priorities:<br>
+* * * * - epic (must have) || * * * - rare (nice to have) ||
+* * - comon (unlikely to have) || * - rabak (will negatively affect the application)</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width: 59%;">
 <caption class="title">Table 1. User stories and their priorities</caption>
@@ -699,14 +701,14 @@ The <code>LogsCenter</code> class is used to manage the logging levels and loggi
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* * * *</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">forgetful student</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">keep track of all the <em>promo codes</em>/coupons that I collected</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">use them at their respective shops</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">keep track of all the <em>promo codes</em>/coupons</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">redeem it at their respective stores.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* * * *</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>SoC</em> student</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">quickly input the coupons that I collected from welfare packs</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">have a digital record of all the vouchers I have</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">have a digital record of all the coupon in a safe place</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* * * *</p></td>
@@ -724,25 +726,25 @@ The <code>LogsCenter</code> class is used to manage the logging levels and loggi
 <td class="tableblock halign-left valign-top"><p class="tableblock">* * * *</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">track how much I have saved from using these <em>promo codes</em>/coupons</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">know how much I save</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">know how much I save within a period.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* * * *</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">thrifty student with student loan</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">discover and apply discount codes/coupons</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">apply discount codes/coupons</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">maximise my savings</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* * * *</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">highly competent <em>SoC</em> student</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">showcase how easy it is to use command-line</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">execute simple tasks like add, sorting and finding a coupon</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">showcase how easy it is to use command-line</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* * * *</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">organized student</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">have a easy visualisation representation of all my coupons</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">can efficiently update any coupons' details</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* * * *</p></td>
@@ -752,7 +754,7 @@ The <code>LogsCenter</code> class is used to manage the logging levels and loggi
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* * * *</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">conscientious couponer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">conscientious coupon-er</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">want to be reminded of the soon-to-be expire coupon</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">use it before it expires</p></td>
 </tr>
@@ -778,49 +780,43 @@ The <code>LogsCenter</code> class is used to manage the logging levels and loggi
 <td class="tableblock halign-left valign-top"><p class="tableblock">* * *</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">track how much I have spent from using these <em>promo codes</em>/coupons</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">plan my expenses for the month</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* * *</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">financial-aid <em>SoC</em> student</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">quickly store the <em>promo code</em> shared by my peers and use them later for critical necessity like KBBQ and escape room</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">maximise my savings</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* * *</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">exchange student attached to <em>SoC</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">keep track of the good deals in Singapore and visit them</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">keep track of the good deals in Singapore</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">explore Singapore on a tight budget</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* * *</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">time-conscious student</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">using command line to access my coupons</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">save time</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">use command line to access my coupons</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">spend more time with my family</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* * *</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">lazy student</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">easy input of coupon details</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">input coupon details with ease</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">life is worth living</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* * *</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">influencer</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">import my friend&#8217;s coupons</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">* * *</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">forgetful user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">search prediction</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">keep track of all my client&#8217;s coupon code</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">share the codes at my IG</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* * *</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">digital nomad</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">share coupons easily with friends while I&#8217;m on the go</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">access all the coupons while I am on the go</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">reduce my spending</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* *</p></td>
@@ -849,8 +845,8 @@ The <code>LogsCenter</code> class is used to manage the logging levels and loggi
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* *</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">block head</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">share coupons to all my hall members</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">share relevant club&#8217;s coupons to all my hall members</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">get more financial support from respective sponsors</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* *</p></td>
@@ -867,20 +863,20 @@ The <code>LogsCenter</code> class is used to manage the logging levels and loggi
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">*</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">mother of 5 <em>SoC</em> students</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">always looking out for the best and hottest deals in town</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">look out for the hottest deals in town</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">finance my childrens’ education</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">*</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">computing student</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">data saved by the app to be easily parsable</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">save data such that it is easily parsable</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">create alternative clients</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">*</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">infosec student</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">coupon data to be encrypted</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">hackers cannot hack my coupons</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">encrypt all coupons in one place</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">prevent hackers to hack my coupons</p></td>
 </tr>
 </tbody>
 </table>
@@ -1735,7 +1731,10 @@ Primary actor is the user.</p>
 (OS)</em></code> that have <code><em>Java 11</em></code> or above installed.</p>
 </li>
 <li>
-<p>Coupon Stash can hold at least 500 coupons comfortably, and still operate without noticeable lag when entering commands or interacting with the UI.</p>
+<p>Coupon Stash can store at least 500 coupons without crashing the application.</p>
+</li>
+<li>
+<p>Coupon Stash can operate without noticeable lag (~2s) when entering commands or interacting with the UI.</p>
 </li>
 <li>
 <p>Coupon Stash caters to users who have above average typing speed, and these users should be able to get tasks completed faster in the application by typing, rather than using the mouse and the UI.</p>
@@ -1744,7 +1743,7 @@ Primary actor is the user.</p>
 <p>Coupon Stash source code should be covered by tests as much as possible.</p>
 </li>
 <li>
-<p>Stash should be easy to use for users, who are not familiar with coding.</p>
+<p>Coupon Stash should be easy to use for users, who are not familiar with coding.</p>
 </li>
 <li>
 <p>All monetary amounts should be accurate up to 2 decimal places.</p>
@@ -1753,7 +1752,7 @@ Primary actor is the user.</p>
 <p>Coupon Stash should be portable.</p>
 </li>
 <li>
-<p>Data files should remain unchanged when moving from OS to OS.</p>
+<p>Data files should remain unchanged when transferring from OS to OS.</p>
 </li>
 <li>
 <p>Coupon Stash works perfectly without access to the internet.</p>
@@ -1769,7 +1768,7 @@ Primary actor is the user.</p>
 <h2 id="glossary"><a class="link" href="#glossary">Appendix E: Glossary</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Terms that are italicised inline code (e.g <code><em>operating system</em></code>) can be found with definitions here.</p>
+<p>[red]# Terms that are italicised inline code (e.g <code><em>operating system</em></code>) can be found with definitions here. #</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -1977,4 +1976,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-12 15:32:13 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-13 15:37:33 UTC</div></div></div></body></html>
