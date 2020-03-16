@@ -124,9 +124,9 @@
 <li><a href="#saving-the-data">3.10. Saving the data</a></li>
 <li><a href="#adding-a-reminder-code-remind-code">3.11. Adding a reminder: <code>remind</code></a></li>
 <li><a href="#viewing-savings-code-saved-code">3.12. Viewing savings: <code>saved</code></a></li>
-<li><a href="#undo-the-previous-command-code-undo-code">3.13. Undo the previous command: <code>undo</code></a></li>
-<li><a href="#redo-the-undone-command-code-redo-code">3.14. Redo the undone command: <code>redo</code></a></li>
-<li><a href="#redo-the-undone-command-code-redo-code-2">3.15. Redo the undone command: <code>redo</code></a></li>
+<li><a href="#use-a-coupon-code-used-code">3.13. Use a coupon: <code>used</code></a></li>
+<li><a href="#undo-the-previous-command-code-undo-code">3.14. Undo the previous command: <code>undo</code></a></li>
+<li><a href="#redo-the-undone-command-code-redo-code">3.15. Redo the undone command: <code>redo</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -581,7 +581,46 @@ A message will be displayed: You have saved 2.10 since 1st May, 2019</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="undo-the-previous-command-code-undo-code"><a class="link" href="#undo-the-previous-command-code-undo-code">3.13. Undo the previous command: <code>undo</code></a></h3>
+<h3 id="use-a-coupon-code-used-code"><a class="link" href="#use-a-coupon-code-used-code">3.13. Use a coupon: <code>used</code></a></h3>
+<div class="paragraph">
+<p>Uses a coupon if its usage has yet to reached its limit.<br>
+Format:<br>
+<code>used INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Uses the coupon at the specified INDEX.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the displayed coupon
+list.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, …​</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>used 1</code><br>
+Uses the first coupon in the coupon stash.
+If coupon usage limit has been reached previously, an error message will appear,
+stating the maximum number of usages for first coupon.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="undo-the-previous-command-code-undo-code"><a class="link" href="#undo-the-previous-command-code-undo-code">3.14. Undo the previous command: <code>undo</code></a></h3>
 <div class="paragraph">
 <p>Undo previous operation. Has no effect if there is no previous operation.</p>
 </div>
@@ -604,7 +643,7 @@ Revert the edit that was performed. Has no effect if nothing was undone before.<
 </div>
 </div>
 <div class="sect2">
-<h3 id="redo-the-undone-command-code-redo-code"><a class="link" href="#redo-the-undone-command-code-redo-code">3.14. Redo the undone command: <code>redo</code></a></h3>
+<h3 id="redo-the-undone-command-code-redo-code"><a class="link" href="#redo-the-undone-command-code-redo-code">3.15. Redo the undone command: <code>redo</code></a></h3>
 <div class="paragraph">
 <p>Redo the previously undone command.</p>
 </div>
@@ -641,31 +680,6 @@ Undo the <code>remind</code> command. Reminder is removed.</p>
 <p><code>edit 1 d/50% off</code><br>
   <code>undo</code><br>
 Revert the edit that was performed. Has no effect if nothing was undone before.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="redo-the-undone-command-code-redo-code-2"><a class="link" href="#redo-the-undone-command-code-redo-code-2">3.15. Redo the undone command: <code>redo</code></a></h3>
-<div class="paragraph">
-<p>Redo the previously undone command.</p>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>remind 1 /p 5 days</code><br>
-  <code>undo</code><br>
-  <code>redo</code><br>
-Un-undo the <code>remind</code> command.</p>
-</li>
-<li>
-<p><code>edit 1 d/50% off</code><br>
-  <code>undo</code><br>
-  <code>redo</code>
-Un-undo the <code>redit</code> command.</p>
 </li>
 </ul>
 </div>
@@ -866,11 +880,11 @@ supported in the condition.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>The `delet`e keyword is compulsory.</p>
+<p>The <code>delete</code> keyword is compulsory.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>If selecting all tags, put tag as ``*''.</p>
+<p>If selecting all tags, put tag as <code>*</code>.</p>
 </li>
 </ul>
 </div>
@@ -893,4 +907,4 @@ supported in the condition.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-14 16:57:07 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-16 12:34:51 UTC</div></div></div></body></html>
