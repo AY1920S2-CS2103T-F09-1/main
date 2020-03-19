@@ -583,9 +583,12 @@ A message will be displayed: You have saved 2.10 since 1st May, 2019</p>
 <div class="sect2">
 <h3 id="use-a-coupon-code-used-code"><a class="link" href="#use-a-coupon-code-used-code">3.13. Use a coupon: <code>used</code></a></h3>
 <div class="paragraph">
-<p>Uses a coupon if its usage has yet to reached its limit.<br>
+<p>Uses a coupon if its usage has yet to reached its limit.
+Requires an original amount of purchase if the coupon has savings in percentage.<br>
 Format:<br>
-<code>used INDEX</code></p>
+<code>used INDEX</code><br>
+or<br>
+<code>used INDEX MONETARY_SYMBOL+ORIGINAL_AMOUNT</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -601,6 +604,12 @@ list.</p>
 <li>
 <p>The index <strong>must be a positive integer</strong> 1, 2, 3, …​</p>
 </li>
+<li>
+<p>The monetary symbol is the one preset by the user e.g. $, RM &#8230;&#8203;</p>
+</li>
+<li>
+<p>The original amount <strong>must be a positive double</strong> e.g. 10.00, 23.11, 0.50 &#8230;&#8203;</p>
+</li>
 </ul>
 </div>
 </div>
@@ -615,6 +624,11 @@ list.</p>
 Uses the first coupon in the coupon stash.
 If coupon usage limit has been reached previously, an error message will appear,
 stating the maximum number of usages for first coupon.</p>
+</li>
+<li>
+<p><code>used 1 $10.0</code><br>
+Uses the first coupon in the coupon stash, which also has a percentage savings.
+The total savings of the coupon will be calculated, and can be seen with the command <code>saved</code>.</p>
 </li>
 </ul>
 </div>
@@ -907,4 +921,4 @@ supported in the condition.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-17 16:11:53 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-19 11:37:31 UTC</div></div></div></body></html>
