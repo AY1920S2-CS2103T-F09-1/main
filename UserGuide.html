@@ -1,6 +1,6 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Coupon Stash v1.0 - User Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Coupon Stash v1.3 - User Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">Coupon Stash</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link active" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S2-CS2103T-F09-1/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Coupon Stash v1.0 - User Guide</h1></div><div id="content"><div id="preamble">
+<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">Coupon Stash</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link active" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S2-CS2103T-F09-1/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Coupon Stash v1.3 - User Guide</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div id="section" class="paragraph">
 <p><span class="image"><img src="images/Stash.png" alt="image" width="322" height="322"></span></p>
@@ -72,9 +72,6 @@
 <p>Marking a coupon as used: used</p>
 </li>
 <li>
-<p>Listing all expiring coupons: expiring</p>
-</li>
-<li>
 <p>Shows reminders: remind</p>
 </li>
 <li>
@@ -134,6 +131,7 @@
 <li><a href="#undo-the-previous-command-code-undo-code">3.14. Undo the previous command: <code>undo</code></a></li>
 <li><a href="#redo-the-undone-command-code-redo-code">3.15. Redo the undone command: <code>redo</code></a></li>
 <li><a href="#archive-a-coupon-code-archive-code">3.16. Archive a coupon: <code>archive</code></a></li>
+<li><a href="#export-a-coupon-code-export-code">3.17. Export a coupon: <code>export</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -195,7 +193,7 @@ e.g. typing <strong>help</strong> and pressing Enter will open the help window.<
 </div>
 </li>
 <li>
-<p>Refer to Section 3, “Features” for details of each command.</p>
+<p>Refer to <a href="#Features">Section 3, “Features”</a> for details of each command.</p>
 </li>
 </ol>
 </div>
@@ -221,10 +219,10 @@ e.g. typing <strong>help</strong> and pressing Enter will open the help window.<
 <p>Items with …​ after them can be used multiple times including zero times e.g. [t/TAG]…​ can be used as (i.e. 0 times), t/value, t/friend t/value etc.</p>
 </li>
 <li>
-<p>Parameters can be in any order e.g. if the command specifies n/NAME, d/DETAILS, d/DETAILS n/NAME is also acceptable.</p>
+<p>Parameters can be in any order e.g. if the command specifies n/NAME s/SAVINGS, s/SAVINGS n/NAME is also acceptable.</p>
 </li>
 <li>
-<p>Dates are all in the DD/MM/YYYY format. (CouponStash-Date format)</p>
+<p>Dates are all in the DD-MM-YYYY format. (CouponStash-Date format)</p>
 <div class="ulist">
 <ul>
 <li>
@@ -251,8 +249,8 @@ are required. Optional fields like promo code and tags
 may be provided as well.</p>
 </div>
 <div class="paragraph">
-<p>Format: add n/NAME e/EXPIRY_DATE s/SAVINGS [sd/START_DATE] [p/PROMO_CODE]
-[c/CONDITIONS] [l/USAGE_LIMIT] [s/FREE_ITEMS]&#8230;&#8203; [t/TAG]&#8230;&#8203;</p>
+<p>Format: <code>Format: add n/NAME e/EXPIRY_DATE s/SAVINGS [sd/START_DATE] [p/PROMO_CODE]
+[c/CONDITIONS] [l/USAGE_LIMIT] [s/FREE_ITEMS]&#8230;&#8203; [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -326,8 +324,7 @@ integer</strong> 1, 2, 3, …​</p>
 adding of tags is not cumulative.</p>
 </li>
 <li>
-<p>You can remove all the coupon’s tags by typing t/ without specifying
-any tags after it.</p>
+<p>You can remove all the coupon’s tags by typing t/ without specifying any tags after it.</p>
 </li>
 <li>
 <p>When editing savings, existing savings of the coupon will also
@@ -343,7 +340,7 @@ be removed.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>`edit 1 s/50%<br>
+<p><code>edit 1 s/50%</code><br>
 Edits the savings of the 1st coupon to be 50% off</p>
 </li>
 <li>
@@ -370,8 +367,7 @@ clears all existing tags.</p>
 <p>The search is case insensitive. e.g mALa will match Mala</p>
 </li>
 <li>
-<p>The order of the keywords does not matter. e.g. Rice Chicken will
-match Chicken Rice</p>
+<p>The order of the keywords does not matter. e.g. Rice Chicken will match Chicken Rice</p>
 </li>
 <li>
 <p>Language does not matter e.g. Nasi to Rice</p>
@@ -380,8 +376,8 @@ match Chicken Rice</p>
 <p>Only full words will be matched e.g. Chicken will not match Chickens</p>
 </li>
 <li>
-<p>Coupons matching at least one keyword will be returned (i.e. OR
-search). e.g. Chicken Rice will return Duck Rice, Chicken Chop</p>
+<p>Coupons matching at least one keyword will be returned (i.e. OR search).
+e.g. Chicken Rice will return Duck Rice, Chicken Chop</p>
 </li>
 </ul>
 </div>
@@ -601,18 +597,14 @@ and end date, inclusive of those dates as well.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Dates are given in Coupon Stash date format, namely
-D-M-YYYY where D and M can be single or double digits.</p>
+<p>Dates are given in Coupon Stash date format, namely D-M-YYYY where D and M can be single or double digits.</p>
 </li>
 <li>
-<p>Shows you a numeric value (e.g. 12.00 to represent
-twelve dollars/euros/pounds/pesos) that represents how much money
-you saved since a certain date, as well as certain items that
-you might have saved</p>
+<p>Shows you a numeric value (e.g. 12.00 to represent twelve dollars/euros/pounds/pesos) that represents how much money
+you saved since a certain date, as well as certain items that you might have saved.</p>
 </li>
 <li>
-<p>This value changes depending on which coupons were marked
-as used during the time period specified</p>
+<p>This value changes depending on which coupons were marked as used during the time period specified.</p>
 </li>
 </ul>
 </div>
@@ -650,7 +642,7 @@ Format: <code>used INDEX</code> or <code>used INDEX MONETARY_SYMBOL+ORIGINAL_AMO
 <p>Uses the coupon at the specified INDEX.</p>
 </li>
 <li>
-<p>The index refers to the index number shown in the displayed coupon
+<p>The index refers to the index number shown in the displayed coupon.
 list.</p>
 </li>
 <li>
@@ -696,7 +688,7 @@ The total savings of the coupon will be calculated, and can be seen with the com
 <div class="ulist">
 <ul>
 <li>
-<p><code>remind 1 /p 5 days</code><br>
+<p><code>remind 1 e/ 5 days</code><br>
   <code>undo</code><br>
 Undo the <code>remind</code> command. Reminder is removed.</p>
 </li>
@@ -719,7 +711,7 @@ Revert the edit that was performed. Has no effect if nothing was undone before.<
 <div class="ulist">
 <ul>
 <li>
-<p><code>remind 1 /p 5 days</code><br>
+<p><code>remind 1 e/ 5 days</code><br>
   <code>undo</code><br>
   <code>redo</code><br>
 Un-undo the <code>remind</code> command.</p>
@@ -738,7 +730,7 @@ Un-undo the <code>redit</code> command.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>remind 1 /p 5 days</code><br>
+<p><code>remind 1 e/ 5 days</code><br>
   <code>undo</code><br>
 Undo the <code>remind</code> command. Reminder is removed.</p>
 </li>
@@ -801,6 +793,93 @@ Archives the first coupon in the coupon stash.</p>
 </ul>
 </div>
 </div>
+<div class="sect2">
+<h3 id="export-a-coupon-code-export-code"><a class="link" href="#export-a-coupon-code-export-code">3.17. Export a coupon: <code>export</code></a></h3>
+<div class="paragraph">
+<p>Exports a coupon as an <a href="#adding-a-coupon-code-add-code"><code>add</code></a> command to your clipboard so that you can easily share it with your friends/ family!</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>export INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Exports the coupon at the specified INDEX.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the displayed coupon
+list.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, …​</p>
+</li>
+<li>
+<p>The <a href="#adding-a-coupon-code-add-code">add command</a> of the coupon will be copied to your clipboard. Simply ctrl + v to paste it!</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The exported add command will only contain the following fields:<br></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Name</p>
+</li>
+<li>
+<p>Savings</p>
+</li>
+<li>
+<p>Expiry Date</p>
+</li>
+<li>
+<p>Limit</p>
+</li>
+<li>
+<p>Promo Code (if any)</p>
+</li>
+<li>
+<p>Condition (if any)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code><br>
+<code>export 2</code><br>
+Exports the 2nd coupon in the coupon stash to an <code>add</code> command and copies it to your clipboard.</p>
+</li>
+<li>
+<p><code>find chicken</code><br>
+<code>export 1</code><br>
+Exports the 1st coupon in the results of the find command to an <code>add</code> command and copies it to your clipboard.</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -817,13 +896,7 @@ Archives the first coupon in the coupon stash.</p>
 <p><strong>Q</strong>: Can I add multiple coupons using a command line?</p>
 </div>
 <div class="paragraph">
-<p><strong>A:</strong> Yes, you can. Use the ``Add'' command and type in all your coupons
-in this format,<br>
-add n/Co-op d/25% off on all stationeries s/25/2/2020 t/value
-t/stationaries<br>
-n/PGP Mala d/10% off s/2/3/2020 t/value t/friends<br>
-n/Universal Studios theme part d/ 50% off for all students s/2/5/2020
-e/1/1/2021 t/value<br>
+<p><strong>A:</strong>  Sorry, not at the moment. We may consider adding this feature in version 2.0.0.<br>
 <br></p>
 </div>
 <div class="paragraph">
@@ -841,7 +914,7 @@ for more detail.<br>
 </div>
 <div class="paragraph">
 <p><strong>A</strong> : Sorry, at the moment, coupon entries with no ending date cannot be
-stored. You would need to enter a much further date like 01/01/2030. To
+stored. You would need to enter a much further date like 1-1-2030. To
 be added in version 2.0.0<br>
 <br></p>
 </div>
@@ -861,8 +934,8 @@ calculate the values saved based on the details of the coupon.
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Add:</strong> <code>add n/NAME d/DETAILS s/START DATE [e/EXPIRY] [t/TAG]…</code>​<br>
-e.g. <code>add n/The Deck Chicken Rice d/20% off s/2/3/2020 t/friend t/value</code></p>
+<p><strong>Add:</strong> <code>add n/name e/EXPIRY DATE s/SAVINGS [l/limit] [p/PROMO CODE] [sd/START DATE] [r/REMIND DATE] [c/CONDITION] [t/TAG]…</code>​<br>
+e.g. <code>add n/The Deck Chicken Rice s/20% sd/2-3-2020 e/30-8-2020 t/friend t/value</code></p>
 </li>
 <li>
 <p><strong>Clear</strong>: <code>clear</code></p>
@@ -872,9 +945,8 @@ e.g. <code>add n/The Deck Chicken Rice d/20% off s/2/3/2020 t/friend t/value</c
 e.g. <code>delete 3</code></p>
 </li>
 <li>
-<p><strong>Edit</strong>: <code>edit INDEX [n/NAME] [d/DETAILS] [s/START DATE] [e/EXPIRY]
-[t/TAG]…</code>​<br>
-e.g. <code>edit 2 n/Chicken Up d/50% off</code></p>
+<p><strong>Edit</strong>: <code>edit INDEX [n/name] [e/EXPIRY DATE] [s/SAVINGS] [l/limit] [p/PROMO CODE] [sd/START DATE] [r/REMIND DATE] [c/CONDITION] [t/TAG]</code>​<br>
+e.g. <code>edit 2 n/Chicken Up s/50%</code></p>
 </li>
 <li>
 <p><strong>Find</strong>: <code>find KEYWORD [MORE_KEYWORDS]</code><br>
@@ -884,25 +956,37 @@ e.g. <code>find western chick</code></p>
 <p><strong>List</strong>: <code>list</code></p>
 </li>
 <li>
-<p><strong>Used</strong>:</p>
+<p><strong>Expiring</strong>: <code>expiring DATE</code><br>
+e.g. <code>expiring 30-4-2020</code></p>
 </li>
 <li>
-<p><strong>Expiring</strong>:</p>
+<p><strong>Remind</strong>: <code>remind INDEX e/ (period before expiry date)</code> or <code>remind INDEX d/ (DATE to remind)</code>
+e.g. <code>remind 1 e/ 5 days</code> or <code>remind 5 d/ 1-5-2020</code></p>
 </li>
 <li>
-<p><strong>Remind</strong>:</p>
+<p><strong>Saved</strong>: saved d/ (DATE to track from)
+e.g. <code>saved d/ 1-5-2020</code></p>
 </li>
 <li>
-<p><strong>Saved</strong>:</p>
+<p><strong>Used</strong>: <code>used INDEX</code> or <code>used INDEX MONETARY_SYMBOL + ORIGINAL_AMOUNT</code><br>
+e.g. <code>used 1</code> or <code>used 1 $10.0</code></p>
 </li>
 <li>
-<p><strong>Help</strong>: help</p>
+<p><strong>Help</strong>: <code>help</code></p>
 </li>
 <li>
-<p><strong>Undo</strong>:</p>
+<p><strong>Undo</strong>: <code>undo</code></p>
 </li>
 <li>
-<p><strong>Redo</strong>:</p>
+<p><strong>Redo</strong>: <code>redo</code></p>
+</li>
+<li>
+<p><strong>Archive</strong>: <code>archive INDEX</code><br>
+e.g. <code>archive 1</code></p>
+</li>
+<li>
+<p><strong>Export</strong>: <code>export INDEX</code><br>
+e.g. <code>export 1</code></p>
 </li>
 </ul>
 </div>
@@ -923,12 +1007,12 @@ operations on stored coupons using SQL-like syntax.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>edit favorites set tag=hated where expiry &lt; 19/2/2020</code><br>
+<p><code>edit favorites set tag=hated where expiry &lt; 19-2-2020</code><br>
 For all coupons tagged as <code>favorites'', set their tag to </code>hated'' if
 they expire before the 19th Feb 2020.</p>
 </li>
 <li>
-<p><code>delete favorites where expiry &lt; 19/2/2020</code><br>
+<p><code>delete favorites where expiry &lt; 19-2-2020</code><br>
 For all coupons tagged as ``favorites'', delete them if they expire
 before the 19th Feb 2020.</p>
 </li>
@@ -1024,4 +1108,4 @@ supported in the condition.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-25 16:34:20 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-25 16:35:56 UTC</div></div></div></body></html>
