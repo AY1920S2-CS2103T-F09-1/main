@@ -689,27 +689,32 @@ The <code>LogsCenter</code> class is used to manage the logging levels and loggi
 <div class="sect3">
 <h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">3.5.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>The archiving of coupons is facilitated by the Archived attribute of a coupon. The following methods in the <code>CouponStash</code>,
-<code>Coupon</code>, Usage` class and the 'Model' interface facilitates this feature:</p>
+<p>The archiving of coupons is facilitated by the <code>Archived</code> attribute of a coupon. The following methods in the <code>CouponStash</code>,
+<code>Coupon</code>, <code>Usage</code> class and the <code>Model</code> interface facilitates this feature:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>CouponStash#archiveExpiredCoupons()&#8201;&#8212;&#8201;Archives any coupon in the CouponStash that has expired, and returns a new updated CouponStash.</p>
+<p><code>CouponStash#archiveExpiredCoupons()</code>&#8201;&#8212;&#8201;Archives any coupon in the CouponStash that has expired, and returns a new updated CouponStash.</p>
 </li>
 <li>
-<p>Coupon#increaseUsageByOne() - Increases the usage of a coupon by one.</p>
+<p><code>Coupon#increaseUsageByOne()</code> - Increases the usage of a coupon by one.</p>
 </li>
 <li>
-<p>Usage#isUsageAtLimit - Returns true if the current usage is at its limit (abstracted by the <code>Limit</code> field).</p>
+<p><code>Usage#isUsageAtLimit</code> - Returns true if the current usage is at its limit (abstracted by the <code>Limit</code> field).</p>
 </li>
 <li>
-<p>Model#PREDICATE_SHOW_ALL_ACTIVE_COUPONS - A Predicate function that filters out archived coupons from a given CouponStash.</p>
+<p><code>Model#PREDICATE_SHOW_ALL_ACTIVE_COUPONS</code> - A Predicate function that filters out archived coupons from a given CouponStash.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
 <p>Given below is two example usage scenarios and how the archiving mechanism behaves at each step of each scenario.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ArchivingClassDiagram.png" alt="ArchivingClassDiagram">
+</div>
 </div>
 <div class="sect4">
 <h5 id="archiving-of-expired-coupons"><a class="link" href="#archiving-of-expired-coupons">Archiving of Expired Coupons</a></h5>
@@ -718,16 +723,22 @@ The <code>LogsCenter</code> class is used to manage the logging levels and loggi
 how this behaviour is implemented.</p>
 </div>
 <div class="paragraph">
-<p>Step 1. The user launches the application for the first time. The initiation of CouponStash with any available saved data
-is triggered by the initiation of the ModelManager.</p>
+<p>Step 1. The user launches the application for the first time. The initiation of <code>ModelManager</code> will also trigger the
+initiation of <code>CouponStash</code> with any available saved data.</p>
 </div>
 <div class="paragraph">
-<p>Step 2. The initiated CouponStash will have its UniqueCouponList mapped to a function that archive coupons that has expired
-before the date of opening the application, and returns a new updated CouponStash.</p>
+<p>Step 2. The method <code>CouponStash#archiveExpiredCoupons</code> will be called from the newly initiated <code>CouponStash</code>, and have its
+<code>UniqueCouponList</code> mapped to a function that archive coupons that have expired before the date of opening the application,
+and returns a new updated <code>CouponStash</code>.</p>
 </div>
 <div class="paragraph">
-<p>Step 3. The ModelManager will proceed to filter out the archived coupons from the newly updated CouponStash, and return
-a filtered list of active coupons. This filtering is facilitated by the predicate Model#PREDICATE_SHOW_ALL_ACTIVE_COUPONS.</p>
+<p>Step 3. The <code>ModelManager</code> will proceed to filter out the archived coupons from the newly updated <code>CouponStash</code>, and return
+a filtered list of active coupons. This filtering is facilitated by the predicate <code>Model#PREDICATE_SHOW_ALL_ACTIVE_COUPONS</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ArchiveExpiredSequenceDiagram.png" alt="ArchiveExpiredSequenceDiagram">
+</div>
 </div>
 </div>
 <div class="sect4">
@@ -737,20 +748,21 @@ a filtered list of active coupons. This filtering is facilitated by the predicat
 this behaviour is implemented.</p>
 </div>
 <div class="paragraph">
-<p>Step 1. The user uses a coupon in the current observable CouponStash with the command <code>used 1</code>.
+<p>Step 1. The user uses a coupon in the current observable <code>CouponStash</code> with the command <code>used 1</code>.
 The particular coupon will then have its usage increased by one.</p>
 </div>
 <div class="paragraph">
 <p>Step 2. The coupon will then be checked if its usage has reached its limit. For the purpose of this
 explanation, we assume that the coupon being used has a usage limit of 1 and a previous usage value of 0,
-with savings in MonetaryAmount.</p>
+with savings in <code>MonetaryAmount</code>.</p>
 </div>
 <div class="paragraph">
 <p>Step 3. The coupon will have a new <code>Archived</code> value, which will be set to <code>true</code> if the usage has indeed reached its limit.</p>
 </div>
 <div class="paragraph">
-<p>Step 4. The CouponStash will be updated with this used coupon with the ModelManager#setCoupon() method. Under the hood of
-this method, the current filtered list will be be updated to show active coupons only, facilitated by the predicate Model#PREDICATE_SHOW_ALL_ACTIVE_COUPONS.</p>
+<p>Step 4. The <code>CouponStash</code> will be updated with this used coupon with the <code>ModelManager#setCoupon()</code> method. Under the hood of
+this method, the current filtered list will be be updated to show active coupons only, facilitated by the predicate
+<code>Model#PREDICATE_SHOW_ALL_ACTIVE_COUPONS</code>.</p>
 </div>
 </div>
 </div>
@@ -761,7 +773,7 @@ this method, the current filtered list will be be updated to show active coupons
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Coupon contains an Archived field</p>
+<p><strong>Alternative 1 (current choice):</strong> <code>Coupon</code> contains an <code>Archived</code> field</p>
 <div class="ulist">
 <ul>
 <li>
@@ -778,7 +790,7 @@ this method, the current filtered list will be be updated to show active coupons
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Separates the logic between the two different <code>CouponStash</code>, e.g. you can only do limited functions with archived coupons</p>
+<p>Pros: Separates the logic between the two different <code>CouponStash</code>, e.g. you can limit the functions on archived coupons</p>
 </li>
 <li>
 <p>Cons: Sharply increases the maintainability and coupling of the application with two data files.</p>
@@ -830,7 +842,7 @@ with a <code>LinkedList</code> containing only an empty string (<code>""</code>)
 <div class="paragraph">
 <p>Step 2. The user executes <code>delete 1</code>. <code>CommandBox#handleCommandEntered()</code> will call <code>CommandTextHistory#add(String commandText)</code> to save the entered command into
 the stack contained in <code>CommandTextHistory</code>. The top of the stack (i.e. the empty string) is popped off first, before
-the etered command is pushed onto the stack. Then, the empty string is pushed onto the stack again, thus ensuring that
+the entered command is pushed onto the stack. Then, the empty string is pushed onto the stack again, thus ensuring that
 the empty string stays at the top of the stack. Note that <code>currIndex</code> is not affected.</p>
 </div>
 <div class="imageblock">
@@ -2303,4 +2315,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-26 19:50:10 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-26 22:24:37 UTC</div></div></div></body></html>
