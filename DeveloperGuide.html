@@ -26,6 +26,7 @@
 <li><a href="#proposed-data-encryption">3.2. [Proposed] Data Encryption</a></li>
 <li><a href="#logging">3.3. Logging</a></li>
 <li><a href="#Implementation-Configuration">3.4. Configuration</a></li>
+<li><a href="#Implementation-Coupon-Archiving">3.5. Coupon Archiving</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a></li>
@@ -180,7 +181,7 @@ The following class plays an important role at the architecture level:</p>
 <p><strong>API</strong> : <a href="https://github.com/AY1920S2-CS2103T-F09-1/main/tree/master//src/main/java/csdev/couponstash/ui/Ui.java"><code>Ui.java</code></a></p>
 </div>
 <div class="paragraph">
-<p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>PersonListPanel</code>, <code>StatusBarFooter</code> etc.
+<p>The UI consists of a <code>MainWindow</code> that is made up of three main parts - <code>CommandBox</code>, <code>CalendarResultDisplayPanel</code> and  <code>CouponListPanel</code>.
 All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
 </div>
 <div class="paragraph">
@@ -615,6 +616,113 @@ The <code>LogsCenter</code> class is used to manage the logging levels and loggi
 <h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.4. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Implementation-Coupon-Archiving"><a class="link" href="#Implementation-Coupon-Archiving">3.5. Coupon Archiving</a></h3>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">3.5.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The archiving of coupons is facilitated by the Archived attribute of a coupon. The following methods in the <code>CouponStash</code>,
+<code>Coupon</code>, Usage` class and the 'Model' interface facilitates this feature:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>CouponStash#archiveExpiredCoupons()&#8201;&#8212;&#8201;Archives any coupon in the CouponStash that has expired, and returns a new updated CouponStash.</p>
+</li>
+<li>
+<p>Coupon#increaseUsageByOne() - Increases the usage of a coupon by one.</p>
+</li>
+<li>
+<p>Usage#isUsageAtLimit - Returns true if the current usage is at its limit (abstracted by the <code>Limit</code> field).</p>
+</li>
+<li>
+<p>Model#PREDICATE_SHOW_ALL_ACTIVE_COUPONS - A Predicate function that filters out archived coupons from a given CouponStash.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Given below is two example usage scenarios and how the archiving mechanism behaves at each step of each scenario.</p>
+</div>
+<div class="sect4">
+<h5 id="archiving-of-expired-coupons"><a class="link" href="#archiving-of-expired-coupons">Archiving of Expired Coupons</a></h5>
+<div class="paragraph">
+<p>Expired coupons are automatically archived by Coupon Stash upon start up of the application. The following steps describe
+how this behaviour is implemented.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user launches the application for the first time. The initiation of CouponStash with any available saved data
+is triggered by the initiation of the ModelManager.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The initiated CouponStash will have its UniqueCouponList mapped to a function that archive coupons that has expired
+before the date of opening the application, and returns a new updated CouponStash.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. The ModelManager will proceed to filter out the archived coupons from the newly updated CouponStash, and return
+a filtered list of active coupons. This filtering is facilitated by the predicate Model#PREDICATE_SHOW_ALL_ACTIVE_COUPONS.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="archiving-of-exhausted-coupons"><a class="link" href="#archiving-of-exhausted-coupons">Archiving of Exhausted Coupons</a></h5>
+<div class="paragraph">
+<p>Coupons that have exhausted its usages will be automatically archived by the application. The following steps describe how
+this behaviour is implemented.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user uses a coupon in the current observable CouponStash with the command <code>used 1</code>.
+The particular coupon will then have its usage increased by one.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The coupon will then be checked if its usage has reached its limit. For the purpose of this
+explanation, we assume that the coupon being used has a usage limit of 1 and a previous usage value of 0,
+with savings in MonetaryAmount.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. The coupon will have a new <code>Archived</code> value, which will be set to <code>true</code> if the usage has indeed reached its limit.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. The CouponStash will be updated with this used coupon with the ModelManager#setCoupon() method. Under the hood of
+this method, the current filtered list will be be updated to show active coupons only, facilitated by the predicate Model#PREDICATE_SHOW_ALL_ACTIVE_COUPONS.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.5.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-the-implementation-to-store-archived-coupons"><a class="link" href="#aspect-the-implementation-to-store-archived-coupons">Aspect: The implementation to store archived coupons</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Coupon contains an Archived field</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement, lower maintainability.</p>
+</li>
+<li>
+<p>Cons: Saved data may get get considerably huge after heavy usage of application.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Archived coupons are stored in another separate data file.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Separates the logic between the two different <code>CouponStash</code>, e.g. you can only do limited functions with archived coupons</p>
+</li>
+<li>
+<p>Cons: Sharply increases the maintainability and coupling of the application with two data files.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -1973,4 +2081,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-26 03:15:25 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-26 03:41:19 UTC</div></div></div></body></html>
