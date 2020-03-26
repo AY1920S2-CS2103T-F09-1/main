@@ -27,7 +27,8 @@
 <li><a href="#logging">3.3. Logging</a></li>
 <li><a href="#Implementation-Configuration">3.4. Configuration</a></li>
 <li><a href="#Implementation-Coupon-Archiving">3.5. Coupon Archiving</a></li>
-<li><a href="#coupon-reminder">3.6. Coupon Reminder</a></li>
+<li><a href="#up-down-arrow-command-history">3.6. Up/down arrow command history</a></li>
+<li><a href="#coupon-reminder">3.7. Coupon Reminder</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a></li>
@@ -346,7 +347,7 @@ An example of how such a model may look like is given below.<br>
 <div class="sect2">
 <h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">3.1. Undo/Redo feature</a></h3>
 <div class="sect3">
-<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">3.1.1. Proposed Implementation</a></h4>
+<h4 id="current-implementation"><a class="link" href="#current-implementation">3.1.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The undo/redo mechanism is facilitated by with an undo/redo history, stored internally as an <code>couponStashStateList</code> with a <code>commandTextHistory</code> and <code>currStateIndex</code>. All these components are encapsulated in the <code>HistoryManager</code> class.
 The following methods in the <code>Model</code> interface facilitates this feature:</p>
@@ -537,7 +538,7 @@ This is the behavior that most modern desktop applications follow.</p>
 <div class="sect2">
 <h3 id="calendar"><a class="link" href="#calendar">3.2. Calendar</a></h3>
 <div class="sect3">
-<h4 id="current-implementation"><a class="link" href="#current-implementation">3.2.1. Current Implementation</a></h4>
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">3.2.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The Calendar component provides a visual representation of the stored coupons that are expiring over a month. It is
 facilitated by the <code>CalendarPane</code>, <code>DateCell</code> and <code>CouponsOnDateWindow</code>.</p>
@@ -686,7 +687,7 @@ The <code>LogsCenter</code> class is used to manage the logging levels and loggi
 <div class="sect2">
 <h3 id="Implementation-Coupon-Archiving"><a class="link" href="#Implementation-Coupon-Archiving">3.5. Coupon Archiving</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">3.5.1. Current Implementation</a></h4>
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">3.5.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The archiving of coupons is facilitated by the Archived attribute of a coupon. The following methods in the <code>CouponStash</code>,
 <code>Coupon</code>, Usage` class and the 'Model' interface facilitates this feature:</p>
@@ -791,9 +792,144 @@ this method, the current filtered list will be be updated to show active coupons
 </div>
 </div>
 <div class="sect2">
-<h3 id="coupon-reminder"><a class="link" href="#coupon-reminder">3.6. Coupon Reminder</a></h3>
+<h3 id="up-down-arrow-command-history"><a class="link" href="#up-down-arrow-command-history">3.6. Up/down arrow command history</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">3.6.1. Current Implementation</a></h4>
+<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">3.6.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The retrieving of command history via the up and down arrow keys is facilitated
+by the <code>CommandTextHistory</code> class. The command history is stored internally as a <code>LinkedList</code> used as a stack with a <code>currIndex</code>
+tracking the next command in the history to return.
+The following methods in the <code>CommandTextHistory</code>
+class facilitates this feature:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>CommandTextHistory#add(String commandText)</code></p>
+</li>
+<li>
+<p><code>CommandTextHistory#getDown()</code></p>
+</li>
+<li>
+<p><code>CommandTextHistory#getUp()</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the up/down button presses behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user launches the application for the first time. The <code>CommandTextHistory</code> is initialized
+with a <code>LinkedList</code> containing only an empty string (<code>""</code>), and the <code>currIndex</code> is set to <code>0</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/UpDownHistory0.png" alt="UpDownHistory0">
+</div>
+</div>
+<div class="paragraph">
+<p>Step 2. The user executes <code>delete 1</code>. <code>CommandBox#handleCommandEntered()</code> will call <code>CommandTextHistory#add(String commandText)</code> to save the entered command into
+the stack contained in <code>CommandTextHistory</code>. The top of the stack (i.e. the empty string) is popped off first, before
+the etered command is pushed onto the stack. Then, the empty string is pushed onto the stack again, thus ensuring that
+the empty string stays at the top of the stack. Note that <code>currIndex</code> is not affected.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/UpDownHistory1.png" alt="UpDownHistory1">
+</div>
+</div>
+<div class="paragraph">
+<p>Step 3. The user executes <code>delete 2</code>. <code>CommandBox#handleCommandEntered()</code> will also save the entered command into
+the stack contained in <code>CommandTextHistory</code>. As in the previous step, the new command is pushed to the top of the stack,
+just below the empty string.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/UpDownHistory2.png" alt="UpDownHistory2">
+</div>
+</div>
+<div class="paragraph">
+<p>Step 3. Now, the user decides to delete the second coupon again. We press the arrow key up once,
+and <code>CommandBox#commandTextField</code> has a listener that calls <code>CommandTextHistory#getUp()</code>.
+The <code>currIndex</code> is incremented, and then the command text pointed to by <code>currIndex</code> is returned and
+displayed in the program command box.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/UpDownHistory3.png" alt="UpDownHistory3">
+</div>
+</div>
+<div class="paragraph">
+<p>Step 4. The user then executes the retrieved command (<code>delete 2</code>). As in the previous steps, this newly executed command
+is pushed to the top of the stack just below the empty string. However, in such a case when the <code>currIndex</code> is not <code>0</code> and
+does not point to the top of the stack, it is reset to <code>0</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/UpDownHistory4.png" alt="UpDownHistory4">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If the <code>currStateIndex</code> is pointing to the top of the stack,
+then there are no previous commands to retrieve. Thus, the up button will simply
+return the empty string. No changes to the stack and <code>currIndex</code> will be effected.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The down arrow key does the opposite, it will lead to the calling of <code>CommandTextHistory#getDown()</code>,
+which shifts the <code>currIndex</code> one item higher (i.e. decrement the <code>currIndex</code> by <code>1</code>), before returning
+the command text pointed by the updated <code>currIndex</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If the <code>currIndex</code> is at index <code>commandTextHistory.size() - 1</code>, pointing to the
+bottom of the stack, there is no next command to retrieve when pressing the down key. Thus,
+the down button will simple return the command text currently being pointed to by the <code>currIndex</code>.
+No changes to the stack and <code>currIndex</code> will be effected.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.6.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-data-structure-to-support-the-key-actions"><a class="link" href="#aspect-data-structure-to-support-the-key-actions">Aspect: Data structure to support the key actions</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p>We used a <code>LinkedList</code> as a stack to store the command text history.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The first in first out nature of a stack made it a very suitable data structure
+for the storage of history that is retrived in chronological order of execution.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="coupon-reminder"><a class="link" href="#coupon-reminder">3.7. Coupon Reminder</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">3.7.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The coupon reminder provides a visual alert through a pop-up box, upon launching the application, whenever there are coupon(s) that
 are set to be reminded on a certain date.</p>
@@ -2167,4 +2303,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-26 16:18:41 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-26 19:50:10 UTC</div></div></div></body></html>
