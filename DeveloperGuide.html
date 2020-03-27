@@ -552,19 +552,68 @@ to show the coupons that expire on a date by clicking on a highlighted <code>Dat
 </div>
 <div class="paragraph">
 <p>The <code>ObservableList&lt;Coupon&gt;</code> is the list of filtered coupons that are currently on display in the <code>CouponListPanel</code>.
-They are obtained by calling the <code>getFilteredCouponList()</code> method in the <code>Logic</code> class. Each <code>DateCell</code> uses the same
-<code>ObservableList&lt;Coupon&gt;</code> as reference, to get coupons that expires on that particular date.</p>
+They are obtained by calling the <code>Logic#getFilteredCouponList()</code> method. Each <code>DateCell</code> uses the same
+<code>ObservableList&lt;Coupon&gt;</code> as reference, to get coupons that expires on each of the dates.</p>
 </div>
 <div class="paragraph">
-<p>Below is an example of how the Calendar behaves at each step.</p>
+<p>The sequence diagrams below show how the Calendar works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/CalendarSequenceDiagram.png" alt="CalendarSequenceDiagram">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/CalendarSequenceDiagram_Ref_SetDetailsOfDateCell.png" alt="CalendarSequenceDiagram Ref SetDetailsOfDateCell">
+</div>
+</div>
+<div class="paragraph">
+<p>The two scenarios below are examples of how the Calendar mechanism behaves at each step of each scenario.</p>
+</div>
+<div class="sect4">
+<h5 id="updating-the-calendar-with-a-filtered-list"><a class="link" href="#updating-the-calendar-with-a-filtered-list">Updating the Calendar with a Filtered List</a></h5>
+<div class="paragraph">
+<p>The Calendar updates with the current observable coupon list. The following steps describes how this behavior is implemented.</p>
 </div>
 <div class="paragraph">
 <p>Step 1. The user launches the application for the first time.
-The Calendar will be initialised to the system&#8217;s current date.</p>
+The Calendar displayed will render the saved data, triggered by the initiation of the UiManager.</p>
 </div>
 <div class="paragraph">
 <p>Step 2. The user executes a <code>find</code> command.
-The <code>find</code> command alters the filteredCouponList and the Calendar will be updated according to the list.</p>
+The <code>find</code> command alters the observable coupon list and the Calendar will be updated according to the list with the
+<code>Logic#getFilteredCouponList()</code> method.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="selecting-a-highlighted-date-on-the-calendar"><a class="link" href="#selecting-a-highlighted-date-on-the-calendar">Selecting a highlighted date on the Calendar</a></h5>
+<div class="paragraph">
+<p>Dates that have coupons expiring on that day are highlighted and clickable. The user can click on them and open a separate
+window to view all the coupons that are expiring on that day. The following steps describes how this behavior is implemented.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user launches the application for the first time or changes the month displayed on the Calendar.
+The Calendar displayed will render the expiring coupons for the month and highlight the dates with expiring coupons
+facilitated by the <code>CalendarPane#setDateCellCircle</code> method.
+Example of highlighted date:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Calendar_HighlightedCell.png" alt="Calendar HighlightedCell">
+</div>
+</div>
+<div class="paragraph">
+<p>Step 2. The user clicks on a highlighted date.
+A new separate window will open, showing the user all the coupons that are expiring on that particular day facilitated
+by the <code>DateCell#displayCoupons()</code> method.
+Example of new window:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Calendar_CouponsOnDateWindow.png" alt="Calendar CouponsOnDateWindow">
+</div>
+</div>
 </div>
 </div>
 <div class="sect3">
@@ -2315,4 +2364,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-26 22:24:37 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-27 01:04:00 UTC</div></div></div></body></html>
