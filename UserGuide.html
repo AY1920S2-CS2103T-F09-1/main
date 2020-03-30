@@ -28,9 +28,15 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p><strong>Quick Start</strong></p>
+<p><strong>About This Document</strong></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><strong>Quick Start</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
@@ -39,16 +45,16 @@
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Viewing help: help</p>
-</li>
-<li>
 <p>Adding a coupon: add</p>
 </li>
 <li>
-<p>Listing all coupons: list</p>
+<p>Editing a coupon: edit</p>
 </li>
 <li>
-<p>Editing a coupon: edit</p>
+<p>Deleting a coupon: delete</p>
+</li>
+<li>
+<p>Listing all coupons: list</p>
 </li>
 <li>
 <p>Locating coupons by name: find</p>
@@ -57,10 +63,37 @@
 <p>Sorting coupons: sort</p>
 </li>
 <li>
-<p>Deleting a coupon: delete</p>
+<p>Listing all expiring coupons: expiring</p>
 </li>
 <li>
-<p>Listing all expiring coupons: expiring</p>
+<p>Adding a reminder: remind</p>
+</li>
+<li>
+<p>Use a coupon: used</p>
+</li>
+<li>
+<p>Viewing savings: saved</p>
+</li>
+<li>
+<p>Archive a coupon: archive</p>
+</li>
+<li>
+<p>Export a coupon: export</p>
+</li>
+<li>
+<p>Sharing a coupon: share</p>
+</li>
+<li>
+<p>Undo the previous command: undo</p>
+</li>
+<li>
+<p>Redo the undone command: redo</p>
+</li>
+<li>
+<p>Set user preferences: setpref</p>
+</li>
+<li>
+<p>Viewing help: help</p>
 </li>
 <li>
 <p>Clearing all entries: clear</p>
@@ -71,51 +104,27 @@
 <li>
 <p>Saving the data</p>
 </li>
-<li>
-<p>Adding a reminder: remind</p>
-</li>
-<li>
-<p>Viewing savings: saved</p>
-</li>
-<li>
-<p>Use a coupon: used</p>
-</li>
-<li>
-<p>Undo the previous command: undo</p>
-</li>
-<li>
-<p>Redo the undone command: redo</p>
-</li>
-<li>
-<p>Archive a coupon: archive</p>
-</li>
-<li>
-<p>Export a coupon: export</p>
-</li>
-<li>
-<p>Set user preferences: setpref</p>
-</li>
 </ol>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p><strong>FAQ</strong></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p><strong>Command Summary</strong></p>
+<p><strong>FAQ</strong></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p><strong>Appendix</strong></p>
+<p><strong>Command Summary</strong></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">6</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><strong>Appendix</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
 </tr>
 </tbody>
 </table>
@@ -124,35 +133,37 @@
 <div id="toctitle"></div>
 <ul class="sectlevel1">
 <li><a href="#introduction">1. Introduction</a></li>
-<li><a href="#quick-start">2. Quick Start</a></li>
-<li><a href="#Features">3. Features</a>
+<li><a href="#about-this-document">2. About This Document</a></li>
+<li><a href="#quick-start">3. Quick Start</a></li>
+<li><a href="#Features">4. Features</a>
 <ul class="sectlevel2">
-<li><a href="#viewing-help-code-help-code">3.1. Viewing help: <code>help</code></a></li>
-<li><a href="#adding-a-coupon-code-add-code">3.2. Adding a coupon: <code>add</code></a></li>
-<li><a href="#listing-all-coupons-code-list-code">3.3. Listing all coupons: <code>list</code></a></li>
-<li><a href="#editing-a-coupon-code-edit-code">3.4. Editing a coupon: <code>edit</code></a></li>
-<li><a href="#locating-coupons-by-name-code-find-code">3.5. Locating coupons by name: <code>find</code></a></li>
-<li><a href="#sorting-coupons-code-sort-code">3.6. Sorting coupons: <code>sort</code></a></li>
-<li><a href="#deleting-a-coupon-code-delete-code">3.7. Deleting a coupon: <code>delete</code></a></li>
-<li><a href="#listing-all-expiring-coupons-code-expiring-code">3.8. Listing all expiring coupons: <code>expiring</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code">3.9. Clearing all entries: <code>clear</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.10. Exiting the program: <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.11. Saving the data</a></li>
-<li><a href="#adding-a-reminder-code-remind-code">3.12. Adding a reminder: <code>remind</code></a></li>
-<li><a href="#viewing-savings-code-saved-code">3.13. Viewing savings: <code>saved</code></a></li>
-<li><a href="#use-a-coupon-code-used-code">3.14. Use a coupon: <code>used</code></a></li>
-<li><a href="#undo-the-previous-command-code-undo-code">3.15. Undo the previous command: <code>undo</code></a></li>
-<li><a href="#redo-the-undone-command-code-redo-code">3.16. Redo the undone command: <code>redo</code></a></li>
-<li><a href="#archive-a-coupon-code-archive-code">3.17. Archive a coupon: <code>archive</code></a></li>
-<li><a href="#export-a-coupon-code-export-code">3.18. Export a coupon: <code>export</code></a></li>
-<li><a href="#set-user-preferences-code-setpref-code">3.19. Set user preferences: <code>setpref</code></a></li>
+<li><a href="#adding-a-coupon-code-add-code">4.1. Adding a coupon: <code>add</code></a></li>
+<li><a href="#editing-a-coupon-code-edit-code">4.2. Editing a coupon: <code>edit</code></a></li>
+<li><a href="#deleting-a-coupon-code-delete-code">4.3. Deleting a coupon: <code>delete</code></a></li>
+<li><a href="#listing-all-coupons-code-list-code">4.4. Listing all coupons: <code>list</code></a></li>
+<li><a href="#locating-coupons-by-name-code-find-code">4.5. Locating coupons by name: <code>find</code></a></li>
+<li><a href="#sorting-coupons-code-sort-code">4.6. Sorting coupons: <code>sort</code></a></li>
+<li><a href="#listing-all-expiring-coupons-code-expiring-code">4.7. Listing all expiring coupons: <code>expiring</code></a></li>
+<li><a href="#adding-a-reminder-code-remind-code">4.8. Adding a reminder: <code>remind</code></a></li>
+<li><a href="#use-a-coupon-code-used-code">4.9. Use a coupon: <code>used</code></a></li>
+<li><a href="#viewing-savings-code-saved-code">4.10. Viewing savings: <code>saved</code></a></li>
+<li><a href="#archive-a-coupon-code-archive-code">4.11. Archive a coupon: <code>archive</code></a></li>
+<li><a href="#export-a-coupon-code-export-code">4.12. Export a coupon: <code>export</code></a></li>
+<li><a href="#sharing-a-coupon-code-share-code">4.13. Sharing a coupon: <code>share</code></a></li>
+<li><a href="#undo-the-previous-command-code-undo-code">4.14. Undo the previous command: <code>undo</code></a></li>
+<li><a href="#redo-the-undone-command-code-redo-code">4.15. Redo the undone command: <code>redo</code></a></li>
+<li><a href="#set-user-preferences-code-setpref-code">4.16. Set user preferences: <code>setpref</code></a></li>
+<li><a href="#viewing-help-code-help-code">4.17. Viewing help: <code>help</code></a></li>
+<li><a href="#clearing-all-entries-code-clear-code">4.18. Clearing all entries: <code>clear</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">4.19. Exiting the program: <code>exit</code></a></li>
+<li><a href="#saving-the-data">4.20. Saving the data</a></li>
 </ul>
 </li>
-<li><a href="#faq">4. FAQ</a></li>
-<li><a href="#command-summary">5. Command Summary</a></li>
-<li><a href="#appendix">6. Appendix</a>
+<li><a href="#faq">5. FAQ</a></li>
+<li><a href="#command-summary">6. Command Summary</a></li>
+<li><a href="#appendix">7. Appendix</a>
 <ul class="sectlevel2">
-<li><a href="#strong-query-expressions-coming-in-v2-0-strong">6.1. <strong>Query expressions (coming in v2.0)</strong></a></li>
+<li><a href="#strong-query-expressions-coming-in-v2-0-strong">7.1. <strong>Query expressions (coming in v2.0)</strong></a></li>
 </ul>
 </li>
 </ul>
@@ -172,7 +183,50 @@ You should be! Jump to the <a href="#quick-start">Quick Start section</a> to get
 </div>
 </div>
 <div class="sect1">
-<h2 id="quick-start"><a class="link" href="#quick-start">2. Quick Start</a></h2>
+<h2 id="about-this-document"><a class="link" href="#about-this-document">2. About This Document</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This document introduces the features of Coupon Stash.<br></p>
+</div>
+<div class="paragraph">
+<p>The following are symbols and formatting used in this document:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><strong>Symbol/Format</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This symbol indicates tips on how you can use Coupon Stash.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This symbol indicates important information for you to take note of.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This symbol indicates a warning for you to pay extra attention to a matter.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><code>add</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A grey highlight (called a mark-up) indicates a command that can be entered into the command line and executed by Coupon Stash.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="quick-start"><a class="link" href="#quick-start">3. Quick Start</a></h2>
 <div class="sectionbody">
 <div class="olist arabic">
 <ol class="arabic">
@@ -201,8 +255,8 @@ e.g. typing <strong>help</strong> and pressing Enter will open the help window.<
 <p><strong>list</strong> : lists all coupons</p>
 </li>
 <li>
-<p><strong>add:</strong> <code>add n/Domino&#8217;s Pizaa Extra Large s/40% p/ILOVEDOMINOS e/30-4-2020 l/5
-t/pizza t/delivery</code>: adds a coupon named Domino&#8217;s Pizaa Extra Large to the Coupon Stash, with an expiry date of 30th April 2020, 40% savings with promo code ILOVEDOMINOS, and a limit of 5 usages.</p>
+<p><strong>add:</strong> <code>add n/Domino&#8217;s Pizza Extra Large s/40% p/ILOVEDOMINOS e/30-4-2020 l/5
+t/pizza t/delivery</code>: adds a coupon named Domino&#8217;s Pizza Extra Large to the Coupon Stash, with an expiry date of 30th April 2020, 40% savings with promo code ILOVEDOMINOS, and a limit of 5 usages.</p>
 </li>
 <li>
 <p><strong>delete</strong>: <code>delete 3</code> : deletes the 3rd coupon shown in the current list</p>
@@ -221,17 +275,24 @@ t/pizza t/delivery</code>: adds a coupon named Domino&#8217;s Pizaa Extra Large 
 </div>
 </div>
 <div class="sect1">
-<h2 id="Features"><a class="link" href="#Features">3. Features</a></h2>
+<h2 id="Features"><a class="link" href="#Features">4. Features</a></h2>
 <div class="sectionbody">
-<div class="exampleblock">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<p><strong>Command Format</strong></p>
+<p><strong>Command Format</strong><br></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Words in UPPER_CASE are the parameters to be supplied by the user
+<p>Words in UPPER_CASE are the parameters to be supplied by you (the user)
 e.g. in add n/NAME, NAME is a parameter which can be used as add
 n/The Deck Chicken Rice.</p>
 </li>
@@ -241,11 +302,11 @@ used as n/The Deck Chicken Rice t/value or as n/The Deck Chicken Rice.</p>
 </li>
 <li>
 <p>Items with &#8230;&#8203; after them can be used multiple times including zero
-times e.g. [t/TAG]&#8230;&#8203;​ can be used as (i.e. 0 times), t/value,
+times e.g. [t/TAG]&#8230;&#8203;​ can be used as (i.e. 0 times), t/pizza or
 t/friend t/value etc.</p>
 </li>
 <li>
-<p>Parameters can be in any order e.g. if the command specifies n/NAME,
+<p>Parameters can be in any order e.g. if the command specifies n/NAME
 s/SAVINGS, s/SAVINGS n/NAME is also acceptable. (Note: the app will only take the last specified parameter
 if there are multiple of the same parameters, but only one is required)</p>
 </li>
@@ -266,17 +327,12 @@ if there are multiple of the same parameters, but only one is required)</p>
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">3.1. Viewing help: <code>help</code></a></h3>
-<div class="paragraph">
-<p>A help window will pop up aiding the user in the usage of Coupon Stash.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>help</code></p>
-</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="sect2">
-<h3 id="adding-a-coupon-code-add-code"><a class="link" href="#adding-a-coupon-code-add-code">3.2. Adding a coupon: <code>add</code></a></h3>
+<h3 id="adding-a-coupon-code-add-code"><a class="link" href="#adding-a-coupon-code-add-code">4.1. Adding a coupon: <code>add</code></a></h3>
 <div class="paragraph">
 <p>Adds a coupon. Some fields like name, expiry date and savings are required. Optional fields like promo code and tags may be provided as well.</p>
 </div>
@@ -319,16 +375,7 @@ A coupon can have any number of tags (including 0)
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-all-coupons-code-list-code"><a class="link" href="#listing-all-coupons-code-list-code">3.3. Listing all coupons: <code>list</code></a></h3>
-<div class="paragraph">
-<p>Shows a list of all coupons in the coupon stash.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>list</code></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="editing-a-coupon-code-edit-code"><a class="link" href="#editing-a-coupon-code-edit-code">3.4. Editing a coupon: <code>edit</code></a></h3>
+<h3 id="editing-a-coupon-code-edit-code"><a class="link" href="#editing-a-coupon-code-edit-code">4.2. Editing a coupon: <code>edit</code></a></h3>
 <div class="paragraph">
 <p>Edits an existing coupon in the coupon book.</p>
 </div>
@@ -400,7 +447,68 @@ clears all existing tags.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="locating-coupons-by-name-code-find-code"><a class="link" href="#locating-coupons-by-name-code-find-code">3.5. Locating coupons by name: <code>find</code></a></h3>
+<h3 id="deleting-a-coupon-code-delete-code"><a class="link" href="#deleting-a-coupon-code-delete-code">4.3. Deleting a coupon: <code>delete</code></a></h3>
+<div class="paragraph">
+<p>Deletes the specified coupon from the coupon stash.</p>
+</div>
+<div class="paragraph">
+<p>Version 2.0 will bring new features like confirmation
+of coupons before they are deleted!</p>
+</div>
+<div class="paragraph">
+<p>Also, a "recycle bin" is in the works for version 3.0,
+similar to the Recycle Bin in Microsoft Windows.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>delete INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the coupon at the specified INDEX.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the displayed coupon
+list.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, …​</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code><br>
+<code>delete 2</code><br>
+Deletes the 2nd coupon in the coupon stash.</p>
+</li>
+<li>
+<p><code>find rice</code><br>
+<code>delete 1</code><br>
+Deletes the 1st coupon in the results of the find command.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="listing-all-coupons-code-list-code"><a class="link" href="#listing-all-coupons-code-list-code">4.4. Listing all coupons: <code>list</code></a></h3>
+<div class="paragraph">
+<p>Shows a list of all coupons in the coupon stash.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>list</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="locating-coupons-by-name-code-find-code"><a class="link" href="#locating-coupons-by-name-code-find-code">4.5. Locating coupons by name: <code>find</code></a></h3>
 <div class="paragraph">
 <p>Find coupon(s) whose names contain any of the given keywords.</p>
 </div>
@@ -454,7 +562,7 @@ Returns Ken sKitchen, KEN RIDGE Optical, Chic ken Rice</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="sorting-coupons-code-sort-code"><a class="link" href="#sorting-coupons-code-sort-code">3.6. Sorting coupons: <code>sort</code></a></h3>
+<h3 id="sorting-coupons-code-sort-code"><a class="link" href="#sorting-coupons-code-sort-code">4.6. Sorting coupons: <code>sort</code></a></h3>
 <div class="paragraph">
 <p>Sorts the coupons in the coupon stash in ascending order. It is possible to sort by coupon name or expiry date.</p>
 </div>
@@ -488,61 +596,9 @@ Sorts the coupon stash by expiry date from earliest to latest.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-coupon-code-delete-code"><a class="link" href="#deleting-a-coupon-code-delete-code">3.7. Deleting a coupon: <code>delete</code></a></h3>
+<h3 id="listing-all-expiring-coupons-code-expiring-code"><a class="link" href="#listing-all-expiring-coupons-code-expiring-code">4.7. Listing all expiring coupons: <code>expiring</code></a></h3>
 <div class="paragraph">
-<p>Deletes the specified coupon from the coupon stash.</p>
-</div>
-<div class="paragraph">
-<p>Version 2.0 will bring new features like confirmation
-of coupons before they are deleted!</p>
-</div>
-<div class="paragraph">
-<p>Also, a "recycle bin" is in the works for version 3.0,
-similar to the Recycle Bin in Microsoft Windows.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>delete INDEX</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Deletes the coupon at the specified INDEX.</p>
-</li>
-<li>
-<p>The index refers to the index number shown in the displayed coupon
-list.</p>
-</li>
-<li>
-<p>The index <strong>must be a positive integer</strong> 1, 2, 3, …​</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>list</code><br>
-<code>delete 2</code><br>
-Deletes the 2nd coupon in the coupon stash.</p>
-</li>
-<li>
-<p><code>find rice</code><br>
-<code>delete 1</code><br>
-Deletes the 1st coupon in the results of the find command.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="listing-all-expiring-coupons-code-expiring-code"><a class="link" href="#listing-all-expiring-coupons-code-expiring-code">3.8. Listing all expiring coupons: <code>expiring</code></a></h3>
-<div class="paragraph">
-<p>Lists all your expiring coupons.</p>
+<p>Shows a list of all your expiring coupons before a date.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>expiring DATE</code></p>
@@ -570,31 +626,7 @@ Shows you all the coupons that will expire before 2 March 2020.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.9. Clearing all entries: <code>clear</code></a></h3>
-<div class="paragraph">
-<p>Clears all entries from the coupon stash.<br>
-Format: <code>clear</code></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.10. Exiting the program: <code>exit</code></a></h3>
-<div class="paragraph">
-<p>Exits the program.<br>
-Format: <code>exit</code></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.11. Saving the data</a></h3>
-<div class="paragraph">
-<p>Coupon data is saved in the hard disk automatically after any
-command that changes the data.</p>
-</div>
-<div class="paragraph">
-<p>There is no need to save manually.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="adding-a-reminder-code-remind-code"><a class="link" href="#adding-a-reminder-code-remind-code">3.12. Adding a reminder: <code>remind</code></a></h3>
+<h3 id="adding-a-reminder-code-remind-code"><a class="link" href="#adding-a-reminder-code-remind-code">4.8. Adding a reminder: <code>remind</code></a></h3>
 <div class="paragraph">
 <p>Adds a reminder to remind yourself to use a coupon<br>
 Format: <code>remind INDEX r/(specific date to remind)</code></p>
@@ -633,7 +665,59 @@ Reminders will be displayed as a pop up when you launch the app.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-savings-code-saved-code"><a class="link" href="#viewing-savings-code-saved-code">3.13. Viewing savings: <code>saved</code></a></h3>
+<h3 id="use-a-coupon-code-used-code"><a class="link" href="#use-a-coupon-code-used-code">4.9. Use a coupon: <code>used</code></a></h3>
+<div class="paragraph">
+<p>Uses a coupon if its usage has yet to reached its limit.
+Requires an original amount of purchase if the coupon has savings in a percentage value.<br>
+Format: <code>used INDEX</code> or <code>used INDEX MONETARY_AMOUNT</code>
+where <code>MONETARY_AMOUNT</code> is a number prefixed by a user-defined currency
+symbol e.g. ($4.50, where the currency symbol is "$").</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Uses the coupon at the specified INDEX.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the displayed coupon.
+list.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+<li>
+<p>The monetary symbol is the one preset by the user e.g. $, RM &#8230;&#8203;</p>
+</li>
+<li>
+<p>The original amount <strong>must be a positive double</strong> e.g. 10.00, 23.11, 0.50 &#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>used 1</code><br>
+Uses the first coupon in the coupon stash.
+If coupon usage limit has been reached previously, an error message will appear,
+stating the maximum number of usages for first coupon.</p>
+</li>
+<li>
+<p><code>used 1 $10.0</code><br>
+Uses the first coupon in the coupon stash, which also has a percentage savings.
+The total savings of the coupon will be calculated, and can be seen with the command <code>saved</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="viewing-savings-code-saved-code"><a class="link" href="#viewing-savings-code-saved-code">4.10. Viewing savings: <code>saved</code></a></h3>
 <div class="paragraph">
 <p>Shows you how much you have saved by using coupons in Coupon Stash.
 There are three ways to use this command:</p>
@@ -700,134 +784,7 @@ A message will be displayed: You have saved $117.15 as well as earned
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-a-coupon-code-used-code"><a class="link" href="#use-a-coupon-code-used-code">3.14. Use a coupon: <code>used</code></a></h3>
-<div class="paragraph">
-<p>Uses a coupon if its usage has yet to reached its limit.
-Requires an original amount of purchase if the coupon has savings in a percentage value.<br>
-Format: <code>used INDEX</code> or <code>used INDEX MONETARY_AMOUNT</code>
-where <code>MONETARY_AMOUNT</code> is a number prefixed by a user-defined currency
-symbol e.g. ($4.50, where the currency symbol is "$").</p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Uses the coupon at the specified INDEX.</p>
-</li>
-<li>
-<p>The index refers to the index number shown in the displayed coupon.
-list.</p>
-</li>
-<li>
-<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
-</li>
-<li>
-<p>The monetary symbol is the one preset by the user e.g. $, RM &#8230;&#8203;</p>
-</li>
-<li>
-<p>The original amount <strong>must be a positive double</strong> e.g. 10.00, 23.11, 0.50 &#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>used 1</code><br>
-Uses the first coupon in the coupon stash.
-If coupon usage limit has been reached previously, an error message will appear,
-stating the maximum number of usages for first coupon.</p>
-</li>
-<li>
-<p><code>used 1 $10.0</code><br>
-Uses the first coupon in the coupon stash, which also has a percentage savings.
-The total savings of the coupon will be calculated, and can be seen with the command <code>saved</code>.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="undo-the-previous-command-code-undo-code"><a class="link" href="#undo-the-previous-command-code-undo-code">3.15. Undo the previous command: <code>undo</code></a></h3>
-<div class="paragraph">
-<p>Undo previous operation. Only works on the following commands: (i.e. commands that change the coupons in the coupon stash)</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>add</code></p>
-</li>
-<li>
-<p><code>archive</code></p>
-</li>
-<li>
-<p><code>clear</code></p>
-</li>
-<li>
-<p><code>delete</code></p>
-</li>
-<li>
-<p><code>edit</code></p>
-</li>
-<li>
-<p><code>remind</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Note that changes to user preferences cannot be undone.
-Format: <code>undo</code></p>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>remind 1 r/ 25-12-2020</code><br>
-  <code>undo</code><br>
-Undo the <code>remind</code> command. Reminder is removed.</p>
-</li>
-<li>
-<p><code>edit 1 n/ Duck Rice</code><br>
-  <code>undo</code><br>
-Revert the edit that was performed.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="redo-the-undone-command-code-redo-code"><a class="link" href="#redo-the-undone-command-code-redo-code">3.16. Redo the undone command: <code>redo</code></a></h3>
-<div class="paragraph">
-<p>Redo the previously undone command.<br>
-Format: <code>redo</code></p>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>remind 1 r/ 25-12-2020</code><br>
-  <code>undo</code><br>
-  <code>redo</code><br>
-Un-undo the <code>remind</code> command.</p>
-</li>
-<li>
-<p><code>edit 1 n/ Duck Rice</code><br>
-  <code>undo</code><br>
-  <code>redo</code>
-Un-undo the <code>edit</code> command.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="archive-a-coupon-code-archive-code"><a class="link" href="#archive-a-coupon-code-archive-code">3.17. Archive a coupon: <code>archive</code></a></h3>
+<h3 id="archive-a-coupon-code-archive-code"><a class="link" href="#archive-a-coupon-code-archive-code">4.11. Archive a coupon: <code>archive</code></a></h3>
 <div class="paragraph">
 <p>Archives a coupon when you want to keep a record of it, without cluttering your current stash of coupons.</p>
 </div>
@@ -878,7 +835,7 @@ Find your archives easily with the <code>find</code> command.
 </div>
 </div>
 <div class="sect2">
-<h3 id="export-a-coupon-code-export-code"><a class="link" href="#export-a-coupon-code-export-code">3.18. Export a coupon: <code>export</code></a></h3>
+<h3 id="export-a-coupon-code-export-code"><a class="link" href="#export-a-coupon-code-export-code">4.12. Export a coupon: <code>export</code></a></h3>
 <div class="paragraph">
 <p>Exports a coupon as an <a href="#adding-a-coupon-code-add-code"><code>add</code></a> command to your clipboard so that you can easily share it with your friends/ family!</p>
 </div>
@@ -913,11 +870,15 @@ list.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<div class="paragraph">
-<p>The exported add command will only contain the following fields:<br></p>
-</div>
 <div class="sidebarblock">
 <div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Statistics like number of times used or amount of savings accumulated will not be exported.</p>
+</li>
+<li>
+<p>The exported add command will only contain the following fields:<br></p>
 <div class="ulist">
 <ul>
 <li>
@@ -940,11 +901,10 @@ list.</p>
 </li>
 </ul>
 </div>
+</li>
+</ul>
 </div>
 </div>
-<div class="paragraph">
-<p>Statistics like number of times used or amount of
-savings accumulated will not be exported.</p>
 </div>
 </td>
 </tr>
@@ -969,7 +929,97 @@ Exports the 1st coupon in the results of the find command to an <code>add</code>
 </div>
 </div>
 <div class="sect2">
-<h3 id="set-user-preferences-code-setpref-code"><a class="link" href="#set-user-preferences-code-setpref-code">3.19. Set user preferences: <code>setpref</code></a></h3>
+<h3 id="sharing-a-coupon-code-share-code"><a class="link" href="#sharing-a-coupon-code-share-code">4.13. Sharing a coupon: <code>share</code></a></h3>
+<div class="paragraph">
+<p>Format: <code>share INDEX</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="undo-the-previous-command-code-undo-code"><a class="link" href="#undo-the-previous-command-code-undo-code">4.14. Undo the previous command: <code>undo</code></a></h3>
+<div class="paragraph">
+<p>Undo previous operation.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>undo</code></p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Only works on the following commands: (i.e. commands that change the coupons in the coupon stash)<br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add</code></p>
+</li>
+<li>
+<p><code>edit</code></p>
+</li>
+<li>
+<p><code>delete</code></p>
+</li>
+<li>
+<p><code>remind</code></p>
+</li>
+<li>
+<p><code>archive</code></p>
+</li>
+<li>
+<p><code>clear</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Note that changes to user preferences cannot be undone.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>remind 1 r/ 25-12-2020</code><br>
+  <code>undo</code><br>
+Undo the <code>remind</code> command. Reminder is removed.</p>
+</li>
+<li>
+<p><code>edit 1 n/ Duck Rice</code><br>
+  <code>undo</code><br>
+Revert the edit that was performed.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="redo-the-undone-command-code-redo-code"><a class="link" href="#redo-the-undone-command-code-redo-code">4.15. Redo the undone command: <code>redo</code></a></h3>
+<div class="paragraph">
+<p>Redo the previously undone command.<br>
+Format: <code>redo</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>remind 1 r/ 25-12-2020</code><br>
+  <code>undo</code><br>
+  <code>redo</code><br>
+Un-undo the <code>remind</code> command.</p>
+</li>
+<li>
+<p><code>edit 1 n/ Duck Rice</code><br>
+  <code>undo</code><br>
+  <code>redo</code>
+Un-undo the <code>edit</code> command.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="set-user-preferences-code-setpref-code"><a class="link" href="#set-user-preferences-code-setpref-code">4.16. Set user preferences: <code>setpref</code></a></h3>
 <div class="paragraph">
 <p>Sets the user preferences in Coupon Stash. Available user
 preferences currently consist of:</p>
@@ -1002,6 +1052,39 @@ program, as well as modify commands entered</p>
 </div>
 </div>
 </div>
+</div>
+<div class="sect2">
+<h3 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">4.17. Viewing help: <code>help</code></a></h3>
+<div class="paragraph">
+<p>A help window will pop up aiding the user in the usage of Coupon Stash.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>help</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">4.18. Clearing all entries: <code>clear</code></a></h3>
+<div class="paragraph">
+<p>Clears all entries from the coupon stash.<br>
+Format: <code>clear</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">4.19. Exiting the program: <code>exit</code></a></h3>
+<div class="paragraph">
+<p>Exits the program.<br>
+Format: <code>exit</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">4.20. Saving the data</a></h3>
+<div class="paragraph">
+<p>Coupon data is saved in the hard disk automatically after any
+command that changes the data.</p>
+</div>
+<div class="paragraph">
+<p>There is no need to save manually.</p>
+</div>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
@@ -1019,7 +1102,7 @@ be visible immediately.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="faq"><a class="link" href="#faq">4. FAQ</a></h2>
+<h2 id="faq"><a class="link" href="#faq">5. FAQ</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><strong>Q</strong>: How do I transfer my data to another computer?</p>
@@ -1065,7 +1148,7 @@ calculate the values saved based on the details of the coupon.
 </div>
 </div>
 <div class="sect1">
-<h2 id="command-summary"><a class="link" href="#command-summary">5. Command Summary</a></h2>
+<h2 id="command-summary"><a class="link" href="#command-summary">6. Command Summary</a></h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
@@ -1133,10 +1216,10 @@ e.g. <code>export 1</code></p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="appendix"><a class="link" href="#appendix">6. Appendix</a></h2>
+<h2 id="appendix"><a class="link" href="#appendix">7. Appendix</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="strong-query-expressions-coming-in-v2-0-strong"><a class="link" href="#strong-query-expressions-coming-in-v2-0-strong">6.1. <strong>Query expressions (coming in v2.0)</strong></a></h3>
+<h3 id="strong-query-expressions-coming-in-v2-0-strong"><a class="link" href="#strong-query-expressions-coming-in-v2-0-strong">7.1. <strong>Query expressions (coming in v2.0)</strong></a></h3>
 <div class="paragraph">
 <p>Query expressions serve to enable users to perform efficient batch
 operations on stored coupons using SQL-like syntax.</p>
@@ -1159,7 +1242,7 @@ before the 19th Feb 2020.</p>
 </ul>
 </div>
 <div class="sect3">
-<h4 id="strong-bulk-edit-strong"><a class="link" href="#strong-bulk-edit-strong">6.1.1. <strong>Bulk edit</strong></a></h4>
+<h4 id="strong-bulk-edit-strong"><a class="link" href="#strong-bulk-edit-strong">7.1.1. <strong>Bulk edit</strong></a></h4>
 <div class="paragraph">
 <p>Format: <code>edit <em>tag</em> set <em>field1=value1, field2=value2, …</em> [where
 condition]</code></p>
@@ -1214,7 +1297,7 @@ supported in the condition.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="strong-bulk-delete-strong"><a class="link" href="#strong-bulk-delete-strong">6.1.2. <strong>Bulk delete</strong></a></h4>
+<h4 id="strong-bulk-delete-strong"><a class="link" href="#strong-bulk-delete-strong">7.1.2. <strong>Bulk delete</strong></a></h4>
 <div class="paragraph">
 <p>Format: <code>delete <em>tag</em> [where condition]</code></p>
 </div>
@@ -1248,4 +1331,4 @@ supported in the condition.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-29 08:13:22 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-30 03:56:55 UTC</div></div></div></body></html>
