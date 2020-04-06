@@ -451,11 +451,12 @@ are multiple same parameters for parameters that require only one parameter)</p>
 <div class="sect2">
 <h3 id="adding-a-coupon-code-add-code"><a class="link" href="#adding-a-coupon-code-add-code">4.1. Adding a coupon: <code>add</code></a></h3>
 <div class="paragraph">
-<p>Adds a coupon. Some fields like <code>name</code>, <code>expiry date</code> and <code>savings</code> are required. Optional fields like <code>promo code</code> and <code>tags</code> may be provided as well.</p>
+<p>Adds a coupon. Some fields like <code>name</code>, <code>expiry date</code> and <code>savings</code> are required.
+Optional fields like <code>promo code</code> and <code>tags</code> may be provided as well.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>add n/NAME e/EXPIRY_DATE s/SAVINGS [sd/START_DATE] [p/PROMO_CODE]
-[c/CONDITIONS] [u/USAGE] [l/USAGE_LIMIT] [s/FREE_ITEMS]&#8230;&#8203; [t/TAG]&#8230;&#8203;</code></p>
+<p>Format: <code>add n/NAME e/EXPIRY_DATE s/SAVINGS_OR_FREE_ITEM [sd/START_DATE] [p/PROMO_CODE]
+[c/CONDITIONS] [u/USAGE] [l/USAGE_LIMIT] [s/EXTRA_FREE_ITEMS]&#8230;&#8203; [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -469,17 +470,28 @@ A coupon can have any number of tags (including 0)
 </tr>
 </table>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<code>SAVINGS</code> and <code>FREE_ITEMS</code> share the same prefix
-</td>
-</tr>
-</table>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Coupons must have at least one "savings" value, whether it is
+a flat monetary amount (e.g. $1.00), a percentage (e.g. 10%) or
+an item (e.g. Free Water Bottle).</p>
+</li>
+<li>
+<p>Savings can be represented by multiple free items, but not multiple
+monetary amounts or percentage amounts.</p>
+</li>
+<li>
+<p>Coupons cannot have both a monetary amount and a percentage amount.</p>
+</li>
+<li>
+<p>To add more free items, use the same prefix as before!</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -1702,4 +1714,4 @@ supported in the condition.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-06 07:48:09 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-06 07:54:12 UTC</div></div></div></body></html>
