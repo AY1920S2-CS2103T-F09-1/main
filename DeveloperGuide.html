@@ -81,7 +81,8 @@
 <div class="title">Figure 1. Architecture Diagram</div>
 </div>
 <div class="paragraph">
-<p>The <strong><em>Architecture Diagram</em></strong> given above explains the high-level design of the App.
+<p>The <strong><em>Architecture Diagram</em></strong> given above explains the high-level design of the
+App.
 Given below is a quick overview of each component.</p>
 </div>
 <div class="admonitionblock tip">
@@ -91,35 +92,42 @@ Given below is a quick overview of each component.</p>
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-The <code>.puml</code> files used to create diagrams in this document can be found in the <a href="https://github.com/AY1920S2-CS2103T-F09-1/main/tree/master//docs/diagrams/">diagrams</a> folder.
-Refer to the <a href="UsingPlantUml.html">Using PlantUML guide</a> to learn how to create and edit diagrams.
+The <code>.puml</code> files used to create diagrams in this document can be found in the
+<a href="https://github.com/AY1920S2-CS2103T-F09-1/main/tree/master//docs/diagrams/">diagrams</a> folder.
+Refer to the <a href="UsingPlantUml.html">Using PlantUML guide</a> to learn how to create
+and edit diagrams.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p><code>Main</code> has two classes called <a href="https://github.com/AY1920S2-CS2103T-F09-1/main/tree/master//src/main/java/csdev/couponstash/Main.java"><code>Main</code></a> and
+<p><code>Main</code> has two classes called
+<a href="https://github.com/AY1920S2-CS2103T-F09-1/main/tree/master//src/main/java/csdev/couponstash/Main.java"><code>Main</code></a> and
 <a href="https://github.com/AY1920S2-CS2103T-F09-1/main/tree/master//src/main/java/csdev/couponstash/MainApp.java"><code>MainApp</code></a>.
 It is responsible for,</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>At app launch: Initializes the components in the correct sequence, and connects them up with each other.</p>
+<p>At app launch: Initializes the components in the correct sequence, and
+connects them up with each other.</p>
 </li>
 <li>
-<p>At shut down: Shuts down the components and invokes cleanup method where necessary.</p>
+<p>At shut down: Shuts down the components and invokes cleanup method where
+necessary.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p><a href="#Design-Commons"><strong><code>Commons</code></strong></a> represents a collection of classes used by multiple other components.
+<p><a href="#Design-Commons"><strong><code>Commons</code></strong></a> represents a collection of classes used by
+multiple other components.
 The following class plays an important role at the architecture level:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>LogsCenter</code> : Used by many classes to write log messages to the App&#8217;s log file.</p>
+<p><code>LogsCenter</code> : Used by many classes to write log messages to the App&#8217;s log
+file.</p>
 </li>
 </ul>
 </div>
@@ -138,7 +146,8 @@ The following class plays an important role at the architecture level:</p>
 <p><a href="#Design-Model"><strong><code>Model</code></strong></a>: Holds the data of the App in-memory.</p>
 </li>
 <li>
-<p><a href="#Design-Storage"><strong><code>Storage</code></strong></a>: Reads data from, and writes data to, the hard disk.</p>
+<p><a href="#Design-Storage"><strong><code>Storage</code></strong></a>: Reads data from, and writes data to, the hard
+disk.</p>
 </li>
 </ul>
 </div>
@@ -156,7 +165,9 @@ The following class plays an important role at the architecture level:</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>For example, the <code>Logic</code> component (see the class diagram given below) defines it&#8217;s API in the <code>Logic.java</code> interface and exposes its functionality using the <code>LogicManager.java</code> class.</p>
+<p>For example, the <code>Logic</code> component (see the class diagram given below) defines
+it&#8217;s API in the <code>Logic.java</code> interface and exposes its functionality using the
+<code>LogicManager.java</code> class.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -166,7 +177,8 @@ The following class plays an important role at the architecture level:</p>
 </div>
 <h4 id="how-the-architecture-components-interact-with-each-other" class="discrete">How the architecture components interact with each other</h4>
 <div class="paragraph">
-<p>The <em>Sequence Diagram</em> below shows how the components interact with each other for the scenario where the user issues the command <code>delete 1</code>.</p>
+<p>The <em>Sequence Diagram</em> below shows how the components interact with each other
+for the scenario where the user issues the command <code>delete 1</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -190,13 +202,18 @@ The following class plays an important role at the architecture level:</p>
 <p><strong>API</strong> : <a href="https://github.com/AY1920S2-CS2103T-F09-1/main/tree/master//src/main/java/csdev/couponstash/ui/Ui.java"><code>Ui.java</code></a></p>
 </div>
 <div class="paragraph">
-<p>The UI consists of a <code>MainWindow</code> that is made up of three main parts - <code>CommandBox</code>, <code>CalendarResultDisplayPanel</code> and  <code>CouponListPanel</code>.
+<p>The UI consists of a <code>MainWindow</code> that is made up of three main parts -
+<code>CommandBox</code>, <code>CalendarResultDisplayPanel</code> and  <code>CouponListPanel</code>.
 All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
 </div>
 <div class="paragraph">
 <p>The <code>UI</code> component uses JavaFx UI framework.
-The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder.
-For example, the layout of the <a href="https://github.com/AY1920S2-CS2103T-F09-1/main/tree/master//src/main/java/csdev/couponstash/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/AY1920S2-CS2103T-F09-1/main/tree/master//src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
+The layout of these UI parts are defined in matching <code>.fxml</code> files that are in
+the <code>src/main/resources/view</code> folder.
+For example, the layout of the
+<a href="https://github.com/AY1920S2-CS2103T-F09-1/main/tree/master//src/main/java/csdev/couponstash/ui/MainWindow.java"><code>MainWindow</code></a>
+is specified in
+<a href="https://github.com/AY1920S2-CS2103T-F09-1/main/tree/master//src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
 </div>
 <div class="paragraph">
 <p>The <code>UI</code> component,</p>
@@ -207,7 +224,8 @@ For example, the layout of the <a href="https://github.com/AY1920S2-CS2103T-F09-
 <p>Executes user commands using the <code>Logic</code> component.</p>
 </li>
 <li>
-<p>Listens for changes to <code>Model</code> data so that the UI can be updated with the modified data.</p>
+<p>Listens for changes to <code>Model</code> data so that the UI can be updated with the
+modified data.</p>
 </li>
 </ul>
 </div>
@@ -236,15 +254,18 @@ For example, the layout of the <a href="https://github.com/AY1920S2-CS2103T-F09-
 <p>The command execution can affect the <code>Model</code> (e.g. adding a coupon).</p>
 </li>
 <li>
-<p>The result of the command execution is encapsulated as a <code>CommandResult</code> object which is passed back to the <code>Ui</code>.</p>
+<p>The result of the command execution is encapsulated as a <code>CommandResult</code>
+object which is passed back to the <code>Ui</code>.</p>
 </li>
 <li>
-<p>In addition, the <code>CommandResult</code> object can also instruct the <code>Ui</code> to perform certain actions, such as displaying help to the user.</p>
+<p>In addition, the <code>CommandResult</code> object can also instruct the <code>Ui</code> to perform
+certain actions, such as displaying help to the user.</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p>Given below is the Sequence Diagram for interactions within the <code>Logic</code> component for the <code>execute("delete 1")</code> API call.</p>
+<p>Given below is the Sequence Diagram for interactions within the <code>Logic</code>
+component for the <code>execute("delete 1")</code> API call.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -259,7 +280,9 @@ For example, the layout of the <a href="https://github.com/AY1920S2-CS2103T-F09-
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The lifeline for <code>DeleteCommandParser</code> should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+The lifeline for <code>DeleteCommandParser</code> should end at the destroy marker
+(X) but due to a limitation of PlantUML, the lifeline reaches the end of
+diagram.
 </td>
 </tr>
 </table>
@@ -274,7 +297,8 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <div class="title">Figure 7. Structure of the Model Component</div>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/AY1920S2-CS2103T-F09-1/main/tree/master//src/main/java/csdev/couponstash/model/Model.java"><code>Model.java</code></a></p>
+<p><strong>API</strong> :
+<a href="https://github.com/AY1920S2-CS2103T-F09-1/main/tree/master//src/main/java/csdev/couponstash/model/Model.java"><code>Model.java</code></a></p>
 </div>
 <div class="paragraph">
 <p>The <code>Model</code>,</p>
@@ -288,7 +312,9 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <p>stores the Coupon Stash data.</p>
 </li>
 <li>
-<p>exposes an unmodifiable <code>ObservableList&lt;Person&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.</p>
+<p>exposes an unmodifiable <code>ObservableList&lt;Person&gt;</code> that can be 'observed' e.g.
+the UI can be bound to this list so that the UI automatically updates when the
+data in the list change.</p>
 </li>
 <li>
 <p>does not depend on any of the other three components.</p>
@@ -302,8 +328,10 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-As a more OOP model, we can store a <code>Tag</code> list in <code>Coupon Stash</code>, which <code>Person</code> can reference.
-This would allow <code>Coupon Stash</code> to only require one <code>Tag</code> object per unique <code>Tag</code>, instead of each <code>Person</code> needing their own <code>Tag</code> object.
+As a more OOP model, we can store a <code>Tag</code> list in <code>Coupon Stash</code>, which
+<code>Person</code> can reference.
+This would allow <code>Coupon Stash</code> to only require one <code>Tag</code> object per unique
+<code>Tag</code>, instead of each <code>Person</code> needing their own <code>Tag</code> object.
 An example of how such a model may look like is given below.<br>
 <br>
 <span class="image"><img src="images/BetterModelClassDiagram.png" alt="BetterModelClassDiagram"></span>
@@ -321,7 +349,9 @@ An example of how such a model may look like is given below.<br>
 <div class="title">Figure 8. Structure of the Storage Component</div>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/AY1920S2-CS2103T-F09-1/main/tree/master//src/main/java/csdev/couponstash/storage/Storage.java"><code>Storage.java</code></a></p>
+<p><strong>API</strong> :
+<a href="https://github.com/AY1920S2-CS2103T-F09-1/main/tree/master//src/main/java/csdev/couponstash/storage/Storage.java"><code>Storage.jav
+a</code></a></p>
 </div>
 <div class="paragraph">
 <p>The <code>Storage</code> component,</p>
@@ -340,7 +370,8 @@ An example of how such a model may look like is given below.<br>
 <div class="sect2">
 <h3 id="Design-Commons"><a class="link" href="#Design-Commons">2.6. Common classes</a></h3>
 <div class="paragraph">
-<p>Classes used by multiple components are in the <code>csdev.couponstash.commons</code> package.</p>
+<p>Classes used by multiple components are in the <code>csdev.couponstash.commons</code>
+package.</p>
 </div>
 </div>
 </div>
@@ -349,35 +380,45 @@ An example of how such a model may look like is given below.<br>
 <h2 id="implementation"><a class="link" href="#implementation">3. Implementation</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This section describes some noteworthy details on how certain features are implemented.</p>
+<p>This section describes some noteworthy details on how certain features are
+implemented.</p>
 </div>
 <div class="sect2">
 <h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">3.1. Undo/Redo feature</a></h3>
 <div class="sect3">
 <h4 id="current-implementation"><a class="link" href="#current-implementation">3.1.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>The undo/redo mechanism is facilitated by with an undo/redo history, stored internally as an <code>couponStashStateList</code> with a <code>commandTextHistory</code> and <code>currStateIndex</code>. All these components are encapsulated in the <code>HistoryManager</code> class.
+<p>The undo/redo mechanism is facilitated by with an undo/redo history, stored
+internally as an <code>couponStashStateList</code> with a <code>commandTextHistory</code> and
+<code>currStateIndex</code>. All these components are encapsulated in the <code>HistoryManager</code>
+class.
 The following methods in the <code>Model</code> interface facilitates this feature:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>Model#commitCouponStash(String commandText)</code>&#8201;&#8212;&#8201;Saves the current coupon stash state and the command text that triggered the change in state into <code>HistoryManager</code>.</p>
+<p><code>Model#commitCouponStash(String commandText)</code>&#8201;&#8212;&#8201;Saves the current coupon
+stash state and the command text that triggered the change in state into
+<code>HistoryManager</code>.</p>
 </li>
 <li>
-<p><code>Model#undo()</code>&#8201;&#8212;&#8201;Restores the previous coupon stash state from <code>HistoryManager</code>.</p>
+<p><code>Model#undo()</code>&#8201;&#8212;&#8201;Restores the previous coupon stash state from
+<code>HistoryManager</code>.</p>
 </li>
 <li>
-<p><code>Model#redo()</code>&#8201;&#8212;&#8201;Restores a previously undone coupon stash state from <code>HistoryManager</code>.</p>
+<p><code>Model#redo()</code>&#8201;&#8212;&#8201;Restores a previously undone coupon stash state from
+<code>HistoryManager</code>.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.</p>
+<p>Given below is an example usage scenario and how the undo/redo mechanism
+behaves at each step.</p>
 </div>
 <div class="paragraph">
 <p>Step 1. The user launches the application for the first time.
-The <code>CouponStash</code> will be initialized with the initial coupon stash state, and the <code>currStateIndex</code> pointing to that single coupon stash state.</p>
+The <code>CouponStash</code> will be initialized with the initial coupon stash state, and
+the <code>currStateIndex</code> pointing to that single coupon stash state.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -385,8 +426,13 @@ The <code>CouponStash</code> will be initialized with the initial coupon stash s
 </div>
 </div>
 <div class="paragraph">
-<p>Step 2. The user executes <code>delete 5</code> command to delete the 5th coupon in the coupon stash.
-The <code>delete</code> command calls <code>Model#commitCouponStash(String commandText)</code>, causing the modified state of the coupon stash after the <code>delete 5</code> command executes to be saved in the <code>couponStashStateList</code>, and the <code>delete 5</code> command text to be stored in the <code>commandTextHistory</code>.  <code>currStateIndex</code> is shifted to the newly inserted coupon stash state.</p>
+<p>Step 2. The user executes <code>delete 5</code> command to delete the 5th coupon in the
+coupon stash.
+The <code>delete</code> command calls <code>Model#commitCouponStash(String commandText)</code>,
+causing the modified state of the coupon stash after the <code>delete 5</code> command
+executes to be saved in the <code>couponStashStateList</code>, and the <code>delete 5</code> command
+text to be stored in the <code>commandTextHistory</code>.  <code>currStateIndex</code> is shifted to
+the newly inserted coupon stash state.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -395,7 +441,9 @@ The <code>delete</code> command calls <code>Model#commitCouponStash(String comma
 </div>
 <div class="paragraph">
 <p>Step 3. The user executes <code>add n/OMO STORE &#8230;&#8203;</code> to add a new coupon.
-The <code>add</code> command also calls <code>Model#commitCouponStash(String commandText)</code>, causing another modified coupon stash state and command text to be saved into the <code>couponStashStateList</code> and <code>commandTextHistory</code> respectively.</p>
+The <code>add</code> command also calls <code>Model#commitCouponStash(String commandText)</code>,
+causing another modified coupon stash state and command text to be saved into
+the <code>couponStashStateList</code> and <code>commandTextHistory</code> respectively.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -409,14 +457,21 @@ The <code>add</code> command also calls <code>Model#commitCouponStash(String com
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If a command fails its execution, it will not call <code>Model#commitCouponStash(String commandText)</code>, so the coupon stash state and command text will not be saved.
+If a command fails its execution, it will not call
+<code>Model#commitCouponStash(String commandText)</code>, so the coupon stash state and
+command text will not be saved.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Step 4. The user now decides that adding the coupon was a mistake, and decides to undo that action by executing the <code>undo</code> command.
-The <code>undo</code> command will call <code>Model#undoCouponStash()</code>, which will shift the <code>currStateIndex</code> once to the left, pointing it to the previous coupon stash state, and restores the coupon stash to that state. Plus, the command text is returned, thus allowing for the display of the command that was undone. In this case, the command undone is <code>add n/OMO STORE&#8230;&#8203;</code>.</p>
+<p>Step 4. The user now decides that adding the coupon was a mistake, and decides
+to undo that action by executing the <code>undo</code> command.
+The <code>undo</code> command will call <code>Model#undoCouponStash()</code>, which will shift the
+<code>currStateIndex</code> once to the left, pointing it to the previous coupon stash
+state, and restores the coupon stash to that state. Plus, the command text is
+returned, thus allowing for the display of the command that was undone. In this
+case, the command undone is <code>add n/OMO STORE&#8230;&#8203;</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -430,9 +485,12 @@ The <code>undo</code> command will call <code>Model#undoCouponStash()</code>, wh
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If the <code>currStateIndex</code> is at index 0, pointing to the initial coupon stash state, then there are no previous coupon stash states to restore.
-The <code>undo</code> command uses <code>Model#canUndoCouponStash()</code> to check if this is the case.
-If so, it will return an error to the user rather than attempting to perform the undo.
+If the <code>currStateIndex</code> is at index 0, pointing to the initial coupon stash
+state, then there are no previous coupon stash states to restore.
+The <code>undo</code> command uses <code>Model#canUndoCouponStash()</code> to check if this is the
+case.
+If so, it will return an error to the user rather than attempting to perform
+the undo.
 </td>
 </tr>
 </table>
@@ -452,13 +510,17 @@ If so, it will return an error to the user rather than attempting to perform the
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The lifeline for <code>UndoCommand</code> should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+The lifeline for <code>UndoCommand</code> should end at the destroy marker (X) but
+due to a limitation of PlantUML, the lifeline reaches the end of diagram.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoCouponStash()</code>, which shifts the <code>currStateIndex</code> once to the right, pointing to the previously undone state and command text, and restores the coupon stash to that state. Finally, it returns the redone command text.</p>
+<p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoCouponStash()</code>,
+which shifts the <code>currStateIndex</code> once to the right, pointing to the previously
+undone state and command text, and restores the coupon stash to that state.
+Finally, it returns the redone command text.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -467,16 +529,21 @@ The lifeline for <code>UndoCommand</code> should end at the destroy marker (X) b
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If the <code>currStateIndex</code> is at index <code>couponStashStateList.size() - 1</code>, pointing to the latest coupon stash state, then there are no undone coupon stash states to restore.
-The <code>redo</code> command uses <code>Model#canRedoCouponStash()</code> to check if this is the case.
-If so, it will return an error to the user rather than attempting to perform the redo.
+If the <code>currStateIndex</code> is at index <code>couponStashStateList.size() - 1</code>, pointing
+to the latest coupon stash state, then there are no undone coupon stash states
+to restore.
+The <code>redo</code> command uses <code>Model#canRedoCouponStash()</code> to check if this is the
+case.
+If so, it will return an error to the user rather than attempting to perform
+the redo.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
 <p>Step 5. The user then decides to execute the command <code>list</code>.
-Commands that do not modify the coupon stash, such as <code>list</code>, will  not call <code>Model#commitCouponStash()</code>.
+Commands that do not modify the coupon stash, such as <code>list</code>, will  not call
+<code>Model#commitCouponStash()</code>.
 Thus, the <code>couponStashStateList</code> remains unchanged.</p>
 </div>
 <div class="imageblock">
@@ -486,8 +553,11 @@ Thus, the <code>couponStashStateList</code> remains unchanged.</p>
 </div>
 <div class="paragraph">
 <p>Step 6. The user executes <code>clear</code>, which calls <code>Model#commitCouponStash()</code>.
-Since the <code>currStateIndex</code> is not pointing at the end of the <code>couponStashStateList</code>, all coupon stash states and command text history after the <code>currStateIndex</code> will be purged.
-We designed it this way because it no longer makes sense to redo the <code>add n/OMO STORE &#8230;&#8203;</code> command.
+Since the <code>currStateIndex</code> is not pointing at the end of the
+<code>couponStashStateList</code>, all coupon stash states and command text history after
+the <code>currStateIndex</code> will be purged.
+We designed it this way because it no longer makes sense to redo the <code>add n/OMO
+STORE &#8230;&#8203;</code> command.
 This is the behavior that most modern desktop applications follow.</p>
 </div>
 <div class="imageblock">
@@ -496,7 +566,8 @@ This is the behavior that most modern desktop applications follow.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>The following activity diagram summarizes what happens when a user executes a new command:</p>
+<p>The following activity diagram summarizes what happens when a user executes a
+new command:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -515,7 +586,8 @@ This is the behavior that most modern desktop applications follow.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Each coupon is copied into <code>HistoryManager</code>, thus eliminating any chance for bugs when mutating coupons.</p>
+<p>Each coupon is copied into <code>HistoryManager</code>, thus eliminating any chance for
+bugs when mutating coupons.</p>
 </li>
 </ul>
 </div>
@@ -528,11 +600,13 @@ This is the behavior that most modern desktop applications follow.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Use two lists to store the history of coupons stash states and command text history.</p>
+<p>Use two lists to store the history of coupons stash states and command text
+history.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>The lists are stored in a <code>HistoryManager</code> class, which includes a <code>currStateIndex</code>.</p>
+<p>The lists are stored in a <code>HistoryManager</code> class, which includes a
+<code>currStateIndex</code>.</p>
 </li>
 </ul>
 </div>
@@ -547,20 +621,26 @@ This is the behavior that most modern desktop applications follow.</p>
 <div class="sect3">
 <h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">3.2.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>The Calendar component provides a visual representation of the stored coupons that are expiring over a month. It is
+<p>The Calendar component provides a visual representation of the stored coupons
+that are expiring over a month. It is
 facilitated by the <code>CalendarPane</code>, <code>DateCell</code> and <code>CouponsOnDateWindow</code>.</p>
 </div>
 <div class="paragraph">
-<p>The <code>CalendarPane</code> is controller of the <code>Calendar</code>. Users can change the month on display and open a <code>CouponsOnDateWindow</code>
-to show the coupons that expire on a date by clicking on a highlighted <code>DateCell</code>.</p>
+<p>The <code>CalendarPane</code> is controller of the <code>Calendar</code>. Users can change the month
+on display and open a <code>CouponsOnDateWindow</code>
+to show the coupons that expire on a date by clicking on a highlighted
+<code>DateCell</code>.</p>
 </div>
 <div class="paragraph">
 <p>Each <code>DateCell</code> represents each date of the month that is currently on display.</p>
 </div>
 <div class="paragraph">
-<p>The <code>ObservableList&lt;Coupon&gt;</code> is the list of filtered coupons that are currently on display in the <code>CouponListPanel</code>.
-They are obtained by calling the <code>Logic#getFilteredCouponList()</code> method. Each <code>DateCell</code> uses the same
-<code>ObservableList&lt;Coupon&gt;</code> as reference, to get coupons that expires on each of the dates.</p>
+<p>The <code>ObservableList&lt;Coupon&gt;</code> is the list of filtered coupons that are currently
+on display in the <code>CouponListPanel</code>.
+They are obtained by calling the <code>Logic#getFilteredCouponList()</code> method. Each
+<code>DateCell</code> uses the same
+<code>ObservableList&lt;Coupon&gt;</code> as reference, to get coupons that expires on each of
+the dates.</p>
 </div>
 <div class="paragraph">
 <p>The sequence diagrams below show how the Calendar works:</p>
@@ -576,32 +656,40 @@ They are obtained by calling the <code>Logic#getFilteredCouponList()</code> meth
 </div>
 </div>
 <div class="paragraph">
-<p>The two scenarios below are examples of how the Calendar mechanism behaves at each step of each scenario.</p>
+<p>The two scenarios below are examples of how the Calendar mechanism behaves at
+each step of each scenario.</p>
 </div>
 <div class="sect4">
 <h5 id="updating-the-calendar-with-a-filtered-list"><a class="link" href="#updating-the-calendar-with-a-filtered-list">Updating the Calendar with a Filtered List</a></h5>
 <div class="paragraph">
-<p>The Calendar updates with the current observable coupon list. The following steps describes how this behavior is implemented.</p>
+<p>The Calendar updates with the current observable coupon list. The following
+steps describes how this behavior is implemented.</p>
 </div>
 <div class="paragraph">
 <p>Step 1. The user launches the application for the first time.
-The Calendar displayed will render the saved data, triggered by the initiation of the UiManager.</p>
+The Calendar displayed will render the saved data, triggered by the initiation
+of the UiManager.</p>
 </div>
 <div class="paragraph">
 <p>Step 2. The user executes a <code>find</code> command.
-The <code>find</code> command alters the observable coupon list and the Calendar will be updated according to the list with the
+The <code>find</code> command alters the observable coupon list and the Calendar will be
+updated according to the list with the
 <code>Logic#getFilteredCouponList()</code> method.</p>
 </div>
 </div>
 <div class="sect4">
 <h5 id="selecting-a-highlighted-date-on-the-calendar"><a class="link" href="#selecting-a-highlighted-date-on-the-calendar">Selecting a highlighted date on the Calendar</a></h5>
 <div class="paragraph">
-<p>Dates that have coupons expiring on that day are highlighted and clickable. The user can click on them and open a separate
-window to view all the coupons that are expiring on that day. The following steps describes how this behavior is implemented.</p>
+<p>Dates that have coupons expiring on that day are highlighted and clickable. The
+user can click on them and open a separate
+window to view all the coupons that are expiring on that day. The following
+steps describes how this behavior is implemented.</p>
 </div>
 <div class="paragraph">
-<p>Step 1. The user launches the application for the first time or changes the month displayed on the Calendar.
-The Calendar displayed will render the expiring coupons for the month and highlight the dates with expiring coupons
+<p>Step 1. The user launches the application for the first time or changes the
+month displayed on the Calendar.
+The Calendar displayed will render the expiring coupons for the month and
+highlight the dates with expiring coupons
 facilitated by the <code>CalendarPane#setDateCellCircle</code> method.
 Example of highlighted date:</p>
 </div>
@@ -612,7 +700,8 @@ Example of highlighted date:</p>
 </div>
 <div class="paragraph">
 <p>Step 2. The user clicks on a highlighted date.
-A new separate window will open, showing the user all the coupons that are expiring on that particular day facilitated
+A new separate window will open, showing the user all the coupons that are
+expiring on that particular day facilitated
 by the <code>DateCell#displayCoupons()</code> method.
 Example of new window:</p>
 </div>
@@ -630,7 +719,8 @@ Example of new window:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Show expiring coupons by highlighting the dates with expiring coupons and users
+<p><strong>Alternative 1 (current choice):</strong> Show expiring coupons by highlighting the
+dates with expiring coupons and users
 clicking on them for more information in a separate window</p>
 <div class="ulist">
 <ul>
@@ -638,21 +728,25 @@ clicking on them for more information in a separate window</p>
 <p>Pros: Cleaner view of the Calendar with minimal information</p>
 </li>
 <li>
-<p>Cons: Lesser information provided with a glance and user have to click to see the details of the expiring coupons on
+<p>Cons: Lesser information provided with a glance and user have to click to
+see the details of the expiring coupons on
 a date in a separate window</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Show a condensed version of the coupons in the cell of each date</p>
+<p><strong>Alternative 2:</strong> Show a condensed version of the coupons in the cell of
+each date</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: No additional clicking required and more information provided with a glance</p>
+<p>Pros: No additional clicking required and more information provided with a
+glance</p>
 </li>
 <li>
-<p>Cons: May be messy to look at when there are multiple coupons expiring on a date</p>
+<p>Cons: May be messy to look at when there are multiple coupons expiring on a
+date</p>
 </li>
 </ul>
 </div>
@@ -669,7 +763,8 @@ a date in a separate window</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: User can relate the coupons shown in the Calendar to the <code>CouponListPanel</code> (Observer design pattern)</p>
+<p>Pros: User can relate the coupons shown in the Calendar to the
+<code>CouponListPanel</code> (Observer design pattern)</p>
 </li>
 <li>
 <p>Cons: May overlook coupons if list is filtered</p>
@@ -682,10 +777,12 @@ a date in a separate window</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: View of all coupons and will not overlook any coupons when the coupon list is filtered</p>
+<p>Pros: View of all coupons and will not overlook any coupons when the coupon
+list is filtered</p>
 </li>
 <li>
-<p>Cons: User may be confused if he/she sees a coupon on the Calendar that is not in the <code>CouponListPanel</code></p>
+<p>Cons: User may be confused if he/she sees a coupon on the Calendar that is
+not in the <code>CouponListPanel</code></p>
 </li>
 </ul>
 </div>
@@ -699,15 +796,18 @@ a date in a separate window</p>
 <h3 id="logging"><a class="link" href="#logging">3.3. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging.
-The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
+The <code>LogsCenter</code> class is used to manage the logging levels and logging
+destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.4, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the
+configuration file (See <a href="#Implementation-Configuration">Section 3.4, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
-<p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
+<p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code>
+which will log messages according to the specified logging level</p>
 </li>
 <li>
 <p>Currently log messages are output through: <code>Console</code> and to a <code>.log</code> file.</p>
@@ -720,7 +820,8 @@ The <code>LogsCenter</code> class is used to manage the logging levels and loggi
 <div class="ulist">
 <ul>
 <li>
-<p><code>SEVERE</code> : Critical problem detected which may possibly cause the termination of the application</p>
+<p><code>SEVERE</code> : Critical problem detected which may possibly cause the termination
+of the application</p>
 </li>
 <li>
 <p><code>WARNING</code> : Can continue, but with caution</p>
@@ -729,7 +830,8 @@ The <code>LogsCenter</code> class is used to manage the logging levels and loggi
 <p><code>INFO</code> : Information showing the noteworthy actions by the App</p>
 </li>
 <li>
-<p><code>FINE</code> : Details that is not usually noteworthy but may be useful in debugging e.g. print the actual list instead of just its size</p>
+<p><code>FINE</code> : Details that is not usually noteworthy but may be useful in
+debugging e.g. print the actual list instead of just its size</p>
 </li>
 </ul>
 </div>
@@ -737,7 +839,9 @@ The <code>LogsCenter</code> class is used to manage the logging levels and loggi
 <div class="sect2">
 <h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.4. Configuration</a></h3>
 <div class="paragraph">
-<p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
+<p>Certain properties of the application can be controlled (e.g user prefs file
+location, logging level) through the configuration file (default:
+<code>config.json</code>).</p>
 </div>
 </div>
 <div class="sect2">
@@ -745,89 +849,106 @@ The <code>LogsCenter</code> class is used to manage the logging levels and loggi
 <div class="sect3">
 <h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">3.5.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>The archiving of coupons is facilitated by the <code>Archived</code> attribute of a coupon. The following methods in the <code>CouponStash</code>,
+<p>The archiving of coupons is facilitated by the <code>Archived</code> attribute of a
+coupon. The following methods in the <code>CouponStash</code>,
 <code>Coupon</code>, <code>Usage</code> class and the <code>Model</code> interface facilitates this feature:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>CouponStash#archiveExpiredCoupons()</code>&#8201;&#8212;&#8201;Archives any coupon in the CouponStash that has expired, and returns a new updated CouponStash.</p>
+<p><code>CouponStash#archiveExpiredCoupons()</code>&#8201;&#8212;&#8201;Archives any coupon in the
+CouponStash that has expired, and returns a new updated CouponStash.</p>
 </li>
 <li>
 <p><code>Coupon#increaseUsageByOne()</code> - Increases the usage of a coupon by one.</p>
 </li>
 <li>
-<p><code>Usage#isUsageAtLimit</code> - Returns true if the current usage is at its limit (abstracted by the <code>Limit</code> field).</p>
+<p><code>Usage#isUsageAtLimit</code> - Returns true if the current usage is at its limit
+(abstracted by the <code>Limit</code> field).</p>
 </li>
 <li>
-<p><code>Model#PREDICATE_SHOW_ALL_ACTIVE_COUPONS</code> - A Predicate function that filters out archived coupons from a given CouponStash.</p>
+<p><code>Model#PREDICATE_SHOW_ALL_ACTIVE_COUPONS</code> - A Predicate function that filters
+out archived coupons from a given CouponStash.</p>
 </li>
 </ul>
 </div>
-<div id="img-archiving" class="imageblock">
-<div class="content">
-<img src="images/ArchivingClassDiagram.png" alt="ArchivingClassDiagram">
-</div>
-<div class="title">Figure 9. Overview class diagram representation of the the coupon archiving implementation</div>
+<div id="img-archiving" class="paragraph">
+<div class="title">Overview class diagram representation of the the coupon archiving</div>
+<p>implementation
+image::ArchivingClassDiagram.png[ArchivingClassDiagram]</p>
 </div>
 <div class="paragraph">
-<p>Given below is two example usage scenarios and how the archiving mechanism behaves at each step of each scenario.</p>
+<p>Given below is two example usage scenarios and how the archiving mechanism
+behaves at each step of each scenario.</p>
 </div>
 <div class="paragraph">
 <p><strong>Archiving of Expired Coupons</strong></p>
 </div>
 <div class="paragraph">
-<p>Expired coupons are automatically archived by Coupon Stash upon start up of the application. The following steps describe
+<p>Expired coupons are automatically archived by Coupon Stash upon start up of the
+application. The following steps describe
 how this behaviour is implemented.</p>
 </div>
 <div class="paragraph">
-<p>Step 1. The user launches the application for the first time. The initiation of <code>ModelManager</code> will also trigger the
+<p>Step 1. The user launches the application for the first time. The initiation of
+<code>ModelManager</code> will also trigger the
 initiation of <code>CouponStash</code> with any available saved data.</p>
 </div>
 <div class="paragraph">
-<p>Step 2. The method <code>CouponStash#archiveExpiredCoupons</code> will be called from the newly initiated <code>CouponStash</code>, and have its
-<code>UniqueCouponList</code> mapped to a function that archive coupons that have expired before the date of opening the application,
+<p>Step 2. The method <code>CouponStash#archiveExpiredCoupons</code> will be called from the
+newly initiated <code>CouponStash</code>, and have its
+<code>UniqueCouponList</code> mapped to a function that archive coupons that have expired
+before the date of opening the application,
 and returns a new updated <code>CouponStash</code>.</p>
 </div>
 <div class="paragraph">
-<p>Step 3. The <code>ModelManager</code> will proceed to filter out the archived coupons from the newly updated <code>CouponStash</code>, and return
-a filtered list of active coupons. This filtering is facilitated by the predicate <code>Model#PREDICATE_SHOW_ALL_ACTIVE_COUPONS</code>.</p>
+<p>Step 3. The <code>ModelManager</code> will proceed to filter out the archived coupons from
+the newly updated <code>CouponStash</code>, and return
+a filtered list of active coupons. This filtering is facilitated by the
+predicate <code>Model#PREDICATE_SHOW_ALL_ACTIVE_COUPONS</code>.</p>
 </div>
 <div id="img-archiveexpired" class="imageblock">
 <div class="content">
 <img src="images/ArchiveExpiredSequenceDiagram.png" alt="ArchiveExpiredSequenceDiagram">
 </div>
-<div class="title">Figure 10. Sequence diagram representation of archiving expired coupons</div>
+<div class="title">Figure 9. Sequence diagram representation of archiving expired coupons</div>
 </div>
 <div class="paragraph">
 <p><strong>Archiving of Exhausted Coupons</strong></p>
 </div>
 <div class="paragraph">
-<p>Coupons that have exhausted its usages will be automatically archived by the application. The following steps describe how
+<p>Coupons that have exhausted its usages will be automatically archived by the
+application. The following steps describe how
 this behaviour is implemented.</p>
 </div>
 <div class="paragraph">
-<p>Step 1. The user uses a coupon in the current observable <code>CouponStash</code> with the command <code>used 1</code>.
+<p>Step 1. The user uses a coupon in the current observable <code>CouponStash</code> with the
+command <code>used 1</code>.
 The particular coupon will then have its usage increased by one.</p>
 </div>
 <div class="paragraph">
-<p>Step 2. The coupon will then be checked if its usage has reached its limit. For the purpose of this
-explanation, we assume that the coupon being used has a usage limit of 1 and a previous usage value of 0,
+<p>Step 2. The coupon will then be checked if its usage has reached its limit. For
+the purpose of this
+explanation, we assume that the coupon being used has a usage limit of 1 and a
+previous usage value of 0,
 with savings in <code>MonetaryAmount</code>.</p>
 </div>
 <div class="paragraph">
-<p>Step 3. The coupon will have a new <code>Archived</code> value, which will be set to <code>true</code> if the usage has indeed reached its limit.</p>
+<p>Step 3. The coupon will have a new <code>Archived</code> value, which will be set to
+<code>true</code> if the usage has indeed reached its limit.</p>
 </div>
 <div class="paragraph">
-<p>Step 4. The <code>CouponStash</code> will be updated with this used coupon with the <code>ModelManager#setCoupon()</code> method. Under the hood of
-this method, the current filtered list will be be updated to show active coupons only, facilitated by the predicate
+<p>Step 4. The <code>CouponStash</code> will be updated with this used coupon with the
+<code>ModelManager#setCoupon()</code> method. Under the hood of
+this method, the current filtered list will be be updated to show active
+coupons only, facilitated by the predicate
 <code>Model#PREDICATE_SHOW_ALL_ACTIVE_COUPONS</code>.</p>
 </div>
 <div id="img-archiveexhausted" class="imageblock">
 <div class="content">
 <img src="images/ArchiveExhaustedSequenceDiagram.png" alt="ArchiveExhaustedSequenceDiagram">
 </div>
-<div class="title">Figure 11. Sequence diagram representation of archiving exhausted coupons</div>
+<div class="title">Figure 10. Sequence diagram representation of archiving exhausted coupons</div>
 </div>
 </div>
 <div class="sect3">
@@ -844,7 +965,8 @@ this method, the current filtered list will be be updated to show active coupons
 <p>Pros: Easy to implement, lower maintainability.</p>
 </li>
 <li>
-<p>Cons: Saved data may get get considerably huge after heavy usage of application.</p>
+<p>Cons: Saved data may get get considerably huge after heavy usage of
+application.</p>
 </li>
 </ul>
 </div>
@@ -854,10 +976,12 @@ this method, the current filtered list will be be updated to show active coupons
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Separates the logic between the two different <code>CouponStash</code>, e.g. you can limit the functions on archived coupons</p>
+<p>Pros: Separates the logic between the two different <code>CouponStash</code>, e.g. you
+can limit the functions on archived coupons</p>
 </li>
 <li>
-<p>Cons: Sharply increases the maintainability and coupling of the application with two data files.</p>
+<p>Cons: Sharply increases the maintainability and coupling of the application
+with two data files.</p>
 </li>
 </ul>
 </div>
@@ -873,7 +997,8 @@ this method, the current filtered list will be be updated to show active coupons
 <h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">3.6.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The retrieving of command history via the up and down arrow keys is facilitated
-by the <code>CommandTextHistory</code> class. The command history is stored internally as a <code>LinkedList</code> used as a stack with a <code>currIndex</code>
+by the <code>CommandTextHistory</code> class. The command history is stored internally as
+a <code>LinkedList</code> used as a stack with a <code>currIndex</code>
 tracking the next command in the history to return.
 The following methods in the <code>CommandTextHistory</code>
 class facilitates this feature:</p>
@@ -892,11 +1017,14 @@ class facilitates this feature:</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>Given below is an example usage scenario and how the up/down button presses behaves at each step.</p>
+<p>Given below is an example usage scenario and how the up/down button presses
+behaves at each step.</p>
 </div>
 <div class="paragraph">
-<p>Step 1. The user launches the application for the first time. The <code>CommandTextHistory</code> is initialized
-with a <code>LinkedList</code> containing only an empty string (<code>""</code>), and the <code>currIndex</code> is set to <code>0</code>.</p>
+<p>Step 1. The user launches the application for the first time. The
+<code>CommandTextHistory</code> is initialized
+with a <code>LinkedList</code> containing only an empty string (<code>""</code>), and the <code>currIndex</code>
+is set to <code>0</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -904,10 +1032,15 @@ with a <code>LinkedList</code> containing only an empty string (<code>""</code>)
 </div>
 </div>
 <div class="paragraph">
-<p>Step 2. The user executes <code>delete 1</code>. <code>CommandBox#handleCommandEntered()</code> will call <code>CommandTextHistory#add(String commandText)</code> to save the entered command into
-the stack contained in <code>CommandTextHistory</code>. The top of the stack (i.e. the empty string) is popped off first, before
-the entered command is pushed onto the stack. Then, the empty string is pushed onto the stack again, thus ensuring that
-the empty string stays at the top of the stack. Note that <code>currIndex</code> is not affected.</p>
+<p>Step 2. The user executes <code>delete 1</code>. <code>CommandBox#handleCommandEntered()</code> will
+call <code>CommandTextHistory#add(String commandText)</code> to save the entered command
+into
+the stack contained in <code>CommandTextHistory</code>. The top of the stack (i.e. the
+empty string) is popped off first, before
+the entered command is pushed onto the stack. Then, the empty string is pushed
+onto the stack again, thus ensuring that
+the empty string stays at the top of the stack. Note that <code>currIndex</code> is not
+affected.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -915,8 +1048,10 @@ the empty string stays at the top of the stack. Note that <code>currIndex</code>
 </div>
 </div>
 <div class="paragraph">
-<p>Step 3. The user executes <code>delete 2</code>. <code>CommandBox#handleCommandEntered()</code> will also save the entered command into
-the stack contained in <code>CommandTextHistory</code>. As in the previous step, the new command is pushed to the top of the stack,
+<p>Step 3. The user executes <code>delete 2</code>. <code>CommandBox#handleCommandEntered()</code> will
+also save the entered command into
+the stack contained in <code>CommandTextHistory</code>. As in the previous step, the new
+command is pushed to the top of the stack,
 just below the empty string.</p>
 </div>
 <div class="imageblock">
@@ -925,9 +1060,12 @@ just below the empty string.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Step 3. Now, the user decides to delete the second coupon again. We press the arrow key up once,
-and <code>CommandBox#commandTextField</code> has a listener that calls <code>CommandTextHistory#getUp()</code>.
-The <code>currIndex</code> is incremented, and then the command text pointed to by <code>currIndex</code> is returned and
+<p>Step 3. Now, the user decides to delete the second coupon again. We press the
+arrow key up once,
+and <code>CommandBox#commandTextField</code> has a listener that calls
+<code>CommandTextHistory#getUp()</code>.
+The <code>currIndex</code> is incremented, and then the command text pointed to by
+<code>currIndex</code> is returned and
 displayed in the program command box.</p>
 </div>
 <div class="imageblock">
@@ -936,8 +1074,10 @@ displayed in the program command box.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Step 4. The user then executes the retrieved command (<code>delete 2</code>). As in the previous steps, this newly executed command
-is pushed to the top of the stack just below the empty string. However, in such a case when the <code>currIndex</code> is not <code>0</code> and
+<p>Step 4. The user then executes the retrieved command (<code>delete 2</code>). As in the
+previous steps, this newly executed command
+is pushed to the top of the stack just below the empty string. However, in such
+a case when the <code>currIndex</code> is not <code>0</code> and
 does not point to the top of the stack, it is reset to <code>0</code>.</p>
 </div>
 <div class="imageblock">
@@ -954,14 +1094,17 @@ does not point to the top of the stack, it is reset to <code>0</code>.</p>
 <td class="content">
 If the <code>currStateIndex</code> is pointing to the top of the stack,
 then there are no previous commands to retrieve. Thus, the up button will simply
-return the empty string. No changes to the stack and <code>currIndex</code> will be effected.
+return the empty string. No changes to the stack and <code>currIndex</code> will be
+effected.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>The down arrow key does the opposite, it will lead to the calling of <code>CommandTextHistory#getDown()</code>,
-which shifts the <code>currIndex</code> one item higher (i.e. decrement the <code>currIndex</code> by <code>1</code>), before returning
+<p>The down arrow key does the opposite, it will lead to the calling of
+<code>CommandTextHistory#getDown()</code>,
+which shifts the <code>currIndex</code> one item higher (i.e. decrement the <code>currIndex</code> by
+<code>1</code>), before returning
 the command text pointed by the updated <code>currIndex</code>.</p>
 </div>
 <div class="admonitionblock note">
@@ -972,8 +1115,10 @@ the command text pointed by the updated <code>currIndex</code>.</p>
 </td>
 <td class="content">
 If the <code>currIndex</code> is at index <code>commandTextHistory.size() - 1</code>, pointing to the
-bottom of the stack, there is no next command to retrieve when pressing the down key. Thus,
-the down button will simple return the command text currently being pointed to by the <code>currIndex</code>.
+bottom of the stack, there is no next command to retrieve when pressing the
+down key. Thus,
+the down button will simple return the command text currently being pointed to
+by the <code>currIndex</code>.
 No changes to the stack and <code>currIndex</code> will be effected.
 </td>
 </tr>
@@ -991,7 +1136,8 @@ No changes to the stack and <code>currIndex</code> will be effected.
 <div class="ulist">
 <ul>
 <li>
-<p>The first in first out nature of a stack made it a very suitable data structure
+<p>The first in first out nature of a stack made it a very suitable data
+structure
 for the storage of history that is retrived in chronological order of execution.</p>
 </li>
 </ul>
@@ -1006,10 +1152,12 @@ for the storage of history that is retrived in chronological order of execution.
 <h3 id="coupon-reminder"><a class="link" href="#coupon-reminder">3.7. Coupon Reminder</a></h3>
 <div class="paragraph">
 <p>To ensure users are aware of expiring coupons and maximise their saving,
-Coupon Stash reminds the user through a pop-up box, upon launching the application.</p>
+Coupon Stash reminds the user through a pop-up box, upon launching the
+application.</p>
 </div>
 <div class="paragraph">
-<p>To achieve this feature, the following methods in <code>RemindDate</code> class of a coupon,
+<p>To achieve this feature, the following methods in <code>RemindDate</code> class of a
+coupon,
 <code>RemindCommand</code> and <code>RemindWindow</code> are used,</p>
 </div>
 <div class="ulist">
@@ -1023,7 +1171,8 @@ default, every coupons&#8217;s remind date are set to 3 days before the expiry d
 system&#8217;s current date.</p>
 </li>
 <li>
-<p><code>RemindWindow#displayRemind()</code>- To display the pop up box with coupons that needs
+<p><code>RemindWindow#displayRemind()</code>- To display the pop up box with coupons that
+needs
 to be reminded</p>
 </li>
 </ul>
@@ -1034,7 +1183,8 @@ to be reminded</p>
 </div>
 </div>
 <div class="paragraph">
-<p>To make sense of how coupon reminder function, let&#8217;s dive into the specifics of RemindDate
+<p>To make sense of how coupon reminder function, let&#8217;s dive into the specifics of
+RemindDate
 class, RemindCommand class and RemindWindow class.</p>
 </div>
 <div class="sect3">
@@ -1136,11 +1286,13 @@ the default reminder will be set on 3 days before its expiry date.</p>
 <h4 id="implementation-of-remindcommand"><a class="link" href="#implementation-of-remindcommand">3.7.2. Implementation of RemindCommand</a></h4>
 <div class="paragraph">
 <p>Depending of user&#8217;s preference, there are two ways to use the remind command to
-set a coupon&#8217;s remind date. The user can choose to input a specific remind date or
+set a coupon&#8217;s remind date. The user can choose to input a specific remind date
+or
 input X amount of days before the expiry date.</p>
 </div>
 <div class="paragraph">
-<p>The following activity diagram depicts what happens when the user runs a <code>remind</code> command.</p>
+<p>The following activity diagram depicts what happens when the user runs a
+<code>remind</code> command.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1602,7 +1754,8 @@ depending on which fields it has.</p>
 <div class="paragraph">
 <p>Priorities:<br>
 * * * * - epic (must have) || * * * - rare (nice to have) ||
-* * - comon (unlikely to have) || * - rabak (will negatively affect the application)</p>
+* * - comon (unlikely to have) || * - rabak (will negatively affect the
+application)</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width: 59%;">
 <caption class="title">Table 1. User stories and their priorities</caption>
@@ -1630,32 +1783,37 @@ depending on which fields it has.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* * * *</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>SoC</em> student</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">quickly input the coupons that I collected from welfare packs</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">quickly input the coupons that I collected from
+welfare packs</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">have a digital record of all the coupon in a safe place</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* * * *</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">get a list of all the vouchers/<em>promo codes</em> that are expiring soon</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">get a list of all the vouchers/<em>promo codes</em> that are expiring
+soon</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">make use of them before they expire</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* * * *</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">track how many times I can use the <em>promo codes</em>/coupons</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">use them multiple times if possible</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">use
+them multiple times if possible</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* * * *</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">track how much I have saved from using these <em>promo codes</em>/coupons</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">track how much I have saved from using these <em>promo
+codes</em>/coupons</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">know how much I save within a period.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* * * *</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">have an overview of when my coupons are expiring</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">use them before they expire.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">use them
+before they expire.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* * * *</p></td>
@@ -1666,68 +1824,79 @@ depending on which fields it has.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* * * *</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">highly competent <em>SoC</em> student</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">execute simple tasks like add, sorting and finding a coupon</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">execute simple tasks like add,
+sorting and finding a coupon</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">showcase how easy it is to use command-line</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* * * *</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">organized student</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">have a easy visualisation representation of all my coupons</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">have a easy visualisation representation of all my
+coupons</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">can efficiently update any coupons' details</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* * * *</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">store owner</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">able to search for coupons by store</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">customers do not waste too much time finding their coupons</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">customers do not
+waste too much time finding their coupons</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* * * *</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">conscientious coupon-er</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">want to be reminded of the soon-to-be expire coupon</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">want to be reminded of the soon-to-be expire
+coupon</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">use it before it expires</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* * *</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">command-line enthusiast</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">make use of my fast typing speed to organise my coupons in seconds</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">make use of my fast typing speed to organise
+my coupons in seconds</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">spend the rest of my time drinking over a lack of friends</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* * *</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">canteen stall owner</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">promote my store by giving out coupons and vouchers</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">promote my store by giving out coupons and
+vouchers</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">students can benefit from my amazing culinary skills</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* * *</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">business owner</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">let potential consumers discover my discount codes/coupons</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">let potential consumers discover my discount
+codes/coupons</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">advertise and market my products/services</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* * *</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">track how much I have spent from using these <em>promo codes</em>/coupons</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">track how much I have spent from using these <em>promo
+codes</em>/coupons</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">plan my expenses for the month</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* * *</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">financial-aid <em>SoC</em> student</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">quickly store the <em>promo code</em> shared by my peers and use them later for critical necessity like KBBQ and escape room</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">quickly store the <em>promo code</em> shared by
+my peers and use them later for critical necessity like KBBQ and escape room</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">maximise my savings</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* * *</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">exchange student attached to <em>SoC</em></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">keep track of the good deals in Singapore</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">keep track of the good deals in
+Singapore</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">explore Singapore on a tight budget</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* * *</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">time-conscious student</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">use command line to access my coupons</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">spend more time with my family</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">spend
+more time with my family</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* * *</p></td>
@@ -1739,31 +1908,36 @@ depending on which fields it has.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* * *</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">influencer</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">keep track of all my client&#8217;s coupon code</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">share the codes at my IG</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">share the codes
+at my IG</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* * *</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">digital nomad</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">access all the coupons while I am on the go</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">reduce my spending</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">reduce my
+spending</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* *</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">consumer</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">check if the store has any ongoing discount/promotions before making payment</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">check if the store has any ongoing discount/promotions before
+making payment</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">save some money from it</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* *</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">bargain hunter</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">know which coupon requires group purchase</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">quickly share it to my peers</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">quickly share
+it to my peers</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* *</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>SoC</em> lecturer</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">share my wealth of coupons with students</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">students will think I am cool and hip instead of another boring lecturer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">students will
+think I am cool and hip instead of another boring lecturer</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* *</p></td>
@@ -1775,19 +1949,23 @@ depending on which fields it has.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* *</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">block head</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">share relevant club&#8217;s coupons to all my hall members</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">get more financial support from respective sponsors</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">get
+more financial support from respective sponsors</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* *</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">mobile phone user</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">email the coupon details to myself</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">easily access them when I’m outside</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">easily access them
+when I’m outside</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">*</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>SoC</em> cleaner</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">make use of the rubbish that students always leave behind after orientation camps</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">make use of necessary services like Korean BBQ and escape rooms</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">make use of the rubbish that students always leave behind
+after orientation camps</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">make use of necessary services like Korean BBQ and
+escape rooms</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">*</p></td>
@@ -1799,13 +1977,15 @@ depending on which fields it has.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">*</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">computing student</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">save data such that it is easily parsable</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">create alternative clients</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">create
+alternative clients</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">*</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">infosec student</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">encrypt all coupons in one place</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">prevent hackers to hack my coupons</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">prevent hackers to hack
+my coupons</p></td>
 </tr>
 </tbody>
 </table>
@@ -1822,7 +2002,7 @@ Primary actor is the user.</p>
 <div class="content">
 <img src="images/usecase.png" alt="Use Case Diagram" width="1000" height="1000">
 </div>
-<div class="title">Figure 12. Use Cases Overview for STASH</div>
+<div class="title">Figure 11. Use Cases Overview for STASH</div>
 </div>
 <div class="sect2">
 <h3 id="strong-use-case-uc1-add-coupon-strong"><a class="link" href="#strong-use-case-uc1-add-coupon-strong">C.1. <strong>Use Case: UC1 -  Add Coupon</strong></a></h3>
@@ -1892,7 +2072,8 @@ Primary actor is the user.</p>
 <strong>Precondition</strong>: User has opened the application</p>
 </div>
 <div class="paragraph">
-<p>This use case describes how a user uses STASH to list out all the coupon entries.</p>
+<p>This use case describes how a user uses STASH to list out all the coupon
+entries.</p>
 </div>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
@@ -2030,7 +2211,8 @@ Primary actor is the user.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1b1. STASH requests the user to enter an index that corresponds with an existing coupon.</p>
+<p>1b1. STASH requests the user to enter an index that corresponds with an
+existing coupon.</p>
 </li>
 <li>
 <p>1b2. User enters new index.</p>
@@ -2055,7 +2237,8 @@ Primary actor is the user.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1c. STASH detects that the specified coupon has been previously marked as done.</p>
+<p>1c. STASH detects that the specified coupon has been previously marked as
+done.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
@@ -2077,7 +2260,8 @@ Primary actor is the user.</p>
 <strong>Pre-condition</strong>: User has opened the application</p>
 </div>
 <div class="paragraph">
-<p>This use case describes how a user uses STASH to find the coupon(s) with keyword(s).</p>
+<p>This use case describes how a user uses STASH to find the coupon(s) with
+keyword(s).</p>
 </div>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
@@ -2137,7 +2321,8 @@ Primary actor is the user.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1b1. STASH requests the user to enter an index that corresponds with an existing coupon.</p>
+<p>1b1. STASH requests the user to enter an index that corresponds with an
+existing coupon.</p>
 </li>
 <li>
 <p>1b2. User enters new index.</p>
@@ -2167,7 +2352,8 @@ Primary actor is the user.</p>
 <strong>Precondition:</strong> User has opened the application<br></p>
 </div>
 <div class="paragraph">
-<p>This use case describes how a user uses STASH to edit details of an existing coupon.</p>
+<p>This use case describes how a user uses STASH to edit details of an existing
+coupon.</p>
 </div>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
@@ -2233,7 +2419,8 @@ Primary actor is the user.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2b1. STASH requests the user to enter an index that corresponds with an existing coupon.</p>
+<p>2b1. STASH requests the user to enter an index that corresponds with an
+existing coupon.</p>
 </li>
 <li>
 <p>2b2. User enters new index.</p>
@@ -2280,7 +2467,8 @@ Primary actor is the user.</p>
 <strong>Precondition:</strong> User has opened the application<br></p>
 </div>
 <div class="paragraph">
-<p>This use case describes how a user uses STASH to set reminders for an existing coupon.</p>
+<p>This use case describes how a user uses STASH to set reminders for an existing
+coupon.</p>
 </div>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
@@ -2294,7 +2482,8 @@ Primary actor is the user.</p>
 <p>User sets reminder for an existing coupon.</p>
 </li>
 <li>
-<p>On the day of the input date, a pop up will appear to remind the user about the coupon.</p>
+<p>On the day of the input date, a pop up will appear to remind the user about
+the coupon.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2343,7 +2532,8 @@ Primary actor is the user.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2b1. STASH requests the user to enter an index that corresponds with an existing coupon.</p>
+<p>2b1. STASH requests the user to enter an index that corresponds with an
+existing coupon.</p>
 </li>
 <li>
 <p>2b2. User enters new index.</p>
@@ -2373,7 +2563,8 @@ Primary actor is the user.</p>
 <strong>Precondition:</strong> User has opened the application<br></p>
 </div>
 <div class="paragraph">
-<p>This use case describes how a user uses STASH to find the coupon(s) expiring before the input expiry date.</p>
+<p>This use case describes how a user uses STASH to find the coupon(s) expiring
+before the input expiry date.</p>
 </div>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
@@ -2433,7 +2624,8 @@ Primary actor is the user.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1b1. STASH requests the user to enter an index that corresponds with an existing coupon.</p>
+<p>1b1. STASH requests the user to enter an index that corresponds with an
+existing coupon.</p>
 </li>
 <li>
 <p>1b2. User enters new index.</p>
@@ -2528,7 +2720,8 @@ Primary actor is the user.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2b1. STASH requests the user to enter an index that corresponds with an existing coupon.</p>
+<p>2b1. STASH requests the user to enter an index that corresponds with an
+existing coupon.</p>
 </li>
 <li>
 <p>2b2. User enters new index.</p>
@@ -2663,16 +2856,20 @@ Primary actor is the user.</p>
 <p>Coupon Stash can store at least 500 coupons without crashing the application.</p>
 </li>
 <li>
-<p>Coupon Stash can operate without noticeable lag (~2s) when entering commands or interacting with the UI.</p>
+<p>Coupon Stash can operate without noticeable lag (~2s) when entering commands
+or interacting with the UI.</p>
 </li>
 <li>
-<p>Coupon Stash caters to users who have above average typing speed, and these users should be able to get tasks completed faster in the application by typing, rather than using the mouse and the UI.</p>
+<p>Coupon Stash caters to users who have above average typing speed, and these
+users should be able to get tasks completed faster in the application by
+typing, rather than using the mouse and the UI.</p>
 </li>
 <li>
 <p>Coupon Stash source code should be covered by tests as much as possible.</p>
 </li>
 <li>
-<p>Coupon Stash should be easy to use for users, who are not familiar with coding.</p>
+<p>Coupon Stash should be easy to use for users, who are not familiar with
+coding.</p>
 </li>
 <li>
 <p>All monetary amounts should be accurate up to 2 decimal places.</p>
@@ -2687,7 +2884,8 @@ Primary actor is the user.</p>
 <p>Coupon Stash works perfectly without access to the internet.</p>
 </li>
 <li>
-<p>Coupon Stash supports various types of coupons (e.g. promotional codes, QR code, or barcode) (coming in in v2.0)</p>
+<p>Coupon Stash supports various types of coupons (e.g. promotional codes, QR
+code, or barcode) (coming in in v2.0)</p>
 </li>
 </ol>
 </div>
@@ -2697,63 +2895,100 @@ Primary actor is the user.</p>
 <h2 id="glossary"><a class="link" href="#glossary">Appendix E: Glossary</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>[red]# Terms that are italicised inline code (e.g <code><em>operating system</em></code>) can be found with definitions here. #</p>
+<p>[red]# Terms that are italicised inline code (e.g <code><em>operating system</em></code>) can be
+found with definitions here. #</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><strong>Apple</strong> - American technology company well known for lifestyle devices like iPhone and iPad, which are manufactured exclusively by exploited minimum wage workers in China and Taiwan.</p>
+<p><strong>Apple</strong> - American technology company well known for lifestyle devices like
+iPhone and iPad, which are manufactured exclusively by exploited minimum wage
+workers in China and Taiwan.</p>
 </li>
 <li>
-<p><strong>coding</strong> - the process of writing code that represents a computer program, or using a programming language to get a computer to behave how you want it to.</p>
+<p><strong>coding</strong> - the process of writing code that represents a computer program,
+or using a programming language to get a computer to behave how you want it to.</p>
 </li>
 <li>
-<p><strong>Coupon Stash</strong> - the program that makes handling your coupons easier, and also the subject matter of this Developer Guide.</p>
+<p><strong>Coupon Stash</strong> - the program that makes handling your coupons easier, and
+also the subject matter of this Developer Guide.</p>
 </li>
 <li>
-<p><strong>common operating system</strong> - refers to the most widely seen <code><em>operating systems</em></code> within the top 3 most common <code><em>desktop</em></code> <code><em>operating system families</em></code>, namely <code><em>Microsoft Windows</em></code>, <code><em>Apple</em></code> Mac OS X and <code><em>GNU Project</em></code> Linux as of February 2020 (and within these families, Windows 10, macOS Catalina, no data for Linux).</p>
+<p><strong>common operating system</strong> - refers to the most widely seen <code><em>operating
+systems</em></code> within the top 3 most common <code><em>desktop</em></code> <code><em>operating system
+families</em></code>, namely <code><em>Microsoft Windows</em></code>, <code><em>Apple</em></code> Mac OS X and <code><em>GNU
+Project</em></code> Linux as of February 2020 (and within these families, Windows 10,
+macOS Catalina, no data for Linux).</p>
 </li>
 <li>
-<p><strong>desktop</strong> - a computer meant for use at an ordinary desk, usually one with a screen, as well as devices that allow people to interact with the computing system with physical controls such as a moveable hand-held device typically with large buttons and a wheel called a mouse, as well as a panel of buttons with printed alphanumeric characters known as a keyboard.</p>
+<p><strong>desktop</strong> - a computer meant for use at an ordinary desk, usually one with
+a screen, as well as devices that allow people to interact with the computing
+system with physical controls such as a moveable hand-held device typically
+with large buttons and a wheel called a mouse, as well as a panel of buttons
+with printed alphanumeric characters known as a keyboard.</p>
 </li>
 <li>
-<p><strong>GNU Project</strong> - a label used for certain open-source software applications that are developed completely without expectation of remuneration, the acronym GNU in this case does not refer to any significant terms and can instead be taken just as a distinctive name.</p>
+<p><strong>GNU Project</strong> - a label used for certain open-source software applications
+that are developed completely without expectation of remuneration, the acronym
+GNU in this case does not refer to any significant terms and can instead be
+taken just as a distinctive name.</p>
 </li>
 <li>
-<p><strong>Java 11</strong> - the 11th version of the highly popular Java platform and programming language, on which many software applications are built upon.</p>
+<p><strong>Java 11</strong> - the 11th version of the highly popular Java platform and
+programming language, on which many software applications are built upon.</p>
 </li>
 <li>
-<p><strong>lag</strong> - the phenomenon where some arbitrary user input takes a noticeable and vexatious amount of time to effect a change in the application state.</p>
+<p><strong>lag</strong> - the phenomenon where some arbitrary user input takes a noticeable
+and vexatious amount of time to effect a change in the application state.</p>
 </li>
 <li>
-<p><strong>Microsoft</strong> - American technology company well known for the Windows operating system, as well as the highly popular productivity software collection <code><em>Microsoft</em></code> Office, amongst various other products which comprise mostly of competing offerings to more well-established products, that fail to gain as much market share as the precedent.</p>
+<p><strong>Microsoft</strong> - American technology company well known for the Windows
+operating system, as well as the highly popular productivity software
+collection <code><em>Microsoft</em></code> Office, amongst various other products which comprise
+mostly of competing offerings to more well-established products, that fail to
+gain as much market share as the precedent.</p>
 </li>
 <li>
-<p><strong>monetary amounts</strong> - any currency amount (for example, 10.55 may represent 10 dollars and 55 cents, or 10 pounds and 55 pence, or 10 pesos and 55 centavos).</p>
+<p><strong>monetary amounts</strong> - any currency amount (for example, 10.55 may represent
+10 dollars and 55 cents, or 10 pounds and 55 pence, or 10 pesos and 55
+centavos).</p>
 </li>
 <li>
-<p><strong>operating system</strong> - a fundamental software application that runs on a computer, supporting basic functions such as ability to manage computer memory, to allow users to use the device without concern for such technical details.</p>
+<p><strong>operating system</strong> - a fundamental software application that runs on a
+computer, supporting basic functions such as ability to manage computer memory,
+to allow users to use the device without concern for such technical details.</p>
 </li>
 <li>
-<p><strong>operating system family</strong> - a group of <code><em>operating systems</em></code> that are developed by the same company or organisation, usually with the same branding as each other, having visually similar UIs and behaviour.</p>
+<p><strong>operating system family</strong> - a group of <code><em>operating systems</em></code> that are
+developed by the same company or organisation, usually with the same branding
+as each other, having visually similar UIs and behaviour.</p>
 </li>
 <li>
 <p><strong>OS (Operating System)</strong> - see operating system.</p>
 </li>
 <li>
-<p><strong>promo code</strong> - short for promotional code, usually refer to an unique string of letters and numbers that can be entered in some mobile application to redeem certain benefits.</p>
+<p><strong>promo code</strong> - short for promotional code, usually refer to an unique
+string of letters and numbers that can be entered in some mobile application to
+redeem certain benefits.</p>
 </li>
 <li>
-<p><strong>SoC (School of Computing)</strong> - the School of Computing at the National University of Singapore.</p>
+<p><strong>SoC (School of Computing)</strong> - the School of Computing at the National
+University of Singapore.</p>
 </li>
 <li>
-<p><strong>source code</strong> - a set of instructions, written in a programming language that determine the final application’s internal and external behaviour.</p>
+<p><strong>source code</strong> - a set of instructions, written in a programming language
+that determine the final application’s internal and external behaviour.</p>
 </li>
 <li>
-<p><strong>Stash</strong> - a group of something valuable that the user would like to keep securely, ideally using our <code><em>Coupon Stash</em></code> application.</p>
+<p><strong>Stash</strong> - a group of something valuable that the user would like to keep
+securely, ideally using our <code><em>Coupon Stash</em></code> application.</p>
 </li>
 <li>
-<p><strong>UI (User Interface)</strong> - a catch-all term referring to how a computer system and a coupon interacts, usually referring to specific elements displayed on the computer screen that the user may interact with such as buttons or text boxes, as well as areas where the computer application displays certain outputs to the user.</p>
+<p><strong>UI (User Interface)</strong> - a catch-all term referring to how a computer system
+and a coupon interacts, usually referring to specific elements displayed on the
+computer screen that the user may interact with such as buttons or text boxes,
+as well as areas where the computer application displays certain outputs to the
+user.</p>
 </li>
 </ol>
 </div>
@@ -2772,7 +3007,8 @@ Primary actor is the user.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-These instructions only provide a starting point for testers to work on; testers are expected to do more <em>exploratory</em> testing.
+These instructions only provide a starting point for testers to work on;
+testers are expected to do more <em>exploratory</em> testing.
 </td>
 </tr>
 </table>
@@ -2790,7 +3026,8 @@ These instructions only provide a starting point for testers to work on; testers
 </li>
 <li>
 <p>Double-click the jar file<br>
-Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.</p>
+   Expected: Shows the GUI with a set of sample contacts. The window size may
+not be optimum.</p>
 </li>
 </ol>
 </div>
@@ -2800,7 +3037,8 @@ Expected: Shows the GUI with a set of sample contacts. The window size may not b
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Resize the window to an optimum size. Move the window to a different location. Close the window.</p>
+<p>Resize the window to an optimum size. Move the window to a different
+location. Close the window.</p>
 </li>
 <li>
 <p>Re-launch the app by double-clicking the jar file.<br>
@@ -2822,7 +3060,8 @@ Expected: Shows the GUI with a set of sample contacts. The window size may not b
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: List all coupons using the <code>list</code> command. Multiple coupons in the list.</p>
+<p>Prerequisites: List all coupons using the <code>list</code> command. Multiple coupons
+in the list.</p>
 </li>
 <li>
 <p>Test case: <code>delete 1</code><br>
@@ -2837,8 +3076,9 @@ Error details shown in the status message.
 Status bar remains the same.</p>
 </li>
 <li>
-<p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size) <em>{give more}</em><br>
-Expected: Similar to previous.</p>
+<p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is
+larger than the list size) <em>{give more}</em><br>
+   Expected: Similar to previous.</p>
 </li>
 </ol>
 </div>
@@ -2858,7 +3098,8 @@ Expected: Similar to previous.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p><em>{explain how to simulate a missing/corrupted file and the expected behavior}</em>
+<p><em>{explain how to simulate a missing/corrupted file and the expected
+behavior}</em>
 <em>{ more test cases &#8230;&#8203; }</em></p>
 </li>
 </ol>
@@ -2868,4 +3109,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-08 09:19:41 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-08 11:09:29 UTC</div></div></div></body></html>
