@@ -1,6 +1,6 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Chester Sim - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Nelson Tan - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">Coupon Stash</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S2-CS2103T-F09-1/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Chester Sim - Project Portfolio</h1></div><div id="content"><div class="sect1">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">Coupon Stash</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S2-CS2103T-F09-1/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Nelson Tan - Project Portfolio</h1></div><div id="content"><div class="sect1">
 <h2 id="project-coupon-stash"><a class="link" href="#project-coupon-stash">PROJECT: Coupon Stash</a></h2>
 <div class="sectionbody">
 <hr>
@@ -22,30 +22,37 @@ GUI created with JavaFX. It is written in Java, and has about 25kLoC.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: added <strong>the ability to use a coupon</strong></p>
+<p><strong>Major enhancement</strong>: added <strong>the ability to undo and redo operations</strong></p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: allows the user to keep track of his usage for each and every
-coupon.</p>
+<p>What it does: allows the user to undo the most recent operation on the
+coupon stash. Undoing can itself be undone via the redo operation.</p>
 </li>
 <li>
-<p>Justification: This feature is essential in keeping track of coupons and
-also its generated savings.</p>
+<p>Justification: This feature is essential in allowing users who&#8217;ve made
+mistakes in their operations on the coupon stash to revert their changes.
+Addtionally, users will also want to be able to revert to their reverted
+changes, and this led to the creation of the undo and redo commands.</p>
 </li>
 <li>
-<p>Highlights: This enhancement ties in with other coupon fields to ensure
-the valid usage of a coupon. From the start date of the coupon, to the type
-of savings generated, this feature is critical to the functioning of Coupon Stash.</p>
+<p>Highlights: This enhancement required the deep copy of all a coupon&#8217;s
+fields so as to prevent unpredictable side effects down the line. Thus,
+there was constant collaboration and communication with the group members
+regarding how to best tie in this feature with the rest of the features.
+Some new commands added by other group members also require updates to
+be pushed to the undo and redo feature, thus this was a very dynamic
+feature that needed frequent updates.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: added a history command that allows the user to navigate to previous commands using up/down keys.</p>
+<p><strong>Minor enhancement</strong>: added a history command that allows the user to navigate
+to previous commands using up/down keys.</p>
 </li>
 <li>
-<p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em></p>
+<p><strong>Code contributed</strong>: [<a href="https://nus-cs2103-ay1920s2.github.io/tp-dashboard/#search=&amp;sort=groupTitle&amp;sortWithin=title&amp;since=2020-02-14&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false&amp;tabOpen=true&amp;tabType=authorship&amp;tabAuthor=nelsontky&amp;tabRepo=AY1920S2-CS2103T-F09-1%2Fmain%5Bmaster%5D">All contributed code</a>]</p>
 </li>
 <li>
 <p><strong>Other contributions</strong>:</p>
@@ -66,10 +73,11 @@ of savings generated, this feature is critical to the functioning of Coupon Stas
 <div class="ulist">
 <ul>
 <li>
-<p>Updated the GUI color scheme (Pull requests <a href="https://github.com">#33</a>, <a href="https://github.com">#34</a>)</p>
+<p>Updated the help menu <a href="https://github.com/AY1920S2-CS2103T-F09-1/main/pull/215">#215</a></p>
 </li>
 <li>
-<p>Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests <a href="https://github.com">#36</a>, <a href="https://github.com">#38</a>)</p>
+<p>Updated the help command to open an offline copy of the user guide
+<a href="https://github.com/AY1920S2-CS2103T-F09-1/main/pull/284">#284</a></p>
 </li>
 </ul>
 </div>
@@ -79,7 +87,8 @@ of savings generated, this feature is critical to the functioning of Coupon Stas
 <div class="ulist">
 <ul>
 <li>
-<p>Did cosmetic tweaks to existing contents of the User Guide: <a href="https://github.com">#14</a></p>
+<p>Did cosmetic tweaks to existing contents of the User Guide:
+<a href="https://github.com">#14</a></p>
 </li>
 </ul>
 </div>
@@ -89,16 +98,16 @@ of savings generated, this feature is critical to the functioning of Coupon Stas
 <div class="ulist">
 <ul>
 <li>
-<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com">#12</a>, <a href="https://github.com">#32</a>, <a href="https://github.com">#19</a>, <a href="https://github.com">#42</a></p>
+<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com">#12</a>,
+<a href="https://github.com">#32</a>, <a href="https://github.com">#19</a>, <a href="https://github.com">#42</a></p>
 </li>
 <li>
-<p>Contributed to forum discussions (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>, <a href="https://github.com">4</a>)</p>
+<p>Contributed to forum discussions (examples:  <a href="https://github.com">1</a>,
+<a href="https://github.com">2</a>, <a href="https://github.com">3</a>, <a href="https://github.com">4</a>)</p>
 </li>
 <li>
-<p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>)</p>
-</li>
-<li>
-<p>Some parts of the history feature I added was adopted by several other class mates (<a href="https://github.com">1</a>, <a href="https://github.com">2</a>)</p>
+<p>Reported bugs and suggestions for other teams in the class (examples:
+<a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>)</p>
 </li>
 </ul>
 </div>
@@ -108,10 +117,8 @@ of savings generated, this feature is critical to the functioning of Coupon Stas
 <div class="ulist">
 <ul>
 <li>
-<p>Integrated a third party library (Natty) to the project (<a href="https://github.com">#42</a>)</p>
-</li>
-<li>
-<p>Integrated a new Github plugin (CircleCI) to the team repo</p>
+<p>Integrated a third party library (Natty) to the project
+(<a href="https://github.com">#42</a>)</p>
 </li>
 </ul>
 </div>
@@ -120,9 +127,6 @@ of savings generated, this feature is critical to the functioning of Coupon Stas
 </div>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p><em>{you can add/remove categories in the list above}</em></p>
 </div>
 </div>
 </div>
@@ -135,7 +139,8 @@ of savings generated, this feature is critical to the functioning of Coupon Stas
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my
+ability to write documentation targeting end-users.</em></p></td>
 </tr>
 </tbody>
 </table>
@@ -150,7 +155,9 @@ of savings generated, this feature is critical to the functioning of Coupon Stas
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase
+my ability to write technical documentation and the technical depth of my
+contributions to the project.</em></p></td>
 </tr>
 </tbody>
 </table>
