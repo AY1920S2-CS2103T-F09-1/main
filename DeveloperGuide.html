@@ -29,6 +29,7 @@
 <li><a href="#Implementation-Coupon-Archiving">3.5. Coupon Archiving</a></li>
 <li><a href="#up-down-arrow-command-history">3.6. Up/down arrow command history</a></li>
 <li><a href="#coupon-reminder">3.7. Coupon Reminder</a></li>
+<li><a href="#savings-per-use-and-total-amount-saved">3.8. Savings per use and total amount saved</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a></li>
@@ -1380,14 +1381,17 @@ Efficient.</p>
 </li>
 <li>
 <p>Cons: Harder to maintain two data files.
-Very prone to error.
-=== Savings per use and total amount saved</p>
+Very prone to error.</p>
 </li>
 </ul>
 </div>
 </li>
 </ul>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="savings-per-use-and-total-amount-saved"><a class="link" href="#savings-per-use-and-total-amount-saved">3.8. Savings per use and total amount saved</a></h3>
 <div class="paragraph">
 <p>To allow users to keep track of how much they have saved
 (after all, the whole point of coupons is to offer
@@ -1403,9 +1407,8 @@ fields:<br>
 2. Total amount of savings accumulated
 from using a certain coupon</p>
 </div>
-</div>
 <div class="sect3">
-<h4 id="class-structure-of-savings"><a class="link" href="#class-structure-of-savings">3.7.5. Class structure of Savings</a></h4>
+<h4 id="class-structure-of-savings"><a class="link" href="#class-structure-of-savings">3.8.1. Class structure of Savings</a></h4>
 <div class="paragraph">
 <p>Just for reference, the image below shows the class diagram
 for the Savings class. It is compulsory for each Coupon to
@@ -1492,7 +1495,7 @@ a voucher that says "10% and $5 off").</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="puremonetarysavings-and-datesavingssummap"><a class="link" href="#puremonetarysavings-and-datesavingssummap">3.7.6. PureMonetarySavings and DateSavingsSumMap</a></h4>
+<h4 id="puremonetarysavings-and-datesavingssummap"><a class="link" href="#puremonetarysavings-and-datesavingssummap">3.8.2. PureMonetarySavings and DateSavingsSumMap</a></h4>
 <div class="paragraph">
 <p>In order to calculate the total amount saved, Coupons also
 store information about how much the user saves, and storage
@@ -1533,7 +1536,7 @@ as "used" with the <code>used</code> command.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="implementation-of-used-command"><a class="link" href="#implementation-of-used-command">3.7.7. Implementation of used command</a></h4>
+<h4 id="implementation-of-used-command"><a class="link" href="#implementation-of-used-command">3.8.3. Implementation of used command</a></h4>
 <div class="paragraph">
 <p>When the user enters a used command, the actions taken by Coupon
 Stash change depending on whether the Coupon&#8217;s Savings stores
@@ -1593,7 +1596,7 @@ a <a href="#dssm">DateSavingsSumMap</a>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="implementation-of-saved-command"><a class="link" href="#implementation-of-saved-command">3.7.8. Implementation of saved command</a></h4>
+<h4 id="implementation-of-saved-command"><a class="link" href="#implementation-of-saved-command">3.8.4. Implementation of saved command</a></h4>
 <div class="paragraph">
 <p>Now that we have seen how the used command works,
 we can look at how the saved command works. While
@@ -1621,7 +1624,7 @@ or from all dates if no time period is specified.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">3.7.9. Design considerations</a></h4>
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">3.8.5. Design considerations</a></h4>
 <div class="paragraph">
 <p>Based on the User Stories, there is a desire for tracking
 how much one has saved by using Coupon Stash, as well
@@ -3109,4 +3112,4 @@ behavior}</em>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-09 14:14:21 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-09 14:37:17 UTC</div></div></div></body></html>
