@@ -99,7 +99,7 @@
 <p>Displaying a coupon: expand</p>
 </li>
 <li>
-<p>Setting user preferences: setpref</p>
+<p>Setting currency symbol: setcurrency</p>
 </li>
 <li>
 <p>Viewing help: help</p>
@@ -176,7 +176,7 @@ along the way.</p>
 <li><a href="#redoing-the-undone-command-code-redo-code">4.16. Redoing the undone command: <code>redo</code></a></li>
 <li><a href="#displaying-a-month-year-on-the-calendar-code-goto-code">4.17. Displaying a Month-Year on the calendar: <code>goto</code></a></li>
 <li><a href="#displaying-a-coupon-code-expand-code">4.18. Displaying a Coupon: <code>expand</code></a></li>
-<li><a href="#setting-user-preferences-code-setpref-code">4.19. Setting user preferences: <code>setpref</code></a></li>
+<li><a href="#setting-currency-symbol-code-setcurrency-code">4.19. Setting currency symbol: <code>setcurrency</code></a></li>
 <li><a href="#viewing-help-code-help-code">4.20. Viewing help: <code>help</code></a></li>
 <li><a href="#clearing-all-entries-code-clear-code">4.21. Clearing all entries: <code>clear</code></a></li>
 <li><a href="#exiting-the-program-code-exit-code">4.22. Exiting the program: <code>exit</code></a></li>
@@ -1512,38 +1512,39 @@ Open the coupon at index 1 in a new window.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="setting-user-preferences-code-setpref-code"><a class="link" href="#setting-user-preferences-code-setpref-code">4.19. Setting user preferences: <code>setpref</code></a></h3>
+<h3 id="setting-currency-symbol-code-setcurrency-code"><a class="link" href="#setting-currency-symbol-code-setcurrency-code">4.19. Setting currency symbol: <code>setcurrency</code></a></h3>
 <div class="paragraph">
-<p>Sets the user preferences in Coupon Stash. Available user
-preferences currently consist of:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>The symbol used to represent monetary amount</p>
-</li>
-<li>
-<p>More to be added in v2.0</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Format: <code>setpref [ms/NEW_MONEY_SYMBOL]</code></p>
+<p>Sets the currency symbol used in Coupon Stash.
+This will force Coupon Stash to reload all coupons
+to use the new symbol instead.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>At least one of the optional fields must be provided.</p>
-</li>
-<li>
-<p>The preferences may affect the visual look of the
-program, as well as modify commands entered</p>
+<p>The currency symbol may affect the visual look of the
+program, as well as modify commands entered!</p>
 </li>
 </ul>
 </div>
 </div>
+</div>
+<div class="paragraph">
+<p>Format: <code>setcurrency ms/NEW_MONEY_SYMBOL</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>setcurrency ms/€</code><br>
+Sets the money symbol used in commands, as well as to
+display coupons' savings, to € (Euro). The changes will
+be visible immediately.</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect2">
@@ -1577,19 +1578,6 @@ command that changes the data.</p>
 </div>
 <div class="paragraph">
 <p>There is no need to save manually.</p>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>setpref ms/€</code><br>
-Sets the money symbol used in commands, as well as to
-display coupons' savings, to € (Euro). The changes will
-be visible immediately.</p>
-</li>
-</ul>
 </div>
 </div>
 </div>
@@ -1752,9 +1740,9 @@ e.g.<code>goto 9-2020</code></p></td>
 e.g. <code>expand 1</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>SetPref</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>setpref [ms/NEW_MONEY_SYMBOL]</code><br>
-e.g. setpref ms/€</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>SetCurrency</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>setcurrency [ms/NEW_MONEY_SYMBOL]</code><br>
+e.g. setcurrency ms/€</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Help</strong></p></td>
@@ -1888,4 +1876,4 @@ supported in the condition.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-10 18:44:09 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-10 18:48:11 UTC</div></div></div></body></html>
