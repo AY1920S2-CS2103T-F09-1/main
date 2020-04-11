@@ -12,7 +12,7 @@
 <div class="paragraph">
 <p>Coupon Stash is a desktop coupons manager that allows users to keep track of
 their coupons. The user interacts with it using a CLI, and it has a beautiful
-GUI created with JavaFX. It is written in Java, and has about 25kLoC.</p>
+GUI created with JavaFX. It is written in Java, and has about 15kLoC.</p>
 </div>
 </div>
 </div>
@@ -22,7 +22,9 @@ GUI created with JavaFX. It is written in Java, and has about 25kLoC.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: added <strong>the ability to use a coupon</strong></p>
+<p><strong>Major enhancement</strong>: added <strong>the ability to use a coupon</strong> (Pull request
+<a href="https://github.com/AY1920S2-CS2103T-F09-1/main/pull/80">#80</a>,
+<a href="https://github.com/AY1920S2-CS2103T-F09-1/main/pull/98">#98</a>)</p>
 <div class="ulist">
 <ul>
 <li>
@@ -42,37 +44,65 @@ of savings generated, this feature is critical to the functioning of Coupon Stas
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: added a shortcut to close windows opened by Coupon Stash and
-do not have a command line interface. This ensures that the overall application
-can be solely used by a keyboard that can be exploited by a fast typist, bar the
-scrolling of the coupon list.</p>
+<p><strong>Major enhancement</strong>: added <strong>archiving mechanism</strong> (Pull Request
+<a href="https://github.com/AY1920S2-CS2103T-F09-1/main/pull/137">#137</a>)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: automatically archive the coupon when it has expired or
+exhausted its usages.</p>
 </li>
 <li>
-<p><strong>Code contributed</strong>: [<a href="https://nus-cs2103-ay1920s2.github.io/tp-dashboard/#search=chester&amp;sort=groupTitle&amp;sortWithin=title&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false&amp;tabOpen=true&amp;tabType=zoom&amp;zA=ChesterSim&amp;zR=AY1920S2-CS2103T-F09-1%2Fmain%5Bmaster%5D&amp;zACS=214.68421052631578&amp;zS=2020-02-14&amp;zU=2020-04-08&amp;zMG=false&amp;zFTF=commit&amp;zFGS=groupByRepos&amp;zSO=undefined&amp;zSWO=undefined&amp;zSD=false&amp;zSWD=false&amp;since=2020-02-14">Functional code</a>]</p>
+<p>Justification: This feature declutters the user&#8217;s visible list of active
+coupons, while retaining the ability to access the archived coupons if needed.</p>
+</li>
+<li>
+<p>Highlights: Considerations were made on the design of the archiving system, where the
+initial phase focused on two separate data files for active and archived coupons. This was
+found to be highly coupled, and would increase complexity and maintainability of the
+application. This enhancement ties in with the Used and Expiring functionality of
+Coupons to ensure correct archiving of coupons.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>: Added shortcut (Ctrl + Q) to quit windows that do not have a CLI in
+Coupon Stash (e.g. Coupon, Remind Window), to maintain the ability to use Coupon Stash with
+only a keyboard (except scrolling of lists). (Pull Request
+<a href="https://github.com/AY1920S2-CS2103T-F09-1/main/pull/323">#323</a>)</p>
+</li>
+<li>
+<p><strong>Code contributed</strong>: [<a href="https://nus-cs2103-ay1920s2.github.io/tp-dashboard/#search=chester">Functional &amp; Test Code</a>]</p>
 </li>
 <li>
 <p><strong>Other contributions</strong>:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Project management:</p>
+<p>UI Lead:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Managed releases <code>v1.3</code> - <code>v1.5rc</code> (3 releases) on GitHub</p>
+<p>Drafted and designed the overall User Interface and Logo of Coupon Stash
+(<a href="https://www.figma.com/file/y2jlxT2hlLKC9THWPjUr3b/Coupon-Stash-Iterations?node-id=0%3A1">link</a>)</p>
+</li>
+<li>
+<p>Created Coupon, Coupon Window, and Remind Window base FXML code
+(Pull Request <a href="https://github.com/AY1920S2-CS2103T-F09-1/main/pull/170">#170</a>,
+<a href="https://github.com/AY1920S2-CS2103T-F09-1/main/pull/300">#300</a>,
+<a href="https://github.com/AY1920S2-CS2103T-F09-1/main/pull/317">#317</a>,
+<a href="https://github.com/AY1920S2-CS2103T-F09-1/main/pull/323">#328</a>)</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>Enhancements to existing features:</p>
+<p>Project management:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Updated the GUI color scheme (Pull requests <a href="https://github.com">#33</a>, <a href="https://github.com">#34</a>)</p>
-</li>
-<li>
-<p>Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests <a href="https://github.com">#36</a>, <a href="https://github.com">#38</a>)</p>
+<p>Lead the project in terms of direction of product, defining and assigning tasks.</p>
 </li>
 </ul>
 </div>
@@ -82,7 +112,12 @@ scrolling of the coupon list.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Did cosmetic tweaks to existing contents of the User Guide: <a href="https://github.com">#14</a></p>
+<p>Added Use Cases in User Guide (Pull Request
+<a href="https://github.com/AY1920S2-CS2103T-F09-1/main/pull/28">#28</a>)</p>
+</li>
+<li>
+<p>Edit various part of User Guide (Pull request
+<a href="https://github.com/AY1920S2-CS2103T-F09-1/main/pull/148">#148</a>)</p>
 </li>
 </ul>
 </div>
@@ -92,30 +127,14 @@ scrolling of the coupon list.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com">#12</a>, <a href="https://github.com">#32</a>, <a href="https://github.com">#19</a>, <a href="https://github.com">#42</a></p>
-</li>
-<li>
-<p>Contributed to forum discussions (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>, <a href="https://github.com">4</a>)</p>
+<p>PRs reviewed (with non-trivial review comments):
+<a href="https://github.com/AY1920S2-CS2103T-F09-1/main/pull/110">#110</a>,
+<a href="https://github.com/AY1920S2-CS2103T-F09-1/main/pull/115">#115</a>,
+<a href="https://github.com/AY1920S2-CS2103T-F09-1/main/pull/154">#154</a></p>
 </li>
 <li>
 <p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>)</p>
 </li>
-<li>
-<p>Some parts of the history feature I added was adopted by several other class mates (<a href="https://github.com">1</a>, <a href="https://github.com">2</a>)</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Tools:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Integrated a third party library (Natty) to the project (<a href="https://github.com">#42</a>)</p>
-</li>
-<li>
-<p>Integrated a new Github plugin (CircleCI) to the team repo</p>
-</li>
 </ul>
 </div>
 </li>
@@ -123,9 +142,6 @@ scrolling of the coupon list.</p>
 </div>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p><em>{you can add/remove categories in the list above}</em></p>
 </div>
 </div>
 </div>
@@ -142,6 +158,979 @@ scrolling of the coupon list.</p>
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="using-a-coupon-code-used-code"><a class="link" href="#using-a-coupon-code-used-code">Using a coupon: <code>used</code></a></h3>
+<div class="paragraph">
+<p>Uses a coupon if its usage has yet to reached its limit.
+Requires an original amount of purchase if the coupon has savings in a
+percentage value.<br></p>
+</div>
+<div class="paragraph">
+<p>Format: <code>used INDEX</code> or <code>used INDEX MONETARY_AMOUNT</code>
+where <code>MONETARY_AMOUNT</code> is a number prefixed by a user-defined currency
+symbol e.g. ($4.50, where the currency symbol is "$").</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Uses the coupon at the specified INDEX.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>used 1</code><br>
+Uses the first coupon in the coupon stash.</p>
+</li>
+<li>
+<p><code>used 1 $10.0</code><br>
+Uses the first coupon in the coupon stash, which also has a percentage savings.
+The total savings of the coupon will be calculated, and can be seen with the
+command <code>saved</code>.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+A coupon cannot be used if it has not reached its start date, or it is archived.
+If there is an intention to use the coupon, you can
+<a href="#Editing a coupon: <code>edit</code>"><code>edit</code></a> the start date or
+<a href="#Unarchiving a coupon: <code>unarchive</code>"><code>unarchive</code></a> the coupon.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="archiving-a-coupon-code-archive-code"><a class="link" href="#archiving-a-coupon-code-archive-code">Archiving a coupon: <code>archive</code></a></h3>
+<div class="paragraph">
+<p>Archives a coupon when you want to keep a record of it, without cluttering your
+current stash of coupons.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+To view archived coupons, the user can run the <a href="#Listing coupons: <code>list</code>"><code>list
+a/</code></a> command to list all
+archived coupons. Alternatively, the <a href="#locating-coupons-by-name-code-find-code"><code>find</code></a> command explained below will
+search all archived coupons, thus displaying archives that match the supplied
+keywords below unarchived coupons. Finally, the
+<a href="#listing-all-expiring-coupons-code-expiring-code"><code>expiring</code></a> command will also
+include all archived coupons that are expiring in its results.
+Read the section on <a href="#locating-coupons-by-name-code-find-code"><code>find</code></a> and
+<a href="#listing-all-expiring-coupons-code-expiring-code"><code>expiring</code></a>
+respectively to find out more.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Format: <code>archive INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Archives the coupon at the specified INDEX.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>archive 1</code><br>
+Archives the first coupon in the coupon stash.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Coupon Stash will automatically archive your coupons once their usage limit has
+been reached,
+or when they have expired, to keep your stash more organized!
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="unarchive-a-coupon-code-unarchive-code"><a class="link" href="#unarchive-a-coupon-code-unarchive-code">Unarchive a coupon: <code>unarchive</code></a></h3>
+<div class="paragraph">
+<p>Unarchive a coupon, thus brining it back to your active coupons list.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+To unarchive a coupon, you have to make sure that the archived coupon is
+visible in the coupon stash first. Read the section on the
+<a href="#archiving-a-coupon-code-archive-code"><code>archive</code></a> command to find out the ways that
+you can display archived coupons.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Format: <code>unarchive INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Unarchive the coupon at the specified INDEX.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>unarchive 1</code><br>
+Unarchive the first coupon in the coupon stash.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="locating-coupons-by-name-code-find-code"><a class="link" href="#locating-coupons-by-name-code-find-code">Locating coupons by name: <code>find</code></a></h3>
+<div class="paragraph">
+<p>Find coupon(s) whose names contain any of the given keywords.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>find KEYWORD [MORE_KEYWORDS]&#8230;&#8203;</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The search is case insensitive. e.g mALa will match Mala</p>
+</li>
+<li>
+<p>The order of the keywords does not matter. e.g. Rice Chicken will match
+Chicken Rice</p>
+</li>
+<li>
+<p>Only full words will be matched e.g. Chicken will not match Chickens</p>
+</li>
+<li>
+<p>Coupons matching at least one keyword will be returned (i.e. OR search).
+e.g. Chicken Rice will return Duck Rice, Chicken Chop</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+For easy finding of coupons, include the store or brand
+name in your coupon name!
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>find ken</code><br>
+Returns Ken sKitchen, KEN RIDGE Optical, Chic ken Rice</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The <a href="#locating-coupons-by-name-code-find-code"><code>find</code></a> command searches the
+<a href="#archiving-a-coupon-code-archive-code"><code>archive</code></a> for matches too. Coupons that are
+found
+in the <a href="#archiving-a-coupon-code-archive-code"><code>archive</code></a> are displayed <strong>below</strong> the
+non-archived matches.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="listing-all-expiring-coupons-code-expiring-code"><a class="link" href="#listing-all-expiring-coupons-code-expiring-code">Listing all expiring coupons: <code>expiring</code></a></h3>
+<div class="paragraph">
+<p>Shows a list of all your coupons expiring on a date or during a MonthYear.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>expiring e/EXPIRY_DATE</code> or <code>expiring my/MONTH_YEAR</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Lists all coupons that are expiring on the specified EXPIRY_DATE or during
+the specified MONTH_YEAR</p>
+</li>
+<li>
+<p>The date or MonthYear must be in Coupon Stash date format</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>expiring e/11-9-2020</code><br>
+Shows you all the coupons that will expire on 11 September 2020.</p>
+</li>
+<li>
+<p><code>expiring my/9-2020</code><br>
+Shows you all the coupons that will expire during September 2020.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The <code>expiring</code> command will include archived coupons in its results
+too. Coupons that are expiring in the archives are
+displayed <strong>below</strong> the non-archived matches.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="sorting-coupons-code-sort-code"><a class="link" href="#sorting-coupons-code-sort-code">Sorting coupons: <code>sort</code></a></h3>
+<div class="paragraph">
+<p>Sorts the coupons in CouponStash in ascending order. It is possible to sort by
+coupon name or expiry date.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The sorting order will persist throughout the runtime of the program.
+The command will sort any coupons currently on screen, including
+archived coupons , if they are present on screen. Archived coupons will always appear
+<strong>below</strong> active coupons.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Format: <code>sort PREFIX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>PREFIX</code> can be either <code>n/</code> or <code>e/</code>.</p>
+</li>
+<li>
+<p>Using <code>n/</code> would mean sorting by name, while <code>e/</code> would mean sorting by
+expiry date.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>sort n/</code><br>
+Sorts the coupon stash by name in ascending order.</p>
+</li>
+<li>
+<p><code>sort e/</code><br>
+Sorts the coupon stash by expiry date from earliest to latest.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="copying-a-coupon-code-copy-code"><a class="link" href="#copying-a-coupon-code-copy-code">Copying a coupon: <code>copy</code></a></h3>
+<div class="paragraph">
+<p>Copies a coupon as an <a href="#Adding a coupon: <code>add</code>"><code>add</code></a> command to your
+clipboard so that you can easily share it with your friends/ family!</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>copy INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Copies the coupon at the specified INDEX.</p>
+</li>
+<li>
+<p>The <a href="#Adding a coupon: <code>add</code>"><code>add</code></a> command of the coupon will be copied to
+your clipboard. Simply Ctrl + V to paste it! (Cmd + V for macOS)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Statistics like number of times used or amount of savings accumulated will
+not be copied.</p>
+</li>
+<li>
+<p>The copied add command will only contain the following fields:<br></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Name</p>
+</li>
+<li>
+<p>Savings</p>
+</li>
+<li>
+<p>Expiry Date</p>
+</li>
+<li>
+<p>Limit</p>
+</li>
+<li>
+<p>Promo Code (if any)</p>
+</li>
+<li>
+<p>Condition (if any)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code><br>
+<code>copy 2</code><br>
+Copies the 2nd coupon in the coupon stash to an <code>add</code> command and copies it to
+your clipboard.</p>
+</li>
+<li>
+<p><code>find chicken</code><br>
+<code>copy 1</code><br>
+Copies the 1st coupon in the results of the find command to an <code>add</code> command
+and copies it to your clipboard.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="sharing-a-coupon-code-share-code"><a class="link" href="#sharing-a-coupon-code-share-code">Sharing a coupon: <code>share</code></a></h3>
+<div class="paragraph">
+<p>Shares a coupon as a <code>.png</code> image file. Now you can post your coupons on
+Instagram!</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>share INDEX</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Image generated looks exactly like how a coupon shows up in the user interface.
+Below is a sample of how a shared coupon image looks like:
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/example_shared_coupon.png" alt="example shared coupon">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="undo-the-previous-command-code-undo-code"><a class="link" href="#undo-the-previous-command-code-undo-code">Undo the previous command: <code>undo</code></a></h3>
+<div class="paragraph">
+<p>Undo the most recent operation on the coupon stash. Only operations that change
+the coupons in the coupon stash can be undone.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>undo</code></p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Undo only works on the following commands: (i.e. commands that change the
+coupons in the coupon stash)<br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#Adding a coupon: <code>add</code>"><code>add</code></a></p>
+</li>
+<li>
+<p><a href="#Editing a coupon: <code>edit</code>"><code>edit</code></a></p>
+</li>
+<li>
+<p><a href="#Deleting a coupon: <code>delete</code>"><code>delete</code></a></p>
+</li>
+<li>
+<p><a href="#archiving-a-coupon-code-archive-code"><code>archive</code></a></p>
+</li>
+<li>
+<p><a href="#unarchive-a-coupon-code-unarchive-code"><code>unarchive</code></a></p>
+</li>
+<li>
+<p><a href="#clearing-all-entries-code-clear-code"><code>clear</code></a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Note that changes to user preferences cannot be undone.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>remind 1 r/ 25-12-2020</code><br>
+  <code>undo</code><br>
+Undo the <code>remind</code> command. Reminder is removed.</p>
+</li>
+<li>
+<p><code>edit 1 n/ Duck Rice</code><br>
+  <code>undo</code><br>
+Revert the edit that was performed.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="redoing-the-undone-command-code-redo-code"><a class="link" href="#redoing-the-undone-command-code-redo-code">Redoing the undone command: <code>redo</code></a></h3>
+<div class="paragraph">
+<p>Redo the previously undone operation. This is akin to undoing an
+<a href="#undo-the-previous-command-code-undo-code"><code>undo</code></a>.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>redo</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>remind 1 r/ 25-12-2020</code><br>
+  <code>undo</code><br>
+  <code>redo</code><br>
+Un-undo the <code>remind</code> command.</p>
+</li>
+<li>
+<p><code>edit 1 n/ Duck Rice</code><br>
+  <code>undo</code><br>
+  <code>redo</code><br>
+Un-undo the <code>edit</code> command.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="displaying-a-month-year-on-the-calendar-code-goto-code"><a class="link" href="#displaying-a-month-year-on-the-calendar-code-goto-code">Displaying a Month-Year on the calendar: <code>goto</code></a></h3>
+<div class="paragraph">
+<p>Goes to the specified Month-Year on the calendar.<br>
+Format: <code>goto my/MONTH_YEAR</code> <br></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>goto my/12-2020</code><br>
+Goes to December 2020 on the Calendar</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="displaying-a-coupon-code-expand-code"><a class="link" href="#displaying-a-coupon-code-expand-code">Displaying a Coupon: <code>expand</code></a></h3>
+<div class="paragraph">
+<p>Displays a coupon in its own window, giving you a complete view of it.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>expand INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Expands the coupon at the specified INDEX.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../images/expand_example.png" alt="expand example"></span></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>expand 1</code><br>
+Open the coupon at index 1 in a new window.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="setting-currency-symbol-code-setcurrency-code"><a class="link" href="#setting-currency-symbol-code-setcurrency-code">Setting currency symbol: <code>setcurrency</code></a></h3>
+<div class="paragraph">
+<p>Sets the currency symbol used in Coupon Stash.
+This will force Coupon Stash to reload all coupons
+to use the new symbol instead.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The currency symbol may affect the visual look of the
+program, as well as modify commands entered!</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Format: <code>setcurrency ms/NEW_MONEY_SYMBOL</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>setcurrency ms/€</code><br>
+Sets the money symbol used in commands, as well as to
+display coupons' savings, to € (Euro). The changes will
+be visible immediately.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">Viewing help: <code>help</code></a></h3>
+<div class="paragraph">
+<p>Open a browser window that accesses an offline copy of this user guide.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>help</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">Clearing all entries: <code>clear</code></a></h3>
+<div class="paragraph">
+<p>Clears all entries from the coupon stash.<br>
+Format: <code>clear</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">Exiting the program: <code>exit</code></a></h3>
+<div class="paragraph">
+<p>Exits the program.<br>
+Format: <code>exit</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">Saving the data</a></h3>
+<div class="paragraph">
+<p>Coupon data is saved in the hard disk automatically after any
+command that changes the data.</p>
+</div>
+<div class="paragraph">
+<p>There is no need to save manually.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="faq"><a class="link" href="#faq">FAQ</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Q</strong>: How do I transfer my data to another computer?</p>
+</div>
+<div class="paragraph">
+<p><strong>A</strong>: Simply install Stash in the other computer and overwrite the empty data
+file with your intended data file.<br>
+<br></p>
+</div>
+<div class="paragraph">
+<p><strong>Q</strong>: Can I add multiple coupons using a command line?</p>
+</div>
+<div class="paragraph">
+<p><strong>A:</strong>  Sorry, not at the moment. We may consider adding this feature in version
+2.0.0.<br>
+<br></p>
+</div>
+<div class="paragraph">
+<p><strong>Q</strong> : Why do I need to tag my coupons?</p>
+</div>
+<div class="paragraph">
+<p><strong>A</strong> : Tagging is not compulsory. However, it allows you to group similar
+coupons together for easier execution. For example, you can easily
+delete all the coupons that are tagged, cheap. Do refer to section 4
+for more detail.<br>
+<br></p>
+</div>
+<div class="paragraph">
+<p><strong>Q</strong> : How do I store coupons with no ending date?</p>
+</div>
+<div class="paragraph">
+<p><strong>A</strong> : Sorry, at the moment, coupon entries with no ending date cannot be
+stored. You would need to enter a much further date like 1-1-2030. To
+be added in version 2.0.0<br>
+<br></p>
+</div>
+<div class="paragraph">
+<p><strong>Q</strong> : How do you calculate the savings value?</p>
+</div>
+<div class="paragraph">
+<p><strong>A</strong> :  Whenever a coupon is marked as done, Stash will automatically
+calculate the values saved based on the details of the coupon.
+<br></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="command-summary"><a class="link" href="#command-summary">Command Summary</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section has a summary of all the commands.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 90%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Action</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Format</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Add</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add n/NAME e/EXPIRY_DATE s/SAVINGS [u/USAGE] [l/USAGE_LIMIT] [p/PROMO_CODE]
+[sd/START_DATE] [r/REMIND_DATE] [c/CONDITION] [s/SAVINGS]&#8230;&#8203; [t/TAG]…</code>​<br>
+e.g. <code>add n/The Deck Chicken Rice s/20% sd/2-3-2020 e/30-8-2020 t/friend
+t/value</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Edit</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit INDEX [n/name] [e/EXPIRY_DATE] [l/USAGE_LIMIT] [p/PROMO_CODE]
+[sd/START_DATE] [r/REMIND_DATE] [c/CONDITION] [s/SAVINGS]&#8230;&#8203; [t/TAG]&#8230;&#8203;</code><br>
+e.g. <code>edit 2 n/Chicken Up s/50%</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Delete</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>delete INDEX</code><br>
+e.g. <code>delete 3</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>List</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>list [PREFIX]</code>
+e.g. <code>list</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Find</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find KEYWORD [MORE_KEYWORDS]</code><br>
+e.g. <code>find western chick</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Sort</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sort PREFIX</code><br>
+e.g. <code>sort n/</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Expiring</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>expiring e/EXPIRY_DATE</code> or <code>expiring my/MONTH_YEAR</code><br>
+e.g. <code>expiring e/11-9-2020</code> or <code>expiring my/9-2020</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Remind</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>remind INDEX e/PERIOD_BEFORE_EXPIRY_DATE</code> or <code>remind INDEX d/REMIND_DATE</code><br>
+e.g. <code>remind 1 e/ 5 days</code> or <code>remind 5 d/ 1-5-2020</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Used</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>used INDEX</code> or <code>used INDEX MONETARY_SYMBOL + ORIGINAL_AMOUNT</code><br>
+e.g. <code>used 1</code> or <code>used 1 $10</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Saved</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">saved d/DATE_TO_TRACK_FROM<br>
+e.g. <code>saved d/ 1-5-2020</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Archive</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>archive INDEX</code><br>
+e.g. <code>archive 1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Unarchive</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>unarchive INDEX</code><br>
+e.g. <code>unarchive 1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Copy</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>copy INDEX</code><br>
+e.g. <code>copy 1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Share</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>share INDEX</code><br>
+e.g. <code>share 1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Undo</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>undo</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Redo</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>redo</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Goto</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>goto my/MONTH_YEAR</code><br>
+e.g.<code>goto 9-2020</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Expand</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>expand INDEX</code><br>
+e.g. <code>expand 1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>SetCurrency</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>setcurrency [ms/NEW_MONEY_SYMBOL]</code><br>
+e.g. setcurrency ms/€</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Help</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>help</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Clear</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clear</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Exit</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>exit</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="appendix"><a class="link" href="#appendix">Appendix</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="strong-query-expressions-coming-in-v2-0-strong"><a class="link" href="#strong-query-expressions-coming-in-v2-0-strong"><strong>Query expressions (coming in v2.0)</strong></a></h3>
+<div class="paragraph">
+<p>Query expressions serve to enable users to perform efficient batch
+operations on stored coupons using SQL-like syntax.</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>edit favorites set tag=hated where expiry &lt; 19-2-2020</code><br>
+For all coupons tagged as <code>favorites'', set their tag to </code>hated'' if
+they expire before the 19th Feb 2020.</p>
+</li>
+<li>
+<p><code>delete favorites where expiry &lt; 19-2-2020</code><br>
+For all coupons tagged as ``favorites'', delete them if they expire
+before the 19th Feb 2020.</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="strong-bulk-edit-strong"><a class="link" href="#strong-bulk-edit-strong"><strong>Bulk edit</strong></a></h4>
+<div class="paragraph">
+<p>Format: <code>edit <em>tag</em> set <em>field1=value1, field2=value2, …</em> [where
+condition]</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>edit</code> keyword is compulsory.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>If selecting all tags, put tag as <code>*</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>The <code>set</code> keyword is compulsory.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>If the field is present in a coupon, update the value, else create
+the field and value.</p>
+</li>
+<li>
+<p>At least 1 field must be updated/added per edit operation.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>The <code>where</code> keyword is optional.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>==</code>, <code>&gt;=</code>, <code>&#8656;</code>, <code>&gt;</code>, <code>&lt;</code>, <code>!=</code>, operators are
+supported in the condition.</p>
+</li>
+<li>
+<p>Only default fields can be compared.</p>
+</li>
+<li>
+<p>Condition syntax: <code>DEFAULT_FIELD <em>operator</em> LITERAL_VALUE</code></p>
+</li>
+<li>
+<p><code>AND</code>/<code>OR</code> functionality is not available.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="strong-bulk-delete-strong"><a class="link" href="#strong-bulk-delete-strong"><strong>Bulk delete</strong></a></h4>
+<div class="paragraph">
+<p>Format: <code>delete <em>tag</em> [where condition]</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>delete</code> keyword is compulsory.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>If selecting all tags, put tag as <code>*</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>The <code>where</code> keyword is optional.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>If the <code>where</code> keyword is omitted, deletes all coupons with that tag.</p>
+</li>
+<li>
+<p>Follows syntax explained above.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -158,235 +1147,114 @@ scrolling of the coupon list.</p>
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">Undo/Redo feature</a></h3>
+<h3 id="Implementation-Coupon-Archiving"><a class="link" href="#Implementation-Coupon-Archiving">Coupon Archiving</a></h3>
 <div class="paragraph">
-<p>The undo/redo mechanism is facilitated by with an undo/redo history, stored
-internally as an <code>couponStashStateList</code> with a <code>commandTextHistory</code> and
-<code>currStateIndex</code>. All these components are encapsulated in the <code>HistoryManager</code>
-class.
-The following methods in the <code>Model</code> interface facilitates this feature:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>Model#commitCouponStash(String commandText)</code>&#8201;&#8212;&#8201;Saves the current coupon
-stash state and the command text that triggered the change in state into
-<code>HistoryManager</code>.</p>
-</li>
-<li>
-<p><code>Model#undo()</code>&#8201;&#8212;&#8201;Restores the previous coupon stash state from
-<code>HistoryManager</code>.</p>
-</li>
-<li>
-<p><code>Model#redo()</code>&#8201;&#8212;&#8201;Restores a previously undone coupon stash state from
-<code>HistoryManager</code>.</p>
-</li>
-</ul>
+<p>When physical coupons are expired or exhausted, they would usually be thrown away,
+or kept in the archive. Coupon Stash simulates this archive, storing these coupons
+in the app so that the user can still keep track of it, and the savings it generated.</p>
 </div>
 <div class="sect3">
 <h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
 <div class="paragraph">
-<p>Given below is an example usage scenario and how the undo/redo mechanism
-behaves at each step.</p>
+<p>The archiving of coupons is facilitated by the <code>Archived</code> attribute of a
+coupon. The following methods in the <code>CouponStash</code>,
+<code>Coupon</code>, <code>Usage</code> class and the <code>Model</code> interface facilitates this feature:</p>
 </div>
-<div class="paragraph">
-<p>Step 1. The user launches the application for the first time.
-The <code>CouponStash</code> will be initialized with the initial coupon stash state, and
-the <code>currStateIndex</code> pointing to that single coupon stash state.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoState0.png" alt="UndoRedoState0">
-</div>
-</div>
-<div class="paragraph">
-<p>Step 2. The user executes <code>delete 5</code> command to delete the 5th coupon in the
-coupon stash.
-The <code>delete</code> command calls <code>Model#commitCouponStash(String commandText)</code>,
-causing the modified state of the coupon stash after the <code>delete 5</code> command
-executes to be saved in the <code>couponStashStateList</code>, and the <code>delete 5</code> command
-text to be stored in the <code>commandTextHistory</code>.  <code>currStateIndex</code> is shifted to
-the newly inserted coupon stash state.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoState1.png" alt="UndoRedoState1">
-</div>
-</div>
-<div class="paragraph">
-<p>Step 3. The user executes <code>add n/OMO STORE &#8230;&#8203;</code> to add a new coupon.
-The <code>add</code> command also calls <code>Model#commitCouponStash(String commandText)</code>,
-causing another modified coupon stash state and command text to be saved into
-the <code>couponStashStateList</code> and <code>commandTextHistory</code> respectively.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoState2.png" alt="UndoRedoState2">
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If a command fails its execution, it will not call
-<code>Model#commitCouponStash(String commandText)</code>, so the coupon stash state and
-command text will not be saved.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Step 4. The user now decides that adding the coupon was a mistake, and decides
-to undo that action by executing the <code>undo</code> command.
-The <code>undo</code> command will call <code>Model#undoCouponStash()</code>, which will shift the
-<code>currStateIndex</code> once to the left, pointing it to the previous coupon stash
-state, and restores the coupon stash to that state. Plus, the command text is
-returned, thus allowing for the display of the command that was undone. In this
-case, the command undone is <code>add n/OMO STORE&#8230;&#8203;</code>.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoState3.png" alt="UndoRedoState3">
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the <code>currStateIndex</code> is at index 0, pointing to the initial coupon stash
-state, then there are no previous coupon stash states to restore.
-The <code>undo</code> command uses <code>Model#canUndoCouponStash()</code> to check if this is the
-case.
-If so, it will return an error to the user rather than attempting to perform
-the undo.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The following sequence diagram shows how the undo operation works:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoSequenceDiagram.png" alt="UndoSequenceDiagram">
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The lifeline for <code>UndoCommand</code> should end at the destroy marker (X) but
-due to a limitation of PlantUML, the lifeline reaches the end of diagram.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoCouponStash()</code>,
-which shifts the <code>currStateIndex</code> once to the right, pointing to the previously
-undone state and command text, and restores the coupon stash to that state.
-Finally, it returns the redone command text.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the <code>currStateIndex</code> is at index <code>couponStashStateList.size() - 1</code>, pointing
-to the latest coupon stash state, then there are no undone coupon stash states
-to restore.
-The <code>redo</code> command uses <code>Model#canRedoCouponStash()</code> to check if this is the
-case.
-If so, it will return an error to the user rather than attempting to perform
-the redo.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Step 5. The user then decides to execute the command <code>list</code>.
-Commands that do not modify the coupon stash, such as <code>list</code>, will  not call
-<code>Model#commitCouponStash()</code>.
-Thus, the <code>couponStashStateList</code> remains unchanged.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoState4.png" alt="UndoRedoState4">
-</div>
-</div>
-<div class="paragraph">
-<p>Step 6. The user executes <code>clear</code>, which calls <code>Model#commitCouponStash()</code>.
-Since the <code>currStateIndex</code> is not pointing at the end of the
-<code>couponStashStateList</code>, all coupon stash states and command text history after
-the <code>currStateIndex</code> will be purged.
-We designed it this way because it no longer makes sense to redo the <code>add n/OMO
-STORE &#8230;&#8203;</code> command.
-This is the behavior that most modern desktop applications follow.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoState5.png" alt="UndoRedoState5">
-</div>
-</div>
-<div class="paragraph">
-<p>The following activity diagram summarizes what happens when a user executes a
-new command:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/CommitActivityDiagram.png" alt="CommitActivityDiagram">
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
-<div class="sect4">
-<h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Saves the entire coupon stash.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy to implement.</p>
+<p><code>CouponStash#archiveExpiredCoupons()</code>&#8201;&#8212;&#8201;Archives any coupon in the
+<code>CouponStash</code> that has expired, and returns a new updated <code>CouponStash</code>.</p>
 </li>
 <li>
-<p>Cons: May have performance issues in terms of memory usage. Plus, have to
-perform deep copy of coupons when saving the coupon stash so as to prevent
-unwanted mutations.</p>
+<p><code>Coupon#increaseUsageByOne()</code> - Increases the usage of a coupon by one.</p>
+</li>
+<li>
+<p><code>Usage#isAtLimit</code> - Returns true if the current usage is at its limit
+(abstracted by the <code>Limit</code> field).</p>
+</li>
+<li>
+<p><code>Model#PREDICATE_SHOW_ALL_ACTIVE_COUPONS</code> - A <code>Predicate</code> function that filters
+out archived coupons from a given <code>CouponStash</code>.</p>
 </li>
 </ul>
 </div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Individual command knows how to undo/redo by itself.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Will use less memory (e.g. for <code>delete</code>, just save the coupon being
-deleted).</p>
-</li>
-<li>
-<p>Cons: We must ensure that the implementation of each individual command is
-correct.</p>
-</li>
-</ul>
+<div id="img-archiving" class="imageblock">
+<div class="content">
+<img src="../images/ArchivingClassDiagram.png" alt="ArchivingClassDiagram">
 </div>
-</li>
-</ul>
+<div class="title">Figure 1. Overview class diagram representation of the the coupon archiving implementation</div>
 </div>
+<div class="paragraph">
+<p>Given below is two example usage scenarios and how the archiving mechanism
+behaves at each step of each scenario.</p>
+</div>
+<div class="paragraph">
+<p><strong>Archiving of Expired Coupons</strong></p>
+</div>
+<div class="paragraph">
+<p>Expired coupons are automatically archived by Coupon Stash upon start up of the
+application. The following steps describe
+how this behaviour is implemented.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user launches the application for the first time. The initiation of
+<code>ModelManager</code> will also trigger the
+initiation of <code>CouponStash</code> with any available saved data.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The method <code>CouponStash#archiveExpiredCoupons</code> will be called from the
+newly initiated <code>CouponStash</code>, and have its
+<code>UniqueCouponList</code> mapped to a function that archive coupons that has expired
+before the date of opening the application, and returns a new updated <code>CouponStash</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. The <code>ModelManager</code> will proceed to filter out the archived coupons from
+the newly updated <code>CouponStash</code>, and return
+a filtered list of active coupons. This filtering is facilitated by the
+predicate <code>Model#PREDICATE_SHOW_ALL_ACTIVE_COUPONS</code>.</p>
+</div>
+<div id="img-archiveexpired" class="imageblock">
+<div class="content">
+<img src="../images/ArchiveExpiredSequenceDiagram.png" alt="ArchiveExpiredSequenceDiagram">
+</div>
+<div class="title">Figure 2. Sequence diagram representation of archiving expired coupons</div>
+</div>
+<div class="paragraph">
+<p><strong>Archiving of Exhausted Coupons</strong></p>
+</div>
+<div class="paragraph">
+<p>Coupons that have exhausted its usages will be automatically archived by the
+application. The following steps describe how
+this behaviour is implemented.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user uses a <code>Coupon</code> in the current observable <code>CouponStash</code> with the
+command <code>used 1</code>.
+The particular <code>Coupon</code> will then have its <code>Usage</code> increased by one.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The <code>Coupon</code> will then be checked if its <code>Usage</code> has reached its <code>Limit</code>, using
+the <code>Usage#isAtLimit()</code> method. For the purpose of this explanation, we assume that
+the coupon being used has a usage <code>Limit</code> of 1 and a previous <code>Usage</code> value of 0,
+with savings in <code>MonetaryAmount</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. The <code>Coupon</code> will have a new <code>Archived</code> value, which will be set to
+<code>true</code> if the <code>Usage</code> has indeed reached its <code>Limit</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. The <code>CouponStash</code> will be updated with this used <code>Coupon</code> with the
+<code>ModelManager#setCoupon()</code> method. Under the hood of
+this method, the current <code>FilteredList</code> will be updated to show active
+<code>Coupons</code> only, facilitated by the predicate
+<code>Model#PREDICATE_SHOW_ALL_ACTIVE_COUPONS</code>.</p>
+</div>
+<div id="img-archiveexhausted" class="imageblock">
+<div class="content">
+<img src="../images/ArchiveExhaustedSequenceDiagram.png" alt="ArchiveExhaustedSequenceDiagram">
+</div>
+<div class="title">Figure 3. Sequence diagram representation of archiving exhausted coupons</div>
 </div>
 </div>
 </div>
@@ -400,4 +1268,4 @@ correct.</p>
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-11 15:12:31 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-11 19:20:11 UTC</div></div></div></body></html>

@@ -820,6 +820,11 @@ location, logging level) through the configuration file (default:
 </div>
 <div class="sect2">
 <h3 id="Implementation-Coupon-Archiving"><a class="link" href="#Implementation-Coupon-Archiving">3.5. Coupon Archiving</a></h3>
+<div class="paragraph">
+<p>When physical coupons are expired or exhausted, they would usually be thrown away,
+or kept in the archive. Coupon Stash simulates this archive, storing these coupons
+in the app so that the user can still keep track of it, and the savings it generated.</p>
+</div>
 <div class="sect3">
 <h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">3.5.1. Current Implementation</a></h4>
 <div class="paragraph">
@@ -1186,63 +1191,6 @@ the expiry date of the coupon.</p>
 <p>Images are provided below to help understand the above said connectivity and
 to identify which are valid input remind date.</p>
 </div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Object Diagram</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Comments</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p><span class="image"><img src="images/R1OD.png" alt="R1OD"></span></p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Valid</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p><span class="image"><img src="images/R2OD.png" alt="R2OD"></span></p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Valid; remind date can be d-m-yyyy</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p><span class="image"><img src="images/R3OD.png" alt="R3OD"></span></p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Invalid; remind date cannot be dd-mm-yy</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p><span class="image"><img src="images/R4OD.png" alt="R4OD"></span></p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Invalid; remind date cannot be before
-system date</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p><span class="image"><img src="images/R5OD.png" alt="R5OD"></span></p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Invalid; remind date cannot be after
-expiry date</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p><span class="image"><img src="images/R6OD.png" alt="R6OD"></span></p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Valid; remind date can be today&#8217;s date</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p><span class="image"><img src="images/R7OD.png" alt="R7OD"></span></p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Valid; remind date will become null
-after the coupon is reminded</p></td>
-</tr>
-</tbody>
-</table>
 <div class="paragraph">
 <p>Given below are two ways of a coupon&#8217;s remind date are be derived from.</p>
 </div>
@@ -2946,4 +2894,4 @@ larger than the list size) <em>{give more}</em><br>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-11 15:12:31 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-11 19:20:11 UTC</div></div></div></body></html>
