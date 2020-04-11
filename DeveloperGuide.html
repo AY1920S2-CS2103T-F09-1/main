@@ -360,8 +360,6 @@ implemented.</p>
 </div>
 <div class="sect2">
 <h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">3.1. Undo/Redo feature</a></h3>
-<div class="sect3">
-<h4 id="current-implementation"><a class="link" href="#current-implementation">3.1.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The undo/redo mechanism is facilitated by with an undo/redo history, stored
 internally as an <code>couponStashStateList</code> with a <code>commandTextHistory</code> and
@@ -386,6 +384,8 @@ stash state and the command text that triggered the change in state into
 </li>
 </ul>
 </div>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">3.1.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the undo/redo mechanism
 behaves at each step.</p>
@@ -557,31 +557,31 @@ new command:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Saves the entire coupon stash.</p>
+<p><strong>Alternative 1 (current choice):</strong> Saves the entire coupon stash.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Each coupon is copied into <code>HistoryManager</code>, thus eliminating any chance for
-bugs when mutating coupons.</p>
+<p>Pros: Easy to implement.</p>
+</li>
+<li>
+<p>Cons: May have performance issues in terms of memory usage. Plus, have to
+perform deep copy of coupons when saving the coupon stash so as to prevent
+unwanted mutations.</p>
 </li>
 </ul>
 </div>
 </li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="aspect-data-structure-to-support-the-undo-redo-commands"><a class="link" href="#aspect-data-structure-to-support-the-undo-redo-commands">Aspect: Data structure to support the undo/redo commands</a></h5>
+<li>
+<p><strong>Alternative 2:</strong> Individual command knows how to undo/redo by itself.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Use two lists to store the history of coupons stash states and command text
-history.</p>
-<div class="ulist">
-<ul>
+<p>Pros: Will use less memory (e.g. for <code>delete</code>, just save the coupon being
+deleted).</p>
+</li>
 <li>
-<p>The lists are stored in a <code>HistoryManager</code> class, which includes a
-<code>currStateIndex</code>.</p>
+<p>Cons: We must ensure that the implementation of each individual command is
+correct.</p>
 </li>
 </ul>
 </div>
@@ -1106,13 +1106,28 @@ No changes to the stack and <code>currIndex</code> will be effected.
 <div class="ulist">
 <ul>
 <li>
-<p>We used a <code>LinkedList</code> as a stack to store the command text history.</p>
+<p><strong>Alternative 1 (current choice):</strong> Use <code>LinkedList</code> as a stack to store
+the command text history.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>The first in first out nature of a stack made it a very suitable data
-structure
-for the storage of history that is retrived in chronological order of execution.</p>
+<p>Pros: <code>LinkedList</code> is a better data structure that allows for more efficient
+operations supported by stacks.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> *Use <code>ArrayList</code> as a stack to store
+the command text history.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: <code>ArrayList</code> is more recognizable to people who are relatively new to
+Java, thus reducing confusion.</p>
+</li>
+<li>
+<p>Cons: Stack operations are less effifcient on <code>ArrayList</code> s.</p>
 </li>
 </ul>
 </div>
@@ -2932,4 +2947,4 @@ larger than the list size) <em>{give more}</em><br>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-11 11:44:27 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-11 13:08:15 UTC</div></div></div></body></html>
