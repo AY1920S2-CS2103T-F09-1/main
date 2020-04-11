@@ -41,8 +41,8 @@
 <ul class="sectlevel2">
 <li><a href="#strong-use-case-uc1-add-coupon-strong">C.1. <strong>Use Case: UC1 -  Add Coupon</strong></a></li>
 <li><a href="#strong-use-case-uc2-list-all-coupons-strong">C.2. <strong>Use Case: UC2 - List all coupons</strong></a></li>
-<li><a href="#strong-em-use-case-uc3-mark-a-coupon-as-used-em-strong">C.3. <strong><em>Use Case: UC3 - Mark a coupon as used</em></strong></a></li>
-<li><a href="#strong-em-use-case-uc4-find-coupon-s-by-keyword-s-em-strong">C.4. <strong><em>Use Case: UC4 - Find coupon(s) by keyword(s)</em></strong></a></li>
+<li><a href="#strong-use-case-uc3-mark-a-coupon-as-used-strong">C.3. <strong>Use Case: UC3 - Mark a coupon as used</strong></a></li>
+<li><a href="#strong-use-case-uc4-find-coupon-s-by-keyword-s-strong">C.4. <strong>Use Case: UC4 - Find coupon(s) by keyword(s)</strong></a></li>
 <li><a href="#strong-use-case-uc5-edit-coupon-s-details-strong">C.5. <strong>Use Case: UC5 - Edit coupon&#8217;s details</strong></a></li>
 <li><a href="#strong-use-case-uc6-set-reminder-strong">C.6. <strong>Use Case: UC6 - Set reminder</strong></a></li>
 <li><a href="#strong-use-case-uc7-list-coupon-s-expiring-before-date-strong">C.7. <strong>Use Case: UC7 - List coupon(s) expiring before date</strong></a></li>
@@ -55,8 +55,8 @@
 <li><a href="#instructions-for-manual-testing">Appendix F: Instructions for Manual Testing</a>
 <ul class="sectlevel2">
 <li><a href="#launch-and-shutdown">F.1. Launch and Shutdown</a></li>
-<li><a href="#deleting-a-coupon">F.2. Deleting a coupon</a></li>
-<li><a href="#saving-data">F.3. Saving data</a></li>
+<li><a href="#adding-a-coupon">F.2. Adding a coupon</a></li>
+<li><a href="#deleting-a-coupon">F.3. Deleting a coupon</a></li>
 </ul>
 </li>
 </ul>
@@ -85,21 +85,6 @@
 <p>The <strong><em>Architecture Diagram</em></strong> given above explains the high-level design of the
 App.
 Given below is a quick overview of each component.</p>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-The <code>.puml</code> files used to create diagrams in this document can be found in the
-<a href="https://github.com/AY1920S2-CS2103T-F09-1/main/tree/master//docs/diagrams/">diagrams</a> folder.
-Refer to the <a href="UsingPlantUml.html">Using PlantUML guide</a> to learn how to create
-and edit diagrams.
-</td>
-</tr>
-</table>
 </div>
 <div class="paragraph">
 <p><code>Main</code> has two classes called
@@ -165,17 +150,6 @@ disk.</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>For example, the <code>Logic</code> component (see the class diagram given below) defines
-it&#8217;s API in the <code>Logic.java</code> interface and exposes its functionality using the
-<code>LogicManager.java</code> class.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/LogicClassDiagram.png" alt="LogicClassDiagram">
-</div>
-<div class="title">Figure 2. Class Diagram of the Logic Component</div>
-</div>
 <h4 id="how-the-architecture-components-interact-with-each-other" class="discrete">How the architecture components interact with each other</h4>
 <div class="paragraph">
 <p>The <em>Sequence Diagram</em> below shows how the components interact with each other
@@ -185,7 +159,7 @@ for the scenario where the user issues the command <code>delete 1</code>.</p>
 <div class="content">
 <img src="images/ArchitectureSequenceDiagram.png" alt="ArchitectureSequenceDiagram">
 </div>
-<div class="title">Figure 3. Component interactions for <code>delete 1</code> command</div>
+<div class="title">Figure 2. Component interactions for <code>delete 1</code> command</div>
 </div>
 <div class="paragraph">
 <p>The sections below give more details of each component.</p>
@@ -197,7 +171,7 @@ for the scenario where the user issues the command <code>delete 1</code>.</p>
 <div class="content">
 <img src="images/UiClassDiagram.png" alt="UiClassDiagram">
 </div>
-<div class="title">Figure 4. Structure of the UI Component</div>
+<div class="title">Figure 3. Structure of the UI Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> : <a href="https://github.com/AY1920S2-CS2103T-F09-1/main/tree/master//src/main/java/csdev/couponstash/ui/Ui.java"><code>Ui.java</code></a></p>
@@ -237,7 +211,7 @@ modified data.</p>
 <div class="content">
 <img src="images/LogicClassDiagram.png" alt="LogicClassDiagram">
 </div>
-<div class="title">Figure 5. Structure of the Logic Component</div>
+<div class="title">Figure 4. Structure of the Logic Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> :
@@ -272,7 +246,7 @@ component for the <code>execute("delete 1")</code> API call.</p>
 <div class="content">
 <img src="images/DeleteSequenceDiagram.png" alt="DeleteSequenceDiagram">
 </div>
-<div class="title">Figure 6. Interactions Inside the Logic Component for the <code>delete 1</code> Command</div>
+<div class="title">Figure 5. Interactions Inside the Logic Component for the <code>delete 1</code> Command</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -295,7 +269,7 @@ diagram.
 <div class="content">
 <img src="images/ModelClassDiagram.png" alt="ModelClassDiagram">
 </div>
-<div class="title">Figure 7. Structure of the Model Component</div>
+<div class="title">Figure 6. Structure of the Model Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> :
@@ -347,7 +321,7 @@ An example of how such a model may look like is given below.<br>
 <div class="content">
 <img src="images/StorageClassDiagram.png" alt="StorageClassDiagram">
 </div>
-<div class="title">Figure 8. Structure of the Storage Component</div>
+<div class="title">Figure 7. Structure of the Storage Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> :
@@ -858,25 +832,26 @@ coupon. The following methods in the <code>CouponStash</code>,
 <ul>
 <li>
 <p><code>CouponStash#archiveExpiredCoupons()</code>&#8201;&#8212;&#8201;Archives any coupon in the
-CouponStash that has expired, and returns a new updated CouponStash.</p>
+<code>CouponStash</code> that has expired, and returns a new updated <code>CouponStash</code>.</p>
 </li>
 <li>
 <p><code>Coupon#increaseUsageByOne()</code> - Increases the usage of a coupon by one.</p>
 </li>
 <li>
-<p><code>Usage#isUsageAtLimit</code> - Returns true if the current usage is at its limit
+<p><code>Usage#isAtLimit</code> - Returns true if the current usage is at its limit
 (abstracted by the <code>Limit</code> field).</p>
 </li>
 <li>
-<p><code>Model#PREDICATE_SHOW_ALL_ACTIVE_COUPONS</code> - A Predicate function that filters
-out archived coupons from a given CouponStash.</p>
+<p><code>Model#PREDICATE_SHOW_ALL_ACTIVE_COUPONS</code> - A <code>Predicate</code> function that filters
+out archived coupons from a given <code>CouponStash</code>.</p>
 </li>
 </ul>
 </div>
-<div id="img-archiving" class="paragraph">
-<div class="title">Overview class diagram representation of the the coupon archiving</div>
-<p>implementation
-image::ArchivingClassDiagram.png[ArchivingClassDiagram]</p>
+<div id="img-archiving" class="imageblock">
+<div class="content">
+<img src="images/ArchivingClassDiagram.png" alt="ArchivingClassDiagram">
+</div>
+<div class="title">Figure 8. Overview class diagram representation of the the coupon archiving implementation</div>
 </div>
 <div class="paragraph">
 <p>Given below is two example usage scenarios and how the archiving mechanism
@@ -898,9 +873,8 @@ initiation of <code>CouponStash</code> with any available saved data.</p>
 <div class="paragraph">
 <p>Step 2. The method <code>CouponStash#archiveExpiredCoupons</code> will be called from the
 newly initiated <code>CouponStash</code>, and have its
-<code>UniqueCouponList</code> mapped to a function that archive coupons that have expired
-before the date of opening the application,
-and returns a new updated <code>CouponStash</code>.</p>
+<code>UniqueCouponList</code> mapped to a function that archive coupons that has expired
+before the date of opening the application, and returns a new updated <code>CouponStash</code>.</p>
 </div>
 <div class="paragraph">
 <p>Step 3. The <code>ModelManager</code> will proceed to filter out the archived coupons from
@@ -923,26 +897,25 @@ application. The following steps describe how
 this behaviour is implemented.</p>
 </div>
 <div class="paragraph">
-<p>Step 1. The user uses a coupon in the current observable <code>CouponStash</code> with the
+<p>Step 1. The user uses a <code>Coupon</code> in the current observable <code>CouponStash</code> with the
 command <code>used 1</code>.
-The particular coupon will then have its usage increased by one.</p>
+The particular <code>Coupon</code> will then have its <code>Usage</code> increased by one.</p>
 </div>
 <div class="paragraph">
-<p>Step 2. The coupon will then be checked if its usage has reached its limit. For
-the purpose of this
-explanation, we assume that the coupon being used has a usage limit of 1 and a
-previous usage value of 0,
+<p>Step 2. The <code>Coupon</code> will then be checked if its <code>Usage</code> has reached its <code>Limit</code>, using
+the <code>Usage#isAtLimit()</code> method. For the purpose of this explanation, we assume that
+the coupon being used has a usage <code>Limit</code> of 1 and a previous <code>Usage</code> value of 0,
 with savings in <code>MonetaryAmount</code>.</p>
 </div>
 <div class="paragraph">
-<p>Step 3. The coupon will have a new <code>Archived</code> value, which will be set to
-<code>true</code> if the usage has indeed reached its limit.</p>
+<p>Step 3. The <code>Coupon</code> will have a new <code>Archived</code> value, which will be set to
+<code>true</code> if the <code>Usage</code> has indeed reached its <code>Limit</code>.</p>
 </div>
 <div class="paragraph">
-<p>Step 4. The <code>CouponStash</code> will be updated with this used coupon with the
+<p>Step 4. The <code>CouponStash</code> will be updated with this used <code>Coupon</code> with the
 <code>ModelManager#setCoupon()</code> method. Under the hood of
-this method, the current filtered list will be be updated to show active
-coupons only, facilitated by the predicate
+this method, the current <code>FilteredList</code> will be updated to show active
+<code>Coupons</code> only, facilitated by the predicate
 <code>Model#PREDICATE_SHOW_ALL_ACTIVE_COUPONS</code>.</p>
 </div>
 <div id="img-archiveexhausted" class="imageblock">
@@ -973,12 +946,12 @@ application.</p>
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Archived coupons are stored in another separate data file.</p>
+<p><strong>Alternative 2:</strong> Archived <code>Coupon</code> s are stored in another separate data file.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Separates the logic between the two different <code>CouponStash</code>, e.g. you
-can limit the functions on archived coupons</p>
+<p>Pros: Separates the logic between the two different <code>CouponStash</code>, e.g. ability
+to limit the functions on archived <code>Coupon</code> s</p>
 </li>
 <li>
 <p>Cons: Sharply increases the maintainability and coupling of the application
@@ -1153,7 +1126,7 @@ for the storage of history that is retrived in chronological order of execution.
 <h3 id="coupon-reminder"><a class="link" href="#coupon-reminder">3.7. Coupon Reminder</a></h3>
 <div class="paragraph">
 <p>To ensure users are aware of expiring coupons and maximise their saving,
-Coupon Stash reminds the user through a pop-up box, upon launching the
+Coupon Stash reminds the user through a pop-up window, upon launching the
 application.</p>
 </div>
 <div class="paragraph">
@@ -1538,10 +1511,10 @@ as "used" with the <code>used</code> command.</p>
 <div class="sect3">
 <h4 id="implementation-of-used-command"><a class="link" href="#implementation-of-used-command">3.8.3. Implementation of used command</a></h4>
 <div class="paragraph">
-<p>When the user enters a used command, the actions taken by Coupon
+<p>When the user enters a <code>used</code> command, the actions taken by Coupon
 Stash change depending on whether the Coupon&#8217;s Savings stores
-a MonetaryAmount of PercentageAmount. The following activity
-diagram shows what happens when the user runs a used command.</p>
+a MonetaryAmount of PercentageAmount. The following activity diagram
+shows what happens when the user runs a used command.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1557,10 +1530,10 @@ program components.</p>
 <div class="paragraph">
 <p>More specifically, the used command executed is
 <code>used 1 $100</code>, and the state of the system is such that
-a Coupon with PercentageAmount in its Savings (no
-MonetaryAmount) and with Usage not at its Limit
+a <code>Coupon</code> with <code>PercentageAmount</code> in its <code>Savings</code> (no
+<code>MonetaryAmount</code>) and with <code>Usage</code> not at its <code>Limit</code>
 is located at index 1. Also, the money symbol
-set in the user preferences would be $, which
+set in the user preferences would be <code>$</code>, which
 makes this command a valid one that will execute
 successfully.</p>
 </div>
@@ -1571,18 +1544,17 @@ successfully.</p>
 </div>
 <div class="paragraph">
 <p>The money symbol set in the user preferences is
-retrieved by CouponStashParser, which passes it
-to UsedCommandParser that will use this symbol
-to parse the used command.</p>
+retrieved by <code>CouponStashParser</code>, which passes it
+to <code>UsedCommandParser</code> that will use this symbol
+to parse the <code>used</code> command.</p>
 </div>
 <div class="paragraph">
-<p>Also, within UsedCommand, the execute() method
-will cause the creation of a new Coupon with the
+<p>Also, within <code>UsedCommand</code>, the <code>UsedCommand#execute()</code> method
+will cause the creation of a new <code>Coupon</code> with the
 correct recorded number of uses and amount of
 savings earned. The next sequence diagram shows
-how the execute() method interacts with other
-components to produce the new total savings
-value for the new Coupon.</p>
+how a successful <code>UsedCommand#execute()</code> method produces the new total savings
+value for the new <code>Coupon</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1590,9 +1562,15 @@ value for the new Coupon.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>In the end, the total savings value of the Coupon
+<p>In the end, the total savings value of the <code>Coupon</code>
 is updated. This total savings is represented by
 a <a href="#dssm">DateSavingsSumMap</a>.</p>
+</div>
+<div class="paragraph">
+<p>One key implementation within the <code>UsedCommand</code> is the checks
+that is has to make to ensure the valid usage of a <code>Coupon</code>.
+Below is an activity diagram to show the flow of checks within
+the <code>UsedCommand#execute()</code> method.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1998,14 +1976,14 @@ my coupons</p></td>
 <h2 id="use-cases"><a class="link" href="#use-cases">Appendix C: Use Cases</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This is a list of Use-Cases for STASH, a coupon stash application.
+<p>This is a list of Use-Cases for Coupon Stash, a coupon stash application.
 Primary actor is the user.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/usecase.png" alt="Use Case Diagram" width="1000" height="1000">
 </div>
-<div class="title">Figure 11. Use Cases Overview for STASH</div>
+<div class="title">Figure 11. Use Cases Overview for Coupon Stash</div>
 </div>
 <div class="sect2">
 <h3 id="strong-use-case-uc1-add-coupon-strong"><a class="link" href="#strong-use-case-uc1-add-coupon-strong">C.1. <strong>Use Case: UC1 -  Add Coupon</strong></a></h3>
@@ -2014,7 +1992,7 @@ Primary actor is the user.</p>
 <strong>Precondition</strong>: User has opened the application</p>
 </div>
 <div class="paragraph">
-<p>This use case describes how a user uses STASH to add a new coupon entry.</p>
+<p>This use case describes how a user uses Coupon Stash to add a new coupon entry.</p>
 </div>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
@@ -2025,7 +2003,10 @@ Primary actor is the user.</p>
 <p>User keys in command to add coupon.</p>
 </li>
 <li>
-<p>STASH adds coupon.</p>
+<p>Coupon Stash adds coupon.</p>
+</li>
+<li>
+<p>Coupon Stash informs to user that coupon is added.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2038,11 +2019,11 @@ Primary actor is the user.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a. STASH detects an invalid format in the entered data.</p>
+<p>1a. Coupon Stash detects an invalid format in the entered data.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a1. STASH requests the user to re-enter the details.</p>
+<p>1a1. Coupon Stash requests the user to re-enter the details.</p>
 </li>
 <li>
 <p>1a2. User enters new data.</p>
@@ -2057,7 +2038,7 @@ Primary actor is the user.</p>
 <p>1a3. User enters wrong data twice.</p>
 </li>
 <li>
-<p>1a4. STASH clears command line.</p>
+<p>1a4. Coupon Stash clears command line.</p>
 </li>
 <li>
 <p>Use case ends.</p>
@@ -2075,7 +2056,7 @@ Primary actor is the user.</p>
 <strong>Precondition</strong>: User has opened the application</p>
 </div>
 <div class="paragraph">
-<p>This use case describes how a user uses STASH to list out all the coupon
+<p>This use case describes how a user uses Coupon Stash to list out all the coupon
 entries.</p>
 </div>
 <div class="paragraph">
@@ -2087,7 +2068,10 @@ entries.</p>
 <p>User keys in command to list all the coupons.</p>
 </li>
 <li>
-<p>STASH lists out all coupons.</p>
+<p>Coupon Stash lists out all coupons.</p>
+</li>
+<li>
+<p>Coupon Stash informs to user the number of coupons found in list.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2100,11 +2084,11 @@ entries.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a. STASH detects an invalid format in the entered data.</p>
+<p>1a. Coupon Stash detects an invalid format in the entered data.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a1. STASH requests the user to re-enter the details.</p>
+<p>1a1. Coupon Stash requests the user to re-enter the details.</p>
 </li>
 <li>
 <p>1a2. User enters new data.</p>
@@ -2119,7 +2103,7 @@ entries.</p>
 <p>1a3. User enters wrong data twice.</p>
 </li>
 <li>
-<p>1a4. STASH clears command line.</p>
+<p>1a4. Coupon Stash clears command line.</p>
 </li>
 <li>
 <p>Use case ends.</p>
@@ -2132,11 +2116,11 @@ entries.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1b. STASH detects that the coupon list is empty.</p>
+<p>1b. Coupon Stash detects that the coupon list is empty.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1b1. STASH informs the user that the list is empty.</p>
+<p>1b1. Coupon Stash informs the user that the list is empty.</p>
 </li>
 <li>
 <p>Use case ends</p>
@@ -2148,7 +2132,7 @@ entries.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="strong-em-use-case-uc3-mark-a-coupon-as-used-em-strong"><a class="link" href="#strong-em-use-case-uc3-mark-a-coupon-as-used-em-strong">C.3. <strong><em>Use Case: UC3 - Mark a coupon as used</em></strong></a></h3>
+<h3 id="strong-use-case-uc3-mark-a-coupon-as-used-strong"><a class="link" href="#strong-use-case-uc3-mark-a-coupon-as-used-strong">C.3. <strong>Use Case: UC3 - Mark a coupon as used</strong></a></h3>
 <div class="paragraph">
 <p><strong>Actor</strong>: <code>user</code><br>
 <strong>Pre-condition</strong>: User has opened the application</p>
@@ -2165,7 +2149,10 @@ entries.</p>
 <p>User marks coupon as used.</p>
 </li>
 <li>
-<p>STASH marks the coupon as used.</p>
+<p>Coupon Stash marks the coupon as used.</p>
+</li>
+<li>
+<p>Coupon Stash informs the user the specific coupon that is succesdfully used.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2178,11 +2165,11 @@ entries.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a. STASH detects an invalid format in the entered data.</p>
+<p>1a. Coupon Stash detects an invalid format in the entered data.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a1. STASH requests the user to re-enter the details with the correct format.</p>
+<p>1a1. Coupon Stash requests the user to re-enter the details with the correct format.</p>
 </li>
 <li>
 <p>1a2. User enters new data.</p>
@@ -2193,15 +2180,6 @@ entries.</p>
 <li>
 <p>Use case resumes from step 2.</p>
 </li>
-<li>
-<p>1a3. User enters wrong data twice.</p>
-</li>
-<li>
-<p>1a4. STASH clears command line.</p>
-</li>
-<li>
-<p>Use case ends.</p>
-</li>
 </ul>
 </div>
 </li>
@@ -2210,11 +2188,11 @@ entries.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1b. STASH detects that the specified coupon does not exist.</p>
+<p>1b. Coupon Stash detects that the specified coupon does not exist.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1b1. STASH requests the user to enter an index that corresponds with an
+<p>1b1. Coupon Stash requests the user to enter an index that corresponds with an
 existing coupon.</p>
 </li>
 <li>
@@ -2223,15 +2201,6 @@ existing coupon.</p>
 <li>
 <p>Use case resumes from step 2.</p>
 </li>
-<li>
-<p>1b3. User enters wrong index twice.</p>
-</li>
-<li>
-<p>1b4. STASH clears command line.</p>
-</li>
-<li>
-<p>Use case ends.</p>
-</li>
 </ul>
 </div>
 </li>
@@ -2240,12 +2209,12 @@ existing coupon.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1c. STASH detects that the specified coupon has been previously marked as
+<p>1c. Coupon Stash detects that the specified coupon has been previously marked as
 done.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1c1. STASH informs user that coupon has been prevously marked as done.</p>
+<p>1c1. Coupon Stash informs user that coupon has been previously marked as done.</p>
 </li>
 <li>
 <p>Use case ends.</p>
@@ -2257,13 +2226,13 @@ done.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="strong-em-use-case-uc4-find-coupon-s-by-keyword-s-em-strong"><a class="link" href="#strong-em-use-case-uc4-find-coupon-s-by-keyword-s-em-strong">C.4. <strong><em>Use Case: UC4 - Find coupon(s) by keyword(s)</em></strong></a></h3>
+<h3 id="strong-use-case-uc4-find-coupon-s-by-keyword-s-strong"><a class="link" href="#strong-use-case-uc4-find-coupon-s-by-keyword-s-strong">C.4. <strong>Use Case: UC4 - Find coupon(s) by keyword(s)</strong></a></h3>
 <div class="paragraph">
 <p><strong>Actor</strong>: <code>user</code><br>
 <strong>Pre-condition</strong>: User has opened the application</p>
 </div>
 <div class="paragraph">
-<p>This use case describes how a user uses STASH to find the coupon(s) with
+<p>This use case describes how a user uses Coupon Stash to find the coupon(s) with
 keyword(s).</p>
 </div>
 <div class="paragraph">
@@ -2276,6 +2245,9 @@ keyword(s).</p>
 </li>
 <li>
 <p>Matched coupons are displayed.</p>
+</li>
+<li>
+<p>Coupon Stash informs user the number of coupons found.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2288,11 +2260,11 @@ keyword(s).</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a. STASH detects an invalid format in the entered data.</p>
+<p>1a. Coupon Stash detects an invalid format in the entered data.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a1. STASH requests the user to re-enter the details with the correct format.</p>
+<p>1a1. Coupon Stash requests the user to re-enter the details with the correct format.</p>
 </li>
 <li>
 <p>1a2. User enters new data.</p>
@@ -2303,15 +2275,6 @@ keyword(s).</p>
 <li>
 <p>Use case resumes from step 2.</p>
 </li>
-<li>
-<p>1a3. User enters wrong data twice.</p>
-</li>
-<li>
-<p>1a4. STASH clears command line.</p>
-</li>
-<li>
-<p>Use case ends.</p>
-</li>
 </ul>
 </div>
 </li>
@@ -2320,11 +2283,11 @@ keyword(s).</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1b. STASH detects that the specified coupon does not exist.</p>
+<p>1b. Coupon Stash detects that the specified coupon does not exist.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1b1. STASH requests the user to enter an index that corresponds with an
+<p>1b1. Coupon Stash requests the user to enter an index that corresponds with an
 existing coupon.</p>
 </li>
 <li>
@@ -2332,15 +2295,6 @@ existing coupon.</p>
 </li>
 <li>
 <p>Use case resumes from step 2.</p>
-</li>
-<li>
-<p>1b3. User enters wrong index twice.</p>
-</li>
-<li>
-<p>1b4. STASH clears command line.</p>
-</li>
-<li>
-<p>Use case ends.</p>
 </li>
 </ul>
 </div>
@@ -2355,7 +2309,7 @@ existing coupon.</p>
 <strong>Precondition:</strong> User has opened the application<br></p>
 </div>
 <div class="paragraph">
-<p>This use case describes how a user uses STASH to edit details of an existing
+<p>This use case describes how a user uses Coupon Stash to edit details of an existing
 coupon.</p>
 </div>
 <div class="paragraph">
@@ -2370,10 +2324,10 @@ coupon.</p>
 <p>User edits an existing coupon.</p>
 </li>
 <li>
-<p>User confirms its decision during confirmation.</p>
+<p>Coupon Stash updates the coupon details.</p>
 </li>
 <li>
-<p>STASH updates the coupon details.</p>
+<p>Coupon Stash informs the user the which coupon has been edited.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2386,11 +2340,11 @@ coupon.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a. STASH detects an invalid format in the entered data.</p>
+<p>2a. Coupon Stash detects an invalid format in the entered data.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a1. STASH requests the user to re-enter the details with the correct format.</p>
+<p>2a1. Coupon Stash requests the user to re-enter the details with the correct format.</p>
 </li>
 <li>
 <p>2a2. User enters new data.</p>
@@ -2401,15 +2355,6 @@ coupon.</p>
 <li>
 <p>Use case resumes from step 3.</p>
 </li>
-<li>
-<p>2a3. User enters wrong data twice.</p>
-</li>
-<li>
-<p>2a4. STASH clears command line.</p>
-</li>
-<li>
-<p>Use case ends.</p>
-</li>
 </ul>
 </div>
 </li>
@@ -2418,11 +2363,11 @@ coupon.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2b. STASH detects that the specified coupon does not exist.</p>
+<p>2b. Coupon Stash detects that the specified coupon does not exist.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2b1. STASH requests the user to enter an index that corresponds with an
+<p>2b1. Coupon Stash requests the user to enter an index that corresponds with an
 existing coupon.</p>
 </li>
 <li>
@@ -2430,32 +2375,6 @@ existing coupon.</p>
 </li>
 <li>
 <p>Use case resumes from step 3.</p>
-</li>
-<li>
-<p>2b3. User enters wrong index twice.</p>
-</li>
-<li>
-<p>2b4. STASH clears command line.</p>
-</li>
-<li>
-<p>Use case ends.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>3a. User cancels the confirmation pop up</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>3a1. STASH verifies that user has cancelled during confirmation</p>
-</li>
-<li>
-<p>Use case ends.</p>
 </li>
 </ul>
 </div>
@@ -2470,7 +2389,7 @@ existing coupon.</p>
 <strong>Precondition:</strong> User has opened the application<br></p>
 </div>
 <div class="paragraph">
-<p>This use case describes how a user uses STASH to set reminders for an existing
+<p>This use case describes how a user uses Coupon Stash to set reminders for an existing
 coupon.</p>
 </div>
 <div class="paragraph">
@@ -2499,11 +2418,11 @@ the coupon.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a. STASH detects an invalid format in the entered data.</p>
+<p>2a. Coupon Stash detects an invalid format in the entered data.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a1. STASH requests the user to re-enter the details with the correct format.</p>
+<p>2a1. Coupon Stash requests the user to re-enter the details with the correct format.</p>
 </li>
 <li>
 <p>2a2. User enters new data.</p>
@@ -2514,15 +2433,6 @@ the coupon.</p>
 <li>
 <p>Use case resumes from step 3.</p>
 </li>
-<li>
-<p>2a3. User enters wrong data twice.</p>
-</li>
-<li>
-<p>2a4. STASH clears command line.</p>
-</li>
-<li>
-<p>Use case ends.</p>
-</li>
 </ul>
 </div>
 </li>
@@ -2531,11 +2441,11 @@ the coupon.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2b. STASH detects that the specified coupon does not exist.</p>
+<p>2b. Coupon Stash detects that the specified coupon does not exist.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2b1. STASH requests the user to enter an index that corresponds with an
+<p>2b1. Coupon Stash requests the user to enter an index that corresponds with an
 existing coupon.</p>
 </li>
 <li>
@@ -2543,15 +2453,6 @@ existing coupon.</p>
 </li>
 <li>
 <p>Use case resumes from step 3.</p>
-</li>
-<li>
-<p>2b3. User enters wrong index twice.</p>
-</li>
-<li>
-<p>2b4. STASH clears command line.</p>
-</li>
-<li>
-<p>Use case ends.</p>
 </li>
 </ul>
 </div>
@@ -2566,7 +2467,7 @@ existing coupon.</p>
 <strong>Precondition:</strong> User has opened the application<br></p>
 </div>
 <div class="paragraph">
-<p>This use case describes how a user uses STASH to find the coupon(s) expiring
+<p>This use case describes how a user uses Coupon Stash to find the coupon(s) expiring
 before the input expiry date.</p>
 </div>
 <div class="paragraph">
@@ -2578,10 +2479,9 @@ before the input expiry date.</p>
 <p>User keys in command to find a coupon based on expiry date.</p>
 </li>
 <li>
-<p>Matched coupons are displayed.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
+<p>Matched coupons are displayed.
++ Coupon Stash informs the user the number of coupons expiring before the specified date.
+Use case ends.</p>
 </li>
 </ol>
 </div>
@@ -2591,11 +2491,11 @@ before the input expiry date.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a. STASH detects an invalid format in the entered data.</p>
+<p>1a. Coupon Stash detects an invalid format in the entered data.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a1. STASH requests the user to re-enter the details with the correct format.</p>
+<p>1a1. Coupon Stash requests the user to re-enter the details with the correct format.</p>
 </li>
 <li>
 <p>1a2. User enters new data.</p>
@@ -2606,15 +2506,6 @@ before the input expiry date.</p>
 <li>
 <p>Use case resumes from step 2.</p>
 </li>
-<li>
-<p>1a3. User enters wrong data twice.</p>
-</li>
-<li>
-<p>1a4. STASH clears command line.</p>
-</li>
-<li>
-<p>Use case ends.</p>
-</li>
 </ul>
 </div>
 </li>
@@ -2623,11 +2514,11 @@ before the input expiry date.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1b. STASH detects that the specified coupon does not exist.</p>
+<p>1b. Coupon Stash detects that the specified coupon does not exist.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1b1. STASH requests the user to enter an index that corresponds with an
+<p>1b1. Coupon Stash requests the user to enter an index that corresponds with an
 existing coupon.</p>
 </li>
 <li>
@@ -2635,15 +2526,6 @@ existing coupon.</p>
 </li>
 <li>
 <p>Use case resumes from step 2.</p>
-</li>
-<li>
-<p>1b3. User enters wrong index twice.</p>
-</li>
-<li>
-<p>1b4. STASH clears command line.</p>
-</li>
-<li>
-<p>Use case ends.</p>
 </li>
 </ul>
 </div>
@@ -2657,7 +2539,7 @@ existing coupon.</p>
 <p><strong>Actor</strong>: <code>user</code></p>
 </div>
 <div class="paragraph">
-<p>This use case describes how a user uses STASH to delete an existing coupon.</p>
+<p>This use case describes how a user uses Coupon Stash to delete an existing coupon.</p>
 </div>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
@@ -2674,7 +2556,7 @@ existing coupon.</p>
 <p>User confirms its decision during confirmation.</p>
 </li>
 <li>
-<p>STASH removes the coupon.</p>
+<p>Coupon Stash removes the coupon.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2687,11 +2569,11 @@ existing coupon.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a. STASH detects an invalid format in the entered data.</p>
+<p>2a. Coupon Stash detects an invalid format in the entered data.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a1. STASH requests the user to re-enter the details with the correct format.</p>
+<p>2a1. Coupon Stash requests the user to re-enter the details with the correct format.</p>
 </li>
 <li>
 <p>2a2. User enters new data.</p>
@@ -2702,15 +2584,6 @@ existing coupon.</p>
 <li>
 <p>Use case resumes from step 2.</p>
 </li>
-<li>
-<p>2a3. User enters wrong data twice.</p>
-</li>
-<li>
-<p>2a4. STASH clears command line.</p>
-</li>
-<li>
-<p>Use case ends.</p>
-</li>
 </ul>
 </div>
 </li>
@@ -2719,11 +2592,11 @@ existing coupon.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2b. STASH detects that the specified coupon does not exist.</p>
+<p>2b. Coupon Stash detects that the specified coupon does not exist.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2b1. STASH requests the user to enter an index that corresponds with an
+<p>2b1. Coupon Stash requests the user to enter an index that corresponds with an
 existing coupon.</p>
 </li>
 <li>
@@ -2731,32 +2604,6 @@ existing coupon.</p>
 </li>
 <li>
 <p>Use case resumes from step 2.</p>
-</li>
-<li>
-<p>2b3. User enters wrong index twice.</p>
-</li>
-<li>
-<p>2b4. STASH clears command line.</p>
-</li>
-<li>
-<p>Use case ends.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>3a. User cancels the confirmation pop up</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>3a1. STASH verifies that user has cancelled during confirmation</p>
-</li>
-<li>
-<p>Use case ends.</p>
 </li>
 </ul>
 </div>
@@ -2770,7 +2617,7 @@ existing coupon.</p>
 <p><strong>Actor</strong>: <code>user</code></p>
 </div>
 <div class="paragraph">
-<p>This use case describes how a user undo the previous command in STASH.</p>
+<p>This use case describes how a user undo the previous command in Coupon Stash.</p>
 </div>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
@@ -2784,7 +2631,10 @@ existing coupon.</p>
 <p>User confirms its decision during confirmation.</p>
 </li>
 <li>
-<p>STASH undo the previous command.</p>
+<p>Coupon Stash undo the previous command.</p>
+</li>
+<li>
+<p>Coupon Stash informs the user which command has been undone.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2797,11 +2647,11 @@ existing coupon.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a. STASH detects an invalid format in the entered data.</p>
+<p>1a. Coupon Stash detects an invalid format in the entered data.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a1. STASH requests the user to re-enter the details with the correct format.</p>
+<p>1a1. Coupon Stash requests the user to re-enter the details with the correct format.</p>
 </li>
 <li>
 <p>1a2. User enters new data.</p>
@@ -2811,32 +2661,6 @@ existing coupon.</p>
 </li>
 <li>
 <p>Use case resumes from step 1.</p>
-</li>
-<li>
-<p>1a3. User enters wrong data twice.</p>
-</li>
-<li>
-<p>1a4. STASH clears command line.</p>
-</li>
-<li>
-<p>Use case ends.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>2a. User cancels the confirmation pop up</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>2a1. STASH verifies that user has cancelled during confirmation</p>
-</li>
-<li>
-<p>Use case ends.</p>
 </li>
 </ul>
 </div>
@@ -3029,8 +2853,7 @@ testers are expected to do more <em>exploratory</em> testing.
 </li>
 <li>
 <p>Double-click the jar file<br>
-   Expected: Shows the GUI with a set of sample contacts. The window size may
-not be optimum.</p>
+Expected: Shows the GUI with a set of sample coupons.</p>
 </li>
 </ol>
 </div>
@@ -3045,8 +2868,7 @@ location. Close the window.</p>
 </li>
 <li>
 <p>Re-launch the app by double-clicking the jar file.<br>
-   Expected: The most recent window size and location is retained.
-<em>{ more test cases &#8230;&#8203; }</em></p>
+Expected: The most recent window size and location is retained.</p>
 </li>
 </ol>
 </div>
@@ -3055,7 +2877,27 @@ location. Close the window.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-coupon"><a class="link" href="#deleting-a-coupon">F.2. Deleting a coupon</a></h3>
+<h3 id="adding-a-coupon"><a class="link" href="#adding-a-coupon">F.2. Adding a coupon</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adding a coupon</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>add n/Popular Bookstore e/31-12-2020 s/10%</code><br>
+Expected: Coupon Popular Bookstore is added to the list. <code>Start Date</code> is set to
+today&#8217;s date, while the Remind Date is set to 3 days before the specified
+<code>Expiry Date</code>. In this case, it would be 28-12-2020.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-a-coupon"><a class="link" href="#deleting-a-coupon">F.3. Deleting a coupon</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3088,28 +2930,6 @@ larger than the list size) <em>{give more}</em><br>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">F.3. Saving data</a></h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Dealing with missing/corrupted data files</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p><em>{explain how to simulate a missing/corrupted file and the expected
-behavior}</em>
-<em>{ more test cases &#8230;&#8203; }</em></p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-</div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-10 19:23:13 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-11 11:44:27 UTC</div></div></div></body></html>
