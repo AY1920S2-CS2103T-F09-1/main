@@ -108,6 +108,9 @@
 <p>Exiting the program: exit</p>
 </li>
 <li>
+<p>Reminding of coupon expiry</p>
+</li>
+<li>
 <p>Saving the data</p>
 </li>
 </ol>
@@ -195,13 +198,14 @@ along the way.</p>
 <li><a href="#viewing-help-code-help-code">4.19. Viewing help: <code>help</code></a></li>
 <li><a href="#clearing-all-entries-code-clear-code">4.20. Clearing all entries: <code>clear</code></a></li>
 <li><a href="#exiting-the-program-code-exit-code">4.21. Exiting the program: <code>exit</code></a></li>
-<li><a href="#saving-the-data">4.22. Saving the data</a></li>
+<li><a href="#reminding-of-coupon-expiry">4.22. Reminding of coupon expiry</a></li>
+<li><a href="#saving-the-data">4.23. Saving the data</a></li>
 </ul>
 </li>
 <li><a href="#KeyboardShortcuts">5. Keyboard Shortcuts</a>
 <ul class="sectlevel2">
 <li><a href="#restore-previously-entered-command-texts-kbd-kbd-and-kbd-kbd">5.1. Restore previously entered command texts: <kbd>↑</kbd> and <kbd>↓</kbd></a></li>
-<li><a href="#close-expanded-coupon-window-kbd-ctrl-kbd-kbd-q-kbd">5.2. Close expanded coupon window: <kbd>Ctrl</kbd>+<kbd>q</kbd></a></li>
+<li><a href="#close-expanded-coupon-or-reminder-windows-kbd-ctrl-kbd-kbd-q-kbd">5.2. Close expanded coupon or reminder windows: <kbd>Ctrl</kbd>+<kbd>q</kbd></a></li>
 <li><a href="#cycle-through-tabs-kbd-ctrl-kbd-kbd-tab-kbd">5.3. Cycle through tabs: <kbd>Ctrl</kbd>+<kbd>Tab</kbd></a></li>
 </ul>
 </li>
@@ -463,7 +467,7 @@ times)</p>
 </div>
 </li>
 <li>
-<p>Dates are all in the D-M-YYYY format (Coupon Stash date format)</p>
+<p><a id="coupon-stash-date-format"></a>Dates are all in the D-M-YYYY format (Coupon Stash date format)</p>
 <div class="ulist">
 <ul>
 <li>
@@ -476,7 +480,7 @@ times)</p>
 </div>
 </li>
 <li>
-<p>MonthYear are all in the M-YYYY format (Coupon Stash MonthYear format)</p>
+<p><a id="coupon-stash-monthyear-format"></a>MonthYear are all in the M-YYYY format (Coupon Stash MonthYear format)</p>
 <div class="ulist">
 <ul>
 <li>
@@ -504,7 +508,7 @@ required.
 Optional fields like <code>promo code</code> and <code>tags</code> may be provided as well.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>add n/NAME e/EXPIRY_DATE s/SAVINGS_OR_FREE_ITEM [sd/START_DATE] [r/REMIND_DATE] [p/PROMO_CODE] [c/CONDITIONS][u/USAGE] [l/USAGE_LIMIT] [s/EXTRA_FREE_ITEMS]&#8230;&#8203; [t/TAG]&#8230;&#8203;</code></p>
+<p>Format: <code>add n/NAME e/EXPIRY_DATE s/SAVINGS_OR_FREE_ITEM [sd/START_DATE] [r/REMIND_DATE] [p/PROMO_CODE] [c/CONDITIONS] [u/USAGE] [l/USAGE_LIMIT] [s/EXTRA_FREE_ITEMS]&#8230;&#8203; [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -518,15 +522,16 @@ A coupon can have any number of tags (including 0)
 </tr>
 </table>
 </div>
-<div class="admonitionblock tip">
+<div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If unspecified, the default <code>REMIND_DATE</code> of a coupon will be set to
-<code>EXPIRY_DATE</code> - 3 days.
+If unspecified, the default remind date of a coupon will be set to
+3 days before the expiry date. Go to <a href="#reminding-of-coupon-expiry">Section 4.22, &#8220;Reminding of coupon expiry&#8221;</a>  to
+learn more about remind dates.
 </td>
 </tr>
 </table>
@@ -538,11 +543,15 @@ If unspecified, the default <code>REMIND_DATE</code> of a coupon will be set to
 <li>
 <p>Coupons must have at least one "savings" value, whether it is
 a flat monetary amount (e.g. $1.00), a percentage (e.g. 10%) or
-an item (e.g. Free Water Bottle).</p>
+an item. (e.g. Free Water Bottle)</p>
 </li>
 <li>
 <p>Savings can be represented by multiple free items, but not multiple
 monetary amounts or percentage amounts.</p>
+</li>
+<li>
+<p>Free item names cannot contain any numbers. (e.g. iPhone 11 is an invalid
+free item name as it contains the number 11)</p>
 </li>
 <li>
 <p>Coupons cannot have both a monetary amount and a percentage amount.</p>
@@ -583,8 +592,8 @@ sd/1-4-2020 l/2 t/value t/savoury</code></p>
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-If your coupon has unlimited use, set the limit of the coupon to a number less
-than 1! E.g. <code>l/0</code>
+If your coupon allows for unlimited usage, set the limit of the coupon to a
+number less than 1! E.g. <code>l/0</code>
 </td>
 </tr>
 </table>
@@ -596,8 +605,7 @@ than 1! E.g. <code>l/0</code>
 <p>Edits an existing coupon in the coupon book.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>edit INDEX [n/NAME] [s/SAVINGS]&#8230;&#8203; [sd/START_DATE] [e/EXPIRY_DATE]
-[p/PROMO_CODE] [c/CONDITIONS] [l/USAGE_LIMIT] [t/TAG]&#8230;&#8203;</code></p>
+<p>Format: <code>edit INDEX [n/NAME] [e/EXPIRY_DATE] [sd/START_DATE] [r/REMIND_DATE] [p/PROMO_CODE] [c/CONDITION] [l/USAGE_LIMIT] [s/SAVINGS_OR_FREE_ITEMS]&#8230;&#8203; [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -613,33 +621,46 @@ than 1! E.g. <code>l/0</code>
 <p>Existing values will be updated to the input values.</p>
 </li>
 <li>
-<p>When editing tags, the existing tags of the coupon will be removed i.e
-adding of tags is not cumulative.</p>
+<p>When editing tags, the existing tags of the coupon will be removed. (i.e
+adding of tags is not cumulative)</p>
 </li>
 <li>
-<p>You can remove all the coupon’s tags by typing t/ without specifying any
+<p>You can remove all of a  coupon’s tags by typing <code>t/</code> without specifying any
 tags after it.</p>
 </li>
 <li>
-<p>When editing savings, existing savings of the coupon will also
+<p>When editing savings, just like tags, existing savings of the coupon will also
 be removed.</p>
 </li>
 <li>
-<p>Usage is disallowed from editing.</p>
+<p>Usage cannot be edited.</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
-<div class="admonitionblock warning">
+<div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
 Savings cannot be cleared in the same way as clearing tags,
-as a coupon must have at least 1 saving!
+as a coupon must have at least 1 saving.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Remind date cannot be removed or cleared. Go to <a href="#reminding-of-coupon-expiry">Section 4.22, &#8220;Reminding of coupon expiry&#8221;</a>
+to learn more about remind dates.
 </td>
 </tr>
 </table>
@@ -752,8 +773,8 @@ that are used before.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<code>PREFIX</code> can be left blank to list all active coupons (coupons that are not
-expired/ not fully used/ not archived).
+<code>PREFIX</code> can be left blank to list all active coupons. (coupons that are not
+expired/ not fully used/ not archived)
 </td>
 </tr>
 </table>
@@ -853,7 +874,7 @@ since you started using Coupon Stash will be shown.</p>
 <p>If a specific date is given, Coupon Stash will show you savings
 earned only on that day.</p>
 <div class="paragraph">
-<p>Format: <code>saved d/(date to show)</code></p>
+<p>Format: <code>saved d/DATE_TO_SHOW</code></p>
 </div>
 </li>
 <li>
@@ -861,7 +882,7 @@ earned only on that day.</p>
 the total savings accumulated over all the dates between that start date
 and end date, inclusive of those dates as well.</p>
 <div class="paragraph">
-<p>Format: <code>saved sd/(start date) e/(end date)</code></p>
+<p>Format: <code>saved sd/START_DATE e/END_DATE</code></p>
 </div>
 </li>
 </ul>
@@ -871,8 +892,8 @@ and end date, inclusive of those dates as well.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Dates are given in Coupon Stash date format, namely D-M-YYYY where D and M
-can be single or double digits.</p>
+<p>Dates are given in <a href="#coupon-stash-date-format">Coupon Stash date format</a>,
+namely D-M-YYYY where D and M can be single or double digits.</p>
 </li>
 <li>
 <p>Shows you a numeric value (e.g. 12.00 to represent twelve
@@ -967,9 +988,8 @@ Archives the first coupon in the coupon stash.</p>
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-Coupon Stash will automatically archive your coupons once their usage limit has
-been reached,
-or when they have expired, to keep your stash more organized!
+To keep your coupons more organized, Coupon Stash will automatically archive
+your coupons once their usage limit has been reached, or when they have expired.
 </td>
 </tr>
 </table>
@@ -978,7 +998,7 @@ or when they have expired, to keep your stash more organized!
 <div class="sect2">
 <h3 id="unarchiving-a-coupon-code-unarchive-code"><a class="link" href="#unarchiving-a-coupon-code-unarchive-code">4.8. Unarchiving a coupon: <code>unarchive</code></a></h3>
 <div class="paragraph">
-<p>Unarchive a coupon, thus brining it back to your active coupons list.</p>
+<p>Unarchive a coupon, thus bringing it back to your active coupons list.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1034,18 +1054,18 @@ Unarchive the first coupon in the coupon stash.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>The search is case insensitive. e.g mALa will match Mala</p>
+<p>The search is case insensitive. e.g mALa will match Mala.</p>
 </li>
 <li>
 <p>The order of the keywords does not matter. e.g. Rice Chicken will match
-Chicken Rice</p>
+Chicken Rice.</p>
 </li>
 <li>
-<p>Only full words will be matched e.g. Chicken will not match Chickens</p>
+<p>Only full words will be matched e.g. Chicken will not match Chickens.</p>
 </li>
 <li>
 <p>Coupons matching at least one keyword will be returned (i.e. OR search).
-e.g. Chicken Rice will return Duck Rice, Chicken Chop</p>
+e.g. Chicken Rice will return Duck Rice, Chicken Chop.</p>
 </li>
 </ul>
 </div>
@@ -1071,7 +1091,8 @@ name in your coupon name!
 <ul>
 <li>
 <p><code>find ken</code><br>
-Returns Ken sKitchen, KEN RIDGE Optical, Chic ken Rice</p>
+For example, coupons with these names would be returned:
+<strong>Ken</strong> Kitchen, <strong>KEN</strong> RIDGE Optical, <strong>ken</strong> you build a snowman.</p>
 </li>
 </ul>
 </div>
@@ -1105,11 +1126,14 @@ non-archived matches.
 <div class="ulist">
 <ul>
 <li>
-<p>Lists all coupons that are expiring on the specified EXPIRY_DATE or during
-the specified MONTH_YEAR</p>
+<p>Lists all coupons that are expiring on the specified expiry date or during
+the specified month year.</p>
 </li>
 <li>
-<p>The date or MonthYear must be in Coupon Stash date format</p>
+<p>The date or MonthYear must follow the
+<a href="#coupon-stash-date-format">Coupon Stash date format</a>
+or the <a href="#coupon-stash-monthyear-format">Coupon Stash MonthYear format</a>
+respectively.</p>
 </li>
 </ul>
 </div>
@@ -1137,8 +1161,8 @@ Shows you all the coupons that will expire during September 2020.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The <code>expiring</code> command will include archived coupons in its results
-too. Coupons that are expiring in the archives are
+The <code>expiring</code> command will include <a href="#_archiving_a_coupon_archive">archived</a>
+coupons in its results too. Coupons that are expiring in the archives are
 displayed <strong>below</strong> the non-archived matches.
 </td>
 </tr>
@@ -1148,8 +1172,8 @@ displayed <strong>below</strong> the non-archived matches.
 <div class="sect2">
 <h3 id="sorting-coupons-code-sort-code"><a class="link" href="#sorting-coupons-code-sort-code">4.11. Sorting coupons: <code>sort</code></a></h3>
 <div class="paragraph">
-<p>Sorts the coupons in CouponStash in ascending order. It is possible to sort by
-coupon name or expiry date.</p>
+<p>Sorts the coupons in CouponStash in <strong>ascending</strong> order. It is possible to sort
+by coupon name or expiry date.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1160,8 +1184,8 @@ coupon name or expiry date.</p>
 <td class="content">
 The sorting order will persist throughout the runtime of the program.
 The command will sort any coupons currently on screen, including
-archived coupons , if they are present on screen. Archived coupons will always appear
-<strong>below</strong> active coupons.
+<a href="#_archiving_a_coupon_archive">archived</a> coupons , if they are present on
+screen. Archived coupons will always appear <strong>below</strong> active coupons.
 </td>
 </tr>
 </table>
@@ -1309,7 +1333,7 @@ Instagram!</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Image generated looks exactly like how a coupon shows up in the user interface.
+Image generated will have an index of 1 regardless of its true index.
 Below is a sample of how a shared coupon image looks like:
 </td>
 </tr>
@@ -1319,6 +1343,24 @@ Below is a sample of how a shared coupon image looks like:
 <div class="content">
 <img src="images/example_shared_coupon.png" alt="example shared coupon">
 </div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code><br>
+<code>share 2</code><br>
+Shares the 2nd coupon in the coupon stash and save it as a <code>.png</code> file.</p>
+</li>
+<li>
+<p><code>find chicken</code><br>
+<code>share 1</code><br>
+Shares the 1st coupon in the results of the find command and save it as a <code>.png</code>
+file.</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect2">
@@ -1358,10 +1400,19 @@ coupons in the coupon stash)<br></p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>Note that changes to user preferences cannot be undone.</p>
 </div>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Changes to user preferences cannot be undone.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -1369,14 +1420,15 @@ coupons in the coupon stash)<br></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>remind 1 r/ 25-12-2020</code><br>
+<p><code>edit 1 r/ 25-12-2020</code><br>
   <code>undo</code><br>
-Undo the <code>remind</code> command. Reminder is removed.</p>
+Undo the <code>edit</code> command. Remind date of 1st coupon reverts back to its original
+value.</p>
 </li>
 <li>
-<p><code>edit 1 n/ Duck Rice</code><br>
+<p><code>delete 1</code><br>
   <code>undo</code><br>
-Revert the edit that was performed.</p>
+Revert the <code>delete</code> that was performed. Deleted coupon is restored.</p>
 </li>
 </ul>
 </div>
@@ -1396,16 +1448,17 @@ Revert the edit that was performed.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>remind 1 r/ 25-12-2020</code><br>
+<p><code>edit 1 r/ 25-12-2020</code><br>
   <code>undo</code><br>
   <code>redo</code><br>
-Un-undo the <code>remind</code> command.</p>
+Un-undo the <code>edit</code> command. Remind date of 1st coupon is edited.
+value.</p>
 </li>
 <li>
-<p><code>edit 1 n/ Duck Rice</code><br>
+<p><code>delete 1</code><br>
   <code>undo</code><br>
   <code>redo</code><br>
-Un-undo the <code>edit</code> command.</p>
+Un-undo the <code>delete</code> command. 1st coupon is deleted.</p>
 </li>
 </ul>
 </div>
@@ -1448,10 +1501,7 @@ Goes to December 2020 on the Calendar</p>
 </div>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="images/expand_example.png" alt="expand example"></span></p>
-</div>
-<div class="paragraph">
-<p>Example:</p>
+<p>Examples:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1460,6 +1510,12 @@ Goes to December 2020 on the Calendar</p>
 Open the coupon at index 1 in a new window.</p>
 </li>
 </ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/expand_example.png" alt="expand example">
+</div>
+<div class="title">Example of an expanded coupon window.</div>
 </div>
 </div>
 <div class="sect2">
@@ -1501,7 +1557,9 @@ be visible immediately.</p>
 <div class="sect2">
 <h3 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">4.19. Viewing help: <code>help</code></a></h3>
 <div class="paragraph">
-<p>Open a browser window that accesses an offline copy of this user guide.</p>
+<p>Open a browser window that accesses an offline copy of this user guide. First
+run of this command may take quite some time as the program needs to extract
+an offline copy of this document.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>help</code></p>
@@ -1522,7 +1580,85 @@ Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">4.22. Saving the data</a></h3>
+<h3 id="reminding-of-coupon-expiry"><a class="link" href="#reminding-of-coupon-expiry">4.22. Reminding of coupon expiry</a></h3>
+<div class="paragraph">
+<p>By default, all added coupons have a remind date that is 3 days before its
+stated expiry date. This default value can be changed during the process of
+<a href="#_adding_a_coupon_add">adding</a> a new coupon or by
+<a href="#_editing_a_coupon_edit">editing</a> an existing coupon. The remind dates for all
+coupons are checked on program launch. All coupons that have a remind date which
+falls on the date of program launch will be listed in a popup window on launch.
+The popup window can be closed by pressing <kbd>Ctrl</kbd> + <kbd>q</kbd>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ug_reminder_window.PNG" alt="ug reminder window">
+</div>
+<div class="title">Popup window showing all coupons that have their remind dates set on the date of program launch.</div>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Remind dates are <strong>only</strong> checked during program launch. Thus, if a day passes
+while the program is open, even if there are coupons expiring on the new day,
+no new reminder window will open.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>As of now, there is no
+functionality for the disabling of reminders for coupons. This feature will be
+made available in version 2.0.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The format of dates entered via the <code>r/</code> field is
+in the D-M-YYYY format. (<a href="#coupon-stash-date-format">Coupon Stash date format</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add n/McDonald&#8217;s McGriddles p/ILOVEMCGRIDDLES e/31-12-2020 s/$2
+sd/1-4-2020 l/2 t/value t/savoury</code></p>
+<div class="paragraph">
+<p>Add a new Coupon without specifying a remind date. Note that the default
+remind date is 3 days before the state expiry date:<br>
+<span class="image"><img src="images/ug_mcdonalds_mcgriddles.png" alt="ug mcdonalds mcgriddles"></span></p>
+</div>
+</li>
+<li>
+<p><code>add n/Grabfood s/40% e/30-4-2020 p/GRAB40 t/delivery r/10-4-2020</code></p>
+<div class="paragraph">
+<p>Add a new Coupon while specifying a remind date of <code>10-4-2020</code>:<br>
+<span class="image"><img src="images/ug_Grabfood_reminder.png" alt="ug Grabfood reminder"></span></p>
+</div>
+</li>
+<li>
+<p><code>edit 1 r/10-4-2020</code></p>
+<div class="paragraph">
+<p>Edit the coupon at index 1 and change its remind date to <code>10-4-2020</code>.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">4.23. Saving the data</a></h3>
 <div class="paragraph">
 <p>Coupon data is saved in the hard disk automatically after any
 command that changes the data.</p>
@@ -1560,11 +1696,13 @@ command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="close-expanded-coupon-window-kbd-ctrl-kbd-kbd-q-kbd"><a class="link" href="#close-expanded-coupon-window-kbd-ctrl-kbd-kbd-q-kbd">5.2. Close expanded coupon window: <kbd>Ctrl</kbd>+<kbd>q</kbd></a></h3>
+<h3 id="close-expanded-coupon-or-reminder-windows-kbd-ctrl-kbd-kbd-q-kbd"><a class="link" href="#close-expanded-coupon-or-reminder-windows-kbd-ctrl-kbd-kbd-q-kbd">5.2. Close expanded coupon or reminder windows: <kbd>Ctrl</kbd>+<kbd>q</kbd></a></h3>
 <div class="paragraph">
 <p>After <a href="#_displaying_a_coupon_expand"><code>expanding</code></a> a coupon, you can close
 the expanded coupon window by keeping the focus on the coupon window and
-pressing the keyboard buttons <kbd>Ctrl</kbd> and <kbd>q</kbd> simultaneously.</p>
+pressing the keyboard buttons <kbd>Ctrl</kbd> and <kbd>q</kbd> simultaneously. This
+shortcut also works for closing <a href="#_reminding_of_coupon_expiry">reminder</a>
+windows.</p>
 </div>
 <div class="paragraph">
 <p>Demonstration:</p>
@@ -1696,11 +1834,6 @@ e.g. <code>sort n/</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Expiring</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>expiring e/EXPIRY_DATE</code> or <code>expiring my/MONTH_YEAR</code><br>
 e.g. <code>expiring e/11-9-2020</code> or <code>expiring my/9-2020</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Remind</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>remind INDEX e/PERIOD_BEFORE_EXPIRY_DATE</code> or <code>remind INDEX d/REMIND_DATE</code><br>
-e.g. <code>remind 1 e/ 5 days</code> or <code>remind 5 d/ 1-5-2020</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Used</strong></p></td>
@@ -1887,4 +2020,4 @@ supported in the condition.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 07:31:28 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 08:04:10 UTC</div></div></div></body></html>
