@@ -60,6 +60,19 @@
 <li><a href="#listing-coupons">F.3. Listing coupons</a></li>
 <li><a href="#deleting-a-coupon">F.4. Deleting a coupon</a></li>
 <li><a href="#editing-a-coupon">F.5. Editing a Coupon</a></li>
+<li><a href="#finding-a-coupon">F.6. Finding a coupon</a></li>
+<li><a href="#sorting-the-coupon-stash">F.7. Sorting the Coupon Stash</a></li>
+<li><a href="#listing-all-expiring-coupons">F.8. Listing all expiring coupons</a></li>
+<li><a href="#viewing-savings">F.9. Viewing savings</a></li>
+<li><a href="#using-a-coupon">F.10. Using a coupon</a></li>
+<li><a href="#archiving-a-coupon">F.11. Archiving a coupon</a></li>
+<li><a href="#copying-a-coupon">F.12. Copying a coupon</a></li>
+<li><a href="#sharing-a-coupon">F.13. Sharing a coupon</a></li>
+<li><a href="#undoing-a-command">F.14. Undoing a command</a></li>
+<li><a href="#going-to-a-month-on-the-calendar">F.15. Going to a month on the calendar</a></li>
+<li><a href="#expanding-a-coupon">F.16. Expanding a coupon</a></li>
+<li><a href="#setting-currency-symbol">F.17. Setting currency symbol</a></li>
+<li><a href="#viewing-help-page">F.18. Viewing help page</a></li>
 </ul>
 </li>
 </ul>
@@ -3094,8 +3107,8 @@ testers are expected to do more <em>exploratory</em> testing.
 </div>
 <div class="sect2">
 <h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">F.1. Launch and Shutdown</a></h3>
-<div class="olist arabic">
-<ol class="arabic">
+<div class="ulist">
+<ul>
 <li>
 <p>Initial launch</p>
 <div class="olist loweralpha">
@@ -3114,13 +3127,13 @@ Expected: Shows the GUI with a set of sample coupons.</p>
 </ol>
 </div>
 </li>
-</ol>
+</ul>
 </div>
 </div>
 <div class="sect2">
 <h3 id="adding-a-coupon"><a class="link" href="#adding-a-coupon">F.2. Adding a coupon</a></h3>
-<div class="olist arabic">
-<ol class="arabic">
+<div class="ulist">
+<ul>
 <li>
 <p>Adding a coupon</p>
 <div class="olist loweralpha">
@@ -3134,13 +3147,13 @@ the <code>system&#8217;s date</code>, while the Remind Date is set to 3 days bef
 </ol>
 </div>
 </li>
-</ol>
+</ul>
 </div>
 </div>
 <div class="sect2">
 <h3 id="listing-coupons"><a class="link" href="#listing-coupons">F.3. Listing coupons</a></h3>
-<div class="olist arabic">
-<ol class="arabic">
+<div class="ulist">
+<ul>
 <li>
 <p>List different type of coupons</p>
 <div class="olist loweralpha">
@@ -3160,13 +3173,13 @@ Expected: All previously used coupons are displayed on the list.</p>
 </ol>
 </div>
 </li>
-</ol>
+</ul>
 </div>
 </div>
 <div class="sect2">
 <h3 id="deleting-a-coupon"><a class="link" href="#deleting-a-coupon">F.4. Deleting a coupon</a></h3>
-<div class="olist arabic">
-<ol class="arabic">
+<div class="ulist">
+<ul>
 <li>
 <p>Deleting a coupon while all coupons are listed</p>
 <div class="olist loweralpha">
@@ -3194,13 +3207,13 @@ Expected: Similar to previous.</p>
 </ol>
 </div>
 </li>
-</ol>
+</ul>
 </div>
 </div>
 <div class="sect2">
 <h3 id="editing-a-coupon"><a class="link" href="#editing-a-coupon">F.5. Editing a Coupon</a></h3>
-<div class="olist arabic">
-<ol class="arabic">
+<div class="ulist">
+<ul>
 <li>
 <p>Editing a coupon while all coupons are listed</p>
 <div class="olist loweralpha">
@@ -3233,8 +3246,372 @@ a Water Bottle item.</p>
 </ol>
 </div>
 </li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="finding-a-coupon"><a class="link" href="#finding-a-coupon">F.6. Finding a coupon</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Finds certain coupons by name in Coupon Stash.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Have some coupons in Coupon Stash,
+preferably the sample data.</p>
+</li>
+<li>
+<p>Test case: <code>find adidas</code><br>
+Expected: Only the coupon named "Adidas" shows up.</p>
+</li>
+<li>
+<p>Test case: <code>find grabfood</code><br>
+Expected: Only the coupon named "GrabFood" shows up.</p>
+</li>
 </ol>
 </div>
+</li>
+</ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 13:30:21 UTC</div></div></div></body></html>
+<div class="sect2">
+<h3 id="sorting-the-coupon-stash"><a class="link" href="#sorting-the-coupon-stash">F.7. Sorting the Coupon Stash</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Sorts coupons by name, expiry date or remind date
+in Coupon Stash.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Have some coupons in Coupon Stash,
+preferably the sample data. The following test cases
+assumes the commands are run on a set of unmodified sample data.</p>
+</li>
+<li>
+<p>Test case: <code>sort n/</code><br>
+Expected: The Coupon Stash appears in this order:
+Adidas, Gong Cha, GrabFood, Lazada, LiHO, Shopee</p>
+</li>
+<li>
+<p>Test case: <code>sort e/</code><br>
+Expected: The Coupon Stash appears in this order:
+GrabFood (30-04-2020), LiHO (31-05-2020),
+Gong Cha (30-06-2020), Lazada (30-09-2020),
+Shopee (31-10-2020), Adidas (31-12-2020)</p>
+</li>
+<li>
+<p>Test case: <code>sort r/</code><br>
+Expected: The Coupon Stash appears in this order:
+GrabFood (27-04-2020), LiHO (28-05-2020),
+Gong Cha (27-06-2020), Lazada (27-09-2020),
+Shopee (28-10-2020), Adidas (28-12-2020)</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="listing-all-expiring-coupons"><a class="link" href="#listing-all-expiring-coupons">F.8. Listing all expiring coupons</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Shows coupons that are expiring on a certain date
+or a certain month.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Have some coupons in Coupon Stash,
+preferably the sample data. The following test cases
+assumes the commands are run on a set of unmodified sample data.</p>
+</li>
+<li>
+<p>Test case: <code>expiring e/31-10-2020</code><br>
+Expected: Shopee (expires on 31-10-2020) appears as
+the only coupon.</p>
+</li>
+<li>
+<p>Test case: <code>expiring my/4-2020</code><br>
+Expected: GrabFood (expires 30-04-2020) appears as
+the only coupon</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="viewing-savings"><a class="link" href="#viewing-savings">F.9. Viewing savings</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Views savings accumulated in the application</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Have some coupons in Coupon Stash,
+preferably the sample data. The following test cases
+assumes the commands are run on a set of unmodified sample data.</p>
+</li>
+<li>
+<p>Test case: <code>saved</code><br>
+Expected: The command result box displays "In total,
+you have saved $60.00 as well
+as earned 1x USB-C cable, 1x iPhone case."</p>
+</li>
+<li>
+<p>Test case: <code>saved d/11-3-2020</code><br>
+Expected: The command result box displays "You
+saved $7.30 on 11 March 2020." (this savings
+record is attached to the "Gong Cha" coupon).</p>
+</li>
+<li>
+<p>Test case: <code>saved sd/16-3-2020 e/23-3-2020</code><br>
+Expected: The command result box displays "You
+saved $17.00 between 16 March 2020 and 23 March 2020."</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="using-a-coupon"><a class="link" href="#using-a-coupon">F.10. Using a coupon</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Marks a coupon as used and registers the savings.
+Depending on whether the coupon is a percentage or
+monetary amount, you may be required to enter in
+the original price of the item.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Have some coupons in Coupon Stash
+that have usage not at the limit,
+preferably the sample data. The following test cases
+assumes the commands are run on a set of unmodified sample data.</p>
+</li>
+<li>
+<p>Test case: <code>list</code>, <code>used 6 $100</code><br>
+Expected: The command result box displays "Used Coupon:
+GrabFood" and sayings for today increases by $40
+(40% of $100 saved).</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="archiving-a-coupon"><a class="link" href="#archiving-a-coupon">F.11. Archiving a coupon</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Marks a coupon as archived and hides it from the
+normal view.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Have some coupons in Coupon Stash
+that are not already archived. The following test cases
+assumes the commands are run on a set of unmodified sample data.</p>
+</li>
+<li>
+<p>Test case: <code>list</code>, <code>archive 5</code><br>
+Expected:  The command result box displays "Archived Coupon:
+LiHO" and LiHO disappears from the displayed coupons.</p>
+</li>
+<li>
+<p>Test case: <code>list a/</code>, <code>unarchive 1</code><br>
+Expected: The command result box displays "Unarchived Coupon:
+LiHO" and LiHO reappears in the displayed coupons.</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="copying-a-coupon"><a class="link" href="#copying-a-coupon">F.12. Copying a coupon</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Recreates a coupon as an add command that can be
+copied and shared to other users of Coupon Stash.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Have some coupons in Coupon Stash
+that are not already archived. The following test cases
+assumes the commands are run on a set of unmodified sample data.</p>
+</li>
+<li>
+<p>Test case: <code>list</code>, <code>copy 1</code><br>
+Expected: Command result box displays "Copied coupon: Adidas"
+and <code>add n/Adidas p/30ADIDAS e/31-12-2020 s/30.0% s/Adidas Cap l/1</code>
+is added to the operating system&#8217;s clipboard.</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="sharing-a-coupon"><a class="link" href="#sharing-a-coupon">F.13. Sharing a coupon</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Takes an image of the coupon as it appears in Coupon Stash
+and opens the file save dialogue box of your operating system
+so you can save the image to your computer.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Have some coupons in Coupon Stash
+that are not already archived. The following test cases
+assumes the commands are run on a set of unmodified sample data.</p>
+</li>
+<li>
+<p>Test case: <code>list</code>, <code>share 2</code><br>
+Expected: The operating system prompts you to save
+"Gong Cha.png" to a location on your computer.</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="undoing-a-command"><a class="link" href="#undoing-a-command">F.14. Undoing a command</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Undoes the previous command entered, only if the
+command resulted in a change to the coupons.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: At least one command that
+modified a coupon was previously entered.</p>
+</li>
+<li>
+<p>Test case: <code>add n/Test e/1-1-5050 s/$40</code>, <code>undo</code>
+Expected: A new coupon named "Test" is added, and then
+removed again once <code>undo</code> is run.</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="going-to-a-month-on-the-calendar"><a class="link" href="#going-to-a-month-on-the-calendar">F.15. Going to a month on the calendar</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Navigates the calendar to jump to a certain month and year,
+without the need for clicking buttons in the User Interface.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: None</p>
+</li>
+<li>
+<p>Test case: <code>goto my/4-5678</code><br>
+Expected: The calendar shows the month of April, in
+the year 5678.</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="expanding-a-coupon"><a class="link" href="#expanding-a-coupon">F.16. Expanding a coupon</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Opens a new window with full details of the
+Coupon, such as a list of all the saveable items.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Have at least one coupon displayed
+in Coupon Stash. The following test cases
+assumes the commands are run on a set of unmodified sample data.</p>
+</li>
+<li>
+<p>Test case: <code>list</code>, <code>expand 2</code><br>
+Expected: A window appears that shows the full
+history of coupon usage for the Gong Cha coupon.</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="setting-currency-symbol"><a class="link" href="#setting-currency-symbol">F.17. Setting currency symbol</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Changes the currency symbol used by Coupon Stash
+when displaying amounts saved and when interpreting
+monetary amounts in commands.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: None. The following test cases
+assumes the commands are run with the unmodified
+sample user preferences.</p>
+</li>
+<li>
+<p>Test case: <code>setcurrency ms/RM</code><br>
+Expected: Command result box displays "Money
+symbol changed from $ to RM!" and coupons shown are
+updated to display savings in RM instead of $.</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="viewing-help-page"><a class="link" href="#viewing-help-page">F.18. Viewing help page</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Opens the user guide of Coupon Stash in
+another window.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: None.</p>
+</li>
+<li>
+<p>Test case: <code>help</code><br>
+Expected: A web browser window opens, showing
+the Coupon Stash User Guide.</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 14:00:06 UTC</div></div></div></body></html>
