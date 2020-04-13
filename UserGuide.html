@@ -87,7 +87,7 @@ along the way.</p>
 <p>Unarchiving a coupon: unarchive</p>
 </li>
 <li>
-<p>Locating coupons by name: find</p>
+<p>Finding coupons by name: find</p>
 </li>
 <li>
 <p>Listing all expiring coupons: expiring</p>
@@ -209,15 +209,15 @@ to use this wonderful application.</p>
 <li><a href="#saved">5.6. Viewing savings: <code>saved</code></a></li>
 <li><a href="#archive">5.7. Archiving a coupon: <code>archive</code></a></li>
 <li><a href="#unarchiving-a-coupon-code-unarchive-code">5.8. Unarchiving a coupon: <code>unarchive</code></a></li>
-<li><a href="#locating-coupons-by-name-code-find-code">5.9. Locating coupons by name: <code>find</code></a></li>
+<li><a href="#finding-coupons-by-name-code-find-code">5.9. Finding coupons by name: <code>find</code></a></li>
 <li><a href="#listing-all-expiring-coupons-code-expiring-code">5.10. Listing all expiring coupons: <code>expiring</code></a></li>
 <li><a href="#sorting-coupons-code-sort-code">5.11. Sorting coupons: <code>sort</code></a></li>
 <li><a href="#copying-a-coupon-code-copy-code">5.12. Copying a coupon: <code>copy</code></a></li>
 <li><a href="#sharing-a-coupon-code-share-code">5.13. Sharing a coupon: <code>share</code></a></li>
 <li><a href="#undoing-the-previous-command-code-undo-code">5.14. Undoing the previous command: <code>undo</code></a></li>
 <li><a href="#redoing-the-undone-command-code-redo-code">5.15. Redoing the undone command: <code>redo</code></a></li>
-<li><a href="#displaying-a-month-year-on-the-calendar-code-goto-code">5.16. Displaying a month-year on the calendar: <code>goto</code></a></li>
-<li><a href="#displaying-a-coupon-code-expand-code">5.17. Displaying a coupon: <code>expand</code></a></li>
+<li><a href="#going-to-a-month-year-on-the-calendar-code-goto-code">5.16. Going to a month-year on the calendar: <code>goto</code></a></li>
+<li><a href="#expanding-a-coupon-code-expand-code">5.17. Expanding a coupon: <code>expand</code></a></li>
 <li><a href="#setcurrency">5.18. Setting currency symbol: <code>setcurrency</code></a></li>
 <li><a href="#viewing-help-code-help-code">5.19. Viewing help: <code>help</code></a></li>
 <li><a href="#clearing-all-entries-code-clear-code">5.20. Clearing all entries: <code>clear</code></a></li>
@@ -339,6 +339,9 @@ the <kbd>Ctrl</kbd> key, which is used for most shortcuts.</p>
 <div class="sect1">
 <h2 id="quick-start"><a class="link" href="#quick-start">3. Quick Start</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>TODO: Preface</p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -360,6 +363,9 @@ Interface (GUI) should appear in a few
 seconds. If nothing occurs, use the command
 <code>java -jar CouponStash.jar</code> on your computer&#8217;s Command Line Interface (CLI) to
 open the file up.</p>
+</li>
+<li>
+<p>TODO: Sample data&#8230;&#8203; Can clear it if you want</p>
 </li>
 <li>
 <p>Type the command in the command box and press Enter to execute it.</p>
@@ -456,7 +462,7 @@ each tab of Coupon Stash, as well as how to use them.</p>
 <div class="sect3">
 <h4 id="coupons-tab"><a class="link" href="#coupons-tab">4.1.1. Coupons tab</a></h4>
 <div class="paragraph">
-<p>WHen you first start Coupon Stash, the default selected tab
+<p>When you first start Coupon Stash, the default selected tab
 is the coupons tabs. The coupons tab contains a visual
 overview of the coupons which you have added to the
 application.</p>
@@ -625,13 +631,8 @@ whether your command was successful or not.</p>
 for you to try out in Coupon Stash too!<br>
 Also, take note of the general format of all the commands below!</p>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
+<div class="exampleblock">
+<div class="content">
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
@@ -650,7 +651,7 @@ Also, take note of the general format of all the commands below!</p>
 </div>
 </li>
 <li>
-<p><code>INDEX</code>: positive integer that specifies the index number shown in
+<p><a id="index"></a><code>INDEX</code>: positive integer that specifies the index number shown in
 the displayed coupon list. The index must be a positive
 integer</p>
 <div class="ulist">
@@ -744,9 +745,7 @@ times)</p>
 </div>
 </div>
 </div>
-</td>
-</tr>
-</table>
+</div>
 </div>
 <div class="sect2">
 <h3 id="adding-a-coupon-code-add-code"><a class="link" href="#adding-a-coupon-code-add-code">5.1. Adding a coupon: <code>add</code></a></h3>
@@ -860,7 +859,7 @@ number less than 1! E.g. <code>l/0</code>
 <div class="ulist">
 <ul>
 <li>
-<p>Edits the coupon at the specified <code>INDEX</code>.</p>
+<p>Edits the coupon at the specified <a href="#index"><code>INDEX</code></a>.</p>
 </li>
 <li>
 <p>At least one of the optional fields must be provided.</p>
@@ -933,15 +932,7 @@ clears all existing tags.</p>
 <div class="sect2">
 <h3 id="deleting-a-coupon-code-delete-code"><a class="link" href="#deleting-a-coupon-code-delete-code">5.3. Deleting a coupon: <code>delete</code></a></h3>
 <div class="paragraph">
-<p>Deletes the specified coupon from the coupon stash.</p>
-</div>
-<div class="paragraph">
-<p>Version 2.0 will bring new features like confirmation
-of coupons before they are deleted!</p>
-</div>
-<div class="paragraph">
-<p>Also, a "recycle bin" is in the works for version 3.0,
-similar to the Recycle Bin in Microsoft Windows.</p>
+<p>Deletes the specified coupon from the Coupon Stash.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>delete INDEX</code></p>
@@ -951,7 +942,7 @@ similar to the Recycle Bin in Microsoft Windows.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Deletes the coupon at the specified INDEX.</p>
+<p>Deletes the coupon at the specified <a href="#index"><code>INDEX</code></a>.</p>
 </li>
 </ul>
 </div>
@@ -983,8 +974,8 @@ Deletes the 1st coupon in the results of the find command.</p>
 <div class="paragraph">
 <p>There are 3 types of lists:<br></p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
+<div class="ulist">
+<ul>
 <li>
 <p>List of active coupons</p>
 </li>
@@ -994,7 +985,7 @@ Deletes the 1st coupon in the results of the find command.</p>
 <li>
 <p>List of used coupons</p>
 </li>
-</ol>
+</ul>
 </div>
 <div class="paragraph">
 <p>Format: <code>list [PREFIX]</code><br></p>
@@ -1064,7 +1055,7 @@ symbol e.g. ($4.50, where the currency symbol is "$").</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Uses the coupon at the specified INDEX.</p>
+<p>Uses the coupon at the specified <a href="#index">INDEX</a>.</p>
 </li>
 </ul>
 </div>
@@ -1083,7 +1074,7 @@ Uses the first coupon in the coupon stash.</p>
 <p><code>used 1 $10.0</code><br>
 Uses the first coupon in the coupon stash, which also has a percentage savings.
 The total savings of the coupon will be calculated, and can be seen with the
-command <code>saved</code>.</p>
+command <a href="#saved"><code>saved</code></a>.</p>
 </li>
 </ul>
 </div>
@@ -1192,12 +1183,12 @@ current stash of coupons.</p>
 <td class="content">
 To view archived coupons, the user can run the <a href="#listing-coupons-code-list-code"><code>list
 a/</code></a> command to list all
-archived coupons. Alternatively, the <a href="#locating-coupons-by-name-code-find-code"><code>find</code></a> command explained below will
+archived coupons. Alternatively, the <a href="#finding-coupons-by-name-code-find-code"><code>find</code></a> command explained below will
 search all archived coupons, thus displaying archives that match the supplied
 keywords below unarchived coupons. Finally, the
 <a href="#listing-all-expiring-coupons-code-expiring-code"><code>expiring</code></a> command will also
 include all archived coupons that are expiring in its results.
-Read the section on <a href="#locating-coupons-by-name-code-find-code"><code>find</code></a> and
+Read the section on <a href="#finding-coupons-by-name-code-find-code"><code>find</code></a> and
 <a href="#listing-all-expiring-coupons-code-expiring-code"><code>expiring</code></a>
 respectively to find out more.
 </td>
@@ -1212,7 +1203,7 @@ respectively to find out more.
 <div class="ulist">
 <ul>
 <li>
-<p>Archives the coupon at the specified INDEX.</p>
+<p>Archives the coupon at the specified <a href="#index">INDEX</a>.</p>
 </li>
 </ul>
 </div>
@@ -1271,7 +1262,7 @@ you can display archived coupons.
 <div class="ulist">
 <ul>
 <li>
-<p>Unarchive the coupon at the specified INDEX.</p>
+<p>Unarchive the coupon at the specified <a href="#index">INDEX</a>.</p>
 </li>
 </ul>
 </div>
@@ -1290,7 +1281,7 @@ Unarchive the first coupon in the coupon stash.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="locating-coupons-by-name-code-find-code"><a class="link" href="#locating-coupons-by-name-code-find-code">5.9. Locating coupons by name: <code>find</code></a></h3>
+<h3 id="finding-coupons-by-name-code-find-code"><a class="link" href="#finding-coupons-by-name-code-find-code">5.9. Finding coupons by name: <code>find</code></a></h3>
 <div class="paragraph">
 <p>Find coupon(s) whose names contain any of the given keywords.</p>
 </div>
@@ -1312,7 +1303,7 @@ Chicken Rice.</p>
 <p>Only full words will be matched e.g. Chicken will not match Chickens.</p>
 </li>
 <li>
-<p>Coupons matching at least one keyword will be returned (i.e. OR search).
+<p>Coupons matching at least one keyword will be returned.
 e.g. Chicken Rice will return Duck Rice, Chicken Chop.</p>
 </li>
 </ul>
@@ -1351,7 +1342,7 @@ For example, coupons with these names would be returned:
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The <a href="#locating-coupons-by-name-code-find-code"><code>find</code></a> command searches the
+The <a href="#finding-coupons-by-name-code-find-code"><code>find</code></a> command searches the
 <a href="#archive"><code>archive</code></a> for matches too. Coupons that are
 found
 in the <a href="#archive"><code>archive</code></a> are displayed <strong>below</strong> the
@@ -1364,7 +1355,8 @@ non-archived matches.
 <div class="sect2">
 <h3 id="listing-all-expiring-coupons-code-expiring-code"><a class="link" href="#listing-all-expiring-coupons-code-expiring-code">5.10. Listing all expiring coupons: <code>expiring</code></a></h3>
 <div class="paragraph">
-<p>Shows a list of all your coupons expiring on a date or during a MonthYear.</p>
+<p>Shows a list of all your coupons expiring on a date or during a
+<a href="#coupon-stash-monthyear-format">MonthYear</a>.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>expiring e/EXPIRY_DATE</code> or <code>expiring my/MONTH_YEAR</code></p>
@@ -1378,7 +1370,7 @@ non-archived matches.
 the specified month year.</p>
 </li>
 <li>
-<p>The date or MonthYear must follow the
+<p>The <a href="#coupon-stash-date-format">date</a> or <a href="#coupon-stash-monthyear-format">MonthYear</a> must follow the
 <a href="#coupon-stash-date-format">Coupon Stash date format</a>
 or the <a href="#coupon-stash-monthyear-format">Coupon Stash MonthYear format</a>
 respectively.</p>
@@ -1420,7 +1412,7 @@ displayed <strong>below</strong> the non-archived matches.
 <div class="sect2">
 <h3 id="sorting-coupons-code-sort-code"><a class="link" href="#sorting-coupons-code-sort-code">5.11. Sorting coupons: <code>sort</code></a></h3>
 <div class="paragraph">
-<p>Sorts the coupons in CouponStash in <strong>ascending</strong> order. It is possible to sort
+<p>Sorts the coupons in Coupon Stash in <strong>ascending</strong> order. It is possible to sort
 by coupon name or expiry date.</p>
 </div>
 <div class="admonitionblock note">
@@ -1433,7 +1425,7 @@ by coupon name or expiry date.</p>
 The sorting order will persist throughout the runtime of the program.
 The command will sort any coupons currently on screen, including
 <a href="#_archiving_a_coupon_archive">archived</a> coupons , if they are present on
-screen. Archived coupons will always appear <strong>below</strong> active coupons.
+screen. <a href="#_archiving_a_coupon_archive">Archived</a> coupons will always appear <strong>below</strong> active coupons.
 </td>
 </tr>
 </table>
@@ -1446,11 +1438,11 @@ screen. Archived coupons will always appear <strong>below</strong> active coupon
 <div class="ulist">
 <ul>
 <li>
-<p>The <code>PREFIX</code> can be either <code>n/</code> or <code>e/</code>.</p>
+<p>The <code>PREFIX</code> can be either <code>n/</code>, <code>e/</code> or <code>r/</code>.</p>
 </li>
 <li>
-<p>Using <code>n/</code> would mean sorting by name, while <code>e/</code> would mean sorting by
-expiry date.</p>
+<p>Using <code>n/</code> would mean sorting by name, <code>e/</code> would mean sorting by
+expiry date, and <code>r/</code> would mean sorting by reminder date.</p>
 </li>
 </ul>
 </div>
@@ -1463,11 +1455,15 @@ expiry date.</p>
 <ul>
 <li>
 <p><code>sort n/</code><br>
-Sorts the coupon stash by name in ascending order.</p>
+Sorts the Coupon Stash by name in ascending order.</p>
 </li>
 <li>
 <p><code>sort e/</code><br>
-Sorts the coupon stash by expiry date from earliest to latest.</p>
+Sorts the Coupon Stash by expiry date from earliest to latest.</p>
+</li>
+<li>
+<p><code>sort r/</code><br>
+Sorts the Coupon Stash by reminder date from earliest to latest.</p>
 </li>
 </ul>
 </div>
@@ -1476,7 +1472,7 @@ Sorts the coupon stash by expiry date from earliest to latest.</p>
 <h3 id="copying-a-coupon-code-copy-code"><a class="link" href="#copying-a-coupon-code-copy-code">5.12. Copying a coupon: <code>copy</code></a></h3>
 <div class="paragraph">
 <p>Copies a coupon as an <a href="#adding-a-coupon-code-add-code"><code>add</code></a> command to your
-clipboard so that you can easily share it with your friends/ family!</p>
+clipboard so that you can easily share it with your friends/family!</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>copy INDEX</code></p>
@@ -1486,34 +1482,19 @@ clipboard so that you can easily share it with your friends/ family!</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Copies the coupon at the specified INDEX.</p>
+<p>Copies the coupon at the specified <a href="#index">INDEX</a>.</p>
 </li>
 <li>
 <p>The <a href="#adding-a-coupon-code-add-code"><code>add</code></a> command of the coupon will be copied to
 your clipboard. Simply <kbd>Ctrl</kbd> + <kbd>V</kbd> to paste it!
 (<kbd>Cmd</kbd> + <kbd>V</kbd> for macOS)</p>
 </li>
-</ul>
-</div>
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
 <li>
 <p>Statistics like number of times used or amount of savings accumulated will
 not be copied.</p>
 </li>
 <li>
-<p>The copied add command will only contain the following fields:<br></p>
+<p>The copied <a href="#adding-a-coupon-code-add-code"><code>add</code></a> command will only contain the following fields:<br></p>
 <div class="ulist">
 <ul>
 <li>
@@ -1541,10 +1522,6 @@ not be copied.</p>
 </div>
 </div>
 </div>
-</td>
-</tr>
-</table>
-</div>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
@@ -1553,13 +1530,15 @@ not be copied.</p>
 <li>
 <p><code>list</code><br>
 <code>copy 2</code><br>
-Copies the 2nd coupon in the coupon stash to an <code>add</code> command and copies it to
+Copies the 2nd coupon in the coupon stash to an
+<a href="#adding-a-coupon-code-add-code"><code>add</code></a> command and copies it to
 your clipboard.</p>
 </li>
 <li>
 <p><code>find chicken</code><br>
 <code>copy 1</code><br>
-Copies the 1st coupon in the results of the find command to an <code>add</code> command
+Copies the 1st coupon in the results of the
+<a href="#finding-coupons-by-name-code-find-code"><code>find</code></a> command to an <a href="#adding-a-coupon-code-add-code"><code>add</code></a> command
 and copies it to your clipboard.</p>
 </li>
 </ul>
@@ -1568,20 +1547,32 @@ and copies it to your clipboard.</p>
 <div class="sect2">
 <h3 id="sharing-a-coupon-code-share-code"><a class="link" href="#sharing-a-coupon-code-share-code">5.13. Sharing a coupon: <code>share</code></a></h3>
 <div class="paragraph">
-<p>Shares a coupon as a <code>.png</code> image file. Now you can post your coupons on
-Instagram!</p>
+<p>Shares a coupon as a <code>.png</code> image file (portable network graphic).
+Now you can post your coupons on Instagram!</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>share INDEX</code></p>
 </div>
-<div class="admonitionblock note">
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Shares the coupon at the specified <a href="#index">INDEX</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="admonitionblock warning">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
-Image generated will have an index of 1 regardless of its true index.
+Image generated will have an index of 1 regardless of
+its true index!
 Below is a sample of how a shared coupon image looks like:
 </td>
 </tr>
@@ -1600,12 +1591,13 @@ Below is a sample of how a shared coupon image looks like:
 <li>
 <p><code>list</code><br>
 <code>share 2</code><br>
-Shares the 2nd coupon in the coupon stash and save it as a <code>.png</code> file.</p>
+Shares the 2nd coupon in the Coupon Stash and save it as a <code>.png</code> file.</p>
 </li>
 <li>
 <p><code>find chicken</code><br>
 <code>share 1</code><br>
-Shares the 1st coupon in the results of the find command and save it as a <code>.png</code>
+Shares the 1st coupon in the results of the
+<a href="#finding-coupons-by-name-code-find-code"><code>find</code></a> command and save it as a <code>.png</code>
 file.</p>
 </li>
 </ul>
@@ -1730,7 +1722,7 @@ Un-undo the <code>delete</code> command. 1st coupon is deleted.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="displaying-a-month-year-on-the-calendar-code-goto-code"><a class="link" href="#displaying-a-month-year-on-the-calendar-code-goto-code">5.16. Displaying a month-year on the calendar: <code>goto</code></a></h3>
+<h3 id="going-to-a-month-year-on-the-calendar-code-goto-code"><a class="link" href="#going-to-a-month-year-on-the-calendar-code-goto-code">5.16. Going to a month-year on the calendar: <code>goto</code></a></h3>
 <div class="paragraph">
 <p>Goes to the specified month and year on the calendar.<br>
 Format: <code>goto my/MONTH_YEAR</code> <br></p>
@@ -1748,9 +1740,10 @@ Goes to December 2020 on the Calendar</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="displaying-a-coupon-code-expand-code"><a class="link" href="#displaying-a-coupon-code-expand-code">5.17. Displaying a coupon: <code>expand</code></a></h3>
+<h3 id="expanding-a-coupon-code-expand-code"><a class="link" href="#expanding-a-coupon-code-expand-code">5.17. Expanding a coupon: <code>expand</code></a></h3>
 <div class="paragraph">
-<p>Displays a coupon in its own window, giving you a complete view of it.</p>
+<p>Displays a coupon in its own window, giving you a
+complete expanded view of it.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>expand INDEX</code></p>
@@ -1760,7 +1753,7 @@ Goes to December 2020 on the Calendar</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Expands the coupon at the specified INDEX.</p>
+<p>Expands the coupon at the specified <a href="#index">INDEX</a>.</p>
 </li>
 </ul>
 </div>
@@ -1800,7 +1793,7 @@ to use the new symbol instead.</p>
 program, as well as modify commands entered!</p>
 </li>
 <li>
-<p>For example, adding a coupon with savings of a certain
+<p>For example, <a href="#adding-a-coupon-code-add-code">adding a coupon</a> with savings of a certain
 monetary amount will require you to use the new symbol instead.</p>
 </li>
 </ul>
@@ -1827,9 +1820,20 @@ be visible immediately.</p>
 <div class="sect2">
 <h3 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">5.19. Viewing help: <code>help</code></a></h3>
 <div class="paragraph">
-<p>Open a browser window that accesses an offline copy of this user guide. First
-run of this command may take quite some time as the program needs to extract
-an offline copy of this document.</p>
+<p>Open a browser window that accesses an offline copy of this user guide.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+First run of this command may take some time as the
+program needs to extract an offline copy of the document.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Format: <code>help</code></p>
@@ -2307,6 +2311,14 @@ supported in the condition.</p>
 <div class="sect3">
 <h4 id="strong-bulk-delete-strong"><a class="link" href="#strong-bulk-delete-strong">9.1.2. <strong>Bulk delete</strong></a></h4>
 <div class="paragraph">
+<p>Version 2.0 will bring new features like confirmation
+of coupons before they are deleted!</p>
+</div>
+<div class="paragraph">
+<p>Also, a "recycle bin" is in the works for version 3.0,
+similar to the Recycle Bin in Microsoft Windows.</p>
+</div>
+<div class="paragraph">
 <p>Format: <code>delete <em>tag</em> [where condition]</code></p>
 </div>
 <div class="ulist">
@@ -2339,4 +2351,4 @@ supported in the condition.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 06:42:49 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 06:46:47 UTC</div></div></div></body></html>
