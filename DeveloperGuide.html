@@ -327,15 +327,17 @@ data in the list change.</p>
 </td>
 <td class="content">
 As a more OOP model, we can store a <code>Tag</code> list in Coupon Stash, which a
-<code>Coupon</code> can reference.
+<code>Coupon</code> can refer to.
 This would allow Coupon Stash to only require one <code>Tag</code> object per unique
 tag, instead of each <code>Coupon</code> needing their own <code>Tag</code> object.
 An example of how such a model may look like is given below.<br>
-<br>
-<span class="image"><img src="images/BetterModelClassDiagram.png" alt="BetterModelClassDiagram"></span>
 </td>
 </tr>
 </table>
+</div>
+<div class="paragraph">
+<p>+
+<span class="image"><img src="images/BetterModelClassDiagram.png" alt="BetterModelClassDiagram"></span></p>
 </div>
 </div>
 <div class="sect2">
@@ -606,7 +608,7 @@ correct.</p>
 <div class="paragraph">
 <p>Alternative 1 was chosen due to its relative simplicity and extensibility.
 Little to no modification needs to be made to each command that can be
-undone, thus reducing chances of new bugs surfacing. Addtionally, the ability
+undone, thus reducing chances of new bugs surfacing. Additionally, the ability
 to undo operations such as <code>clear</code> will require alternative 2 to copy the
 entire coupon stash too, so both alternatives will have the same memory
 footprint in such a context. Finally, the real world performance impact of
@@ -625,7 +627,7 @@ extensible and simpler alternative 1 was chosen.</p>
 facilitated by <code>CalendarPane</code>, <code>DateCell</code>, <code>ObservableList&lt;Coupon&gt;</code> and <code>ObservableMonthView</code>.</p>
 </div>
 <div class="paragraph">
-<p>The <code>CalendarPane</code> is controller of the Calendar on display. Users can change the month on display to show the coupons
+<p>The <code>CalendarPane</code> is the controller of the Calendar on display. Users can change the month on display to show the coupons
 that expire during a specific month year by clicking on the arrows at the sides of the calendar&#8217;s title or
 by using the <code>goto</code> command.</p>
 </div>
@@ -853,7 +855,7 @@ observable month view.</p>
 </div>
 <div class="paragraph">
 <p>We decided on alternative 1, to show coupons expiring on specific dates with highlights. This is because a coupon contains
-many information and the calendar may look cluttered and messy, which may be aesthetically unpleasant to the user.
+much information and the calendar may look cluttered and messy, which may be aesthetically unpleasant to the user.
 Furthermore, the user can use the <code>expiring</code> command to search for coupons expiring on a date or month year and have a
 more detailed view of the coupons in the <code>CouponListPanel</code>.</p>
 </div>
@@ -863,7 +865,7 @@ more detailed view of the coupons in the <code>CouponListPanel</code>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Calender updates with the filtered list</p>
+<p><strong>Alternative 1 (current choice):</strong> Calendar updates with the filtered list</p>
 <div class="ulist">
 <ul>
 <li>
@@ -940,7 +942,7 @@ out archived coupons from a given <code>CouponStash</code>.</p>
 <div class="content">
 <img src="images/ArchivingClassDiagram.png" alt="ArchivingClassDiagram">
 </div>
-<div class="title">Figure 20. Overview class diagram representation of the the coupon archiving implementation.</div>
+<div class="title">Figure 20. Overview class diagram representation of the coupon archiving implementation.</div>
 </div>
 <div class="paragraph">
 <p>Given below is two example usage scenarios and how the archiving mechanism
@@ -1061,7 +1063,7 @@ with two data files.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>Alternative 1 was chosen, due the the cons of Alternative 2. While a separate
+<p>Alternative 1 was chosen, due to the cons of Alternative 2. While a separate
 file is akin to having two separate stashes of coupons, this would increase
 the overall complexity of the application. <code>Logic</code> and <code>Model</code> would have to
 deal with another set of data, and <code>Commands</code> may have to split up the logic
@@ -1168,7 +1170,7 @@ displayed in the program command box.</p>
 <div class="content">
 <img src="images/UpDownHistory3.png" alt="UpDownHistory3">
 </div>
-<div class="title">Figure 28. After pressing "up" arrow key.</div>
+<div class="title">Figure 28. After pressing the "up" arrow key.</div>
 </div>
 <div class="paragraph">
 <p>Step 4. The user then executes the retrieved command (<code>delete 2</code>). As in the
@@ -1217,7 +1219,7 @@ bottom of the stack, there is no next command to retrieve when pressing the
 down key. Thus,
 the down button will simple return the command text currently being pointed to
 by the <code>currIndex</code>.
-No changes to the stack and <code>currIndex</code> will be effected.
+No changes to the stack and <code>currIndex</code> will be affected.
 </td>
 </tr>
 </table>
@@ -1272,7 +1274,7 @@ the command text history.</p>
 Java, thus reducing confusion.</p>
 </li>
 <li>
-<p>Cons: Stack operations are less effifcient on <code>ArrayList</code> s.</p>
+<p>Cons: Stack operations are less efficient on <code>ArrayList</code> s.</p>
 </li>
 </ul>
 </div>
@@ -1331,7 +1333,7 @@ inputted prefix. The sequence diagram below describes what happens when a
 <div class="content">
 <img src="images/SortCommandSeqDiagram.png" alt="SortCommandSeqDiagram">
 </div>
-<div class="title">Figure 33. Sequence diagram describing the process of sorting coupons</div>
+<div class="title">Figure 33. Sequence diagram describing the process of sorting coupons.</div>
 </div>
 <div class="paragraph">
 <p>Depending on the prefix to sort by, <code>ModelManager#sortCoupons()</code> will be
@@ -1354,7 +1356,7 @@ leads to a change of the comparator of the <code>SortedList</code> stored in
 <ul>
 <li>
 <p>Pros: Sorting is faster as no write to disk is needed to make the new
-order persistent. Addtionally, with the coupons being sorted by the time they
+order persistent. Additionally, with the coupons being sorted by the time they
 are added to the coupon stash by default, there is no way to restore this order
 without storing the time a coupon was added to the stash. Thus, the non -
 persistent approach shines here as restoring the original order of the coupon
@@ -1377,7 +1379,7 @@ launched or each time a coupon is added or edited.</p>
 </li>
 <li>
 <p>Cons: Can be unnecessarily complicated to implement a hidden field stating
-a coupon&#8217;s addtion time just so users can revert to the default order.
+a coupon&#8217;s addition time just so users can revert to the default order.
 Additionally, it can be confusing to users when there are so many different
 ways to sort.</p>
 </li>
@@ -1459,84 +1461,88 @@ the next step is ensure that there will be a reminder pop
 up (if necessary) upon opening the application.</p>
 </div>
 <div class="paragraph">
-<p>The following steps describe how to reminder pop up works,</p>
+<p>The following steps describe how to reminder pop up works:</p>
 </div>
-<div class="paragraph">
-<p>Step 1. The user launches Coupon Stash. The <code>start</code> method
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The user launches Coupon Stash. The <code>start</code> method
 in <code>MainApp</code> class will kick start the program
 by setting up the stage, along with the saved data.</p>
-</div>
-<div class="paragraph">
-<p>Step 2. The <code>checkReminder()</code> method is invoked to exhaust
-all the coupons in the coupon stash to check if there is
-any coupon&#8217;s <code>remindDate</code> that matches the <code>system&#8217;s date</code>.</p>
-</div>
-<div class="paragraph">
-<p>Step 3. In this example, we will assume that there are
-coupons that needs to be reminded and will call <code>RemindWindow#displayWindow</code>
-method with a concatenated string of coupons information.
-Coupon information, such as coupon&#8217;s name and its
-expiry date, are retrieved by using  <code>toString</code> method
-of coupon&#8217;s <code>Name</code> class and <code>ExpiryDate</code> class.</p>
-</div>
-<div class="paragraph">
-<p>Step 4. A new <code>stage</code>, along with new <code>label</code> with buttons
-and coupon information, will be
-built onto the scene that resembles a pop up window. This pop
-up would require the user to response before resuming the use of
-the application by clicking "OK"</p>
-</div>
-<div class="paragraph">
-<p>Step 5. The coupon&#8217;s <code>remindDate</code> will set to <code>null</code> through the setter method
-of <code>Remind</code> class.</p>
+</li>
+<li>
+<p>This will trigger the <code>start</code> method in <code>UiManager</code>, which leads to the
+creation of a new <code>RemindWindow</code> instance, with a <code>List</code> of all coupons
+currently stored passed in as a parameter.</p>
+</li>
+<li>
+<p>In the constructor of <code>RemindWindow</code>, coupons that do not have a remind
+date of today are filtered out.</p>
+</li>
+<li>
+<p>After filtering the coupons, if there are coupons to be reminded today,
+their information will be concatenated into a <code>String</code> that is displayed in
+the reminder window.</p>
+</li>
+</ol>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/RemindSequenceDiagram.png" alt="RemindSequenceDiagram">
 </div>
+<div class="title">Figure 36. Sequence diagram describing the process of opening the reminder window.</div>
 </div>
 </div>
 <div class="sect3">
 <h4 id="design-consideration"><a class="link" href="#design-consideration">3.6.3. Design consideration</a></h4>
 <div class="paragraph">
-<p><strong>Aspect: The implementation of remind date for every
-coupon to facilitate coupon reminder</strong></p>
+<p><strong>Aspect: How to keep track of coupon remind date</strong></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current state):</strong> Coupon contains an
-<code>Remind</code> field</p>
+<p><strong>Alternative 1 (current choice):</strong> Coupon contains a <code>Remind</code> field.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Code Implementation is easier and requires lower maintenance</p>
+<p>Pros: Code implementation is easier and this makes the remind date more
+visible to the user since it is a field.</p>
 </li>
 <li>
-<p>Cons: Inefficient to access all coupon-objects to
-get the remind dates for crosschecking with sys date</p>
+<p>Cons: Coupon display may get very cluttered with the addition of this
+extra field.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Alternative 2 :</strong> To store a list of coupons based
-on their remind dates, in ascending order
-(Queue-data structure) in a separate data file</p>
+<p><strong>Alternative 2 :</strong> Store the remind dates of all coupons in a separate data
+file. Coupons can be stored in a hash table with their remind dates as keys.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Avoid going through the entire coupon stash.
-Efficient.</p>
+<p>Pros: No need to clutter coupon display with additional fields. Plus, it
+is efficient to list all coupons that have to be reminded for on a certain
+day as the coupons are stored in a hash table.</p>
 </li>
 <li>
-<p>Cons: Harder to maintain two data files.
-Very prone to error.</p>
+<p>Cons: Hard to maintain two separate data files that have shared components
+(in this case coupons)</p>
 </li>
 </ul>
 </div>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>All in all, we chose alternative 1 as we feel that it is good for users to be
+able to view the remind date of a coupon in the coupon view. Additionally, all
+speed-ups and efficiency of storing the remind dates in a separate data file
+is nullified by the fact that we still need to loop through all coupons to
+display their remind dates on the calendar component. Thus, to make it easier
+to extend the program in the future, we decided against adding another data
+file which can make extension more complicated, and chose to work with
+alternative 1.</p>
 </div>
 </div>
 </div>
@@ -1569,7 +1575,7 @@ would gain from 1 use of that Coupon.</p>
 <div class="content">
 <img src="images/SavingsClassDiagram.png" alt="SavingsClassDiagram">
 </div>
-<div class="title">Figure 36. Class diagram describing the structure of <code>Savings</code>.</div>
+<div class="title">Figure 37. Class diagram describing the structure of <code>Savings</code>.</div>
 </div>
 <div class="paragraph">
 <p>A Savings object can hold a <code>PercentageAmount</code>, <code>MonetaryAmount</code> or
@@ -1688,7 +1694,7 @@ next image shows the class diagram of the
 <div class="content">
 <img src="images/DateSavingsSumMapClassDiagram.png" alt="DateSavingsSumMapClassDiagram">
 </div>
-<div class="title">Figure 37. Class diagram describing the structure of <code>DateSavingsSumMap</code>.</div>
+<div class="title">Figure 38. Class diagram describing the structure of <code>DateSavingsSumMap</code>.</div>
 </div>
 <div class="paragraph">
 <p>The following section describes
@@ -1708,7 +1714,7 @@ shows what happens when the user runs a used command.</p>
 <div class="content">
 <img src="images/UsedCommandActivityDiagram.png" alt="UsedCommandActivityDiagram">
 </div>
-<div class="title">Figure 38. Activity diagram showing the execution of a used command.</div>
+<div class="title">Figure 39. Activity diagram showing the execution of a used command.</div>
 </div>
 <div class="paragraph">
 <p>In terms of the implementation, the next two images
@@ -1730,7 +1736,7 @@ successfully.</p>
 <div class="content">
 <img src="images/UsedCommandSeqDiagram.png" alt="UsedCommandSeqDiagram">
 </div>
-<div class="title">Figure 39. Sequence diagram showing how a <code>UsedCommand</code> is executed.</div>
+<div class="title">Figure 40. Sequence diagram showing how a <code>UsedCommand</code> is executed.</div>
 </div>
 <div class="paragraph">
 <p>The money symbol set in the user preferences is
@@ -1750,7 +1756,7 @@ value for the new <code>Coupon</code>.</p>
 <div class="content">
 <img src="images/UsedExecutionSeqDiagram.png" alt="UsedExecutionSeqDiagram">
 </div>
-<div class="title">Figure 40. Sequence diagram showing how <code>UsedCommand</code> updates the total savings.</div>
+<div class="title">Figure 41. Sequence diagram showing how <code>UsedCommand</code> updates the total savings.</div>
 </div>
 <div class="paragraph">
 <p>In the end, the total savings value of the <code>Coupon</code>
@@ -1759,7 +1765,7 @@ a <a href="#dssm">DateSavingsSumMap</a>.</p>
 </div>
 <div class="paragraph">
 <p>One key implementation within the <code>UsedCommand</code> is the checks
-that is has to make to ensure the valid usage of a <code>Coupon</code>.
+that it has to make to ensure the valid usage of a <code>Coupon</code>.
 Below is an activity diagram to show the flow of checks within
 the <code>UsedCommand#execute()</code> method.</p>
 </div>
@@ -1785,7 +1791,7 @@ would be executed.</p>
 <div class="content">
 <img src="images/SavedExecutionSeqDiagram.png" alt="SavedExecutionSeqDiagram">
 </div>
-<div class="title">Figure 41. Sequence diagram showing the execution of a <code>SavedCommand</code>.</div>
+<div class="title">Figure 42. Sequence diagram showing the execution of a <code>SavedCommand</code>.</div>
 </div>
 <div class="paragraph">
 <p>Hence the <code>SavedCommand</code> loops through all <code>Coupon</code>s to add
@@ -1871,7 +1877,7 @@ depending on which fields it has.</p>
 <div class="sect2">
 <h3 id="logging"><a class="link" href="#logging">3.8. Logging</a></h3>
 <div class="paragraph">
-<p>We are using <code>java.util.logging</code> package for logging.
+<p>We are using the <code>java.util.logging</code> package for logging.
 The <code>LogsCenter</code> class is used to manage the logging levels and logging
 destinations.</p>
 </div>
@@ -2227,7 +2233,7 @@ Primary actor is the user.</p>
 <div class="content">
 <img src="images/usecase.png" alt="Use Case Diagram" width="1000" height="1000">
 </div>
-<div class="title">Figure 42. Use Cases Overview for Coupon Stash</div>
+<div class="title">Figure 43. Use Cases Overview for Coupon Stash</div>
 </div>
 <div class="sect2">
 <h3 id="strong-use-case-uc1-add-coupon-strong"><a class="link" href="#strong-use-case-uc1-add-coupon-strong">C.1. <strong>Use Case: UC1 -  Add Coupon</strong></a></h3>
@@ -2250,7 +2256,7 @@ Primary actor is the user.</p>
 <p>Coupon Stash adds coupon.</p>
 </li>
 <li>
-<p>Coupon Stash informs to user that coupon is added.</p>
+<p>Coupon Stash informs user that a coupon is added.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2315,7 +2321,7 @@ entries.</p>
 <p>Coupon Stash lists out all coupons.</p>
 </li>
 <li>
-<p>Coupon Stash informs to user the number of coupons found in list.</p>
+<p>Coupon Stash informs to user of the number of coupons found in the list.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2396,7 +2402,7 @@ entries.</p>
 <p>Coupon Stash marks the coupon as used.</p>
 </li>
 <li>
-<p>Coupon Stash informs the user the specific coupon that is succesdfully used.</p>
+<p>Coupon Stash informs the user the specific coupon that is successfully used.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2440,7 +2446,7 @@ entries.</p>
 existing coupon.</p>
 </li>
 <li>
-<p>1b2. User enters new index.</p>
+<p>1b2. User enters a new index.</p>
 </li>
 <li>
 <p>Use case resumes from step 2.</p>
@@ -2458,7 +2464,7 @@ done.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1c1. Coupon Stash informs user that coupon has been previously marked as done.</p>
+<p>1c1. Coupon Stash informs user that the coupon has been previously marked as done.</p>
 </li>
 <li>
 <p>Use case ends.</p>
@@ -2535,7 +2541,7 @@ keyword(s).</p>
 existing coupon.</p>
 </li>
 <li>
-<p>1b2. User enters new index.</p>
+<p>1b2. User enters a new index.</p>
 </li>
 <li>
 <p>Use case resumes from step 2.</p>
@@ -2571,7 +2577,7 @@ coupon.</p>
 <p>Coupon Stash updates the coupon details.</p>
 </li>
 <li>
-<p>Coupon Stash informs the user the which coupon has been edited.</p>
+<p>Coupon Stash informs the user which coupon has been edited.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2615,7 +2621,7 @@ coupon.</p>
 existing coupon.</p>
 </li>
 <li>
-<p>2b2. User enters new index.</p>
+<p>2b2. User enters a new index.</p>
 </li>
 <li>
 <p>Use case resumes from step 3.</p>
@@ -2645,7 +2651,7 @@ coupon.</p>
 <p>User keys in command to <u>list all coupons (UC2)</u>.</p>
 </li>
 <li>
-<p>User sets reminder for an existing coupon.</p>
+<p>User sets a reminder for an existing coupon.</p>
 </li>
 <li>
 <p>On the day of the input date, a pop up will appear to remind the user about
@@ -2693,7 +2699,7 @@ the coupon.</p>
 existing coupon.</p>
 </li>
 <li>
-<p>2b2. User enters new index.</p>
+<p>2b2. User enters a new index.</p>
 </li>
 <li>
 <p>Use case resumes from step 3.</p>
@@ -2724,7 +2730,7 @@ before the input expiry date.</p>
 </li>
 <li>
 <p>Matched coupons are displayed.
-+ Coupon Stash informs the user the number of coupons expiring before the specified date.
+Coupon Stash informs the user the number of coupons expiring before the specified date.
 Use case ends.</p>
 </li>
 </ol>
@@ -2766,7 +2772,7 @@ Use case ends.</p>
 existing coupon.</p>
 </li>
 <li>
-<p>1b2. User enters new index.</p>
+<p>1b2. User enters a new index.</p>
 </li>
 <li>
 <p>Use case resumes from step 2.</p>
@@ -2844,7 +2850,7 @@ existing coupon.</p>
 existing coupon.</p>
 </li>
 <li>
-<p>2b2. User enters new index.</p>
+<p>2b2. User enters a new index.</p>
 </li>
 <li>
 <p>Use case resumes from step 2.</p>
@@ -3169,19 +3175,19 @@ coupon in the list.</p>
 </li>
 <li>
 <p>Test case: <code>delete 1</code><br>
-   Expected: First contact is deleted from the list.
+Expected: First contact is deleted from the list.
 Details of the deleted contact shown in the status message.
 Timestamp in the status bar is updated.</p>
 </li>
 <li>
 <p>Test case: <code>delete 0</code><br>
-   Expected: No coupon is deleted.
+Expected: No coupon is deleted.
 Error details shown in the status message.</p>
 </li>
 <li>
 <p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is
 larger than the list size)<br>
-   Expected: Similar to previous.</p>
+Expected: Similar to previous.</p>
 </li>
 </ol>
 </div>
@@ -3207,7 +3213,7 @@ Expected: The first coupon will have its Promo Code changed to <code>ILOVESTASH<
 </li>
 <li>
 <p>Test case: <code>edit 1 e/31-12-2021</code><br>
-Expected: The first coupon with have its Expiry Date changed to <code>31-12-2021</code>.</p>
+Expected: The first coupon will have its Expiry Date changed to <code>31-12-2021</code>.</p>
 </li>
 <li>
 <p>Test case: <code>edit 1 l/0</code><br>
@@ -3229,4 +3235,4 @@ a Water Bottle item.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 12:14:21 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 12:24:16 UTC</div></div></div></body></html>

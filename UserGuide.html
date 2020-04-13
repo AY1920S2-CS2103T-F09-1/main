@@ -729,7 +729,7 @@ the following commands that alters the list of coupons may also alter the calend
 <div class="sect3">
 <h4 id="calendar-arrows"><a class="link" href="#calendar-arrows">4.2.2. Previous &amp; Next Arrows</a></h4>
 <div class="paragraph">
-<p>The left and right arrows enables you to change the month year on display on the calendar.
+<p>The left and right arrows enable you to change the month year on display on the calendar.
 A click on the left and right arrows displays the previous month and the next month respectively.</p>
 </div>
 <div class="admonitionblock tip">
@@ -749,10 +749,10 @@ command!
 <div class="sect3">
 <h4 id="calendar-date"><a class="link" href="#calendar-date">4.2.3. Dates</a></h4>
 <div class="paragraph">
-<p>The numbers on the calendar represents each date in the current month year on display in the calendar.</p>
+<p>The numbers on the calendar represent each date in the current month year on display in the calendar.</p>
 </div>
 <div class="paragraph">
-<p>Some date cells are highlighted. The following are the meanings of the various hightlights:</p>
+<p>Some date cells are highlighted. The following are the meanings of the various highlights:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1220,7 +1220,7 @@ Shows a list of all <strong>used</strong> coupons in Coupon Stash.</p>
 <div class="sect2">
 <h3 id="using-a-coupon-code-used-code"><a class="link" href="#using-a-coupon-code-used-code">5.5. Using a coupon: <code>used</code></a></h3>
 <div class="paragraph">
-<p>Uses a coupon if its usage has yet to reached its limit.
+<p>Use a coupon if its usage has yet to reach its limit.
 Requires an original amount of purchase if the coupon has savings in a
 percentage value.<br></p>
 </div>
@@ -1472,15 +1472,15 @@ Unarchive the first coupon in the coupon list.</p>
 <p>The search is case insensitive. e.g mALa will match Mala.</p>
 </li>
 <li>
-<p>The order of the keywords does not matter. e.g. Rice Chicken will match
+<p>The order of the keywords does not matter. e.g. Rice Chicken will match
 Chicken Rice.</p>
 </li>
 <li>
-<p>Only full words will be matched e.g. Chicken will not match Chickens.</p>
+<p>Only full words will be matched e.g. Chicken will not match Chickens.</p>
 </li>
 <li>
 <p>Coupons matching at least one keyword will be returned.
-e.g. Chicken Rice will return Duck Rice, Chicken Chop.</p>
+e.g. Chicken Rice will return Duck Rice, Chicken Chop.</p>
 </li>
 </ul>
 </div>
@@ -1794,6 +1794,19 @@ Below is a sample of how a shared coupon image looks like:
 </div>
 <div class="title">Figure 3. Example of a shared coupon</div>
 </div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Do not try entering this command with <code>MAX_INT</code> value as <a href="#index">INDEX</a>.
+This may lead to a bug.
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
@@ -1891,13 +1904,13 @@ the application, your undo history will be lost!
 <ul>
 <li>
 <p><code>edit 1 r/ 25-12-2020</code><br>
-  <code>undo</code><br>
+<code>undo</code><br>
 Undo the <a href="#editing-a-coupon-code-edit-code"><code>edit</code></a> command. Remind date of first coupon in the coupon list reverts back to its
 previous value.</p>
 </li>
 <li>
 <p><code>delete 1</code><br>
-  <code>undo</code><br>
+<code>undo</code><br>
 Revert the <a href="#deleting-a-coupon-code-delete-code"><code>delete</code></a> that was performed. Deleted coupon is restored.</p>
 </li>
 </ul>
@@ -1919,15 +1932,15 @@ Revert the <a href="#deleting-a-coupon-code-delete-code"><code>delete</code></a>
 <ul>
 <li>
 <p><code>edit 1 r/ 25-12-2020</code><br>
-  <code>undo</code><br>
-  <code>redo</code><br>
+<code>undo</code><br>
+<code>redo</code><br>
 Un-undo the <a href="#editing-a-coupon-code-edit-code"><code>edit</code></a> command. Remind date of first coupon that was in the resulting coupon
 list is edited.</p>
 </li>
 <li>
 <p><code>delete 1</code><br>
-  <code>undo</code><br>
-  <code>redo</code><br>
+<code>undo</code><br>
+<code>redo</code><br>
 Un-undo the <code>delete</code> command. First coupon that was in the resulting coupon list is deleted.</p>
 </li>
 </ul>
@@ -2296,7 +2309,7 @@ be added in version 2.0.0<br>
 <div class="paragraph">
 <p><strong>A</strong> :  Whenever a coupon is marked as used, Coupon Stash will automatically
 calculate the values saved based on the details of the coupon. You
-can used the <a href="#saved">saved command</a> to view amount saved.
+can use the <a href="#saved">saved command</a> to view the amount saved.
 <br></p>
 </div>
 <div class="paragraph">
@@ -2333,19 +2346,19 @@ inside their tough exoskeleton and elytra.
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Add</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>add n/NAME e/EXPIRY_DATE s/SAVINGS [u/USAGE] [l/USAGE_LIMIT] [p/PROMO_CODE]
 [sd/START_DATE] [r/REMIND_DATE] [c/CONDITION] [s/SAVINGS]&#8230;&#8203; [t/TAG]…</code>​<br>
-e.g. <code>add n/The Deck Chicken Rice s/20% sd/2-3-2020 e/30-8-2020 t/friend
+e.g. <code>add n/The Deck Chicken Rice s/20% sd/2-3-2020 e/30-8-2020 t/friend
 t/value</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Edit</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit INDEX [n/name] [e/EXPIRY_DATE] [l/USAGE_LIMIT] [p/PROMO_CODE]
 [sd/START_DATE] [r/REMIND_DATE] [c/CONDITION] [s/SAVINGS]&#8230;&#8203; [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>edit 2 n/Chicken Up s/50%</code></p></td>
+e.g. <code>edit 2 n/Chicken Up s/50%</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Delete</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>delete INDEX</code><br>
-e.g. <code>delete 3</code></p></td>
+e.g. <code>delete 3</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>List</strong></p></td>
@@ -2355,22 +2368,22 @@ e.g. <code>list</code></p></td>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Find</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>find KEYWORD [MORE_KEYWORDS]</code><br>
-e.g. <code>find western chick</code></p></td>
+e.g. <code>find western chick</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Sort</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>sort PREFIX</code><br>
-e.g. <code>sort n/</code></p></td>
+e.g. <code>sort n/</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Expiring</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>expiring e/EXPIRY_DATE</code> or <code>expiring my/MONTH_YEAR</code><br>
-e.g. <code>expiring e/30-9-2020</code> or <code>expiring my/9-2020</code></p></td>
+e.g. <code>expiring e/30-9-2020</code> or <code>expiring my/9-2020</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Used</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>used INDEX</code> or <code>used INDEX MONETARY_SYMBOL + ORIGINAL_AMOUNT</code><br>
-e.g. <code>used 1</code> or <code>used 1 $10</code></p></td>
+e.g. <code>used 1</code> or <code>used 1 $10</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Saved</strong></p></td>
@@ -2380,22 +2393,22 @@ e.g. <code>saved d/ 1-5-2020</code></p></td>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Archive</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>archive INDEX</code><br>
-e.g. <code>archive 1</code></p></td>
+e.g. <code>archive 1</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Unarchive</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>unarchive INDEX</code><br>
-e.g. <code>unarchive 1</code></p></td>
+e.g. <code>unarchive 1</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Copy</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>copy INDEX</code><br>
-e.g. <code>copy 1</code></p></td>
+e.g. <code>copy 1</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Share</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>share INDEX</code><br>
-e.g. <code>share 1</code></p></td>
+e.g. <code>share 1</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Undo</strong></p></td>
@@ -2413,7 +2426,7 @@ e.g.<code>goto 9-2020</code></p></td>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Expand</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>expand INDEX</code><br>
-e.g. <code>expand 1</code></p></td>
+e.g. <code>expand 1</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>SetCurrency</strong></p></td>
@@ -2565,4 +2578,4 @@ similar to the Recycle Bin in Microsoft Windows.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 12:14:21 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 12:24:16 UTC</div></div></div></body></html>
