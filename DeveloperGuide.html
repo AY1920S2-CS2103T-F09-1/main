@@ -75,6 +75,7 @@
 <li><a href="#viewing-help-page">F.18. Viewing help page</a></li>
 </ul>
 </li>
+<li><a href="#efforts">Appendix G: Efforts</a></li>
 </ul>
 </div>
 </div>
@@ -95,7 +96,7 @@
 <div class="content">
 <img src="images/ArchitectureDiagram.png" alt="ArchitectureDiagram">
 </div>
-<div class="title">Figure 1. Architecture Diagram</div>
+<div class="title">Figure 1. Architecture Diagram of Coupon Stash.</div>
 </div>
 <div class="paragraph">
 <p>The <strong><em>Architecture Diagram</em></strong> given above explains the high-level design of the
@@ -175,7 +176,7 @@ for the scenario where the user issues the command <code>delete 1</code>.</p>
 <div class="content">
 <img src="images/ArchitectureSequenceDiagram.png" alt="ArchitectureSequenceDiagram">
 </div>
-<div class="title">Figure 2. Component interactions for <code>delete 1</code> command</div>
+<div class="title">Figure 2. Component interactions for <code>delete 1</code> command.</div>
 </div>
 <div class="paragraph">
 <p>The sections below give more details of each component.</p>
@@ -187,7 +188,7 @@ for the scenario where the user issues the command <code>delete 1</code>.</p>
 <div class="content">
 <img src="images/UiClassDiagram.png" alt="UiClassDiagram">
 </div>
-<div class="title">Figure 3. Structure of the UI Component</div>
+<div class="title">Figure 3. Structure of the UI Component.</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> : <a href="https://github.com/AY1920S2-CS2103T-F09-1/main/tree/master//src/main/java/csdev/couponstash/ui/Ui.java"><code>Ui.java</code></a></p>
@@ -200,7 +201,7 @@ All these, including the <code>MainWindow</code>, inherit from the abstract <cod
 <div class="paragraph">
 <p>The TabsPanel can be further divided into three tabs - <code>HelpPane</code>, <code>SummaryPane</code>
 and the <code>CouponListPanel</code>. The <code>CouponListPanel</code> contains the <code>CouponCard</code> that
-represents the <code>Coupon</code> s themselves.</p>
+represents the <code>Coupon</code>s themselves.</p>
 </div>
 <div class="paragraph">
 <p>The <code>CalendarResultsDisplayPanel</code> is split into two UI components - the
@@ -239,7 +240,7 @@ modified data.</p>
 <div class="content">
 <img src="images/LogicClassDiagram.png" alt="LogicClassDiagram">
 </div>
-<div class="title">Figure 4. Structure of the Logic Component</div>
+<div class="title">Figure 4. Structure of the Logic Component.</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> :
@@ -274,7 +275,7 @@ component for the <code>execute("delete 1")</code> API call.</p>
 <div class="content">
 <img src="images/DeleteSequenceDiagram.png" alt="DeleteSequenceDiagram">
 </div>
-<div class="title">Figure 5. Interactions Inside the Logic Component for the <code>delete 1</code> Command</div>
+<div class="title">Figure 5. Interactions Inside the Logic Component for the <code>delete 1</code> Command.</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -297,7 +298,7 @@ diagram. This limitation affects all of the sequence diagrams in this document.
 <div class="content">
 <img src="images/ModelClassDiagram.png" alt="ModelClassDiagram">
 </div>
-<div class="title">Figure 6. Structure of the Model Component</div>
+<div class="title">Figure 6. Structure of the Model Component.</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> :
@@ -359,7 +360,7 @@ An example of how such a model may look like is given below.<br>
 <div class="content">
 <img src="images/StorageClassDiagram.png" alt="StorageClassDiagram">
 </div>
-<div class="title">Figure 7. Structure of the Storage Component</div>
+<div class="title">Figure 7. Structure of the Storage Component.</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> :
@@ -492,7 +493,7 @@ case, the command undone is <code>add n/OMO STORE&#8230;&#8203;</code>.</p>
 <div class="content">
 <img src="images/UndoRedoState3.png" alt="UndoRedoState3">
 </div>
-<div class="title">Figure 11. <code>currStateIndex</code> shifted once to the left</div>
+<div class="title">Figure 11. <code>currStateIndex</code> shifted once to the left.</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -965,7 +966,7 @@ by Coupon Stash.</p>
 </div>
 <div id="img-automaticarchiving" class="imageblock">
 <div class="content">
-<img src="images/ArchivingActivityDiagram.png" alt="ArchivingActivityDiagram">
+<img src="images/ArchivingActivityDiagram.png" alt="ArchivingActivityDiagram" width="300">
 </div>
 <div class="title">Figure 21. Activity diagram representation of the general flow of archiving of coupons in Coupon Stash</div>
 </div>
@@ -1059,12 +1060,12 @@ application.</p>
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Archived <code>Coupon</code> s are stored in another separate data file.</p>
+<p><strong>Alternative 2:</strong> Archived <code>Coupon</code>s are stored in another separate data file.</p>
 <div class="ulist">
 <ul>
 <li>
 <p>Pros: Separates the logic between the two different <code>CouponStash</code>, e.g. ability
-to limit the functions on archived <code>Coupon</code> s</p>
+to limit the functions on archived <code>Coupon</code>s</p>
 </li>
 <li>
 <p>Cons: Sharply increases the maintainability and coupling of the application
@@ -3614,4 +3615,37 @@ the Coupon Stash User Guide.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 14:11:50 UTC</div></div></div></body></html>
+</div>
+<div class="sect1">
+<h2 id="efforts"><a class="link" href="#efforts">Appendix G: Efforts</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Coupon Stash is the first team-based software engineering project for all of us.
+Without much experience, we faced many difficulties in coordinating our features
+and codes. Since Coupon Stash is User Interface intensive, we had to learn
+JavaFX comprehensively to fulfil the high standards that we set for ourselves.
+Learning a new Framework was as good as learning a new language in itself,
+taking us some time to understand how to fully utilize it.</p>
+</div>
+<div class="paragraph">
+<p>Each of us would push commits every other day every week to try and complete
+our tasking too. While our product is similar to AB3 in terms of data fields, we
+push it further by adding functionality to these fields. The intertwining of these
+functionality was the most difficult part about this project. We would usually
+try to sort out the implementation on chat, but there are times where one of
+us would mess up the implementation somewhere afterwards, causing a bit of
+debugging. We also try to apply as much of our learning from the textbook,
+but again without much practice, it would usually take us a few iterations
+and discussions to correct our code. Nonetheless, we learnt a lot from this
+project throughout these 7 weeks.</p>
+</div>
+<div class="paragraph">
+<p>What we believe we did well in was getting our project workflow right from the
+start. Using Github’s project board, issue tracker and branch protections, we
+were able to help each other spot mistakes, ensuring that our master branch
+was always working. Even though we started as strangers, the long weekly
+discussions that we have brought us close! We are definitely proud of the
+product that we created, and believe that it serves its purpose well.</p>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 14:27:24 UTC</div></div></div></body></html>
