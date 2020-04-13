@@ -192,6 +192,7 @@ the <code>currStateIndex</code> pointing to that single coupon stash state.</p>
 <div class="content">
 <img src="../images/UndoRedoState0.png" alt="UndoRedoState0">
 </div>
+<div class="title">Figure 1. CouponStash will be initialized with the initial coupon stash state.</div>
 </div>
 <div class="paragraph">
 <p>Step 2. The user executes <code>delete 5</code> command to delete the 5th coupon in the
@@ -270,19 +271,6 @@ the undo.
 <div class="content">
 <img src="../images/UndoSequenceDiagram.png" alt="UndoSequenceDiagram">
 </div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The lifeline for <code>UndoCommand</code> should end at the destroy marker (X) but
-due to a limitation of PlantUML, the lifeline reaches the end of diagram.
-</td>
-</tr>
-</table>
 </div>
 <div class="paragraph">
 <p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoCouponStash()</code>,
@@ -394,4 +382,4 @@ correct.</p>
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 06:42:08 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 06:42:49 UTC</div></div></div></body></html>

@@ -3,7 +3,11 @@
 <link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">Coupon Stash</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S2-CS2103T-F09-1/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Nelson Tan - Project Portfolio</h1></div><div id="content"><div class="sect1">
 <h2 id="project-coupon-stash"><a class="link" href="#project-coupon-stash">PROJECT: Coupon Stash</a></h2>
 <div class="sectionbody">
-<hr>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Ui.png" alt="Ui" width="600">
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -12,7 +16,7 @@
 <div class="paragraph">
 <p>Coupon Stash is a desktop coupons manager that allows users to keep track of
 their coupons. The user interacts with it using a CLI, and it has a beautiful
-GUI created with JavaFX. It is written in Java, and has about 25kLoC.</p>
+GUI created with JavaFX. It is written in Java, and has about 15kLoC.</p>
 </div>
 </div>
 </div>
@@ -22,7 +26,11 @@ GUI created with JavaFX. It is written in Java, and has about 25kLoC.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: added <strong>the ability to undo and redo operations</strong></p>
+<p><strong>Major enhancement</strong>: added <strong>the ability to undo and redo operations</strong> (Pull
+request
+<a href="https://github.com/AY1920S2-CS2103T-F09-1/main/pull/91">#91</a>,
+<a href="https://github.com/AY1920S2-CS2103T-F09-1/main/pull/135">#135</a>,
+<a href="https://github.com/AY1920S2-CS2103T-F09-1/main/pull/284">#284</a>)</p>
 <div class="ulist">
 <ul>
 <li>
@@ -48,8 +56,99 @@ feature that needed frequent updates.</p>
 </div>
 </li>
 <li>
+<p><strong>Major enhancement</strong>: added <strong>the ability to share coupons as images</strong> (Pull
+request
+<a href="https://github.com/AY1920S2-CS2103T-F09-1/main/pull/176">#176</a>,
+<a href="https://github.com/AY1920S2-CS2103T-F09-1/main/pull/384">#384</a>)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: allows the user to share their coupons as an image file.</p>
+</li>
+<li>
+<p>Justification: In the 21st century where everyone seems to post every
+thing on social media, the ability for users to share their coupons as a
+format ripe for social media consumption is of upmost importance. This
+feature allows users to share their coupons in a portable format for sharing
+over various platforms.</p>
+</li>
+<li>
+<p>Highlights: This enhancement required the rendering of a <code>CouponCard</code> in a
+<code>Scene</code>, before we proceed to take a <code>snapshot</code> of the <code>CouponCard</code>. The main
+challenge came when trying to save the <code>WritableImage</code> returned by <code>snapshot</code>
+as a <code>.png</code> file. To perform that task, an external module
+(<code>javax.imageio.ImageIO</code>) had to be requested to be used. Then, the image
+needed a save dialog to be saved. Due to file operations having potential for
+many errors, exceptions has to be caught and thrown and multiple error
+messages were also created to best reflect an error.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Major enhancement</strong>: added <strong>the ability to open an offline copy of the user
+guide</strong> (Pull
+request
+<a href="https://github.com/AY1920S2-CS2103T-F09-1/main/pull/201">#201</a>,
+<a href="https://github.com/AY1920S2-CS2103T-F09-1/main/pull/284">#284</a>,
+<a href="https://github.com/AY1920S2-CS2103T-F09-1/main/pull/385">#385</a>)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: allows the user to open an offline copy of the user guide in
+their web browser with the <code>help</code> command.</p>
+</li>
+<li>
+<p>Justification: While the help tab exists, the help tab only shows
+information about the commands. Much more of the program&#8217;s functionality is
+available in the user guide, and with the program being an offline
+application, it is thus very useful for the user to be able to read the user
+guide offline. This will empower users to fully exploit the potential of our
+program.</p>
+</li>
+<li>
+<p>Highlights: The user guide is stored as a single <code>.html</code> file with
+all styles and images embed into that single ~6 MB file.
+The file has to be packaged into the release jar file,
+before it gets extracted from the jar file on the first time the <code>help</code>
+command is executed. It was a challenge to reliably get the path of the jar
+file. (We need the path to extract the <code>.html</code> from the jar) After figuring
+out how to get the jar file path during runtime, we had to extract the
+<code>.html</code> file from within the jar file and then write it to the directory the
+jar file resides. Initially, writing to a file was very slow and it would
+even make the program crash sometimes! Then, I remembered what I learnt from
+CS2106 and realised that a buffered writing operation will reduce system
+calls and thus be faster. And lo and behold, after the implementation of a
+write buffer, writing speeds got a lot faster. (now it only takes one second)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
 <p><strong>Minor enhancement</strong>: added a history command that allows the user to navigate
-to previous commands using up/down keys.</p>
+to previous commands using up/down keys. (Pull
+request
+<a href="https://github.com/AY1920S2-CS2103T-F09-1/main/pull/135">#135</a>,
+<a href="https://github.com/AY1920S2-CS2103T-F09-1/main/pull/140">#140</a>)</p>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>: added a sort command that allows the user to sort
+coupons by the names, expiry dates, and remind dates in ascending order. (Pull
+request
+<a href="https://github.com/AY1920S2-CS2103T-F09-1/main/pull/140">#140</a>,
+<a href="https://github.com/AY1920S2-CS2103T-F09-1/main/pull/284">#284</a>)</p>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>: worked on the expand command. (Pull request
+<a href="https://github.com/AY1920S2-CS2103T-F09-1/main/pull/375">#375</a>)</p>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>: wrote the logic for the Help Pane. (Pull request
+<a href="https://github.com/AY1920S2-CS2103T-F09-1/main/pull/215">#215</a>)</p>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>: improved and cleaned up the remind command. (Pull request
+<a href="https://github.com/AY1920S2-CS2103T-F09-1/main/pull/329">#329</a>)</p>
 </li>
 <li>
 <p><strong>Code contributed</strong>: [<a href="https://nus-cs2103-ay1920s2.github.io/tp-dashboard/#=undefined&amp;search=nelsontky">All contributed code</a>]</p>
@@ -83,42 +182,16 @@ to previous commands using up/down keys.</p>
 </div>
 </li>
 <li>
-<p>Documentation:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Did cosmetic tweaks to existing contents of the User Guide:
-<a href="https://github.com">#14</a></p>
-</li>
-</ul>
-</div>
-</li>
-<li>
 <p>Community:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com">#12</a>,
-<a href="https://github.com">#32</a>, <a href="https://github.com">#19</a>, <a href="https://github.com">#42</a></p>
-</li>
-<li>
-<p>Contributed to forum discussions (examples:  <a href="https://github.com">1</a>,
-<a href="https://github.com">2</a>, <a href="https://github.com">3</a>, <a href="https://github.com">4</a>)</p>
+<p>Contributed to forum discussions
+(example:  <a href="https://github.com/nus-cs2103-AY1920S2/forum/issues/7">1</a>)</p>
 </li>
 <li>
 <p>Reported bugs and suggestions for other teams in the class (examples:
 <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>)</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Tools:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Integrated a third party library (Natty) to the project
-(<a href="https://github.com">#42</a>)</p>
 </li>
 </ul>
 </div>
@@ -202,6 +275,7 @@ the <code>currStateIndex</code> pointing to that single coupon stash state.</p>
 <div class="content">
 <img src="../images/UndoRedoState0.png" alt="UndoRedoState0">
 </div>
+<div class="title">Figure 1. CouponStash will be initialized with the initial coupon stash state.</div>
 </div>
 <div class="paragraph">
 <p>Step 2. The user executes <code>delete 5</code> command to delete the 5th coupon in the
@@ -280,19 +354,6 @@ the undo.
 <div class="content">
 <img src="../images/UndoSequenceDiagram.png" alt="UndoSequenceDiagram">
 </div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The lifeline for <code>UndoCommand</code> should end at the destroy marker (X) but
-due to a limitation of PlantUML, the lifeline reaches the end of diagram.
-</td>
-</tr>
-</table>
 </div>
 <div class="paragraph">
 <p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoCouponStash()</code>,
@@ -404,4 +465,4 @@ correct.</p>
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 06:42:08 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 06:42:49 UTC</div></div></div></body></html>

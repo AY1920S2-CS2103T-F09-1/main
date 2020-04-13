@@ -270,7 +270,7 @@ component for the <code>execute("delete 1")</code> API call.</p>
 <td class="content">
 The lifeline for <code>DeleteCommandParser</code> should end at the destroy marker
 (X) but due to a limitation of PlantUML, the lifeline reaches the end of
-diagram.
+diagram. This limitation affects all of the sequence diagrams in this document.
 </td>
 </tr>
 </table>
@@ -298,9 +298,17 @@ diagram.
 </li>
 <li>
 <p>stores the Coupon Stash data.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>some examples of preferences that can be set are the money symbol, or
+window sizes.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p>exposes an unmodifiable <code>ObservableList&lt;Person&gt;</code> that can be 'observed' e.g.
+<p>exposes an unmodifiable <code>ObservableList&lt;Coupon&gt;</code> that can be 'observed' e.g.
 the UI can be bound to this list so that the UI automatically updates when the
 data in the list change.</p>
 </li>
@@ -316,10 +324,10 @@ data in the list change.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-As a more OOP model, we can store a <code>Tag</code> list in <code>Coupon Stash</code>, which
-<code>Person</code> can reference.
-This would allow <code>Coupon Stash</code> to only require one <code>Tag</code> object per unique
-<code>Tag</code>, instead of each <code>Person</code> needing their own <code>Tag</code> object.
+As a more OOP model, we can store a <code>Tag</code> list in Coupon Stash, which a
+<code>Coupon</code> can reference.
+This would allow Coupon Stash to only require one <code>Tag</code> object per unique
+tag, instead of each <code>Coupon</code> needing their own <code>Tag</code> object.
 An example of how such a model may look like is given below.<br>
 <br>
 <span class="image"><img src="images/BetterModelClassDiagram.png" alt="BetterModelClassDiagram"></span>
@@ -338,8 +346,7 @@ An example of how such a model may look like is given below.<br>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> :
-<a href="https://github.com/AY1920S2-CS2103T-F09-1/main/tree/master//src/main/java/csdev/couponstash/storage/Storage.java"><code>Storage.jav
-a</code></a></p>
+<a href="https://github.com/AY1920S2-CS2103T-F09-1/main/tree/master//src/main/java/csdev/couponstash/storage/Storage.java"><code>Storage.java</code></a></p>
 </div>
 <div class="paragraph">
 <p>The <code>Storage</code> component,</p>
@@ -412,6 +419,7 @@ the <code>currStateIndex</code> pointing to that single coupon stash state.</p>
 <div class="content">
 <img src="images/UndoRedoState0.png" alt="UndoRedoState0">
 </div>
+<div class="title">Figure 8. CouponStash will be initialized with the initial coupon stash state.</div>
 </div>
 <div class="paragraph">
 <p>Step 2. The user executes <code>delete 5</code> command to delete the 5th coupon in the
@@ -490,19 +498,6 @@ the undo.
 <div class="content">
 <img src="images/UndoSequenceDiagram.png" alt="UndoSequenceDiagram">
 </div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The lifeline for <code>UndoCommand</code> should end at the destroy marker (X) but
-due to a limitation of PlantUML, the lifeline reaches the end of diagram.
-</td>
-</tr>
-</table>
 </div>
 <div class="paragraph">
 <p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoCouponStash()</code>,
@@ -646,6 +641,7 @@ the <code>Logic#getMonthView()</code> method.</p>
 <div class="content">
 <img src="images/CalendarSequenceDiagram.png" alt="CalendarSequenceDiagram">
 </div>
+<div class="title">Figure 9. Seqeunce diagram for calendar.</div>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -670,7 +666,7 @@ this behavior is implemented.</p>
 <p>The Calendar displayed will render the saved coupon data, triggered by the initiation of the UiManager.</p>
 </div>
 <div class="paragraph">
-<p>Step 2. The user executes a command that alters the ObservableList&lt;Coupon&gt; (any command listed above).</p>
+<p>Step 2. The user executes a command that alters the <code>ObservableList&lt;Coupon&gt;</code> (any command listed above).</p>
 </div>
 <div class="paragraph">
 <p>When a command alters the observable coupon list, the listener of the observable list detects the change and the
@@ -781,10 +777,11 @@ observable month view will not be altered and the calendar will not be altered.
 </div>
 </div>
 <div class="paragraph">
-<p>OR</p>
+<p>Or alternatively, instead of step 2,</p>
 </div>
 <div class="paragraph">
-<p>Step 2. The user clicks on the arrows at the sides of the calendar title to change the month year displayed.</p>
+<p>Step 3. The user clicks on the arrows at the sides of the calendar title to
+change the month year displayed.</p>
 </div>
 <div class="paragraph">
 <p>When a click alters the observable month view, the listener of the observable month view detects the change and the
@@ -974,7 +971,7 @@ out archived coupons from a given <code>CouponStash</code>.</p>
 <div class="content">
 <img src="images/ArchivingClassDiagram.png" alt="ArchivingClassDiagram">
 </div>
-<div class="title">Figure 8. Overview class diagram representation of the the coupon archiving implementation</div>
+<div class="title">Figure 10. Overview class diagram representation of the the coupon archiving implementation.</div>
 </div>
 <div class="paragraph">
 <p>Given below is two example usage scenarios and how the archiving mechanism
@@ -986,7 +983,7 @@ by Coupon Stash.</p>
 <div class="content">
 <img src="images/ArchivingActivityDiagram.png" alt="ArchivingActivityDiagram">
 </div>
-<div class="title">Figure 9. Activity diagram representation of the general flow of archiving of coupons in Coupon Stash</div>
+<div class="title">Figure 11. Activity diagram representation of the general flow of archiving of coupons in Coupon Stash</div>
 </div>
 <div class="paragraph">
 <p><strong>Archiving of Expired Coupons</strong></p>
@@ -1017,7 +1014,7 @@ predicate <code>Model#PREDICATE_SHOW_ALL_ACTIVE_COUPONS</code>.</p>
 <div class="content">
 <img src="images/ArchiveExpiredSequenceDiagram.png" alt="ArchiveExpiredSequenceDiagram">
 </div>
-<div class="title">Figure 10. Sequence diagram representation of archiving expired coupons</div>
+<div class="title">Figure 12. Sequence diagram representation of archiving expired coupons</div>
 </div>
 <div class="paragraph">
 <p><strong>Archiving of Exhausted Coupons</strong></p>
@@ -1054,7 +1051,7 @@ this method, the current <code>FilteredList</code> will be updated to show activ
 <div class="content">
 <img src="images/ArchiveExhaustedSequenceDiagram.png" alt="ArchiveExhaustedSequenceDiagram">
 </div>
-<div class="title">Figure 11. Sequence diagram representation of archiving exhausted coupons</div>
+<div class="title">Figure 13. Sequence diagram representation of archiving exhausted coupons</div>
 </div>
 </div>
 <div class="sect3">
@@ -1132,7 +1129,7 @@ class facilitates this feature:</p>
 <div class="content">
 <img src="images/UpDownClassDiagram.png" alt="UpDownClassDiagram">
 </div>
-<div class="title">Figure 12. Class diagram representation of the command history retrieving function.</div>
+<div class="title">Figure 14. Class diagram representation of the command history retrieving function.</div>
 </div>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the up/down button presses
@@ -1250,7 +1247,7 @@ presses a key.</p>
 <div class="content">
 <img src="images/UpDownSequenceDiagram.png" alt="UpDownSequenceDiagram">
 </div>
-<div class="title">Figure 13. Sequence diagram representing retrieval of command text history with the up and down arrow keys.</div>
+<div class="title">Figure 15. Sequence diagram representing retrieval of command text history with the up and down arrow keys.</div>
 </div>
 <div class="paragraph">
 <p>Below is a sequence diagram describing the events that happen when a executes
@@ -1261,7 +1258,7 @@ a command text, thus triggering the saving of a command text into
 <div class="content">
 <img src="images/UpDownSequenceDiagramAdd.png" alt="UpDownSequenceDiagramAdd">
 </div>
-<div class="title">Figure 14. Sequence diagram representing the saving of a command text.</div>
+<div class="title">Figure 16. Sequence diagram representing the saving of a command text.</div>
 </div>
 </div>
 <div class="sect3">
@@ -1340,7 +1337,7 @@ comparator that determines the order of the coupons inside the sorted list.</p>
 <div class="content">
 <img src="images/SortingClassDiagram.png" alt="SortingClassDiagram">
 </div>
-<div class="title">Figure 15. Overview of the class diagram representation of the coupon sorting implementation</div>
+<div class="title">Figure 17. Overview of the class diagram representation of the coupon sorting implementation</div>
 </div>
 <div class="paragraph">
 <p>When a <code>sort</code> command is executed, the field to sort by is indicated by the
@@ -1351,7 +1348,7 @@ inputted prefix. The sequence diagram below describes what happens when a
 <div class="content">
 <img src="images/SortCommandSeqDiagram.png" alt="SortCommandSeqDiagram">
 </div>
-<div class="title">Figure 16. Sequence diagram describing the process of sorting coupons</div>
+<div class="title">Figure 18. Sequence diagram describing the process of sorting coupons</div>
 </div>
 <div class="paragraph">
 <p>Depending on the prefix to sort by, <code>ModelManager#sortCoupons()</code> will be
@@ -2213,7 +2210,7 @@ Primary actor is the user.</p>
 <div class="content">
 <img src="images/usecase.png" alt="Use Case Diagram" width="1000" height="1000">
 </div>
-<div class="title">Figure 17. Use Cases Overview for Coupon Stash</div>
+<div class="title">Figure 19. Use Cases Overview for Coupon Stash</div>
 </div>
 <div class="sect2">
 <h3 id="strong-use-case-uc1-add-coupon-strong"><a class="link" href="#strong-use-case-uc1-add-coupon-strong">C.1. <strong>Use Case: UC1 -  Add Coupon</strong></a></h3>
@@ -3162,4 +3159,4 @@ larger than the list size) <em>{give more}</em><br>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 06:42:08 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 06:42:49 UTC</div></div></div></body></html>
