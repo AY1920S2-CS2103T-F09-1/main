@@ -57,7 +57,9 @@
 <ul class="sectlevel2">
 <li><a href="#launch-and-shutdown">F.1. Launch and Shutdown</a></li>
 <li><a href="#adding-a-coupon">F.2. Adding a coupon</a></li>
-<li><a href="#deleting-a-coupon">F.3. Deleting a coupon</a></li>
+<li><a href="#listing-coupons">F.3. Listing coupons</a></li>
+<li><a href="#deleting-a-coupon">F.4. Deleting a coupon</a></li>
+<li><a href="#editing-a-coupon">F.5. Editing a Coupon</a></li>
 </ul>
 </li>
 </ul>
@@ -848,7 +850,7 @@ observable month view.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>Decided on alternative 1, to show coupons expiring on specific dates with highlights. This is because a coupon contains
+<p>We decided on alternative 1, to show coupons expiring on specific dates with highlights. This is because a coupon contains
 many information and the calendar may look cluttered and messy, which may be aesthetically unpleasant to the user.
 Furthermore, the user can use the <code>expiring</code> command to search for coupons expiring on a date or month year and have a
 more detailed view of the coupons in the <code>CouponListPanel</code>.</p>
@@ -888,7 +890,7 @@ date in the <code>CouponListPanel</code></p>
 </ul>
 </div>
 <div class="paragraph">
-<p>Decided on alternative 1, for the calendar to update with the list in the <code>CouponListPanel</code>. This is because this
+<p>We decided on alternative 1, for the calendar to update with the list in the <code>CouponListPanel</code>. This is because this
 follows the Observer Pattern Design Principle. Furthermore, this will not confuse the user when the user sees a
 highlighted date on the Calendar when there is no coupon expiring on that date in the <code>CouponListPanel</code>.</p>
 </div>
@@ -1055,6 +1057,15 @@ with two data files.</p>
 </div>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>Alternative 1 was chosen, due the the cons of Alternative 2. While a separate
+file is akin to having two separate stashes of coupons, this would increase
+the overall complexity of the application. <code>Logic</code> and <code>Model</code> would have to
+deal with another set of data, and <code>Commands</code> may have to split up the logic
+for different data sets. Furthermore, while saved data will be larger for
+Alternative 1, it should only affect the performance of starting Coupon Stash
+up, since most of the interactions with the program is with active coupons.</p>
 </div>
 </div>
 </div>
@@ -3067,23 +3078,12 @@ testers are expected to do more <em>exploratory</em> testing.
 <p>Download the jar file and copy into an empty folder</p>
 </li>
 <li>
-<p>Double-click the jar file<br>
+<p>Head over to your local Command Line Interface (CLI), and change to the
+directory where the jar file was saved.</p>
+</li>
+<li>
+<p>Type <code>java - jar CouponStash.jar</code> in the CLI.<br>
 Expected: Shows the GUI with a set of sample coupons.</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Saving window preferences</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Resize the window to an optimum size. Move the window to a different
-location. Close the window.</p>
-</li>
-<li>
-<p>Re-launch the app by double-clicking the jar file.<br>
-Expected: The most recent window size and location is retained.</p>
 </li>
 </ol>
 </div>
@@ -3112,7 +3112,33 @@ the <code>system&#8217;s date</code>, while the Remind Date is set to 3 days bef
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-coupon"><a class="link" href="#deleting-a-coupon">F.3. Deleting a coupon</a></h3>
+<h3 id="listing-coupons"><a class="link" href="#listing-coupons">F.3. Listing coupons</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>List different type of coupons</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>list</code><br>
+Expected: All active coupons are displayed on the list.</p>
+</li>
+<li>
+<p>Test case: <code>list a/</code><br>
+Expected: All archived coupons are displayed on the list.</p>
+</li>
+<li>
+<p>Test case: <code>list u/</code><br>
+Expected: All previously used coupons are displayed on the list.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-a-coupon"><a class="link" href="#deleting-a-coupon">F.4. Deleting a coupon</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3120,8 +3146,8 @@ the <code>system&#8217;s date</code>, while the Remind Date is set to 3 days bef
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: List all coupons using the <code>list</code> command. Multiple coupons
-in the list.</p>
+<p>Prerequisites: List all coupons using the <code>list</code> command. Have at least one
+coupon in the list.</p>
 </li>
 <li>
 <p>Test case: <code>delete 1</code><br>
@@ -3132,12 +3158,11 @@ Timestamp in the status bar is updated.</p>
 <li>
 <p>Test case: <code>delete 0</code><br>
    Expected: No coupon is deleted.
-Error details shown in the status message.
-Status bar remains the same.</p>
+Error details shown in the status message.</p>
 </li>
 <li>
 <p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is
-larger than the list size) <em>{give more}</em><br>
+larger than the list size)<br>
    Expected: Similar to previous.</p>
 </li>
 </ol>
@@ -3146,5 +3171,44 @@ larger than the list size) <em>{give more}</em><br>
 </ol>
 </div>
 </div>
+<div class="sect2">
+<h3 id="editing-a-coupon"><a class="link" href="#editing-a-coupon">F.5. Editing a Coupon</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Editing a coupon while all coupons are listed</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all coupons using the <code>list</code> command. Have at least one
+coupon in the list.</p>
+</li>
+<li>
+<p>Test case: <code>edit 1 p/ILOVESTASH</code><br>
+Expected: The first coupon will have its Promo Code changed to <code>ILOVESTASH</code>.</p>
+</li>
+<li>
+<p>Test case: <code>edit 1 e/31-12-2021</code><br>
+Expected: The first coupon with have its Expiry Date changed to <code>31-12-2021</code>.</p>
+</li>
+<li>
+<p>Test case: <code>edit 1 l/0</code><br>
+Expected: The first coupon will now have unlimited usage.</p>
+</li>
+<li>
+<p>Test case: <code>edit 1 u/10</code><br>
+Expected: An error message will be thrown, explaining that usage cannot be edited.</p>
+</li>
+<li>
+<p>Test case: <code>edit 1 s/$10 s/Water Bottle</code><br>
+Expected: The first coupon will have its savings changed to $10, and include
+a Water Bottle item.</p>
+</li>
+</ol>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 10:32:33 UTC</div></div></div></body></html>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 10:40:14 UTC</div></div></div></body></html>
