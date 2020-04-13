@@ -435,7 +435,7 @@ the <code>currStateIndex</code> pointing to that single coupon stash state.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/UndoRedoState0.png" alt="UndoRedoState0">
+<img src="images/UndoRedoState0.png" alt="UndoRedoState0" width="400">
 </div>
 <div class="title">Figure 8. <code>CouponStash</code> will be initialized with the initial coupon stash state.</div>
 </div>
@@ -450,7 +450,7 @@ the newly inserted coupon stash state.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/UndoRedoState1.png" alt="UndoRedoState1">
+<img src="images/UndoRedoState1.png" alt="UndoRedoState1" width="400">
 </div>
 <div class="title">Figure 9. <code>currStateIndex</code> is shifted to the newly inserted coupon stash state.</div>
 </div>
@@ -462,7 +462,7 @@ the <code>couponStashStateList</code> and <code>commandTextHistory</code> respec
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/UndoRedoState2.png" alt="UndoRedoState2">
+<img src="images/UndoRedoState2.png" alt="UndoRedoState2" width="400">
 </div>
 <div class="title">Figure 10. Modified coupon stash state and command text are saved into the <code>couponStashStateList</code> and <code>commandTextHistory</code> respectively.</div>
 </div>
@@ -491,7 +491,7 @@ case, the command undone is <code>add n/OMO STORE&#8230;&#8203;</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/UndoRedoState3.png" alt="UndoRedoState3">
+<img src="images/UndoRedoState3.png" alt="UndoRedoState3" width="400">
 </div>
 <div class="title">Figure 11. <code>currStateIndex</code> shifted once to the left.</div>
 </div>
@@ -553,7 +553,7 @@ Thus, the <code>couponStashStateList</code> remains unchanged.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/UndoRedoState4.png" alt="UndoRedoState4">
+<img src="images/UndoRedoState4.png" alt="UndoRedoState4" width="400">
 </div>
 <div class="title">Figure 13. <code>couponStashStateList</code> remains unchanged.</div>
 </div>
@@ -568,7 +568,7 @@ This is the behavior that most modern desktop applications follow.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/UndoRedoState5.png" alt="UndoRedoState5">
+<img src="images/UndoRedoState5.png" alt="UndoRedoState5" width="400">
 </div>
 <div class="title">Figure 14. Command text history after the <code>currStateIndex</code> is purged.</div>
 </div>
@@ -576,9 +576,11 @@ This is the behavior that most modern desktop applications follow.</p>
 <p>The following activity diagram summarizes what happens when a user executes a
 new command text:</p>
 </div>
-<div class="paragraph">
-<p>.
-image::CommitActivityDiagram.png[]</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/CommitActivityDiagram.png" alt="CommitActivityDiagram">
+</div>
+<div class="title">Figure 15. Activity diagram representation of how command texts are saved when they are executed.</div>
 </div>
 </div>
 <div class="sect3">
@@ -666,7 +668,7 @@ the <code>Logic#getMonthView()</code> method.</p>
 <div class="content">
 <img src="images/CalendarClassDiagram.png" alt="CalendarClassDiagram">
 </div>
-<div class="title">Figure 15. Overview of the class diagram representation of the Calendar.</div>
+<div class="title">Figure 16. Overview of the class diagram representation of the Calendar.</div>
 </div>
 <div class="paragraph">
 <p>The sequence diagrams below show how the Calendar works:</p>
@@ -675,13 +677,13 @@ the <code>Logic#getMonthView()</code> method.</p>
 <div class="content">
 <img src="images/CalendarSequenceDiagram.png" alt="CalendarSequenceDiagram">
 </div>
-<div class="title">Figure 16. Sequence diagram representation of the Calendar on the startup of Coupon Stash.</div>
+<div class="title">Figure 17. Sequence diagram representation of the Calendar on the startup of Coupon Stash.</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/CalendarSequenceDiagram_Ref_SetDetailsOfDateCell.png" alt="CalendarSequenceDiagram Ref SetDetailsOfDateCell" width="400">
 </div>
-<div class="title">Figure 17. Sequence diagram representation of the Set details of DateCell ref frame of Calendar (Applicable to the next two diagrams).</div>
+<div class="title">Figure 18. Sequence diagram representation of the Set details of DateCell ref frame of Calendar (Applicable to the next two diagrams).</div>
 </div>
 <div class="paragraph">
 <p>The two scenarios below are examples of how the Calendar mechanism behaves at
@@ -732,7 +734,7 @@ observable coupon list will not be altered and the calendar will not be altered.
 <div class="content">
 <img src="images/CalendarFindCommandSeqDiagram.png" alt="CalendarFindCommandSeqDiagram">
 </div>
-<div class="title">Figure 18. Sequence diagram representation of the update of the Calendar with the Coupon List for the "find chicken" Command.</div>
+<div class="title">Figure 19. Sequence diagram representation of the update of the Calendar with the Coupon List for the "find chicken" Command.</div>
 </div>
 </div>
 <div class="sect4">
@@ -811,7 +813,7 @@ observable month view will not be altered and the calendar will not be altered.
 <div class="content">
 <img src="images/CalendarExpiringCommandSeqDiagram.png" alt="CalendarExpiringCommandSeqDiagram">
 </div>
-<div class="title">Figure 19. Sequence diagram representation of the update of the Calendar&#8217;s MonthView for the "expiring chicken" Command.</div>
+<div class="title">Figure 20. Sequence diagram representation of the update of the Calendar&#8217;s MonthView for the "expiring chicken" Command.</div>
 </div>
 <div class="paragraph">
 <p>Or alternatively, instead of step 2,</p>
@@ -956,7 +958,7 @@ out archived coupons from a given <code>CouponStash</code>.</p>
 <div class="content">
 <img src="images/ArchivingClassDiagram.png" alt="ArchivingClassDiagram">
 </div>
-<div class="title">Figure 20. Overview class diagram representation of the coupon archiving implementation.</div>
+<div class="title">Figure 21. Overview class diagram representation of the coupon archiving implementation.</div>
 </div>
 <div class="paragraph">
 <p>Given below is two example usage scenarios and how the archiving mechanism
@@ -968,7 +970,7 @@ by Coupon Stash.</p>
 <div class="content">
 <img src="images/ArchivingActivityDiagram.png" alt="ArchivingActivityDiagram" width="300">
 </div>
-<div class="title">Figure 21. Activity diagram representation of the general flow of archiving of coupons in Coupon Stash</div>
+<div class="title">Figure 22. Activity diagram representation of the general flow of archiving of coupons in Coupon Stash</div>
 </div>
 <div class="paragraph">
 <p><strong>Archiving of Expired Coupons</strong></p>
@@ -999,7 +1001,7 @@ predicate <code>Model#PREDICATE_SHOW_ALL_ACTIVE_COUPONS</code>.</p>
 <div class="content">
 <img src="images/ArchiveExpiredSequenceDiagram.png" alt="ArchiveExpiredSequenceDiagram">
 </div>
-<div class="title">Figure 22. Sequence diagram representation of archiving expired coupons</div>
+<div class="title">Figure 23. Sequence diagram representation of archiving expired coupons</div>
 </div>
 <div class="paragraph">
 <p><strong>Archiving of Exhausted Coupons</strong></p>
@@ -1036,7 +1038,7 @@ this method, the current <code>FilteredList</code> will be updated to show activ
 <div class="content">
 <img src="images/ArchiveExhaustedSequenceDiagram.png" alt="ArchiveExhaustedSequenceDiagram">
 </div>
-<div class="title">Figure 23. Sequence diagram representation of archiving exhausted coupons</div>
+<div class="title">Figure 24. Sequence diagram representation of archiving exhausted coupons</div>
 </div>
 </div>
 <div class="sect3">
@@ -1123,7 +1125,7 @@ class facilitates this feature:</p>
 <div class="content">
 <img src="images/UpDownClassDiagram.png" alt="UpDownClassDiagram">
 </div>
-<div class="title">Figure 24. Class diagram representation of the command history retrieving function.</div>
+<div class="title">Figure 25. Class diagram representation of the command history retrieving function.</div>
 </div>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the up/down button presses
@@ -1139,7 +1141,7 @@ is set to <code>0</code>.</p>
 <div class="content">
 <img src="images/UpDownHistory0.png" alt="UpDownHistory0">
 </div>
-<div class="title">Figure 25. Stack containing only an empty string</div>
+<div class="title">Figure 26. Stack containing only an empty string</div>
 </div>
 <div class="paragraph">
 <p>Step 2. The user executes <code>delete 1</code>. <code>CommandBox#handleCommandEntered()</code> will
@@ -1156,7 +1158,7 @@ affected.</p>
 <div class="content">
 <img src="images/UpDownHistory1.png" alt="UpDownHistory1">
 </div>
-<div class="title">Figure 26. Stack after executing <code>delete 1</code></div>
+<div class="title">Figure 27. Stack after executing <code>delete 1</code></div>
 </div>
 <div class="paragraph">
 <p>Step 3. The user executes <code>delete 2</code>. <code>CommandBox#handleCommandEntered()</code> will
@@ -1169,7 +1171,7 @@ just below the empty string.</p>
 <div class="content">
 <img src="images/UpDownHistory2.png" alt="UpDownHistory2">
 </div>
-<div class="title">Figure 27. Stack after executing <code>delete 2</code>.</div>
+<div class="title">Figure 28. Stack after executing <code>delete 2</code>.</div>
 </div>
 <div class="paragraph">
 <p>Step 3. Now, the user decides to delete the second coupon again. We press the
@@ -1184,7 +1186,7 @@ displayed in the program command box.</p>
 <div class="content">
 <img src="images/UpDownHistory3.png" alt="UpDownHistory3">
 </div>
-<div class="title">Figure 28. After pressing the "up" arrow key.</div>
+<div class="title">Figure 29. After pressing the "up" arrow key.</div>
 </div>
 <div class="paragraph">
 <p>Step 4. The user then executes the retrieved command (<code>delete 2</code>). As in the
@@ -1197,7 +1199,7 @@ does not point to the top of the stack, it is reset to <code>0</code>.</p>
 <div class="content">
 <img src="images/UpDownHistory4.png" alt="UpDownHistory4">
 </div>
-<div class="title">Figure 29. Stack after executing <code>delete 2</code> again.</div>
+<div class="title">Figure 30. Stack after executing <code>delete 2</code> again.</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1246,7 +1248,7 @@ presses a key.</p>
 <div class="content">
 <img src="images/UpDownSequenceDiagram.png" alt="UpDownSequenceDiagram">
 </div>
-<div class="title">Figure 30. Sequence diagram representing retrieval of command text history with the up and down arrow keys.</div>
+<div class="title">Figure 31. Sequence diagram representing retrieval of command text history with the up and down arrow keys.</div>
 </div>
 <div class="paragraph">
 <p>Below is a sequence diagram describing the events that happen when a executes
@@ -1257,7 +1259,7 @@ a command text, thus triggering the saving of a command text into
 <div class="content">
 <img src="images/UpDownSequenceDiagramAdd.png" alt="UpDownSequenceDiagramAdd">
 </div>
-<div class="title">Figure 31. Sequence diagram representing the saving of a command text.</div>
+<div class="title">Figure 32. Sequence diagram representing the saving of a command text.</div>
 </div>
 </div>
 <div class="sect3">
@@ -1336,7 +1338,7 @@ comparator that determines the order of the coupons inside the sorted list.</p>
 <div class="content">
 <img src="images/SortingClassDiagram.png" alt="SortingClassDiagram">
 </div>
-<div class="title">Figure 32. Overview of the class diagram representation of the coupon sorting implementation.</div>
+<div class="title">Figure 33. Overview of the class diagram representation of the coupon sorting implementation.</div>
 </div>
 <div class="paragraph">
 <p>When a <code>sort</code> command is executed, the field to sort by is indicated by the
@@ -1347,7 +1349,7 @@ inputted prefix. The sequence diagram below describes what happens when a
 <div class="content">
 <img src="images/SortCommandSeqDiagram.png" alt="SortCommandSeqDiagram">
 </div>
-<div class="title">Figure 33. Sequence diagram describing the process of sorting coupons.</div>
+<div class="title">Figure 34. Sequence diagram describing the process of sorting coupons.</div>
 </div>
 <div class="paragraph">
 <p>Depending on the prefix to sort by, <code>ModelManager#sortCoupons()</code> will be
@@ -1447,7 +1449,7 @@ today, no window will be shown.</p>
 <div class="content">
 <img src="images/RemindClassDiagram.png" alt="RemindClassDiagram">
 </div>
-<div class="title">Figure 34. Overview of the class diagram representation of the reminder checking implementation.</div>
+<div class="title">Figure 35. Overview of the class diagram representation of the reminder checking implementation.</div>
 </div>
 <div class="paragraph">
 <p>To make sense of how coupon reminder functions, let&#8217;s dive into the specifics of
@@ -1464,7 +1466,7 @@ class, RemindCommand class and RemindWindow class.</p>
 <div class="content">
 <img src="images/EditRemindActivityDiagram.png" alt="EditRemindActivityDiagram" width="500">
 </div>
-<div class="title">Figure 35. Activity Diagram representation of the flow of editing the <code>remind date</code> of a coupon.</div>
+<div class="title">Figure 36. Activity Diagram representation of the flow of editing the <code>remind date</code> of a coupon.</div>
 </div>
 </div>
 <div class="sect3">
@@ -1504,7 +1506,7 @@ the reminder window.</p>
 <div class="content">
 <img src="images/RemindSequenceDiagram.png" alt="RemindSequenceDiagram">
 </div>
-<div class="title">Figure 36. Sequence diagram describing the process of opening the reminder window.</div>
+<div class="title">Figure 37. Sequence diagram describing the process of opening the reminder window.</div>
 </div>
 </div>
 <div class="sect3">
@@ -1589,7 +1591,7 @@ would gain from 1 use of that Coupon.</p>
 <div class="content">
 <img src="images/SavingsClassDiagram.png" alt="SavingsClassDiagram">
 </div>
-<div class="title">Figure 37. Class diagram describing the structure of <code>Savings</code>.</div>
+<div class="title">Figure 38. Class diagram describing the structure of <code>Savings</code>.</div>
 </div>
 <div class="paragraph">
 <p>A Savings object can hold a <code>PercentageAmount</code>, <code>MonetaryAmount</code> or
@@ -1687,7 +1689,7 @@ which is a subclass of <code>Savings</code> that never holds
 <div class="content">
 <img src="images/PureMonetarySavingsClassDiagram.png" alt="PureMonetarySavingsClassDiagram">
 </div>
-<div class="title">Figure 38. Class diagram describing the structure of <code>PureMonetarySavings</code>.</div>
+<div class="title">Figure 39. Class diagram describing the structure of <code>PureMonetarySavings</code>.</div>
 </div>
 <div class="paragraph">
 <p>The reason why <code>PercentageAmount</code>s are not allowed in
@@ -1710,7 +1712,7 @@ next image shows the class diagram of the
 <div class="content">
 <img src="images/DateSavingsSumMapClassDiagram.png" alt="DateSavingsSumMapClassDiagram">
 </div>
-<div class="title">Figure 39. Class diagram describing the structure of <code>DateSavingsSumMap</code>.</div>
+<div class="title">Figure 40. Class diagram describing the structure of <code>DateSavingsSumMap</code>.</div>
 </div>
 <div class="paragraph">
 <p>The following section describes
@@ -1730,7 +1732,7 @@ shows what happens when the user runs a used command.</p>
 <div class="content">
 <img src="images/UsedCommandActivityDiagram.png" alt="UsedCommandActivityDiagram" width="400">
 </div>
-<div class="title">Figure 40. Activity diagram showing the execution of a used command.</div>
+<div class="title">Figure 41. Activity diagram showing the execution of a used command.</div>
 </div>
 <div class="paragraph">
 <p>In terms of the implementation, the next two images
@@ -1752,7 +1754,7 @@ successfully.</p>
 <div class="content">
 <img src="images/UsedCommandSeqDiagram.png" alt="UsedCommandSeqDiagram">
 </div>
-<div class="title">Figure 41. Sequence diagram showing how a <code>UsedCommand</code> is executed.</div>
+<div class="title">Figure 42. Sequence diagram showing how a <code>UsedCommand</code> is executed.</div>
 </div>
 <div class="paragraph">
 <p>The money symbol set in the user preferences is
@@ -1772,7 +1774,7 @@ value for the new <code>Coupon</code>.</p>
 <div class="content">
 <img src="images/UsedExecutionSeqDiagram.png" alt="UsedExecutionSeqDiagram">
 </div>
-<div class="title">Figure 42. Sequence diagram showing how <code>UsedCommand</code> updates the total savings.</div>
+<div class="title">Figure 43. Sequence diagram showing how <code>UsedCommand</code> updates the total savings.</div>
 </div>
 <div class="paragraph">
 <p>In the end, the total savings value of the <code>Coupon</code>
@@ -1807,7 +1809,7 @@ would be executed.</p>
 <div class="content">
 <img src="images/SavedExecutionSeqDiagram.png" alt="SavedExecutionSeqDiagram">
 </div>
-<div class="title">Figure 43. Sequence diagram showing the execution of a <code>SavedCommand</code>.</div>
+<div class="title">Figure 44. Sequence diagram showing the execution of a <code>SavedCommand</code>.</div>
 </div>
 <div class="paragraph">
 <p>Hence the <code>SavedCommand</code> loops through all <code>Coupon</code>s to add
@@ -2249,7 +2251,7 @@ Primary actor is the user.</p>
 <div class="content">
 <img src="images/usecase.png" alt="Use Case Diagram" width="1000" height="1000">
 </div>
-<div class="title">Figure 44. Use Cases Overview for Coupon Stash</div>
+<div class="title">Figure 45. Use Cases Overview for Coupon Stash</div>
 </div>
 <div class="sect2">
 <h3 id="strong-use-case-uc1-add-coupon-strong"><a class="link" href="#strong-use-case-uc1-add-coupon-strong">C.1. <strong>Use Case: UC1 -  Add Coupon</strong></a></h3>
@@ -3603,4 +3605,4 @@ discussions that we have brought us close! We are definitely proud of the
 product that we created, and believe that it serves its purpose well.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 15:21:25 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 15:28:03 UTC</div></div></div></body></html>

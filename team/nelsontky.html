@@ -407,6 +407,202 @@ list is edited.</p>
 was in the resulting coupon list is deleted.</p>
 </div>
 </div>
+<div class="sect2">
+<h3 id="expanding-a-coupon-code-expand-code"><a class="link" href="#expanding-a-coupon-code-expand-code">Expanding a coupon: <code>expand</code></a></h3>
+<div class="paragraph">
+<p>Displays a coupon in its own window, giving you a
+complete expanded view of it.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>expand INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Expands the coupon at the specified <a href="#index">INDEX</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>expand 1</code><br>
+Opens the first coupon in the coupon list in a new window.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/expand_example.png" alt="expand example">
+</div>
+<div class="title">Figure 1. Example of an expanded coupon window.</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="reminding-of-coupon-expiry"><a class="link" href="#reminding-of-coupon-expiry">Reminding of coupon expiry</a></h3>
+<div class="paragraph">
+<p>By default, all added coupons have a remind date that is 3 days before its
+stated expiry date. This default value can be changed during the process of
+<a href="#_adding_a_coupon_add">adding</a> a new coupon or by
+<a href="#_editing_a_coupon_edit">editing</a> an existing coupon. The remind dates for all
+coupons are checked on program launch. All coupons that have a remind date which
+falls on the date of program launch will be listed in a popup window on launch.
+The popup window can be closed by pressing <kbd>Ctrl</kbd> + <kbd>q</kbd>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ug_reminder_window.PNG" alt="ug reminder window">
+</div>
+<div class="title">Figure 2. Popup window showing all coupons that have their remind dates set on the date of program launch.</div>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Remind dates are <strong>only</strong> checked during program launch. Thus, if a day passes
+while the program is open, even if there are coupons expiring on the new day,
+no new reminder window will open.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>As of now, there is no
+functionality for the disabling of reminders for coupons. This feature will be
+made available in version 2.0.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The format of dates entered via the <code>r/</code> field is
+in the D-M-YYYY format. (<a href="#coupon-stash-date-format">Coupon Stash date format</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add n/McDonald&#8217;s McGriddles p/ILOVEMCGRIDDLES e/31-12-2020 s/$2
+sd/1-4-2020 l/2 t/value t/savoury</code></p>
+<div class="paragraph">
+<p>Add a new Coupon without specifying a remind date. Note that the default
+remind date is 3 days before the state expiry date:</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ug_mcdonalds_mcgriddles.png" alt="ug mcdonalds mcgriddles">
+</div>
+<div class="title">Figure 3. New coupon with a default remind date.</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add n/Grabfood s/40% e/30-4-2020 p/GRAB40 t/delivery r/10-4-2020</code></p>
+<div class="paragraph">
+<p>Add a new Coupon while specifying a remind date of <code>10-04-2020</code>:</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ug_Grabfood_reminder.png" alt="ug Grabfood reminder">
+</div>
+<div class="title">Figure 4. New coupon with remind date set to <code>10-04-2020</code>.</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>edit 1 r/10-4-2020</code></p>
+<div class="paragraph">
+<p>Edit the coupon at index 1 and change its remind date to <code>10-4-2020</code>.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="KeyboardShortcuts"><a class="link" href="#KeyboardShortcuts">Keyboard Shortcuts</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>With Coupon Stash being optimized for efficient command line usage, how can we
+not include some nifty keyboard shortcuts to further streamline
+your workflow! This section introduces some of the keyboard shortcuts available
+for use in this program.</p>
+</div>
+<div class="sect2">
+<h3 id="restore-previously-entered-command-texts-kbd-kbd-and-kbd-kbd"><a class="link" href="#restore-previously-entered-command-texts-kbd-kbd-and-kbd-kbd">Restore previously entered command texts: <kbd>↑</kbd> and <kbd>↓</kbd></a></h3>
+<div class="paragraph">
+<p>Pressing the <kbd>↑</kbd> keyboard button while the focus is on the command box
+allows you to restore the text of the previous executed command. Pressing
+the <kbd>↓</kbd> keyboard button allows you to revert to a more recently entered
+command.</p>
+</div>
+<div class="paragraph">
+<p>Demonstration:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/gifs/Up%20down%20arrow.gif" alt="Up down arrow">
+</div>
+<div class="title">Figure 5. Animation of <kbd>↑</kbd>/<kbd>↓</kbd> button presses.</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="close-expanded-coupon-or-reminder-windows-kbd-ctrl-kbd-kbd-q-kbd"><a class="link" href="#close-expanded-coupon-or-reminder-windows-kbd-ctrl-kbd-kbd-q-kbd">Close expanded coupon or reminder windows: <kbd>Ctrl</kbd>+<kbd>q</kbd></a></h3>
+<div class="paragraph">
+<p>After <a href="#expanding-a-coupon-code-expand-code"><code>expanding</code></a> a coupon, you can close
+the expanded coupon window by keeping the focus on the coupon window and
+pressing the keyboard buttons <kbd>Ctrl</kbd> and <kbd>q</kbd> simultaneously. This
+shortcut also works for closing <a href="#_reminding_of_coupon_expiry">reminder</a>
+windows.</p>
+</div>
+<div class="paragraph">
+<p>Demonstration:
+during the process of adding
+.Animation of closing window with <kbd>Ctrl</kbd>+<kbd>q</kbd>.
+image::gifs/ctrl q.gif[]</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="cycle-through-tabs-kbd-ctrl-kbd-kbd-tab-kbd"><a class="link" href="#cycle-through-tabs-kbd-ctrl-kbd-kbd-tab-kbd">Cycle through tabs: <kbd>Ctrl</kbd>+<kbd>Tab</kbd></a></h3>
+<div class="paragraph">
+<p>You can press the keyboard buttons <kbd>Ctrl</kbd> and <kbd>Tab</kbd> simultaneously to
+switch tabs. Do note that the focus has to be on the main panel before the
+key presses would work.</p>
+</div>
+<div class="paragraph">
+<p>Demonstration:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/gifs/ctrl%20tab.gif" alt="ctrl tab">
+</div>
+<div class="title">Figure 6. Animation of switching tabs with <kbd>Ctrl</kbd>+<kbd>Tab</kbd>.</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -425,334 +621,555 @@ Highlights include frequent use of Unified Modelling Language
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="savings-per-use-and-total-amount-saved"><a class="link" href="#savings-per-use-and-total-amount-saved">Savings per use and total amount saved</a></h3>
+<h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">Undo/Redo feature</a></h3>
 <div class="paragraph">
-<p>To allow users to keep track of how much they have saved
-(after all, the whole point of coupons is to offer
-certain tangible benefits, encouraging purchases
-by customers), Coupon Stash automatically tracks the
-user&#8217;s savings as they use their coupons that are
-handled in the application.</p>
+<p>The undo/redo mechanism is facilitated by with an undo/redo history, stored
+internally as an <code>couponStashStateList</code> with a <code>commandTextHistory</code> and
+<code>currStateIndex</code>. All these components are encapsulated in the <code>HistoryManager</code>
+class.
+The following methods in the <code>Model</code> interface facilitates this feature:</p>
 </div>
-<div class="paragraph">
-<p>To achieve this, <code>Coupon</code>s have to store two different
-fields:<br>
-1. Amount of savings each use of a coupon provides<br>
-2. Total amount of savings accumulated
-from using a certain coupon</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Model#commitCouponStash(String commandText)</code>&#8201;&#8212;&#8201;Saves the current coupon
+stash state and the command text that triggered the change in state into
+<code>HistoryManager</code>.</p>
+</li>
+<li>
+<p><code>Model#undo()</code>&#8201;&#8212;&#8201;Restores the previous coupon stash state from
+<code>HistoryManager</code>.</p>
+</li>
+<li>
+<p><code>Model#redo()</code>&#8201;&#8212;&#8201;Restores a previously undone coupon stash state from
+<code>HistoryManager</code>.</p>
+</li>
+</ul>
 </div>
 <div class="sect3">
-<h4 id="class-structure-of-code-savings-code"><a class="link" href="#class-structure-of-code-savings-code">Class structure of <code>Savings</code></a></h4>
+<h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
 <div class="paragraph">
-<p>Just for reference, the image below shows the class diagram
-for the <code>Savings</code> class. It is compulsory for each Coupon to
-contain an <code>Savings</code> object, that represents what the user
-would gain from 1 use of that Coupon.</p>
+<p>Given below is an example usage scenario and how the undo/redo mechanism
+behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user launches the application for the first time.
+The <code>CouponStash</code> will be initialized with the initial coupon stash state, and
+the <code>currStateIndex</code> pointing to that single coupon stash state.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/SavingsClassDiagram.png" alt="SavingsClassDiagram">
+<img src="../images/UndoRedoState0.png" alt="UndoRedoState0" width="400">
 </div>
-<div class="title">Figure 1. Class diagram describing the structure of <code>Savings</code>.</div>
-</div>
-<div class="paragraph">
-<p>A Savings object can hold a <code>PercentageAmount</code>, <code>MonetaryAmount</code> or
-<code>Saveable</code>s, which represents discounts like "$5 off", "10% off"
-and "free door gift" respectively.</p>
+<div class="title">Figure 7. <code>CouponStash</code> will be initialized with the initial coupon stash state.</div>
 </div>
 <div class="paragraph">
-<p>The table below shows which are valid Savings objects, and
-which are not.</p>
+<p>Step 2. The user executes <code>delete 5</code> command to delete the 5th coupon in the
+coupon stash.
+The <code>delete</code> command calls <code>Model#commitCouponStash(String commandText)</code>,
+causing the modified state of the coupon stash after the <code>delete 5</code> command
+executes to be saved in the <code>couponStashStateList</code>, and the <code>delete 5</code> command
+text to be stored in the <code>commandTextHistory</code>.  <code>currStateIndex</code> is shifted to
+the newly inserted coupon stash state.</p>
 </div>
-<table class="tableblock frame-all grid-all spread">
-<caption class="title">Table 1. A list of different Savings objects, which could be valid or invalid.</caption>
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<tbody>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UndoRedoState1.png" alt="UndoRedoState1" width="400">
+</div>
+<div class="title">Figure 8. <code>currStateIndex</code> is shifted to the newly inserted coupon stash state.</div>
+</div>
+<div class="paragraph">
+<p>Step 3. The user executes <code>add n/OMO STORE &#8230;&#8203;</code> to add a new coupon.
+The <code>add</code> command also calls <code>Model#commitCouponStash(String commandText)</code>,
+causing another modified coupon stash state and command text to be saved into
+the <code>couponStashStateList</code> and <code>commandTextHistory</code> respectively.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UndoRedoState2.png" alt="UndoRedoState2" width="400">
+</div>
+<div class="title">Figure 9. Modified coupon stash state and command text are saved into the <code>couponStashStateList</code> and <code>commandTextHistory</code> respectively.</div>
+</div>
+<div class="admonitionblock note">
+<table>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Object Diagram</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Comments</p></td>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If a command fails its execution, it will not call
+<code>Model#commitCouponStash(String commandText)</code>, so the coupon stash state and
+command text will not be saved.
+</td>
 </tr>
-<tr>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<div class="title">Savings with percentage amount.</div>
-<p><span class="image"><img src="../images/s1valid.png" alt="s1valid"></span></p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Valid</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<div class="title">Savings with monetary amount.</div>
-<p><span class="image"><img src="../images/s2valid.png" alt="s2valid"></span></p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Valid</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<div class="title">Savings with saveable items.</div>
-<p><span class="image"><img src="../images/s3valid.png" alt="s3valid"></span></p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Valid</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<div class="title">Savings without any fields present.</div>
-<p><span class="image"><img src="../images/s4invalid.png" alt="s4invalid"></span></p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Invalid: <code>Savings</code> must have at
-least one field</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<div class="title">Savings with percentage amount and a saveable item.</div>
-<p><span class="image"><img src="../images/s5valid.png" alt="s5valid"></span></p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Valid: <code>Savings</code> can have both a
-percentage amount and saveables</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<div class="title">Savings with monetary amount and multiple saveable items.</div>
-<p><span class="image"><img src="../images/s6valid.png" alt="s6valid"></span></p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Valid: <code>Savings</code> can hold more
-than one <code>Saveable</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<div class="title">Savings with monetary amount and percentage amount.</div>
-<p><span class="image"><img src="../images/s7invalid.png" alt="s7invalid"></span></p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Invalid: Savings cannot have both a
-<code>MonetaryAmount</code> and <code>PercentageAmount</code></p></td>
-</tr>
-</tbody>
 </table>
+</div>
 <div class="paragraph">
-<p>As can be seen from the table, <code>Savings</code> cannot be completely
-empty, and <code>Savings</code> cannot have both a <code>MonetaryAmount</code> and
-<code>PercentageAmount</code> (it does not make much sense to have
-a voucher that says "10% and $5 off").</p>
+<p>Step 4. The user now decides that adding the coupon was a mistake, and decides
+to undo that action by executing the <code>undo</code> command.
+The <code>undo</code> command will call <code>Model#undoCouponStash()</code>, which will shift the
+<code>currStateIndex</code> once to the left, pointing it to the previous coupon stash
+state, and restores the coupon stash to that state. Plus, the command text is
+returned, thus allowing for the display of the command that was undone. In this
+case, the command undone is <code>add n/OMO STORE&#8230;&#8203;</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UndoRedoState3.png" alt="UndoRedoState3" width="400">
+</div>
+<div class="title">Figure 10. <code>currStateIndex</code> shifted once to the left.</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If the <code>currStateIndex</code> is at index 0, pointing to the initial coupon stash
+state, then there are no previous coupon stash states to restore.
+The <code>undo</code> command uses <code>Model#canUndoCouponStash()</code> to check if this is the
+case.
+If so, it will return an error to the user rather than attempting to perform
+the undo.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the undo operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UndoSequenceDiagram.png" alt="UndoSequenceDiagram">
+</div>
+<div class="title">Figure 11. Undo operation sequence diagram.</div>
+</div>
+<div class="paragraph">
+<p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoCouponStash()</code>,
+which shifts the <code>currStateIndex</code> once to the right, pointing to the previously
+undone state and command text, and restores the coupon stash to that state.
+Finally, it returns the redone command text.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If the <code>currStateIndex</code> is at index <code>couponStashStateList.size() - 1</code>, pointing
+to the latest coupon stash state, then there are no undone coupon stash states
+to restore.
+The <code>redo</code> command uses <code>Model#canRedoCouponStash()</code> to check if this is the
+case.
+If so, it will return an error to the user rather than attempting to perform
+the redo.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Step 5. The user then decides to execute the command <code>list</code>.
+Commands that do not modify the coupon stash, such as <code>list</code>, will  not call
+<code>Model#commitCouponStash()</code>.
+Thus, the <code>couponStashStateList</code> remains unchanged.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UndoRedoState4.png" alt="UndoRedoState4" width="400">
+</div>
+<div class="title">Figure 12. <code>couponStashStateList</code> remains unchanged.</div>
+</div>
+<div class="paragraph">
+<p>Step 6. The user executes <code>clear</code>, which calls <code>Model#commitCouponStash()</code>.
+Since the <code>currStateIndex</code> is not pointing at the end of the
+<code>couponStashStateList</code>, all coupon stash states and command text history after
+the <code>currStateIndex</code> will be purged.
+We designed it this way because it no longer makes sense to redo the <code>add n/OMO
+                                                                      STORE &#8230;&#8203;</code> command.
+This is the behavior that most modern desktop applications follow.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UndoRedoState5.png" alt="UndoRedoState5" width="400">
+</div>
+<div class="title">Figure 13. Command text history after the <code>currStateIndex</code> is purged.</div>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarizes what happens when a user executes a
+new command text:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/CommitActivityDiagram.png" alt="CommitActivityDiagram">
+</div>
+<div class="title">Figure 14. Activity diagram representation of how command texts are saved when they are executed.</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="code-puremonetarysavings-code-and-code-datesavingssummap-code"><a class="link" href="#code-puremonetarysavings-code-and-code-datesavingssummap-code"><code>PureMonetarySavings</code> and <code>DateSavingsSumMap</code></a></h4>
-<div class="paragraph">
-<p>In order to calculate the total amount saved, <code>Coupon</code>s also
-store information about how much the user saves, and storage
-is done at the moment the user uses the coupon. This
-information is stored in the form of <code>PureMonetarySavings</code>,
-which is a subclass of <code>Savings</code> that never holds
-<code>PercentageAmount</code>s. The class diagram below illustrates this.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/PureMonetarySavingsClassDiagram.png" alt="PureMonetarySavingsClassDiagram">
-</div>
-<div class="title">Figure 2. Class diagram describing the structure of <code>PureMonetarySavings</code>.</div>
-</div>
-<div class="paragraph">
-<p>The reason why <code>PercentageAmount</code>s are not allowed in
-accumulated savings is because a percentage
-discount is a relative value that depends on the
-original price of the product, and cannot be easily
-added up in a way that allows users to accurately
-measure how much they have saved from their coupons.</p>
-</div>
-<div id="dssm" class="paragraph">
-<p><code>PureMonetarySavings</code> are stored in
-a <code>DateSavingsSumMap</code>, which is a hash table that
-links the current date (<code>LocalDate</code>) to the savings
-earned (<code>PureMonetarySavings</code>) on that date.
-Each <code>Coupon</code> holds a <code>DateSavingsSumMap</code>. The
-next image shows the class diagram of the
-<code>DateSavingsSumMap</code>.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/DateSavingsSumMapClassDiagram.png" alt="DateSavingsSumMapClassDiagram">
-</div>
-<div class="title">Figure 3. Class diagram describing the structure of <code>DateSavingsSumMap</code>.</div>
-</div>
-<div class="paragraph">
-<p>The following section describes
-the processes that follow whenever a user marks a Coupon
-as "used" with the <code>used</code> command.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="implementation-of-used-command"><a class="link" href="#implementation-of-used-command">Implementation of used command</a></h4>
-<div class="paragraph">
-<p>When the user enters a <code>used</code> command, the actions taken by Coupon
-Stash change depending on whether the Coupon&#8217;s Savings stores
-a MonetaryAmount of PercentageAmount. The following activity diagram
-shows what happens when the user runs a used command.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UsedCommandActivityDiagram.png" alt="UsedCommandActivityDiagram" width="400">
-</div>
-<div class="title">Figure 4. Activity diagram showing the execution of a used command.</div>
-</div>
-<div class="paragraph">
-<p>In terms of the implementation, the next two images
-shows the sequence diagram that models the successful
-execution of a used command within the actual
-program components.</p>
-</div>
-<div class="paragraph">
-<p>More specifically, the used command executed is
-<code>used 1 $100</code>, and the state of the system is such that
-a <code>Coupon</code> with <code>PercentageAmount</code> in its <code>Savings</code> (no
-<code>MonetaryAmount</code>) and with <code>Usage</code> not at its <code>Limit</code>
-is located at index 1. Also, the money symbol
-set in the user preferences would be <code>$</code>, which
-makes this command a valid one that will execute
-successfully.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UsedCommandSeqDiagram.png" alt="UsedCommandSeqDiagram">
-</div>
-<div class="title">Figure 5. Sequence diagram showing how a <code>UsedCommand</code> is executed.</div>
-</div>
-<div class="paragraph">
-<p>The money symbol set in the user preferences is
-retrieved by <code>CouponStashParser</code>, which passes it
-to <code>UsedCommandParser</code> that will use this symbol
-to parse the <code>used</code> command.</p>
-</div>
-<div class="paragraph">
-<p>Also, within <code>UsedCommand</code>, the <code>UsedCommand#execute()</code> method
-will cause the creation of a new <code>Coupon</code> with the
-correct recorded number of uses and amount of
-savings earned. The next sequence diagram shows
-how a successful <code>UsedCommand#execute()</code> method produces the new total savings
-value for the new <code>Coupon</code>.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UsedExecutionSeqDiagram.png" alt="UsedExecutionSeqDiagram">
-</div>
-<div class="title">Figure 6. Sequence diagram showing how <code>UsedCommand</code> updates the total savings.</div>
-</div>
-<div class="paragraph">
-<p>In the end, the total savings value of the <code>Coupon</code>
-is updated. This total savings is represented by
-a <a href="DeveloperGuide.html#dssm">DateSavingsSumMap</a>.</p>
-</div>
-<div class="paragraph">
-<p>One key implementation within the <code>UsedCommand</code> is the checks
-that it has to make to ensure the valid usage of a <code>Coupon</code>.
-Below is an activity diagram to show the flow of checks within
-the <code>UsedCommand#execute()</code> method.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="implementation-of-saved-command"><a class="link" href="#implementation-of-saved-command">Implementation of saved command</a></h4>
-<div class="paragraph">
-<p>Now that we have seen how the <code>used</code> command works,
-we can look at how the <code>saved</code> command works. While
-<code>used</code> stores the amount of savings that the user
-has earned on a particular day, <code>saved</code> retrieves
-the amount of savings earned as recorded by Coupon
-Stash, given a particular time period.</p>
-</div>
-<div class="paragraph">
-<p>The saved command works similarly to the used command,
-where a <code>SavedCommandParser</code> will be created by <code>Logic</code>
-to split up the raw <code>String</code> into its arguments,
-creating a <code>SavedCommand</code>. Let&#8217;s look at how a <code>SavedCommand</code>
-would be executed.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/SavedExecutionSeqDiagram.png" alt="SavedExecutionSeqDiagram">
-</div>
-<div class="title">Figure 7. Sequence diagram showing the execution of a <code>SavedCommand</code>.</div>
-</div>
-<div class="paragraph">
-<p>Hence the <code>SavedCommand</code> loops through all <code>Coupon</code>s to add
-up the savings earned from a particular time period,
-or from all dates if no time period is specified.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">Design considerations</a></h4>
-<div class="paragraph">
-<p>Based on the User Stories, there is a desire for tracking
-how much one has saved by using Coupon Stash, as well
-as for viewing total savings easily. Below are
-some alternative implementations of savings tracking
-and viewing that were considered by the developers,
-but were rejected in favour of the current
-implementation.</p>
-</div>
-<div class="paragraph">
-<p>Alternatives:</p>
-</div>
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
 <div class="ulist">
 <ul>
 <li>
-<p>Restrict each <code>Savings</code> to a concrete monetary value</p>
+<p><strong>Alternative 1 (current choice):</strong> Saves the entire coupon stash.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement.</p>
+</li>
+<li>
+<p>Cons: May have performance issues in terms of memory usage. Plus, have to
+perform deep copy of coupons when saving the coupon stash so as to prevent
+unwanted mutations.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Individual command knows how to undo/redo by itself.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Will use less memory (e.g. for <code>delete</code>, just save the coupon being
+deleted).</p>
+</li>
+<li>
+<p>Cons: We must ensure that the implementation of each individual command is
+correct.</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>This would make the implementation of <code>Savings</code> much
-simpler, as there would not be a need for separate
-classes like <code>PercentageAmount</code>, <code>MonetaryAmount</code> and
-<code>Saveable</code>s. However, this might burden the user with
-calculating how much they would save in terms of
-dollars and cents, when many coupons and discounts
-come in the form of certain percentage reductions
-of the original price, as well as free gifts or
-benefits that cannot be translatable to a concrete
-monetary amount.</p>
+<p>Alternative 1 was chosen due to its relative simplicity and extensibility.
+Little to no modification needs to be made to each command that can be
+undone, thus reducing chances of new bugs surfacing. Additionally, the ability
+to undo operations such as <code>clear</code> will require alternative 2 to copy the
+entire coupon stash too, so both alternatives will have the same memory
+footprint in such a context. Finally, the real world performance impact of
+copying all coupons vs copying one is not very huge. Thus, the more
+extensible and simpler alternative 1 was chosen.</p>
 </div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="up-down-arrow-retrieve-command-history"><a class="link" href="#up-down-arrow-retrieve-command-history">Up/down arrow retrieve command history</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current Implementation</a></h4>
 <div class="paragraph">
-<p>Hence, it was decided to rely on a few different
-representations of <code>Savings</code> that can be earned from
-using a <code>Coupon</code>, as well as a <code>Savings</code> class that
-could refer to any of these representations, or
-even a logical combination of these representations.</p>
+<p>The retrieving of command history via the up and down arrow keys is facilitated
+by the <code>CommandTextHistory</code> class. The command history is stored internally as
+a <code>LinkedList</code> used as a stack with a <code>currIndex</code>
+tracking the next command in the history to return.
+The following methods and attributes in the <code>CommandTextHistory</code>
+class facilitates this feature:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Each <code>Coupon</code> stores a <code>MonetaryAmount</code>, <code>PercentageAmount</code>
-and <code>Saveables</code> directly</p>
+<p><code>CommandTextHistory#add(String commandText)</code></p>
+</li>
+<li>
+<p><code>CommandTextHistory#getDown()</code></p>
+</li>
+<li>
+<p><code>CommandTextHistory#getUp()</code></p>
+</li>
+<li>
+<p><code>CommandTextHistory#commandTextHistory</code></p>
+</li>
+<li>
+<p><code>CommandTextHistory#currIndex</code></p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UpDownClassDiagram.png" alt="UpDownClassDiagram">
+</div>
+<div class="title">Figure 15. Class diagram representation of the command history retrieving function.</div>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the up/down button presses
+behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user launches the application for the first time. The
+<code>CommandTextHistory</code> is initialized
+with a stack containing only an empty string (<code>""</code>), and the <code>currIndex</code>
+is set to <code>0</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UpDownHistory0.png" alt="UpDownHistory0">
+</div>
+<div class="title">Figure 16. Stack containing only an empty string</div>
+</div>
+<div class="paragraph">
+<p>Step 2. The user executes <code>delete 1</code>. <code>CommandBox#handleCommandEntered()</code> will
+call <code>CommandTextHistory#add(String commandText)</code> to save the entered command
+into
+the stack contained in <code>CommandTextHistory</code>. The top of the stack (i.e. the
+empty string) is popped off first, before
+the entered command is pushed onto the stack. Then, the empty string is pushed
+onto the stack again, thus ensuring that
+the empty string stays at the top of the stack. Note that <code>currIndex</code> is not
+affected.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UpDownHistory1.png" alt="UpDownHistory1">
+</div>
+<div class="title">Figure 17. Stack after executing <code>delete 1</code></div>
+</div>
+<div class="paragraph">
+<p>Step 3. The user executes <code>delete 2</code>. <code>CommandBox#handleCommandEntered()</code> will
+also save the entered command into
+the stack contained in <code>CommandTextHistory</code>. As in the previous step, the new
+command is pushed to the top of the stack,
+just below the empty string.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UpDownHistory2.png" alt="UpDownHistory2">
+</div>
+<div class="title">Figure 18. Stack after executing <code>delete 2</code>.</div>
+</div>
+<div class="paragraph">
+<p>Step 3. Now, the user decides to delete the second coupon again. We press the
+arrow key up once,
+and <code>CommandBox#commandTextField</code> has a listener that calls
+<code>CommandTextHistory#getUp()</code>.
+The <code>currIndex</code> is incremented, and then the command text pointed to by
+<code>currIndex</code> is returned and
+displayed in the program command box.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UpDownHistory3.png" alt="UpDownHistory3">
+</div>
+<div class="title">Figure 19. After pressing the "up" arrow key.</div>
+</div>
+<div class="paragraph">
+<p>Step 4. The user then executes the retrieved command (<code>delete 2</code>). As in the
+previous steps, this newly executed command
+is pushed to the top of the stack just below the empty string. However, in such
+a case when the <code>currIndex</code> is not <code>0</code> and
+does not point to the top of the stack, it is reset to <code>0</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UpDownHistory4.png" alt="UpDownHistory4">
+</div>
+<div class="title">Figure 20. Stack after executing <code>delete 2</code> again.</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If the <code>currStateIndex</code> is pointing to the top of the stack,
+then there are no previous commands to retrieve. Thus, the up button will simply
+return the empty string. No changes to the stack and <code>currIndex</code> will be
+effected.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The down arrow key does the opposite, it will lead to the calling of
+<code>CommandTextHistory#getDown()</code>,
+which shifts the <code>currIndex</code> one item higher (i.e. decrement the <code>currIndex</code> by
+<code>1</code>), before returning
+the command text pointed by the updated <code>currIndex</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If the <code>currIndex</code> is at index <code>commandTextHistory.size() - 1</code>, pointing to the
+bottom of the stack, there is no next command to retrieve when pressing the
+down key. Thus,
+the down button will simple return the command text currently being pointed to
+by the <code>currIndex</code>.
+No changes to the stack and <code>currIndex</code> will be affected.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Below is a sequence diagram describing the events that happen when a user
+presses a key.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UpDownSequenceDiagram.png" alt="UpDownSequenceDiagram">
+</div>
+<div class="title">Figure 21. Sequence diagram representing retrieval of command text history with the up and down arrow keys.</div>
+</div>
+<div class="paragraph">
+<p>Below is a sequence diagram describing the events that happen when a executes
+a command text, thus triggering the saving of a command text into
+<code>CommandTextHistory</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UpDownSequenceDiagramAdd.png" alt="UpDownSequenceDiagramAdd">
+</div>
+<div class="title">Figure 22. Sequence diagram representing the saving of a command text.</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-data-structure-to-support-the-key-actions"><a class="link" href="#aspect-data-structure-to-support-the-key-actions">Aspect: Data structure to support the key actions</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Use <code>LinkedList</code> as a stack to store
+the command text history.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: <code>LinkedList</code> is a better data structure that allows for more efficient
+operations supported by stacks.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Use <code>ArrayList</code> as a stack to store
+the command text history.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: <code>ArrayList</code> is more recognizable to people who are relatively new to
+Java, thus reducing confusion.</p>
+</li>
+<li>
+<p>Cons: Stack operations are less efficient on <code>ArrayList</code> s.
+=== Coupon Sorting
+==== Current implementation
+The sorting of coupons in the coupon stash is facilitated by the following
+static variables in the <code>SortCommand</code> class and this methods in the <code>Model</code>
+interface and <code>SortedList</code> class.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>SortCommand#NAME_COMPARATOR</code> - Comparator that sorts coupons by name in
+ascending order.</p>
+</li>
+<li>
+<p><code>SortCommand#EXPIRY_COMPARATOR</code> - Comparator that sorts coupons by expiry
+date in ascending order.</p>
+</li>
+<li>
+<p><code>SortCommand#REMINDER_COMPARATOR</code> - Comparator that sorts coupons by
+remind date in ascending order.</p>
+</li>
+<li>
+<p><code>Model#sortCoupons(Comparator&lt;Coupon&gt; comparator)</code> - Sorts the
+<code>ObservableList</code> of coupons that are stored in <code>Model</code> according to the
+order decided by the passed in <code>comparator</code>.</p>
+</li>
+<li>
+<p><code>SortedList#setComparator(Comparator&lt;Coupon&gt; comparator)</code> - Sets the
+comparator that determines the order of the coupons inside the sorted list.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/SortingClassDiagram.png" alt="SortingClassDiagram">
+</div>
+<div class="title">Figure 23. Overview of the class diagram representation of the coupon sorting implementation.</div>
+</div>
+<div class="paragraph">
+<p>When a <code>sort</code> command is executed, the field to sort by is indicated by the
+inputted prefix. The sequence diagram below describes what happens when a
+<code>sort</code> command is run.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/SortCommandSeqDiagram.png" alt="SortCommandSeqDiagram">
+</div>
+<div class="title">Figure 24. Sequence diagram describing the process of sorting coupons.</div>
+</div>
+<div class="paragraph">
+<p>Depending on the prefix to sort by, <code>ModelManager#sortCoupons()</code> will be
+called with the relevant comparator as its argument. The
+<code>ModelManager#sortCoupons()</code> method subsequently calls the
+<code>SortedList#setComparator()</code> method (not shown in the above diagram), which
+leads to a change of the comparator of the <code>SortedList</code> stored in
+<code>ModelManager</code> , thus triggering a sort of the <code>SortedList</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-persistent-or-non-persistent-sort"><a class="link" href="#aspect-persistent-or-non-persistent-sort">Aspect: Persistent or non - persistent sort?</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Make sorting non - persistent.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Sorting is faster as no write to disk is needed to make the new
+order persistent. Additionally, with the coupons being sorted by the time they
+are added to the coupon stash by default, there is no way to restore this order
+without storing the time a coupon was added to the stash. Thus, the non -
+persistent approach shines here as restoring the original order of the coupon
+stash is as trivial as reopening the program.</p>
+</li>
+<li>
+<p>Cons: If a user prefers a particular default sorting order for their
+coupons, they have to retype the <code>sort</code> command each time the program is
+launched or each time a coupon is added or edited.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Make sorting persistent.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Gives users more freedom over the default order of their coupons.</p>
+</li>
+<li>
+<p>Cons: Can be unnecessarily complicated to implement a hidden field stating
+a coupon&#8217;s addition time just so users can revert to the default order.
+Additionally, it can be confusing to users when there are so many different
+ways to sort.</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>This would eliminate the need for the intermediary
-<code>Savings</code> class and reduce complication in the program
-code slightly. But, it would be difficult to ensure
-that at least one such field exists in the <code>Coupon</code>,
-or guarantee that the <code>Coupon</code> would have one such field.</p>
-</div>
-<div class="paragraph">
-<p>The <code>Coupon</code> class would have to hold the logic for
-determining whether it had a valid combination of
-<code>MonetaryAmount</code>, <code>PercentageAmount</code> and <code>Saveable</code>s,
-which does violate Single Responsibility Principle
-as the <code>Coupon</code> class now has another reason to change
-(if we would want to allow both <code>MonetaryAmount</code> and
-<code>PercentageAmount</code> on a <code>Coupon</code> for instance).</p>
-</div>
-<div class="paragraph">
-<p>Hence the <code>Savings</code> class was decided to handle this
-responsibility, as well as abstract away the
-implementation details of the multiple possible
-values and combinations of these values. This allows
-the <code>Coupon</code> to think in terms of an entire <code>Savings</code>
-object, rather than handle multiple different scenarios
-depending on which fields it has.</p>
+<p>In our usage during testing, we have never had the urge to have a default
+sorting order when the program is launched. Plus, we feel that the simplicity
+of excluding a sort by default order function will be well favored by users,
+and thus we chose alternative 1.</p>
 </div>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 15:21:25 UTC</div></div></div></body></html>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 15:28:03 UTC</div></div></div></body></html>

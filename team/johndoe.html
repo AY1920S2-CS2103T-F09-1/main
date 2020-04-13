@@ -227,7 +227,7 @@ the <code>currStateIndex</code> pointing to that single coupon stash state.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/UndoRedoState0.png" alt="UndoRedoState0">
+<img src="../images/UndoRedoState0.png" alt="UndoRedoState0" width="400">
 </div>
 <div class="title">Figure 1. <code>CouponStash</code> will be initialized with the initial coupon stash state.</div>
 </div>
@@ -242,7 +242,7 @@ the newly inserted coupon stash state.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/UndoRedoState1.png" alt="UndoRedoState1">
+<img src="../images/UndoRedoState1.png" alt="UndoRedoState1" width="400">
 </div>
 <div class="title">Figure 2. <code>currStateIndex</code> is shifted to the newly inserted coupon stash state.</div>
 </div>
@@ -254,7 +254,7 @@ the <code>couponStashStateList</code> and <code>commandTextHistory</code> respec
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/UndoRedoState2.png" alt="UndoRedoState2">
+<img src="../images/UndoRedoState2.png" alt="UndoRedoState2" width="400">
 </div>
 <div class="title">Figure 3. Modified coupon stash state and command text are saved into the <code>couponStashStateList</code> and <code>commandTextHistory</code> respectively.</div>
 </div>
@@ -283,7 +283,7 @@ case, the command undone is <code>add n/OMO STORE&#8230;&#8203;</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/UndoRedoState3.png" alt="UndoRedoState3">
+<img src="../images/UndoRedoState3.png" alt="UndoRedoState3" width="400">
 </div>
 <div class="title">Figure 4. <code>currStateIndex</code> shifted once to the left.</div>
 </div>
@@ -345,7 +345,7 @@ Thus, the <code>couponStashStateList</code> remains unchanged.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/UndoRedoState4.png" alt="UndoRedoState4">
+<img src="../images/UndoRedoState4.png" alt="UndoRedoState4" width="400">
 </div>
 <div class="title">Figure 6. <code>couponStashStateList</code> remains unchanged.</div>
 </div>
@@ -360,7 +360,7 @@ This is the behavior that most modern desktop applications follow.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/UndoRedoState5.png" alt="UndoRedoState5">
+<img src="../images/UndoRedoState5.png" alt="UndoRedoState5" width="400">
 </div>
 <div class="title">Figure 7. Command text history after the <code>currStateIndex</code> is purged.</div>
 </div>
@@ -368,9 +368,11 @@ This is the behavior that most modern desktop applications follow.</p>
 <p>The following activity diagram summarizes what happens when a user executes a
 new command text:</p>
 </div>
-<div class="paragraph">
-<p>.
-image::CommitActivityDiagram.png[]</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/CommitActivityDiagram.png" alt="CommitActivityDiagram">
+</div>
+<div class="title">Figure 8. Activity diagram representation of how command texts are saved when they are executed.</div>
 </div>
 </div>
 <div class="sect3">
@@ -434,4 +436,4 @@ extensible and simpler alternative 1 was chosen.</p>
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 15:21:25 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 15:28:03 UTC</div></div></div></body></html>
