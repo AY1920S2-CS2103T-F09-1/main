@@ -10,8 +10,10 @@
 <h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Coupon Stash is a desktop coupons manager that allows users to keep track of their coupons. The user interacts with it
-using a CLI, and it has a beautiful GUI created with JavaFX. It is written in Java, and has about 15kLoC.</p>
+<p>Coupon Stash is a desktop coupon manager that allows users to keep track of their coupons. The user interacts with it
+using a Command Line Interface (CLI) in the application, with an aesthetically pleasing GUI created with JavaFX. It is
+written in Java with about 15kLoC. This application caters to fast-typists as all of the commands and features can be
+executed using the CLI.</p>
 </div>
 </div>
 </div>
@@ -85,8 +87,7 @@ clipboard (Pull requests <a href="https://github.com/AY1920S2-CS2103T-F09-1/main
 , <a href="https://github.com/AY1920S2-CS2103T-F09-1/main/pull/198">#198</a> (Renamed from export to copy))</p>
 </li>
 <li>
-<p>Added the goto command that allows the user to navigate the calendar using the Command Line
-Interface (CLI) (Pull request <a href="https://github.com/AY1920S2-CS2103T-F09-1/main/pull/202">#202</a>)</p>
+<p>Added the goto command that allows the user to navigate the calendar using the CLI (Pull request <a href="https://github.com/AY1920S2-CS2103T-F09-1/main/pull/202">#202</a>)</p>
 </li>
 </ul>
 </div>
@@ -157,24 +158,11 @@ request <a href="https://github.com/AY1920S2-CS2103T-F09-1/main/pull/198">#198</
 </div>
 </li>
 <li>
-<p>Community:</p>
+<p>Tool:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Reported bugs and suggestions for other teams in the class as a team (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>)</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Tools:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Integrated a third party library (Natty) to the project (<a href="https://github.com">#42</a>)</p>
-</li>
-<li>
-<p>Integrated a new Github plugin (CircleCI) to the team repo</p>
+<p>Integrated a continuous integration workflow (Netlify) on GitHub  into team repo</p>
 </li>
 </ul>
 </div>
@@ -195,24 +183,47 @@ request <a href="https://github.com/AY1920S2-CS2103T-F09-1/main/pull/198">#198</
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Given below are sections I contributed to the User Guide.</p></td>
 </tr>
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="deleting-a-coupon-code-delete-code"><a class="link" href="#deleting-a-coupon-code-delete-code">Deleting a coupon: <code>delete</code></a></h3>
+<h3 id="listing-all-expiring-coupons-code-expiring-code"><a class="link" href="#listing-all-expiring-coupons-code-expiring-code">Listing all expiring coupons: <code>expiring</code></a></h3>
 <div class="paragraph">
-<p>Deletes the specified coupon from the Coupon Stash.</p>
+<p>Shows a list of all your coupons expiring on a date or during a
+<a href="#coupon-stash-monthyear-format">month year</a>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This command will change the month year on display in the <a href="#calendar">calendar</a> to the month year of specified
+<a href="#coupon-stash-date-format">expiry date</a> or <a href="#coupon-stash-monthyear-format">month year</a>.<br>
+For example, <code>expiring e/30-9-2020</code> &amp; <code>expiring my/9-2020</code> both changes the month year on display in the
+<a href="#calendar">calendar</a> to September 2020.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>Format: <code>delete INDEX</code></p>
+<p>Format: <code>expiring e/EXPIRY_DATE</code> or <code>expiring my/MONTH_YEAR</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Deletes the coupon at the specified <a href="#index"><code>INDEX</code></a>.</p>
+<p>Lists all coupons that are expiring on the specified expiry date or during
+the specified month year.</p>
+</li>
+<li>
+<p>The <a href="#coupon-stash-date-format">expiry date</a> or <a href="#coupon-stash-monthyear-format">month year</a> must follow the
+<a href="#coupon-stash-date-format">Coupon Stash date format</a>
+or the <a href="#coupon-stash-monthyear-format">Coupon Stash MonthYear format</a>
+respectively.</p>
 </li>
 </ul>
 </div>
@@ -224,14 +235,218 @@ request <a href="https://github.com/AY1920S2-CS2103T-F09-1/main/pull/198">#198</
 <div class="ulist">
 <ul>
 <li>
-<p><code>list</code><br>
-<code>delete 2</code><br>
-Deletes the second coupon in the coupon list.</p>
+<p><code>expiring e/30-9-2020</code><br>
+Shows you all the coupons that expire on 30 September 2020.</p>
 </li>
 <li>
-<p><code>find rice</code><br>
-<code>delete 1</code><br>
-Deletes the first coupon in the resulting coupon list of the find command.</p>
+<p><code>expiring my/9-2020</code><br>
+Shows you all the coupons that expire during September 2020.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The <code>expiring</code> command will include <a href="#archive">archived</a>
+coupons in its results too. Coupons that are expiring in the archives are
+displayed <strong>below</strong> the non-archived matches.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="listing-coupons-code-list-code"><a class="link" href="#listing-coupons-code-list-code">Listing coupons: <code>list</code></a></h3>
+<div class="paragraph">
+<p>Shows a list of coupons in the Coupon Stash.<br></p>
+</div>
+<div class="paragraph">
+<p>There are 3 types of lists:<br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>List of active coupons</p>
+</li>
+<li>
+<p>List of archived coupons</p>
+</li>
+<li>
+<p>List of used coupons</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This command will change the month year on display in the <a href="#calendar">calendar</a> to the system&#8217;s date (usually today&#8217;s
+date).
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Format: <code>list [PREFIX]</code><br></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>PREFIX</code> can be either <code>a/</code> or <code>u/</code>.</p>
+</li>
+<li>
+<p>Using <code>a/</code> lists all coupons that are archived, while <code>u/</code> lists all used coupons (including
+<a href="#Archiving a coupon: <code>archive</code>">archived</a> coupons at the
+end of the list).</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<code>PREFIX</code> can be left blank to list all active coupons (coupons that are not fully used/ not archived (except for
+coupon(s) that are <a href="#Unarchiving a coupon: <code>unarchive</code>">unarchived</a> on purpose)).
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code><br>
+Shows a list of all <strong>active</strong> coupons in Coupon Stash.</p>
+</li>
+<li>
+<p><code>list a/</code><br>
+Shows a list of all <strong>archived</strong> coupons in Coupon Stash.</p>
+</li>
+<li>
+<p><code>list u/</code><br>
+Shows a list of all <strong>used</strong> coupons in Coupon Stash.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="copying-a-coupon-code-copy-code"><a class="link" href="#copying-a-coupon-code-copy-code">Copying a coupon: <code>copy</code></a></h3>
+<div class="paragraph">
+<p>Copies a coupon as an <a href="#Adding a coupon: <code>add</code>"><code>add</code></a> command to your
+clipboard so that you can easily share it with your friends/family!</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>copy INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Copies the coupon at the specified <a href="#index">INDEX</a>.</p>
+</li>
+<li>
+<p>The <a href="#Adding a coupon: <code>add</code>"><code>add</code></a> command of the coupon will be copied to
+your clipboard. Simply <kbd>Ctrl</kbd> + <kbd>V</kbd> to paste it!
+(<kbd>Cmd</kbd> + <kbd>V</kbd> for macOS)</p>
+</li>
+<li>
+<p>Statistics like number of times used or amount of savings accumulated will
+not be copied.</p>
+</li>
+<li>
+<p>The copied <a href="#Adding a coupon: <code>add</code>"><code>add</code></a> command will only contain the following fields:<br></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Name</p>
+</li>
+<li>
+<p>Savings</p>
+</li>
+<li>
+<p>Expiry Date</p>
+</li>
+<li>
+<p>Limit</p>
+</li>
+<li>
+<p>Promo Code (if any)</p>
+</li>
+<li>
+<p>Condition (if any)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Below is a short demonstration of the <code>copy</code> command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/gifs/copy%20command.gif" alt="copy command">
+</div>
+<div class="title">Figure 1. Animation of <code>copy</code> command operation.</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code><br>
+<code>copy 2</code><br>
+Copies the second coupon in the resulting coupon list of the
+<a href="#_listing_coupons_list"><code>list</code></a> command to an
+<a href="#Adding a coupon: <code>add</code>"><code>add</code></a> command and copies it to
+your clipboard.</p>
+</li>
+<li>
+<p><code>find chicken</code><br>
+<code>copy 1</code><br>
+Copies the first coupon in the resulting coupon list of the
+<a href="#Finding coupons by name: <code>find</code>"><code>find</code></a> command to an <a href="#Adding a coupon: <code>add</code>"><code>add</code></a> command
+and copies it to your clipboard.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="going-to-a-month-year-on-the-calendar-code-goto-code"><a class="link" href="#going-to-a-month-year-on-the-calendar-code-goto-code">Going to a month-year on the calendar: <code>goto</code></a></h3>
+<div class="paragraph">
+<p>Goes to the specified month and year on the <a href="#calendar">calendar</a> by changing the month year on display.<br></p>
+</div>
+<div class="paragraph">
+<p>Format: <code>goto my/MONTH_YEAR</code> <br></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>goto my/12-2020</code><br>
+Goes to December 2020 on the <a href="#calendar">calendar</a> by changing the month year on display to December 2020.</p>
 </li>
 </ul>
 </div>
@@ -247,80 +462,163 @@ Deletes the first coupon in the resulting coupon list of the find command.</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Given below are sections I contributed to the Developer Guide.</p></td>
 </tr>
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">Undo/Redo feature</a></h3>
+<h3 id="calendar"><a class="link" href="#calendar">Calendar</a></h3>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
 <div class="paragraph">
-<p>The undo/redo mechanism is facilitated by with an undo/redo history, stored
-internally as an <code>couponStashStateList</code> with a <code>commandTextHistory</code> and
-<code>currStateIndex</code>. All these components are encapsulated in the <code>HistoryManager</code>
-class.
-The following methods in the <code>Model</code> interface facilitates this feature:</p>
+<p>The Calendar component provides a visual representation of the stored coupons that are expiring over a month. It is
+facilitated by <code>CalendarPane</code>, <code>DateCell</code>, <code>ObservableList&lt;Coupon&gt;</code> and <code>ObservableMonthView</code>.</p>
+</div>
+<div class="paragraph">
+<p>The <code>CalendarPane</code> is the controller of the Calendar on display. Users can change the month on display to show the coupons
+that expire during a specific month year by clicking on the arrows at the sides of the calendar&#8217;s title or
+by using the <code>goto</code> command.</p>
+</div>
+<div class="paragraph">
+<p>Each <code>DateCell</code> represents each date of the month that is currently on display. Each <code>DateCell</code> uses the
+<code>ObservableList&lt;Coupon&gt;</code> to keep a list of the coupon(s) that expires on each date. A <code>DateCell</code> with coupon(s) expiring
+on the date are highlighted in red and a <code>Datecell</code> that represents the <code>system&#8217;s date</code> is highlighted blue.</p>
+</div>
+<div class="paragraph">
+<p>The <code>ObservableList&lt;Coupon&gt;</code> is the list of filtered coupons that are currently on display in the <code>CouponListPanel</code>.
+They are obtained by calling the <code>Logic#getFilteredCouponList()</code> method. The list can be filtered to view all active,
+archived or used coupons using the <code>expiring</code> command .</p>
+</div>
+<div class="paragraph">
+<p>The <code>ObservableMonthView</code> is the current month &amp; year on display in the <code>Calendar Pane</code>. It is obtained by calling
+the <code>Logic#getMonthView()</code> method.</p>
+</div>
+<div class="paragraph">
+<p>The class diagram below shows the interaction between classes that affects the Calendar:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/CalendarClassDiagram.png" alt="CalendarClassDiagram">
+</div>
+<div class="title">Figure 2. Overview of the class diagram representation of the Calendar.</div>
+</div>
+<div class="paragraph">
+<p>The sequence diagrams below show how the Calendar works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/CalendarSequenceDiagram.png" alt="CalendarSequenceDiagram">
+</div>
+<div class="title">Figure 3. Sequence diagram representation of the Calendar on the startup of Coupon Stash.</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/CalendarSequenceDiagram_Ref_SetDetailsOfDateCell.png" alt="CalendarSequenceDiagram Ref SetDetailsOfDateCell" width="400">
+</div>
+<div class="title">Figure 4. Sequence diagram representation of the Set details of DateCell ref frame of Calendar (Applicable to the next two diagrams).</div>
+</div>
+<div class="paragraph">
+<p>The two scenarios below are examples of how the Calendar mechanism behaves at
+each step of each scenario.</p>
+</div>
+<div class="sect4">
+<h5 id="updating-the-calendar-with-an-updated-list"><a class="link" href="#updating-the-calendar-with-an-updated-list">Updating the Calendar with an Updated List</a></h5>
+<div class="paragraph">
+<p>The Calendar updates with the current <code>ObservableList&lt;Coupon&gt;</code> with commands such as the <code>add</code>, <code>archive</code>, <code>clear</code>,
+<code>delete</code>, <code>edit</code>, <code>expiring</code>, <code>find</code>, <code>list</code>, <code>redo</code>, <code>unarchive</code>, <code>undo</code> and <code>used</code>. The following steps describes how
+this behavior is implemented.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user launches the application for the first time.</p>
+</div>
+<div class="paragraph">
+<p>The Calendar displayed will render the saved coupon data, triggered by the initiation of the UiManager.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The user executes a command that alters the <code>ObservableList&lt;Coupon&gt;</code> (any command listed above).</p>
+</div>
+<div class="paragraph">
+<p>When a command alters the observable coupon list, the listener of the observable list detects the change and the
+Calendar will be updated accordingly to the list by calling the <code>CalendarPane#fillUpCalendar()</code> method.</p>
+</div>
+<div class="paragraph">
+<p>For example, the <code>find</code> command alters the observable coupon list. It calls the <code>FindCommand#execute(Model, String)</code>
+method, which calls the <code>Model#updateFilteredCouponList(Predicate)</code> method. It then calls the
+<code>FilteredList&lt;Coupon&gt;#setPredicate(Predicate)</code> method that alters the observable coupon list.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If a command fails its execution, it will not call the <code>FilteredList&lt;Coupon&gt;#setPredicate(Predicate)</code> method. Hence, the
+observable coupon list will not be altered and the calendar will not be altered.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the Calendar updates with the observable coupon list:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/CalendarFindCommandSeqDiagram.png" alt="CalendarFindCommandSeqDiagram">
+</div>
+<div class="title">Figure 5. Sequence diagram representation of the update of the Calendar with the Coupon List for the "find chicken" Command.</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="updating-the-calendar-with-a-different-month-view"><a class="link" href="#updating-the-calendar-with-a-different-month-view">Updating the Calendar with a Different Month View</a></h5>
+<div class="paragraph">
+<p>The Calendar updates with the current <code>ObservableMonthView</code> with commands such as <code>goto</code>, <code>expiring</code> and <code>list</code> or by
+clicking on the arrows at the sides of the calendar title. The following steps describes how this behavior is
+implemented.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user launches the application for the first time.</p>
+</div>
+<div class="paragraph">
+<p>The Calendar displayed will render the saved coupon data, triggered by the initiation of the UiManager. The default
+calendar display will be set to the <code>system&#8217;s month year</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The user executes a command that alters the <code>ObservableMonthView</code> (any command listed above).</p>
+</div>
+<div class="paragraph">
+<p>When a command alters the observable month view, the listener of the observable month view detects the change and the
+month view display of the calendar will be updated according by calling the <code>CalendarPane#updateCalendarWithYearMonth</code>
+method.</p>
+</div>
+<div class="paragraph">
+<p>For example, the <code>goto</code> command calls the <code>GoToCommand#execute(Model, String)</code> method, which calls the
+<code>Model#updateMonthView(String)</code> method. It then calls the <code>ObservableMonthView#setValue(String)</code> method that alters the
+observable month view.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>Model#commitCouponStash(String commandText)</code>&#8201;&#8212;&#8201;Saves the current coupon
-stash state and the command text that triggered the change in state into
-<code>HistoryManager</code>.</p>
+<p><code>expiring</code> command</p>
+<div class="ulist">
+<ul>
+<li>
+<p>For the <code>expiring</code> command, the Calendar will be updated accordingly to the month year of the specified date or
+month year with the command.</p>
 </li>
 <li>
-<p><code>Model#undo()</code>&#8201;&#8212;&#8201;Restores the previous coupon stash state from
-<code>HistoryManager</code>.</p>
-</li>
-<li>
-<p><code>Model#redo()</code>&#8201;&#8212;&#8201;Restores a previously undone coupon stash state from
-<code>HistoryManager</code>.</p>
+<p>For example, entering these <code>expiring</code> commands <code>expiring my/9-2020</code> or <code>expiring e/11-9-2020</code> will change the month
+year on display to September 2020.</p>
 </li>
 </ul>
 </div>
-<div class="sect3">
-<h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
-<div class="paragraph">
-<p>Given below is an example usage scenario and how the undo/redo mechanism
-behaves at each step.</p>
-</div>
-<div class="paragraph">
-<p>Step 1. The user launches the application for the first time.
-The <code>CouponStash</code> will be initialized with the initial coupon stash state, and
-the <code>currStateIndex</code> pointing to that single coupon stash state.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoState0.png" alt="UndoRedoState0">
-</div>
-<div class="title">Figure 1. <code>CouponStash</code> will be initialized with the initial coupon stash state.</div>
-</div>
-<div class="paragraph">
-<p>Step 2. The user executes <code>delete 5</code> command to delete the 5th coupon in the
-coupon stash.
-The <code>delete</code> command calls <code>Model#commitCouponStash(String commandText)</code>,
-causing the modified state of the coupon stash after the <code>delete 5</code> command
-executes to be saved in the <code>couponStashStateList</code>, and the <code>delete 5</code> command
-text to be stored in the <code>commandTextHistory</code>.  <code>currStateIndex</code> is shifted to
-the newly inserted coupon stash state.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoState1.png" alt="UndoRedoState1">
-</div>
-<div class="title">Figure 2. <code>currStateIndex</code> is shifted to the newly inserted coupon stash state.</div>
-</div>
-<div class="paragraph">
-<p>Step 3. The user executes <code>add n/OMO STORE &#8230;&#8203;</code> to add a new coupon.
-The <code>add</code> command also calls <code>Model#commitCouponStash(String commandText)</code>,
-causing another modified coupon stash state and command text to be saved into
-the <code>couponStashStateList</code> and <code>commandTextHistory</code> respectively.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoState2.png" alt="UndoRedoState2">
-</div>
-<div class="title">Figure 3. Modified coupon stash state and command text are saved into the <code>couponStashStateList</code> and <code>commandTextHistory</code> respectively.</div>
-</div>
+</li>
+<li>
+<p><code>list</code> command</p>
+<div class="ulist">
+<ul>
+<li>
+<p>For the <code>list</code> command, the Calendar will be updated to the <code>system&#8217;s month year</code>.</p>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -328,146 +626,75 @@ the <code>couponStashStateList</code> and <code>commandTextHistory</code> respec
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If a command fails its execution, it will not call
-<code>Model#commitCouponStash(String commandText)</code>, so the coupon stash state and
-command text will not be saved.
+If a command fails its execution, it will not call the <code>ObservableMonthView#setValue(String)</code> method. Hence, the
+observable month view will not be altered and the calendar will not be altered.
 </td>
 </tr>
 </table>
 </div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 <div class="paragraph">
-<p>Step 4. The user now decides that adding the coupon was a mistake, and decides
-to undo that action by executing the <code>undo</code> command.
-The <code>undo</code> command will call <code>Model#undoCouponStash()</code>, which will shift the
-<code>currStateIndex</code> once to the left, pointing it to the previous coupon stash
-state, and restores the coupon stash to that state. Plus, the command text is
-returned, thus allowing for the display of the command that was undone. In this
-case, the command undone is <code>add n/OMO STORE&#8230;&#8203;</code>.</p>
+<p>The following sequence diagram shows how the Calendar updates with the observable month view:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/UndoRedoState3.png" alt="UndoRedoState3">
+<img src="../images/CalendarExpiringCommandSeqDiagram.png" alt="CalendarExpiringCommandSeqDiagram">
 </div>
-<div class="title">Figure 4. <code>currStateIndex</code> shifted once to the left.</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the <code>currStateIndex</code> is at index 0, pointing to the initial coupon stash
-state, then there are no previous coupon stash states to restore.
-The <code>undo</code> command uses <code>Model#canUndoCouponStash()</code> to check if this is the
-case.
-If so, it will return an error to the user rather than attempting to perform
-the undo.
-</td>
-</tr>
-</table>
+<div class="title">Figure 6. Sequence diagram representation of the update of the Calendar&#8217;s MonthView for the "expiring chicken" Command.</div>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the undo operation works:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoSequenceDiagram.png" alt="UndoSequenceDiagram">
-</div>
-<div class="title">Figure 5. Undo operation sequence diagram.</div>
+<p>Or alternatively, instead of step 2,</p>
 </div>
 <div class="paragraph">
-<p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoCouponStash()</code>,
-which shifts the <code>currStateIndex</code> once to the right, pointing to the previously
-undone state and command text, and restores the coupon stash to that state.
-Finally, it returns the redone command text.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the <code>currStateIndex</code> is at index <code>couponStashStateList.size() - 1</code>, pointing
-to the latest coupon stash state, then there are no undone coupon stash states
-to restore.
-The <code>redo</code> command uses <code>Model#canRedoCouponStash()</code> to check if this is the
-case.
-If so, it will return an error to the user rather than attempting to perform
-the redo.
-</td>
-</tr>
-</table>
+<p>Step 3. The user clicks on the arrows at the sides of the calendar title to
+change the month year displayed.</p>
 </div>
 <div class="paragraph">
-<p>Step 5. The user then decides to execute the command <code>list</code>.
-Commands that do not modify the coupon stash, such as <code>list</code>, will  not call
-<code>Model#commitCouponStash()</code>.
-Thus, the <code>couponStashStateList</code> remains unchanged.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoState4.png" alt="UndoRedoState4">
-</div>
-<div class="title">Figure 6. <code>couponStashStateList</code> remains unchanged.</div>
+<p>When a click alters the observable month view, the listener of the observable month view detects the change and the
+month view display of the calendar will be updated according by calling the <code>CalendarPane#updateCalendarWithYearMonth</code>
+method.</p>
 </div>
 <div class="paragraph">
-<p>Step 6. The user executes <code>clear</code>, which calls <code>Model#commitCouponStash()</code>.
-Since the <code>currStateIndex</code> is not pointing at the end of the
-<code>couponStashStateList</code>, all coupon stash states and command text history after
-the <code>currStateIndex</code> will be purged.
-We designed it this way because it no longer makes sense to redo the <code>add n/OMO
-                                                                      STORE &#8230;&#8203;</code> command.
-This is the behavior that most modern desktop applications follow.</p>
+<p>For example, clicking on the arrow on the right calls the <code>CalendarPane#changeCalendarToNextMonth</code> method, which calls
+<code>CalendarPane#updateCalendarToNextMonth</code>. It then calls the <code>ObservableMonthView#setValue</code> method that alters the
+observable month view.</p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoState5.png" alt="UndoRedoState5">
-</div>
-<div class="title">Figure 7. Command text history after the <code>currStateIndex</code> is purged.</div>
-</div>
-<div class="paragraph">
-<p>The following activity diagram summarizes what happens when a user executes a
-new command text:</p>
-</div>
-<div class="paragraph">
-<p>.
-image::CommitActivityDiagram.png[]</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
+<h5 id="aspect-information-displayed-on-the-calendar"><a class="link" href="#aspect-information-displayed-on-the-calendar">Aspect: Information displayed on the Calendar</a></h5>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Saves the entire coupon stash.</p>
+<p><strong>Alternative 1 (current choice):</strong> Show expiring coupons by highlighting the dates with expiring coupon(s)</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Easy to implement.</p>
+<p>Pros: Cleaner view of the Calendar with minimal information &amp; may take up less space on the <code>Main Window</code></p>
 </li>
 <li>
-<p>Cons: May have performance issues in terms of memory usage. Plus, have to
-perform deep copy of coupons when saving the coupon stash so as to prevent
-unwanted mutations.</p>
+<p>Cons: Lesser information provided with a glance</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Individual command knows how to undo/redo by itself.</p>
+<p><strong>Alternative 2:</strong> Show a condensed version of the coupons' details within the cell of each date</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Will use less memory (e.g. for <code>delete</code>, just save the coupon being
-deleted).</p>
+<p>Pros: More information provided with a glance</p>
 </li>
 <li>
-<p>Cons: We must ensure that the implementation of each individual command is
-correct.</p>
+<p>Cons: Messy to look at when there are multiple coupons expiring on a date &amp; may take up more space on the
+<code>MainWindow</code></p>
 </li>
 </ul>
 </div>
@@ -475,17 +702,201 @@ correct.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>Alternative 1 was chosen due to its relative simplicity and extensibility.
-Little to no modification needs to be made to each command that can be
-undone, thus reducing chances of new bugs surfacing. Additionally, the ability
-to undo operations such as <code>clear</code> will require alternative 2 to copy the
-entire coupon stash too, so both alternatives will have the same memory
-footprint in such a context. Finally, the real world performance impact of
-copying all coupons vs copying one is not very huge. Thus, the more
-extensible and simpler alternative 1 was chosen.</p>
+<p>We decided on alternative 1, to show coupons expiring on specific dates with highlights. This is because a coupon contains
+much information and the calendar may look cluttered and messy, which may be aesthetically unpleasant to the user.
+Furthermore, the user can use the <code>expiring</code> command to search for coupons expiring on a date or month year and have a
+more detailed view of the coupons in the <code>CouponListPanel</code>.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-whether-the-calendar-should-update-with-the-list"><a class="link" href="#aspect-whether-the-calendar-should-update-with-the-list">Aspect: Whether the Calendar should update with the list</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Calendar updates with the filtered list</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: User can easily relate and reference to the coupons shown in the Calendar to the <code>CouponListPanel</code></p>
+</li>
+<li>
+<p>Cons: May overlook some coupons if the list is filtered</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Calendar shows all the coupons in CouponStash</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: View of all coupons and will not overlook any coupons even when the coupon list is filtered</p>
+</li>
+<li>
+<p>Cons: User may be confused if he/she sees a highlighted date on the Calendar when there is no coupon expiring on that
+date in the <code>CouponListPanel</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>We decided on alternative 1, for the calendar to update with the list in the <code>CouponListPanel</code>. This is because this
+follows the Observer Pattern Design Principle. Furthermore, this will not confuse the user when the user sees a
+highlighted date on the Calendar when there is no coupon expiring on that date in the <code>CouponListPanel</code>.</p>
 </div>
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="coupon-reminder"><a class="link" href="#coupon-reminder">Coupon Reminder</a></h3>
+<div class="paragraph">
+<p>To ensure users are aware of expiring coupons and maximise their saving,
+Coupon Stash reminds the user through a pop-up window, upon launching the
+application.</p>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 15:12:47 UTC</div></div></div></body></html>
+<div class="paragraph">
+<p>To achieve this feature, the following methods in the <code>RemindDate</code> and
+<code>RemindWindow</code> classes are used.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>RemindDate#isToday()</code> - Check if the <code>RemindDate</code> is today.</p>
+</li>
+<li>
+<p><code>RemindWindow#filterRemindCoupons()</code> - Filters out all <code>RemindDates</code> that
+are not today from <code>RemindWindow</code>.</p>
+</li>
+<li>
+<p><code>RemindWindow#constructRemindCoupons()</code> - Creates a <code>String</code> of coupons
+that have their <code>RemindDates</code> today. This <code>String</code> is used in the displayed
+reminder window.</p>
+</li>
+<li>
+<p><code>RemindWindow#showIfAny()</code> - Shows the reminder window if there are coupons
+to be reminded of today. If there are no coupons that have to be reminded
+today, no window will be shown.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/RemindClassDiagram.png" alt="RemindClassDiagram">
+</div>
+<div class="title">Figure 7. Overview of the class diagram representation of the reminder checking implementation.</div>
+</div>
+<div class="paragraph">
+<p>To make sense of how coupon reminder functions, let&#8217;s dive into the specifics of
+RemindDate
+class, RemindCommand class and RemindWindow class.</p>
+</div>
+<div class="sect3">
+<h4 id="implementation-of-editing-a-coupon-s-reminddate"><a class="link" href="#implementation-of-editing-a-coupon-s-reminddate">Implementation of editing a coupon&#8217;s RemindDate</a></h4>
+<div class="paragraph">
+<p>The following activity diagram depicts what happens when the user runs a
+<code>edit</code> command to edit a coupons&#8217;s <code>RemindDate</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/EditRemindActivityDiagram.png" alt="EditRemindActivityDiagram" width="500">
+</div>
+<div class="title">Figure 8. Activity Diagram representation of the flow of editing the <code>remind date</code> of a coupon.</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation-of-reminder-pop-up"><a class="link" href="#implementation-of-reminder-pop-up">Implementation of reminder pop up</a></h4>
+<div class="paragraph">
+<p>After establishing the remind dates for all the coupons,
+the next step is ensure that there will be a reminder pop
+up (if necessary) upon opening the application.</p>
+</div>
+<div class="paragraph">
+<p>The following steps describe how to reminder pop up works:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The user launches Coupon Stash. The <code>start</code> method
+in <code>MainApp</code> class will kick start the program
+by setting up the stage, along with the saved data.</p>
+</li>
+<li>
+<p>This will trigger the <code>start</code> method in <code>UiManager</code>, which leads to the
+creation of a new <code>RemindWindow</code> instance, with a <code>List</code> of all coupons
+currently stored passed in as a parameter.</p>
+</li>
+<li>
+<p>In the constructor of <code>RemindWindow</code>, coupons that do not have a remind
+date of today are filtered out.</p>
+</li>
+<li>
+<p>After filtering the coupons, if there are coupons to be reminded today,
+their information will be concatenated into a <code>String</code> that is displayed in
+the reminder window.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/RemindSequenceDiagram.png" alt="RemindSequenceDiagram">
+</div>
+<div class="title">Figure 9. Sequence diagram describing the process of opening the reminder window.</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-consideration"><a class="link" href="#design-consideration">Design consideration</a></h4>
+<div class="paragraph">
+<p><strong>Aspect: How to keep track of coupon remind date</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Coupon contains a <code>Remind</code> field.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Code implementation is easier and this makes the remind date more
+visible to the user since it is a field.</p>
+</li>
+<li>
+<p>Cons: Coupon display may get very cluttered with the addition of this
+extra field.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2 :</strong> Store the remind dates of all coupons in a separate data
+file. Coupons can be stored in a hash table with their remind dates as keys.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: No need to clutter coupon display with additional fields. Plus, it
+is efficient to list all coupons that have to be reminded for on a certain
+day as the coupons are stored in a hash table.</p>
+</li>
+<li>
+<p>Cons: Hard to maintain two separate data files that have shared components
+(in this case coupons)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>All in all, we chose alternative 1 as we feel that it is good for users to be
+able to view the remind date of a coupon in the coupon view. Additionally, all
+speed-ups and efficiency of storing the remind dates in a separate data file
+is nullified by the fact that we still need to loop through all coupons to
+display their remind dates on the calendar component. Thus, to make it easier
+to extend the program in the future, we decided against adding another data
+file which can make extension more complicated, and chose to work with
+alternative 1.</p>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 15:21:25 UTC</div></div></div></body></html>
