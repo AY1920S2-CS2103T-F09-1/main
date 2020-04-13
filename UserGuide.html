@@ -178,6 +178,7 @@ along the way.</p>
 <div class="content">
 <img src="images/ug_stasher.png" alt="ug stasher">
 </div>
+<div class="title">Figure 1. Picture of Stasher (Coupon Stash&#8217;s Mascot)</div>
 </div>
 <div class="paragraph">
 <p>Hi! I&#8217;m Stasher, the mascot of Coupon Stash. Together,
@@ -191,12 +192,12 @@ to use this wonderful application.</p>
 <li><a href="#introduction">1. Introduction</a></li>
 <li><a href="#about-this-document">2. About This Document</a></li>
 <li><a href="#quick-start">3. Quick Start</a></li>
-<li><a href="#user-interface">4. User Interface</a>
+<li><a href="#UserInterface">4. User Interface</a>
 <ul class="sectlevel2">
 <li><a href="#tabs">4.1. Tabs</a></li>
 <li><a href="#calendar">4.2. Calendar</a></li>
-<li><a href="#command-input-box">4.3. Command input box</a></li>
-<li><a href="#CommandResultBox">4.4. Command result box</a></li>
+<li><a href="#CommandInputBox">4.3. Command Input Box</a></li>
+<li><a href="#CommandResultBox">4.4. Command Result Box</a></li>
 </ul>
 </li>
 <li><a href="#Features">5. Features</a>
@@ -365,9 +366,6 @@ seconds. If nothing occurs, use the command
 open the file up.</p>
 </li>
 <li>
-<p>TODO: Sample data&#8230;&#8203; Can clear it if you want</p>
-</li>
-<li>
 <p>Type the command in the command box and press Enter to execute it.</p>
 </li>
 <li>
@@ -406,10 +404,25 @@ command.</p>
 </li>
 </ol>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+There are some default sample data in Coupon Stash on your first startup of Coupon Stash. They are for you to experiment
+with Coupon Stash&#8217;s <a href="#Features">features</a>!<br>
+Once you are ready, use the <a href="#clearing-all-entries-code-clear-code"><code>clear</code></a> command to clear them and start your couponing
+journey with Coupon Stash!
+</td>
+</tr>
+</table>
+</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="user-interface"><a class="link" href="#user-interface">4. User Interface</a></h2>
+<h2 id="UserInterface"><a class="link" href="#UserInterface">4. User Interface</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>In this section, we look at the key features of Coupon Stash&#8217;s
@@ -755,19 +768,19 @@ command!
 <div class="content">
 <img src="images/Calendar_Elements.png" alt="Calendar Elements">
 </div>
-<div class="title">Figure 1. Elements in the Calendar</div>
+<div class="title">Figure 2. Elements in the Calendar</div>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="command-input-box"><a class="link" href="#command-input-box">4.3. Command input box</a></h3>
+<h3 id="CommandInputBox"><a class="link" href="#CommandInputBox">4.3. Command Input Box</a></h3>
 <div class="paragraph">
 <p>The command input box is the main way you will interact
-with Coupon Stash.</p>
+with Coupon Stash. Simply type in your commands and hit <kbd>enter</kbd>!</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="CommandResultBox"><a class="link" href="#CommandResultBox">4.4. Command result box</a></h3>
+<h3 id="CommandResultBox"><a class="link" href="#CommandResultBox">4.4. Command Result Box</a></h3>
 <div class="paragraph">
 <p>The command result box shows you messages depending on
 whether your command was successful or not.</p>
@@ -1754,6 +1767,9 @@ Now you can post your coupons on your social media platforms like Instagram!</p>
 <li>
 <p>Shares the coupon at the specified <a href="#index">INDEX</a>.</p>
 </li>
+<li>
+<p>A message with the file path to the <code>.png</code> file will be displayed in the <a href="#CommandResultBox">Command Result Box</a>.</p>
+</li>
 </ul>
 </div>
 </div>
@@ -1776,6 +1792,7 @@ Below is a sample of how a shared coupon image looks like:
 <div class="content">
 <img src="images/example_shared_coupon.png" alt="example shared coupon">
 </div>
+<div class="title">Figure 3. Example of a shared coupon</div>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -1785,8 +1802,8 @@ Below is a sample of how a shared coupon image looks like:
 <li>
 <p><code>list</code><br>
 <code>share 2</code><br>
-Shares the second coupon in the resulting coupon list of the
-<a href="#Listing all coupons: <code>list</code>"><code>list</code></a> command and save it as a <code>.png</code> file.</p>
+Shares the second coupon in the resulting coupon list of the <a href="#Listing all coupons: <code>list</code>"><code>list</code></a> command and save
+it as a <code>.png</code> file.</p>
 </li>
 <li>
 <p><code>find chicken</code><br>
@@ -1963,7 +1980,7 @@ complete expanded view of it.</p>
 <ul>
 <li>
 <p><code>expand 1</code><br>
-Open the coupon at index 1 in a new window.</p>
+Opens the first coupon in the coupon list in a new window.</p>
 </li>
 </ul>
 </div>
@@ -1971,7 +1988,7 @@ Open the coupon at index 1 in a new window.</p>
 <div class="content">
 <img src="images/expand_example.png" alt="expand example">
 </div>
-<div class="title">Example of an expanded coupon window.</div>
+<div class="title">Figure 4. Example of an expanded coupon window</div>
 </div>
 </div>
 <div class="sect2">
@@ -2097,7 +2114,7 @@ The popup window can be closed by pressing <kbd>Ctrl</kbd> + <kbd>q</kbd>.</p>
 <div class="content">
 <img src="images/ug_reminder_window.PNG" alt="ug reminder window">
 </div>
-<div class="title">Popup window showing all coupons that have their remind dates set on the date of program launch.</div>
+<div class="title">Figure 5. Popup window showing all coupons that have their remind dates set on the date of program launch.</div>
 </div>
 <div class="admonitionblock warning">
 <table>
@@ -2548,4 +2565,4 @@ similar to the Recycle Bin in Microsoft Windows.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 11:22:40 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 11:56:08 UTC</div></div></div></body></html>

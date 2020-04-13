@@ -650,6 +650,7 @@ the <code>Logic#getMonthView()</code> method.</p>
 <div class="content">
 <img src="images/CalendarClassDiagram.png" alt="CalendarClassDiagram">
 </div>
+<div class="title">Figure 15. Overview of the class diagram representation of the Calendar.</div>
 </div>
 <div class="paragraph">
 <p>The sequence diagrams below show how the Calendar works:</p>
@@ -658,13 +659,13 @@ the <code>Logic#getMonthView()</code> method.</p>
 <div class="content">
 <img src="images/CalendarSequenceDiagram.png" alt="CalendarSequenceDiagram">
 </div>
-<div class="title">Figure 15. Sequence diagram representation of the Calendar on the start up of Coupon Stash</div>
+<div class="title">Figure 16. Sequence diagram representation of the Calendar on the startup of Coupon Stash.</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/CalendarSequenceDiagram_Ref_SetDetailsOfDateCell.png" alt="CalendarSequenceDiagram Ref SetDetailsOfDateCell">
 </div>
-<div class="title">Figure 16. Sequence diagram representation of the Set details of DateCell ref frame of Calendar</div>
+<div class="title">Figure 17. Sequence diagram representation of the Set details of DateCell ref frame of Calendar (Applicable to the next two diagrams).</div>
 </div>
 <div class="paragraph">
 <p>The two scenarios below are examples of how the Calendar mechanism behaves at
@@ -715,7 +716,7 @@ observable coupon list will not be altered and the calendar will not be altered.
 <div class="content">
 <img src="images/CalendarFindCommandSeqDiagram.png" alt="CalendarFindCommandSeqDiagram">
 </div>
-<div class="title">Figure 17. Sequence diagram representation of the Calendar for the "find chicken" Command</div>
+<div class="title">Figure 18. Sequence diagram representation of the update of the Calendar with the Coupon List for the "find chicken" Command.</div>
 </div>
 </div>
 <div class="sect4">
@@ -794,6 +795,7 @@ observable month view will not be altered and the calendar will not be altered.
 <div class="content">
 <img src="images/CalendarExpiringCommandSeqDiagram.png" alt="CalendarExpiringCommandSeqDiagram">
 </div>
+<div class="title">Figure 19. Sequence diagram representation of the update of the Calendar&#8217;s MonthView for the "expiring chicken" Command.</div>
 </div>
 <div class="paragraph">
 <p>Or alternatively, instead of step 2,</p>
@@ -938,7 +940,7 @@ out archived coupons from a given <code>CouponStash</code>.</p>
 <div class="content">
 <img src="images/ArchivingClassDiagram.png" alt="ArchivingClassDiagram">
 </div>
-<div class="title">Figure 18. Overview class diagram representation of the the coupon archiving implementation.</div>
+<div class="title">Figure 20. Overview class diagram representation of the the coupon archiving implementation.</div>
 </div>
 <div class="paragraph">
 <p>Given below is two example usage scenarios and how the archiving mechanism
@@ -950,7 +952,7 @@ by Coupon Stash.</p>
 <div class="content">
 <img src="images/ArchivingActivityDiagram.png" alt="ArchivingActivityDiagram">
 </div>
-<div class="title">Figure 19. Activity diagram representation of the general flow of archiving of coupons in Coupon Stash</div>
+<div class="title">Figure 21. Activity diagram representation of the general flow of archiving of coupons in Coupon Stash</div>
 </div>
 <div class="paragraph">
 <p><strong>Archiving of Expired Coupons</strong></p>
@@ -981,7 +983,7 @@ predicate <code>Model#PREDICATE_SHOW_ALL_ACTIVE_COUPONS</code>.</p>
 <div class="content">
 <img src="images/ArchiveExpiredSequenceDiagram.png" alt="ArchiveExpiredSequenceDiagram">
 </div>
-<div class="title">Figure 20. Sequence diagram representation of archiving expired coupons</div>
+<div class="title">Figure 22. Sequence diagram representation of archiving expired coupons</div>
 </div>
 <div class="paragraph">
 <p><strong>Archiving of Exhausted Coupons</strong></p>
@@ -1018,7 +1020,7 @@ this method, the current <code>FilteredList</code> will be updated to show activ
 <div class="content">
 <img src="images/ArchiveExhaustedSequenceDiagram.png" alt="ArchiveExhaustedSequenceDiagram">
 </div>
-<div class="title">Figure 21. Sequence diagram representation of archiving exhausted coupons</div>
+<div class="title">Figure 23. Sequence diagram representation of archiving exhausted coupons</div>
 </div>
 </div>
 <div class="sect3">
@@ -1105,7 +1107,7 @@ class facilitates this feature:</p>
 <div class="content">
 <img src="images/UpDownClassDiagram.png" alt="UpDownClassDiagram">
 </div>
-<div class="title">Figure 22. Class diagram representation of the command history retrieving function.</div>
+<div class="title">Figure 24. Class diagram representation of the command history retrieving function.</div>
 </div>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the up/down button presses
@@ -1121,7 +1123,7 @@ is set to <code>0</code>.</p>
 <div class="content">
 <img src="images/UpDownHistory0.png" alt="UpDownHistory0">
 </div>
-<div class="title">Figure 23. Stack containing only an empty string</div>
+<div class="title">Figure 25. Stack containing only an empty string</div>
 </div>
 <div class="paragraph">
 <p>Step 2. The user executes <code>delete 1</code>. <code>CommandBox#handleCommandEntered()</code> will
@@ -1138,7 +1140,7 @@ affected.</p>
 <div class="content">
 <img src="images/UpDownHistory1.png" alt="UpDownHistory1">
 </div>
-<div class="title">Figure 24. Stack after executing <code>delete 1</code></div>
+<div class="title">Figure 26. Stack after executing <code>delete 1</code></div>
 </div>
 <div class="paragraph">
 <p>Step 3. The user executes <code>delete 2</code>. <code>CommandBox#handleCommandEntered()</code> will
@@ -1151,7 +1153,7 @@ just below the empty string.</p>
 <div class="content">
 <img src="images/UpDownHistory2.png" alt="UpDownHistory2">
 </div>
-<div class="title">Figure 25. Stack after executing <code>delete 2</code>.</div>
+<div class="title">Figure 27. Stack after executing <code>delete 2</code>.</div>
 </div>
 <div class="paragraph">
 <p>Step 3. Now, the user decides to delete the second coupon again. We press the
@@ -1166,7 +1168,7 @@ displayed in the program command box.</p>
 <div class="content">
 <img src="images/UpDownHistory3.png" alt="UpDownHistory3">
 </div>
-<div class="title">Figure 26. After pressing "up" arrow key.</div>
+<div class="title">Figure 28. After pressing "up" arrow key.</div>
 </div>
 <div class="paragraph">
 <p>Step 4. The user then executes the retrieved command (<code>delete 2</code>). As in the
@@ -1179,7 +1181,7 @@ does not point to the top of the stack, it is reset to <code>0</code>.</p>
 <div class="content">
 <img src="images/UpDownHistory4.png" alt="UpDownHistory4">
 </div>
-<div class="title">Figure 27. Stack after executing <code>delete 2</code> again.</div>
+<div class="title">Figure 29. Stack after executing <code>delete 2</code> again.</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1228,7 +1230,7 @@ presses a key.</p>
 <div class="content">
 <img src="images/UpDownSequenceDiagram.png" alt="UpDownSequenceDiagram">
 </div>
-<div class="title">Figure 28. Sequence diagram representing retrieval of command text history with the up and down arrow keys.</div>
+<div class="title">Figure 30. Sequence diagram representing retrieval of command text history with the up and down arrow keys.</div>
 </div>
 <div class="paragraph">
 <p>Below is a sequence diagram describing the events that happen when a executes
@@ -1239,7 +1241,7 @@ a command text, thus triggering the saving of a command text into
 <div class="content">
 <img src="images/UpDownSequenceDiagramAdd.png" alt="UpDownSequenceDiagramAdd">
 </div>
-<div class="title">Figure 29. Sequence diagram representing the saving of a command text.</div>
+<div class="title">Figure 31. Sequence diagram representing the saving of a command text.</div>
 </div>
 </div>
 <div class="sect3">
@@ -1318,7 +1320,7 @@ comparator that determines the order of the coupons inside the sorted list.</p>
 <div class="content">
 <img src="images/SortingClassDiagram.png" alt="SortingClassDiagram">
 </div>
-<div class="title">Figure 30. Overview of the class diagram representation of the coupon sorting implementation.</div>
+<div class="title">Figure 32. Overview of the class diagram representation of the coupon sorting implementation.</div>
 </div>
 <div class="paragraph">
 <p>When a <code>sort</code> command is executed, the field to sort by is indicated by the
@@ -1329,7 +1331,7 @@ inputted prefix. The sequence diagram below describes what happens when a
 <div class="content">
 <img src="images/SortCommandSeqDiagram.png" alt="SortCommandSeqDiagram">
 </div>
-<div class="title">Figure 31. Sequence diagram describing the process of sorting coupons</div>
+<div class="title">Figure 33. Sequence diagram describing the process of sorting coupons</div>
 </div>
 <div class="paragraph">
 <p>Depending on the prefix to sort by, <code>ModelManager#sortCoupons()</code> will be
@@ -1429,7 +1431,7 @@ today, no window will be shown.</p>
 <div class="content">
 <img src="images/RemindClassDiagram.png" alt="RemindClassDiagram">
 </div>
-<div class="title">Figure 32. Overview of the class diagram representation of the reminder checking implementation.</div>
+<div class="title">Figure 34. Overview of the class diagram representation of the reminder checking implementation.</div>
 </div>
 <div class="paragraph">
 <p>To make sense of how coupon reminder functions, let&#8217;s dive into the specifics of
@@ -1446,6 +1448,7 @@ class, RemindCommand class and RemindWindow class.</p>
 <div class="content">
 <img src="images/EditRemindActivityDiagram.png" alt="EditRemindActivityDiagram">
 </div>
+<div class="title">Figure 35. Activity Diagram representation of the flow of editing the <code>remind date</code> of a coupon.</div>
 </div>
 </div>
 <div class="sect3">
@@ -2209,7 +2212,7 @@ Primary actor is the user.</p>
 <div class="content">
 <img src="images/usecase.png" alt="Use Case Diagram" width="1000" height="1000">
 </div>
-<div class="title">Figure 33. Use Cases Overview for Coupon Stash</div>
+<div class="title">Figure 36. Use Cases Overview for Coupon Stash</div>
 </div>
 <div class="sect2">
 <h3 id="strong-use-case-uc1-add-coupon-strong"><a class="link" href="#strong-use-case-uc1-add-coupon-strong">C.1. <strong>Use Case: UC1 -  Add Coupon</strong></a></h3>
@@ -3211,4 +3214,4 @@ a Water Bottle item.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 11:22:40 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 11:56:08 UTC</div></div></div></body></html>
