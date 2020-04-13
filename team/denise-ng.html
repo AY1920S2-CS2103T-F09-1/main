@@ -255,7 +255,7 @@ the <code>currStateIndex</code> pointing to that single coupon stash state.</p>
 <div class="content">
 <img src="../images/UndoRedoState0.png" alt="UndoRedoState0">
 </div>
-<div class="title">Figure 1. CouponStash will be initialized with the initial coupon stash state.</div>
+<div class="title">Figure 1. <code>CouponStash</code> will be initialized with the initial coupon stash state.</div>
 </div>
 <div class="paragraph">
 <p>Step 2. The user executes <code>delete 5</code> command to delete the 5th coupon in the
@@ -270,6 +270,7 @@ the newly inserted coupon stash state.</p>
 <div class="content">
 <img src="../images/UndoRedoState1.png" alt="UndoRedoState1">
 </div>
+<div class="title">Figure 2. <code>currStateIndex</code> is shifted to the newly inserted coupon stash state.</div>
 </div>
 <div class="paragraph">
 <p>Step 3. The user executes <code>add n/OMO STORE &#8230;&#8203;</code> to add a new coupon.
@@ -281,6 +282,7 @@ the <code>couponStashStateList</code> and <code>commandTextHistory</code> respec
 <div class="content">
 <img src="../images/UndoRedoState2.png" alt="UndoRedoState2">
 </div>
+<div class="title">Figure 3. Modified coupon stash state and command text are saved into the <code>couponStashStateList</code> and <code>commandTextHistory</code> respectively.</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -309,6 +311,7 @@ case, the command undone is <code>add n/OMO STORE&#8230;&#8203;</code>.</p>
 <div class="content">
 <img src="../images/UndoRedoState3.png" alt="UndoRedoState3">
 </div>
+<div class="title">Figure 4. <code>currStateIndex</code> shifted once to the left</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -334,6 +337,7 @@ the undo.
 <div class="content">
 <img src="../images/UndoSequenceDiagram.png" alt="UndoSequenceDiagram">
 </div>
+<div class="title">Figure 5. Undo operation sequence diagram.</div>
 </div>
 <div class="paragraph">
 <p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoCouponStash()</code>,
@@ -369,6 +373,7 @@ Thus, the <code>couponStashStateList</code> remains unchanged.</p>
 <div class="content">
 <img src="../images/UndoRedoState4.png" alt="UndoRedoState4">
 </div>
+<div class="title">Figure 6. <code>couponStashStateList</code> remains unchanged.</div>
 </div>
 <div class="paragraph">
 <p>Step 6. The user executes <code>clear</code>, which calls <code>Model#commitCouponStash()</code>.
@@ -376,22 +381,22 @@ Since the <code>currStateIndex</code> is not pointing at the end of the
 <code>couponStashStateList</code>, all coupon stash states and command text history after
 the <code>currStateIndex</code> will be purged.
 We designed it this way because it no longer makes sense to redo the <code>add n/OMO
-STORE &#8230;&#8203;</code> command.
+                                                                      STORE &#8230;&#8203;</code> command.
 This is the behavior that most modern desktop applications follow.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/UndoRedoState5.png" alt="UndoRedoState5">
 </div>
+<div class="title">Figure 7. Command text history after the <code>currStateIndex</code> is purged.</div>
 </div>
 <div class="paragraph">
 <p>The following activity diagram summarizes what happens when a user executes a
-new command:</p>
+new command text:</p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/CommitActivityDiagram.png" alt="CommitActivityDiagram">
-</div>
+<div class="paragraph">
+<p>.
+image::CommitActivityDiagram.png[]</p>
 </div>
 </div>
 <div class="sect3">
@@ -432,8 +437,18 @@ correct.</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>Alternative 1 was chosen due to its relative simplicity and extensibility.
+Little to no modification needs to be made to each command that can be
+undone, thus reducing chances of new bugs surfacing. Addtionally, the ability
+to undo operations such as <code>clear</code> will require alternative 2 to copy the
+entire coupon stash too, so both alternatives will have the same memory
+footprint in such a context. Finally, the real world performance impact of
+copying all coupons vs copying one is not very huge. Thus, the more
+extensible and simpler alternative 1 was chosen.</p>
 </div>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 08:20:55 UTC</div></div></div></body></html>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 08:32:10 UTC</div></div></div></body></html>

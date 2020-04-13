@@ -419,7 +419,7 @@ the <code>currStateIndex</code> pointing to that single coupon stash state.</p>
 <div class="content">
 <img src="images/UndoRedoState0.png" alt="UndoRedoState0">
 </div>
-<div class="title">Figure 8. CouponStash will be initialized with the initial coupon stash state.</div>
+<div class="title">Figure 8. <code>CouponStash</code> will be initialized with the initial coupon stash state.</div>
 </div>
 <div class="paragraph">
 <p>Step 2. The user executes <code>delete 5</code> command to delete the 5th coupon in the
@@ -434,6 +434,7 @@ the newly inserted coupon stash state.</p>
 <div class="content">
 <img src="images/UndoRedoState1.png" alt="UndoRedoState1">
 </div>
+<div class="title">Figure 9. <code>currStateIndex</code> is shifted to the newly inserted coupon stash state.</div>
 </div>
 <div class="paragraph">
 <p>Step 3. The user executes <code>add n/OMO STORE &#8230;&#8203;</code> to add a new coupon.
@@ -445,6 +446,7 @@ the <code>couponStashStateList</code> and <code>commandTextHistory</code> respec
 <div class="content">
 <img src="images/UndoRedoState2.png" alt="UndoRedoState2">
 </div>
+<div class="title">Figure 10. Modified coupon stash state and command text are saved into the <code>couponStashStateList</code> and <code>commandTextHistory</code> respectively.</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -473,6 +475,7 @@ case, the command undone is <code>add n/OMO STORE&#8230;&#8203;</code>.</p>
 <div class="content">
 <img src="images/UndoRedoState3.png" alt="UndoRedoState3">
 </div>
+<div class="title">Figure 11. <code>currStateIndex</code> shifted once to the left</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -498,6 +501,7 @@ the undo.
 <div class="content">
 <img src="images/UndoSequenceDiagram.png" alt="UndoSequenceDiagram">
 </div>
+<div class="title">Figure 12. Undo operation sequence diagram.</div>
 </div>
 <div class="paragraph">
 <p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoCouponStash()</code>,
@@ -533,6 +537,7 @@ Thus, the <code>couponStashStateList</code> remains unchanged.</p>
 <div class="content">
 <img src="images/UndoRedoState4.png" alt="UndoRedoState4">
 </div>
+<div class="title">Figure 13. <code>couponStashStateList</code> remains unchanged.</div>
 </div>
 <div class="paragraph">
 <p>Step 6. The user executes <code>clear</code>, which calls <code>Model#commitCouponStash()</code>.
@@ -540,22 +545,22 @@ Since the <code>currStateIndex</code> is not pointing at the end of the
 <code>couponStashStateList</code>, all coupon stash states and command text history after
 the <code>currStateIndex</code> will be purged.
 We designed it this way because it no longer makes sense to redo the <code>add n/OMO
-STORE &#8230;&#8203;</code> command.
+                                                                      STORE &#8230;&#8203;</code> command.
 This is the behavior that most modern desktop applications follow.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/UndoRedoState5.png" alt="UndoRedoState5">
 </div>
+<div class="title">Figure 14. Command text history after the <code>currStateIndex</code> is purged.</div>
 </div>
 <div class="paragraph">
 <p>The following activity diagram summarizes what happens when a user executes a
-new command:</p>
+new command text:</p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="images/CommitActivityDiagram.png" alt="CommitActivityDiagram">
-</div>
+<div class="paragraph">
+<p>.
+image::CommitActivityDiagram.png[]</p>
 </div>
 </div>
 <div class="sect3">
@@ -595,6 +600,16 @@ correct.</p>
 </div>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>Alternative 1 was chosen due to its relative simplicity and extensibility.
+Little to no modification needs to be made to each command that can be
+undone, thus reducing chances of new bugs surfacing. Addtionally, the ability
+to undo operations such as <code>clear</code> will require alternative 2 to copy the
+entire coupon stash too, so both alternatives will have the same memory
+footprint in such a context. Finally, the real world performance impact of
+copying all coupons vs copying one is not very huge. Thus, the more
+extensible and simpler alternative 1 was chosen.</p>
 </div>
 </div>
 </div>
@@ -641,13 +656,13 @@ the <code>Logic#getMonthView()</code> method.</p>
 <div class="content">
 <img src="images/CalendarSequenceDiagram.png" alt="CalendarSequenceDiagram">
 </div>
-<div class="title">Figure 9. Sequence diagram representation of the Calendar on the start up of Coupon Stash</div>
+<div class="title">Figure 15. Sequence diagram representation of the Calendar on the start up of Coupon Stash</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/CalendarSequenceDiagram_Ref_SetDetailsOfDateCell.png" alt="CalendarSequenceDiagram Ref SetDetailsOfDateCell">
 </div>
-<div class="title">Figure 10. Sequence diagram representation of the Set details of DateCell ref frame of Calendar</div>
+<div class="title">Figure 16. Sequence diagram representation of the Set details of DateCell ref frame of Calendar</div>
 </div>
 <div class="paragraph">
 <p>The two scenarios below are examples of how the Calendar mechanism behaves at
@@ -698,7 +713,7 @@ observable coupon list will not be altered and the calendar will not be altered.
 <div class="content">
 <img src="images/CalendarFindCommandSeqDiagram.png" alt="CalendarFindCommandSeqDiagram">
 </div>
-<div class="title">Figure 11. Sequence diagram representation of the Calendar for the "find chicken" Command</div>
+<div class="title">Figure 17. Sequence diagram representation of the Calendar for the "find chicken" Command</div>
 </div>
 </div>
 <div class="sect4">
@@ -921,7 +936,7 @@ out archived coupons from a given <code>CouponStash</code>.</p>
 <div class="content">
 <img src="images/ArchivingClassDiagram.png" alt="ArchivingClassDiagram">
 </div>
-<div class="title">Figure 12. Overview class diagram representation of the the coupon archiving implementation.</div>
+<div class="title">Figure 18. Overview class diagram representation of the the coupon archiving implementation.</div>
 </div>
 <div class="paragraph">
 <p>Given below is two example usage scenarios and how the archiving mechanism
@@ -933,7 +948,7 @@ by Coupon Stash.</p>
 <div class="content">
 <img src="images/ArchivingActivityDiagram.png" alt="ArchivingActivityDiagram">
 </div>
-<div class="title">Figure 13. Activity diagram representation of the general flow of archiving of coupons in Coupon Stash</div>
+<div class="title">Figure 19. Activity diagram representation of the general flow of archiving of coupons in Coupon Stash</div>
 </div>
 <div class="paragraph">
 <p><strong>Archiving of Expired Coupons</strong></p>
@@ -964,7 +979,7 @@ predicate <code>Model#PREDICATE_SHOW_ALL_ACTIVE_COUPONS</code>.</p>
 <div class="content">
 <img src="images/ArchiveExpiredSequenceDiagram.png" alt="ArchiveExpiredSequenceDiagram">
 </div>
-<div class="title">Figure 14. Sequence diagram representation of archiving expired coupons</div>
+<div class="title">Figure 20. Sequence diagram representation of archiving expired coupons</div>
 </div>
 <div class="paragraph">
 <p><strong>Archiving of Exhausted Coupons</strong></p>
@@ -1001,7 +1016,7 @@ this method, the current <code>FilteredList</code> will be updated to show activ
 <div class="content">
 <img src="images/ArchiveExhaustedSequenceDiagram.png" alt="ArchiveExhaustedSequenceDiagram">
 </div>
-<div class="title">Figure 15. Sequence diagram representation of archiving exhausted coupons</div>
+<div class="title">Figure 21. Sequence diagram representation of archiving exhausted coupons</div>
 </div>
 </div>
 <div class="sect3">
@@ -1079,7 +1094,7 @@ class facilitates this feature:</p>
 <div class="content">
 <img src="images/UpDownClassDiagram.png" alt="UpDownClassDiagram">
 </div>
-<div class="title">Figure 16. Class diagram representation of the command history retrieving function.</div>
+<div class="title">Figure 22. Class diagram representation of the command history retrieving function.</div>
 </div>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the up/down button presses
@@ -1095,6 +1110,7 @@ is set to <code>0</code>.</p>
 <div class="content">
 <img src="images/UpDownHistory0.png" alt="UpDownHistory0">
 </div>
+<div class="title">Figure 23. Stack containing only an empty string</div>
 </div>
 <div class="paragraph">
 <p>Step 2. The user executes <code>delete 1</code>. <code>CommandBox#handleCommandEntered()</code> will
@@ -1111,6 +1127,7 @@ affected.</p>
 <div class="content">
 <img src="images/UpDownHistory1.png" alt="UpDownHistory1">
 </div>
+<div class="title">Figure 24. Stack after executing <code>delete 1</code></div>
 </div>
 <div class="paragraph">
 <p>Step 3. The user executes <code>delete 2</code>. <code>CommandBox#handleCommandEntered()</code> will
@@ -1123,6 +1140,7 @@ just below the empty string.</p>
 <div class="content">
 <img src="images/UpDownHistory2.png" alt="UpDownHistory2">
 </div>
+<div class="title">Figure 25. Stack after executing <code>delete 2</code>.</div>
 </div>
 <div class="paragraph">
 <p>Step 3. Now, the user decides to delete the second coupon again. We press the
@@ -1137,6 +1155,7 @@ displayed in the program command box.</p>
 <div class="content">
 <img src="images/UpDownHistory3.png" alt="UpDownHistory3">
 </div>
+<div class="title">Figure 26. After pressing "up" arrow key.</div>
 </div>
 <div class="paragraph">
 <p>Step 4. The user then executes the retrieved command (<code>delete 2</code>). As in the
@@ -1149,6 +1168,7 @@ does not point to the top of the stack, it is reset to <code>0</code>.</p>
 <div class="content">
 <img src="images/UpDownHistory4.png" alt="UpDownHistory4">
 </div>
+<div class="title">Figure 27. Stack after executing <code>delete 2</code> again.</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1197,7 +1217,7 @@ presses a key.</p>
 <div class="content">
 <img src="images/UpDownSequenceDiagram.png" alt="UpDownSequenceDiagram">
 </div>
-<div class="title">Figure 17. Sequence diagram representing retrieval of command text history with the up and down arrow keys.</div>
+<div class="title">Figure 28. Sequence diagram representing retrieval of command text history with the up and down arrow keys.</div>
 </div>
 <div class="paragraph">
 <p>Below is a sequence diagram describing the events that happen when a executes
@@ -1208,7 +1228,7 @@ a command text, thus triggering the saving of a command text into
 <div class="content">
 <img src="images/UpDownSequenceDiagramAdd.png" alt="UpDownSequenceDiagramAdd">
 </div>
-<div class="title">Figure 18. Sequence diagram representing the saving of a command text.</div>
+<div class="title">Figure 29. Sequence diagram representing the saving of a command text.</div>
 </div>
 </div>
 <div class="sect3">
@@ -1287,7 +1307,7 @@ comparator that determines the order of the coupons inside the sorted list.</p>
 <div class="content">
 <img src="images/SortingClassDiagram.png" alt="SortingClassDiagram">
 </div>
-<div class="title">Figure 19. Overview of the class diagram representation of the coupon sorting implementation</div>
+<div class="title">Figure 30. Overview of the class diagram representation of the coupon sorting implementation</div>
 </div>
 <div class="paragraph">
 <p>When a <code>sort</code> command is executed, the field to sort by is indicated by the
@@ -1298,7 +1318,7 @@ inputted prefix. The sequence diagram below describes what happens when a
 <div class="content">
 <img src="images/SortCommandSeqDiagram.png" alt="SortCommandSeqDiagram">
 </div>
-<div class="title">Figure 20. Sequence diagram describing the process of sorting coupons</div>
+<div class="title">Figure 31. Sequence diagram describing the process of sorting coupons</div>
 </div>
 <div class="paragraph">
 <p>Depending on the prefix to sort by, <code>ModelManager#sortCoupons()</code> will be
@@ -1352,6 +1372,10 @@ ways to sort.</p>
 </div>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>In our usage during testing, we have never had the urge to have a default
+sorting order when the program is launched.</p>
 </div>
 </div>
 </div>
@@ -2212,7 +2236,7 @@ Primary actor is the user.</p>
 <div class="content">
 <img src="images/usecase.png" alt="Use Case Diagram" width="1000" height="1000">
 </div>
-<div class="title">Figure 21. Use Cases Overview for Coupon Stash</div>
+<div class="title">Figure 32. Use Cases Overview for Coupon Stash</div>
 </div>
 <div class="sect2">
 <h3 id="strong-use-case-uc1-add-coupon-strong"><a class="link" href="#strong-use-case-uc1-add-coupon-strong">C.1. <strong>Use Case: UC1 -  Add Coupon</strong></a></h3>
@@ -3161,4 +3185,4 @@ larger than the list size) <em>{give more}</em><br>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 08:20:55 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 08:32:10 UTC</div></div></div></body></html>
