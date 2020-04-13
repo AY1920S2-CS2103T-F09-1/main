@@ -1551,28 +1551,29 @@ user&#8217;s savings as they use their coupons that are
 handled in the application.</p>
 </div>
 <div class="paragraph">
-<p>To achieve this, Coupons have to store two different
+<p>To achieve this, <code>Coupon</code>s have to store two different
 fields:<br>
 1. Amount of savings each use of a coupon provides<br>
 2. Total amount of savings accumulated
 from using a certain coupon</p>
 </div>
 <div class="sect3">
-<h4 id="class-structure-of-savings"><a class="link" href="#class-structure-of-savings">3.7.1. Class structure of Savings</a></h4>
+<h4 id="class-structure-of-code-savings-code"><a class="link" href="#class-structure-of-code-savings-code">3.7.1. Class structure of <code>Savings</code></a></h4>
 <div class="paragraph">
 <p>Just for reference, the image below shows the class diagram
-for the Savings class. It is compulsory for each Coupon to
-contain an Savings object, that represents what the user
+for the <code>Savings</code> class. It is compulsory for each Coupon to
+contain an <code>Savings</code> object, that represents what the user
 would gain from 1 use of that Coupon.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/SavingsClassDiagram.png" alt="SavingsClassDiagram">
 </div>
+<div class="title">Figure 36. Class diagram describing the structure of <code>Savings</code>.</div>
 </div>
 <div class="paragraph">
-<p>A Savings object can hold a PercentageAmount, MonetaryAmount or
-Saveables, which represents discounts like "$5 off", "10% off"
+<p>A Savings object can hold a <code>PercentageAmount</code>, <code>MonetaryAmount</code> or
+<code>Saveable</code>s, which represents discounts like "$5 off", "10% off"
 and "free door gift" respectively.</p>
 </div>
 <div class="paragraph">
@@ -1580,6 +1581,7 @@ and "free door gift" respectively.</p>
 which are not.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 1. A list of different Savings objects, which could be valid or invalid.</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -1591,74 +1593,82 @@ which are not.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<div class="title">Savings with percentage amount.</div>
 <p><span class="image"><img src="images/s1valid.png" alt="s1valid"></span></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Valid</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<div class="title">Savings with monetary amount.</div>
 <p><span class="image"><img src="images/s2valid.png" alt="s2valid"></span></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Valid</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<div class="title">Savings with saveable items.</div>
 <p><span class="image"><img src="images/s3valid.png" alt="s3valid"></span></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Valid</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<div class="title">Savings without any fields present.</div>
 <p><span class="image"><img src="images/s4invalid.png" alt="s4invalid"></span></p>
 </div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Invalid: Savings must have at
+<td class="tableblock halign-left valign-top"><p class="tableblock">Invalid: <code>Savings</code> must have at
 least one field</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<div class="title">Savings with percentage amount and a saveable item.</div>
 <p><span class="image"><img src="images/s5valid.png" alt="s5valid"></span></p>
 </div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Valid: Savings can have both a
+<td class="tableblock halign-left valign-top"><p class="tableblock">Valid: <code>Savings</code> can have both a
 percentage amount and saveables</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<div class="title">Savings with monetary amount and multiple saveable items.</div>
 <p><span class="image"><img src="images/s6valid.png" alt="s6valid"></span></p>
 </div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Valid: Savings can hold more
-than one Saveable</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Valid: <code>Savings</code> can hold more
+than one <code>Saveable</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<div class="title">Savings with monetary amount and percentage amount.</div>
 <p><span class="image"><img src="images/s7invalid.png" alt="s7invalid"></span></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Invalid: Savings cannot have both a
-MonetaryAmount and PercentageAmount</p></td>
+<code>MonetaryAmount</code> and <code>PercentageAmount</code></p></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p>As can be seen from the table, Savings cannot be completely
-empty, and Savings cannot have both a MonetaryAmount and
-PercentageAmount (it does not make much sense to have
+<p>As can be seen from the table, <code>Savings</code> cannot be completely
+empty, and <code>Savings</code> cannot have both a <code>MonetaryAmount</code> and
+<code>PercentageAmount</code> (it does not make much sense to have
 a voucher that says "10% and $5 off").</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="puremonetarysavings-and-datesavingssummap"><a class="link" href="#puremonetarysavings-and-datesavingssummap">3.7.2. PureMonetarySavings and DateSavingsSumMap</a></h4>
+<h4 id="code-puremonetarysavings-code-and-code-datesavingssummap-code"><a class="link" href="#code-puremonetarysavings-code-and-code-datesavingssummap-code">3.7.2. <code>PureMonetarySavings</code> and <code>DateSavingsSumMap</code></a></h4>
 <div class="paragraph">
-<p>In order to calculate the total amount saved, Coupons also
+<p>In order to calculate the total amount saved, <code>Coupon</code>s also
 store information about how much the user saves, and storage
 is done at the moment the user uses the coupon. This
-information is stored in the form of PureMonetarySavings,
-which is a subclass of Savings that never holds
-PercentageAmounts. The class diagram below illustrates this.</p>
+information is stored in the form of <code>PureMonetarySavings</code>,
+which is a subclass of <code>Savings</code> that never holds
+<code>PercentageAmount</code>s. The class diagram below illustrates this.</p>
 </div>
 <div class="paragraph">
+<div class="title">Class diagram describing the structure of <code>PureMonetarySavings</code>.</div>
 <p><span class="image"><img src="images/PureMonetarySavingsClassDiagram.png" alt="PureMonetarySavingsClassDiagram"></span></p>
 </div>
 <div class="paragraph">
-<p>The reason why PercentageAmounts are not allowed in
+<p>The reason why <code>PercentageAmount</code>s are not allowed in
 accumulated savings is because a percentage
 discount is a relative value that depends on the
 original price of the product, and cannot be easily
@@ -1666,18 +1676,19 @@ added up in a way that allows users to accurately
 measure how much they have saved from their coupons.</p>
 </div>
 <div id="dssm" class="paragraph">
-<p>PureMonetarySavings are stored in
-a DateSavingsSumMap, which is a hash table that
-links the current date (LocalDate) to the savings
-earned (PureMonetarySavings) on that date.
-Each Coupon holds a DateSavingsSumMap. The
+<p><code>PureMonetarySavings</code> are stored in
+a <code>DateSavingsSumMap</code>, which is a hash table that
+links the current date (<code>LocalDate</code>) to the savings
+earned (<code>PureMonetarySavings</code>) on that date.
+Each <code>Coupon</code> holds a <code>DateSavingsSumMap</code>. The
 next image shows the class diagram of the
-DateSavingsSumMap.</p>
+<code>DateSavingsSumMap</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/DateSavingsSumMapClassDiagram.png" alt="DateSavingsSumMapClassDiagram">
 </div>
+<div class="title">Figure 37. Class diagram describing the structure of <code>DateSavingsSumMap</code>.</div>
 </div>
 <div class="paragraph">
 <p>The following section describes
@@ -1697,6 +1708,7 @@ shows what happens when the user runs a used command.</p>
 <div class="content">
 <img src="images/UsedCommandActivityDiagram.png" alt="UsedCommandActivityDiagram">
 </div>
+<div class="title">Figure 38. Activity diagram showing the execution of a used command.</div>
 </div>
 <div class="paragraph">
 <p>In terms of the implementation, the next two images
@@ -1718,6 +1730,7 @@ successfully.</p>
 <div class="content">
 <img src="images/UsedCommandSeqDiagram.png" alt="UsedCommandSeqDiagram">
 </div>
+<div class="title">Figure 39. Sequence diagram showing how a <code>UsedCommand</code> is executed.</div>
 </div>
 <div class="paragraph">
 <p>The money symbol set in the user preferences is
@@ -1737,6 +1750,7 @@ value for the new <code>Coupon</code>.</p>
 <div class="content">
 <img src="images/UsedExecutionSeqDiagram.png" alt="UsedExecutionSeqDiagram">
 </div>
+<div class="title">Figure 40. Sequence diagram showing how <code>UsedCommand</code> updates the total savings.</div>
 </div>
 <div class="paragraph">
 <p>In the end, the total savings value of the <code>Coupon</code>
@@ -1753,8 +1767,8 @@ the <code>UsedCommand#execute()</code> method.</p>
 <div class="sect3">
 <h4 id="implementation-of-saved-command"><a class="link" href="#implementation-of-saved-command">3.7.4. Implementation of saved command</a></h4>
 <div class="paragraph">
-<p>Now that we have seen how the used command works,
-we can look at how the saved command works. While
+<p>Now that we have seen how the <code>used</code> command works,
+we can look at how the <code>saved</code> command works. While
 <code>used</code> stores the amount of savings that the user
 has earned on a particular day, <code>saved</code> retrieves
 the amount of savings earned as recorded by Coupon
@@ -1762,18 +1776,19 @@ Stash, given a particular time period.</p>
 </div>
 <div class="paragraph">
 <p>The saved command works similarly to the used command,
-where a SavedCommandParser will be created by Logic
-to split up the raw String into its arguments,
-creating a SavedCommand. Let&#8217;s look at how a SavedCommand
+where a <code>SavedCommandParser</code> will be created by <code>Logic</code>
+to split up the raw <code>String</code> into its arguments,
+creating a <code>SavedCommand</code>. Let&#8217;s look at how a <code>SavedCommand</code>
 would be executed.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/SavedExecutionSeqDiagram.png" alt="SavedExecutionSeqDiagram">
 </div>
+<div class="title">Figure 41. Sequence diagram showing the execution of a <code>SavedCommand</code>.</div>
 </div>
 <div class="paragraph">
-<p>Hence the SavedCommand loops through all Coupons to add
+<p>Hence the <code>SavedCommand</code> loops through all <code>Coupon</code>s to add
 up the savings earned from a particular time period,
 or from all dates if no time period is specified.</p>
 </div>
@@ -1795,15 +1810,15 @@ implementation.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Restrict each Savings to a concrete monetary value</p>
+<p>Restrict each <code>Savings</code> to a concrete monetary value</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>This would make the implementation of Savings much
+<p>This would make the implementation of <code>Savings</code> much
 simpler, as there would not be a need for separate
-classes like PercentageAmount, MonetaryAmount and
-Saveables. However, this might burden the user with
+classes like <code>PercentageAmount</code>, <code>MonetaryAmount</code> and
+<code>Saveable</code>s. However, this might burden the user with
 calculating how much they would save in terms of
 dollars and cents, when many coupons and discounts
 come in the form of certain percentage reductions
@@ -1813,41 +1828,41 @@ monetary amount.</p>
 </div>
 <div class="paragraph">
 <p>Hence, it was decided to rely on a few different
-representations of Savings that can be earned from
-using a Coupon, as well as a Savings class that
+representations of <code>Savings</code> that can be earned from
+using a <code>Coupon</code>, as well as a <code>Savings</code> class that
 could refer to any of these representations, or
 even a logical combination of these representations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Each Coupon stores a MonetaryAmount, PercentageAmount
-and Saveables directly</p>
+<p>Each <code>Coupon</code> stores a <code>MonetaryAmount</code>, <code>PercentageAmount</code>
+and <code>Saveables</code> directly</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
 <p>This would eliminate the need for the intermediary
-Savings class and reduce complication in the program
+<code>Savings</code> class and reduce complication in the program
 code slightly. But, it would be difficult to ensure
-that at least one such field exists in the Coupon,
-or guarantee that the Coupon would have one such field.</p>
+that at least one such field exists in the <code>Coupon</code>,
+or guarantee that the <code>Coupon</code> would have one such field.</p>
 </div>
 <div class="paragraph">
-<p>The Coupon class would have to hold the logic for
+<p>The <code>Coupon</code> class would have to hold the logic for
 determining whether it had a valid combination of
-MonetaryAmount, PercentageAmount and Saveables,
+<code>MonetaryAmount</code>, <code>PercentageAmount</code> and <code>Saveable</code>s,
 which does violate Single Responsibility Principle
-as the Coupon class now has another reason to change
-(if we would want to allow both MonetaryAmount and
-PercentageAmount on a Coupon for instance).</p>
+as the <code>Coupon</code> class now has another reason to change
+(if we would want to allow both <code>MonetaryAmount</code> and
+<code>PercentageAmount</code> on a <code>Coupon</code> for instance).</p>
 </div>
 <div class="paragraph">
-<p>Hence the Savings class was decided to handle this
+<p>Hence the <code>Savings</code> class was decided to handle this
 responsibility, as well as abstract away the
 implementation details of the multiple possible
 values and combinations of these values. This allows
-the Coupon to think in terms of an entire Savings
+the <code>Coupon</code> to think in terms of an entire <code>Savings</code>
 object, rather than handle multiple different scenarios
 depending on which fields it has.</p>
 </div>
@@ -1968,7 +1983,7 @@ location, logging level) through the configuration file (default:
 application)</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width: 59%;">
-<caption class="title">Table 1. User stories and their priorities</caption>
+<caption class="title">Table 2. User stories and their priorities</caption>
 <colgroup>
 <col style="width: 22%;">
 <col style="width: 23%;">
@@ -2212,7 +2227,7 @@ Primary actor is the user.</p>
 <div class="content">
 <img src="images/usecase.png" alt="Use Case Diagram" width="1000" height="1000">
 </div>
-<div class="title">Figure 36. Use Cases Overview for Coupon Stash</div>
+<div class="title">Figure 42. Use Cases Overview for Coupon Stash</div>
 </div>
 <div class="sect2">
 <h3 id="strong-use-case-uc1-add-coupon-strong"><a class="link" href="#strong-use-case-uc1-add-coupon-strong">C.1. <strong>Use Case: UC1 -  Add Coupon</strong></a></h3>
@@ -3214,4 +3229,4 @@ a Water Bottle item.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 11:56:08 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 12:14:21 UTC</div></div></div></body></html>
