@@ -210,7 +210,7 @@ modified data.</p>
 <h3 id="Design-Logic"><a class="link" href="#Design-Logic">2.3. Logic component</a></h3>
 <div id="fig-LogicClassDiagram" class="imageblock">
 <div class="content">
-<img src="images/Structure-Of-Logic.png" alt="Structure Of Logic">
+<img src="images/LogicClassDiagram.png" alt="LogicClassDiagram">
 </div>
 <div class="title">Figure 4. Structure of the Logic Component</div>
 </div>
@@ -597,25 +597,35 @@ correct.</p>
 <div class="sect3">
 <h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">3.2.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>The Calendar component provides a visual representation of the stored coupons
-that are expiring over a month. It is
-facilitated by the <code>CalendarPane</code> and <code>DateCell</code>.</p>
+<p>The Calendar component provides a visual representation of the stored coupons that are expiring over a month. It is
+facilitated by <code>CalendarPane</code>, <code>DateCell</code>, <code>ObservableList&lt;Coupon&gt;</code> and <code>ObservableMonthView</code>.</p>
 </div>
 <div class="paragraph">
-<p>The <code>CalendarPane</code> is controller of the <code>Calendar</code>. Users can change the month
-on display` to show the coupons that expire on a date by clicking on a highlighted
-<code>DateCell</code>.</p>
+<p>The <code>CalendarPane</code> is controller of the Calendar on display. Users can change the month on display to show the coupons
+that expire during a specific month year by clicking on the arrows at the sides of the calendar&#8217;s title or
+by using the <code>goto</code> command.</p>
 </div>
 <div class="paragraph">
-<p>Each <code>DateCell</code> represents each date of the month that is currently on display.</p>
+<p>Each <code>DateCell</code> represents each date of the month that is currently on display. Each <code>DateCell</code> uses the
+<code>ObservableList&lt;Coupon&gt;</code> to keep a list of the coupon(s) that expires on each date. A <code>DateCell</code> with coupon(s) expiring
+on the date are highlighted in red and a <code>Datecell</code> that represents today&#8217;s date is highlighted blue.</p>
 </div>
 <div class="paragraph">
-<p>The <code>ObservableList&lt;Coupon&gt;</code> is the list of filtered coupons that are currently
-on display in the <code>CouponListPanel</code>.
-They are obtained by calling the <code>Logic#getFilteredCouponList()</code> method. Each
-<code>DateCell</code> uses the same
-<code>ObservableList&lt;Coupon&gt;</code> as reference, to get coupons that expires on each of
-the dates.</p>
+<p>The <code>ObservableList&lt;Coupon&gt;</code> is the list of filtered coupons that are currently on display in the <code>CouponListPanel</code>.
+They are obtained by calling the <code>Logic#getFilteredCouponList()</code> method. The list can be filtered to view all active,
+archived or used coupons using the <code>expiring</code> command .</p>
+</div>
+<div class="paragraph">
+<p>The <code>ObservableMonthView</code> is the current month &amp; year on display in the <code>Calendar Pane</code>. It is obtained by calling
+the <code>Logic#getMonthView()</code> method.</p>
+</div>
+<div class="paragraph">
+<p>The class diagram below shows the interaction between classes that affects the Calendar:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/CalendarClassDiagram.png" alt="CalendarClassDiagram">
+</div>
 </div>
 <div class="paragraph">
 <p>The sequence diagrams below show how the Calendar works:</p>
@@ -635,55 +645,144 @@ the dates.</p>
 each step of each scenario.</p>
 </div>
 <div class="sect4">
-<h5 id="updating-the-calendar-with-a-filtered-list"><a class="link" href="#updating-the-calendar-with-a-filtered-list">Updating the Calendar with a Filtered List</a></h5>
+<h5 id="updating-the-calendar-with-an-updated-list"><a class="link" href="#updating-the-calendar-with-an-updated-list">Updating the Calendar with an Updated List</a></h5>
 <div class="paragraph">
-<p>The Calendar updates with the current observable coupon list. The following
-steps describes how this behavior is implemented.</p>
+<p>The Calendar updates with the current <code>ObservableList&lt;Coupon&gt;</code> with commands such as the <code>add</code>, <code>archive</code>, <code>clear</code>,
+<code>delete</code>, <code>edit</code>, <code>expiring</code>, <code>find</code>, <code>list</code>, <code>redo</code>, <code>unarchive</code>, <code>undo</code> and <code>used</code>. The following steps describes how
+this behavior is implemented.</p>
 </div>
 <div class="paragraph">
-<p>Step 1. The user launches the application for the first time.
-The Calendar displayed will render the saved data, triggered by the initiation
-of the UiManager.</p>
+<p>Step 1. The user launches the application for the first time.</p>
 </div>
 <div class="paragraph">
-<p>Step 2. The user executes a <code>find</code> command.
-The <code>find</code> command alters the observable coupon list and the Calendar will be
-updated according to the list with the
-<code>Logic#getFilteredCouponList()</code> method.</p>
+<p>The Calendar displayed will render the saved coupon data, triggered by the initiation of the UiManager.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The user executes a command that alters the ObservableList&lt;Coupon&gt; (any command listed above).</p>
+</div>
+<div class="paragraph">
+<p>When a command alters the observable coupon list, the listener of the observable list detects the change and the
+Calendar will be updated accordingly to the list by calling the <code>CalendarPane#fillUpCalendar()</code> method.</p>
+</div>
+<div class="paragraph">
+<p>For example, the <code>find</code> command alters the observable coupon list. It calls the <code>FindCommand#execute(Model, String)</code>
+method, which calls the <code>Model#updateFilteredCouponList(Predicate)</code> method. It then calls the
+<code>FilteredList&lt;Coupon&gt;#setPredicate(Predicate)</code> method that alters the observable coupon list.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If a command fails its execution, it will not call the <code>FilteredList&lt;Coupon&gt;#setPredicate(Predicate)</code> method. Hence, the
+observable coupon list will not be altered and the calendar will not be altered.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the Calendar updates with the observable coupon list:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/CalendarFindCommandSeqDiagram.png" alt="CalendarFindCommandSeqDiagram">
+</div>
 </div>
 </div>
 <div class="sect4">
-<h5 id="selecting-a-highlighted-date-on-the-calendar"><a class="link" href="#selecting-a-highlighted-date-on-the-calendar">Selecting a highlighted date on the Calendar</a></h5>
+<h5 id="updating-the-calendar-with-a-different-month-view"><a class="link" href="#updating-the-calendar-with-a-different-month-view">Updating the Calendar with a Different Month View</a></h5>
 <div class="paragraph">
-<p>Dates that have coupons expiring on that day are highlighted and clickable. The
-user can click on them and open a separate
-window to view all the coupons that are expiring on that day. The following
-steps describes how this behavior is implemented.</p>
+<p>The Calendar updates with the current <code>ObservableMonthView</code> with commands such as <code>goto</code>, <code>expiring</code> and <code>list</code> or by
+clicking on the arrows at the sides of the calendar title. The following steps describes how this behavior is
+implemented.</p>
 </div>
 <div class="paragraph">
-<p>Step 1. The user launches the application for the first time or changes the
-month displayed on the Calendar.
-The Calendar displayed will render the expiring coupons for the month and
-highlight the dates with expiring coupons
-facilitated by the <code>CalendarPane#setDateCellCircle</code> method.
-Example of highlighted date:</p>
+<p>Step 1. The user launches the application for the first time.</p>
+</div>
+<div class="paragraph">
+<p>The Calendar displayed will render the saved coupon data, triggered by the initiation of the UiManager. The default
+calendar display will be set to today&#8217;s month year.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The user executes a command that alters the <code>ObservableMonthView</code> (any command listed above).</p>
+</div>
+<div class="paragraph">
+<p>When a command alters the observable month view, the listener of the observable month view detects the change and the
+month view display of the calendar will be updated according by calling the <code>CalendarPane#updateCalendarWithYearMonth</code>
+method.</p>
+</div>
+<div class="paragraph">
+<p>For example, the <code>goto</code> command calls the <code>GoToCommand#execute(Model, String)</code> method, which calls the
+<code>Model#updateMonthView(String)</code> method. It then calls the <code>ObservableMonthView#setValue(String)</code> method that alters the
+observable month view.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>expiring</code> command</p>
+<div class="ulist">
+<ul>
+<li>
+<p>For the <code>expiring</code> command, the Calendar will be updated accordingly to the month year of the specified date or
+month year with the command.</p>
+</li>
+<li>
+<p>For example, entering these <code>expiring</code> commands <code>expiring my/9-2020</code> or <code>expiring e/11-9-2020</code> will change the month
+year on display to September 2020.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>list</code> command</p>
+<div class="ulist">
+<ul>
+<li>
+<p>For the <code>list</code> command, the Calendar will be updated to today&#8217;s month year.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If a command fails its execution, it will not call the <code>ObservableMonthView#setValue(String)</code> method. Hence, the
+observable month view will not be altered and the calendar will not be altered.
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the Calendar updates with the observable month view:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/Calendar_HighlightedCell.png" alt="Calendar HighlightedCell">
+<img src="images/CalendarExpiringCommandSeqDiagram.png" alt="CalendarExpiringCommandSeqDiagram">
 </div>
 </div>
 <div class="paragraph">
-<p>Step 2. The user clicks on a highlighted date.
-A new separate window will open, showing the user all the coupons that are
-expiring on that particular day facilitated
-by the <code>DateCell#displayCoupons()</code> method.
-Example of new window:</p>
+<p>OR</p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="images/Calendar_CouponsOnDateWindow.png" alt="Calendar CouponsOnDateWindow">
+<div class="paragraph">
+<p>Step 2. The user clicks on the arrows at the sides of the calendar title to change the month year displayed.</p>
 </div>
+<div class="paragraph">
+<p>When a click alters the observable month view, the listener of the observable month view detects the change and the
+month view display of the calendar will be updated according by calling the <code>CalendarPane#updateCalendarWithYearMonth</code>
+method.</p>
+</div>
+<div class="paragraph">
+<p>For example, clicking on the arrow on the right calls the <code>CalendarPane#changeCalendarToNextMonth</code> method, which calls
+<code>CalendarPane#updateCalendarToNextMonth</code>. It then calls the <code>ObservableMonthView#setValue</code> method that alters the
+observable month view.</p>
 </div>
 </div>
 </div>
@@ -694,39 +793,39 @@ Example of new window:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Show expiring coupons by highlighting the
-dates with expiring coupons and users
-clicking on them for more information in a separate window</p>
+<p><strong>Alternative 1 (current choice):</strong> Show expiring coupons by highlighting the dates with expiring coupon(s)</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Cleaner view of the Calendar with minimal information</p>
+<p>Pros: Cleaner view of the Calendar with minimal information &amp; may take up less space on the <code>Main Window</code></p>
 </li>
 <li>
-<p>Cons: Lesser information provided with a glance and user have to click to
-see the details of the expiring coupons on
-a date in a separate window</p>
+<p>Cons: Lesser information provided with a glance</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Show a condensed version of the coupons in the cell of
-each date</p>
+<p><strong>Alternative 2:</strong> Show a condensed version of the coupons' details within the cell of each date</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: No additional clicking required and more information provided with a
-glance</p>
+<p>Pros: More information provided with a glance</p>
 </li>
 <li>
-<p>Cons: May be messy to look at when there are multiple coupons expiring on a
-date</p>
+<p>Cons: Messy to look at when there are multiple coupons expiring on a date &amp; may take up more space on the
+<code>MainWindow</code></p>
 </li>
 </ul>
 </div>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>Decided on alternative 1, to show coupons expiring on specific dates with highlights. This is because a coupon contains
+many information and the calendar may look cluttered and messy, which may be aesthetically unpleasant to the user.
+Furthermore, the user can use the <code>expiring</code> command to search for coupons expiring on a date or month year and have a
+more detailed view of the coupons in the <code>CouponListPanel</code>.</p>
 </div>
 </div>
 <div class="sect4">
@@ -738,11 +837,10 @@ date</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: User can relate the coupons shown in the Calendar to the
-<code>CouponListPanel</code> (Observer design pattern)</p>
+<p>Pros: User can easily relate and reference to the coupons shown in the Calendar to the <code>CouponListPanel</code></p>
 </li>
 <li>
-<p>Cons: May overlook coupons if list is filtered</p>
+<p>Cons: May overlook some coupons if the list is filtered</p>
 </li>
 </ul>
 </div>
@@ -752,17 +850,21 @@ date</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: View of all coupons and will not overlook any coupons when the coupon
-list is filtered</p>
+<p>Pros: View of all coupons and will not overlook any coupons even when the coupon list is filtered</p>
 </li>
 <li>
-<p>Cons: User may be confused if he/she sees a coupon on the Calendar that is
-not in the <code>CouponListPanel</code></p>
+<p>Cons: User may be confused if he/she sees a highlighted date on the Calendar when there is no coupon expiring on that
+date in the <code>CouponListPanel</code></p>
 </li>
 </ul>
 </div>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>Decided on alternative 1, for the calendar to update with the list in the <code>CouponListPanel</code>. This is because this
+follows the Observer Pattern Design Principle. Furthermore, this will not confuse the user when the user sees a
+highlighted date on the Calendar when there is no coupon expiring on that date in the <code>CouponListPanel</code>.</p>
 </div>
 </div>
 </div>
@@ -3035,4 +3137,4 @@ larger than the list size) <em>{give more}</em><br>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 20:05:19 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 04:05:48 UTC</div></div></div></body></html>

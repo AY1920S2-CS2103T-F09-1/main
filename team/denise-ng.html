@@ -10,9 +10,8 @@
 <h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Coupon Stash is a desktop coupons manager that allows users to keep track of
-their coupons. The user interacts with it using a CLI, and it has a beautiful
-GUI created with JavaFX. It is written in Java, and has about 25kLoC.</p>
+<p>Coupon Stash is a desktop coupons manager that allows users to keep track of their coupons. The user interacts with it
+using a CLI, and it has a beautiful GUI created with JavaFX. It is written in Java, and has about 15kLoC.</p>
 </div>
 </div>
 </div>
@@ -22,18 +21,26 @@ GUI created with JavaFX. It is written in Java, and has about 25kLoC.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: added <strong>the ability to search for coupons by its expiry date/ month year</strong></p>
+<p><strong>Major enhancements</strong>:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: allows the user to view all his/ her coupons by the expiry date or the month.</p>
+<p>Added <strong>the ability to search for coupons by its expiry date/ month year</strong>
+(Pull requests <a href="https://github.com/AY1920S2-CS2103T-F09-1/main/pull/82">#82</a>
+, <a href="https://github.com/AY1920S2-CS2103T-F09-1/main/pull/198">#198</a>
+, <a href="https://github.com/AY1920S2-CS2103T-F09-1/main/pull/202">#202</a>)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: Allows the user to view all his/ her coupons by the expiry date or the month.</p>
 </li>
 <li>
 <p>Justification: This feature is essential for users to keep track of the expiry dates of coupons. The enhancement,
 with the calendar, will ensure that users know exactly when their coupons expire and will never forget to use them.</p>
 </li>
 <li>
-<p>Highlights: This enhancement ties in closely with the calendar, which indicates if there is any coupon expiring on each date.
+<p>Highlights: This enhancement ties in closely with the calendar, which indicates if there is any coupon expiring on
+each date.
 It also ties in with other coupon fields to ensure the validity of a coupon (i.e. not expired), such as savings from
 the coupon. This feature is critical to the functioning of Coupon Stash as it directly affects the primary functions of
 Coupon Stash such as the automatic archiving of expired coupons and setting of a reminder 3 days before the expiry date.</p>
@@ -42,22 +49,78 @@ Coupon Stash such as the automatic archiving of expired coupons and setting of a
 </div>
 </li>
 <li>
-<p><strong>Minor enhancements</strong>: added a goto command that allows the user to navigate the calendar using the Command Line Interface
-&amp; a copy command that allows the user to copy the details of a coupon to the user&#8217;s clipboard.</p>
+<p>Added <strong>Calendar Pane</strong> (Pull request <a href="https://github.com/AY1920S2-CS2103T-F09-1/main/pull/123">#123</a>)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: allows user to have a bird eye&#8217;s view of the expiry dates of his/ her coupons on the calendar.</p>
 </li>
 <li>
-<p><strong>Code contributed</strong>: Click on this <a href="https://nus-cs2103-ay1920s2.github.io/tp-dashboard/#search=denise&amp;sort=groupTitle&amp;sortWithin=title&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false&amp;tabOpen=true&amp;tabType=zoom&amp;zA=Denise-Ng&amp;zR=AY1920S2-CS2103T-F09-1%2Fmain%5Bmaster%5D&amp;zACS=356.75&amp;zS=2020-02-14&amp;zU=2020-04-08&amp;zMG=false&amp;zFTF=commit&amp;zFGS=groupByRepos&amp;zSO=undefined&amp;zSWO=undefined&amp;zSD=false&amp;zSWD=false&amp;since=2020-02-14">RepoSense link</a> to view the code that I have contributed to the project!</p>
+<p>Justification: This feature is important for users to have a clearer view of the expiry dates of coupons with
+highlights on the calendar.</p>
+</li>
+<li>
+<p>Highlights: This enhancement ties in closely with expiry date, as the calendar will highlight a date on the calendar
+if there is any coupon expiring on the specific date.
+The Calendar Pane changes with the observable list in the coupon list panel, which follows the Observer Design Pattern.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor enhancements</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Added start date field that allows coupons to have a starting date &amp; to tie in with the expiry date (Pull requests
+<a href="https://github.com/AY1920S2-CS2103T-F09-1/main/pull/105">#105</a>
+, <a href="https://github.com/AY1920S2-CS2103T-F09-1/main/pull/226">#226</a>)</p>
+</li>
+<li>
+<p>Added the copy command that allows the user to copy the details of a coupon as an add command to the user&#8217;s
+clipboard (Pull requests <a href="https://github.com/AY1920S2-CS2103T-F09-1/main/pull/134">#134</a>
+, <a href="https://github.com/AY1920S2-CS2103T-F09-1/main/pull/198">#198</a> (Renamed from export to copy))</p>
+</li>
+<li>
+<p>Added the goto command that allows the user to navigate the calendar using the Command Line
+Interface (CLI) (Pull request <a href="https://github.com/AY1920S2-CS2103T-F09-1/main/pull/202">#202</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Code contributed</strong>: Click on this
+<a href="https://nus-cs2103-ay1920s2.github.io/tp-dashboard/#search=denise&amp;sort=groupTitle&amp;sortWithin=title&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false&amp;tabOpen=true&amp;tabType=zoom&amp;zA=Denise-Ng&amp;zR=AY1920S2-CS2103T-F09-1%2Fmain%5Bmaster%5D&amp;zACS=356.75&amp;zS=2020-02-14&amp;zU=2020-04-08&amp;zMG=false&amp;zFTF=commit&amp;zFGS=groupByRepos&amp;zSO=undefined&amp;zSWO=undefined&amp;zSD=false&amp;zSWD=false&amp;since=2020-02-14">RepoSense link</a>
+to view the code that I have contributed to the project!</p>
 </li>
 <li>
 <p><strong>Other contributions</strong>:</p>
 <div class="ulist">
 <ul>
 <li>
+<p>Front-End Developer:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Created and styled most of the UI classes (i.e. Calendar, Tabs, Result Display)
+(Pull requests <a href="https://github.com/AY1920S2-CS2103T-F09-1/main/pull/123">#123</a>
+, <a href="https://github.com/AY1920S2-CS2103T-F09-1/main/pull/172">#172</a>
+, <a href="https://github.com/AY1920S2-CS2103T-F09-1/main/pull/305">#305</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
 <p>Project management:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Managed releases <code>v1.3</code> - <code>v1.5rc</code> (3 releases) on GitHub</p>
+<p>Created new issues when bugs are identified (Issues <a href="https://github.com/AY1920S2-CS2103T-F09-1/main/issues/217">#217</a>
+, <a href="https://github.com/AY1920S2-CS2103T-F09-1/main/issues/229">#229</a>
+, <a href="https://github.com/AY1920S2-CS2103T-F09-1/main/issues/321">#321</a>)</p>
 </li>
 </ul>
 </div>
@@ -67,10 +130,8 @@ Coupon Stash such as the automatic archiving of expired coupons and setting of a
 <div class="ulist">
 <ul>
 <li>
-<p>Updated the GUI color scheme (Pull requests <a href="https://github.com">#33</a>, <a href="https://github.com">#34</a>)</p>
-</li>
-<li>
-<p>Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests <a href="https://github.com">#36</a>, <a href="https://github.com">#38</a>)</p>
+<p>Expanded on the list command to list active, archived or active (i.e. not expired/ not archived) coupons (Pull
+request <a href="https://github.com/AY1920S2-CS2103T-F09-1/main/pull/198">#198</a>)</p>
 </li>
 </ul>
 </div>
@@ -80,7 +141,17 @@ Coupon Stash such as the automatic archiving of expired coupons and setting of a
 <div class="ulist">
 <ul>
 <li>
-<p>Did cosmetic tweaks to existing contents of the User Guide: <a href="https://github.com">#14</a></p>
+<p>Edited the logical flow of the User Guide (Pull request
+<a href="https://github.com/AY1920S2-CS2103T-F09-1/main/pull/179">#179</a>)</p>
+</li>
+<li>
+<p>Edited parts of User Guide (Pull requests <a href="https://github.com/AY1920S2-CS2103T-F09-1/main/pull/6">#6</a>
+, <a href="https://github.com/AY1920S2-CS2103T-F09-1/main/pull/7">#7</a>
+, <a href="https://github.com/AY1920S2-CS2103T-F09-1/main/pull/151">#151</a>)</p>
+</li>
+<li>
+<p>Edited parts of Developer Guide (Pull requests <a href="https://github.com/AY1920S2-CS2103T-F09-1/main/pull/159">#159</a>
+, <a href="https://github.com/AY1920S2-CS2103T-F09-1/main/pull/167">#167</a>)</p>
 </li>
 </ul>
 </div>
@@ -90,16 +161,7 @@ Coupon Stash such as the automatic archiving of expired coupons and setting of a
 <div class="ulist">
 <ul>
 <li>
-<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com">#12</a>, <a href="https://github.com">#32</a>, <a href="https://github.com">#19</a>, <a href="https://github.com">#42</a></p>
-</li>
-<li>
-<p>Contributed to forum discussions (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>, <a href="https://github.com">4</a>)</p>
-</li>
-<li>
-<p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>)</p>
-</li>
-<li>
-<p>Some parts of the history feature I added was adopted by several other class mates (<a href="https://github.com">1</a>, <a href="https://github.com">2</a>)</p>
+<p>Reported bugs and suggestions for other teams in the class as a team (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>)</p>
 </li>
 </ul>
 </div>
@@ -121,9 +183,6 @@ Coupon Stash such as the automatic archiving of expired coupons and setting of a
 </div>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p><em>{you can add/remove categories in the list above}</em></p>
 </div>
 </div>
 </div>
@@ -389,13 +448,4 @@ correct.</p>
 </div>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="project-powerpointlabs"><a class="link" href="#project-powerpointlabs">PROJECT: PowerPointLabs</a></h2>
-<div class="sectionbody">
-<hr>
-<div class="paragraph">
-<p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
-</div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 20:05:19 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 04:05:49 UTC</div></div></div></body></html>
