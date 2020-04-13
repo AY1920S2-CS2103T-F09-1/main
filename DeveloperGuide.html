@@ -179,8 +179,20 @@ for the scenario where the user issues the command <code>delete 1</code>.</p>
 </div>
 <div class="paragraph">
 <p>The UI consists of a <code>MainWindow</code> that is made up of three main parts -
-<code>CommandBox</code>, <code>CalendarResultDisplayPanel</code> and  <code>CouponListPanel</code>.
+<code>CommandBox</code>, <code>CalendarResultDisplayPanel</code> and  a <code>TabsPanel</code>.
 All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
+</div>
+<div class="paragraph">
+<p>The TabsPanel can be further divided into three tabs - <code>HelpPane</code>, <code>SummaryPane</code>
+and the <code>CouponListPanel</code>. The <code>CouponListPanel</code> contains the <code>CouponCard</code> that
+represents the <code>Coupon</code> s themselves.</p>
+</div>
+<div class="paragraph">
+<p>The <code>CalendarResultsDisplayPanel</code> is split into two UI components - the
+<code>CalendarPane</code> and the <code>ResultDisplay</code>. As the name suggests, the <code>CalendarPane</code>
+holds the calendar that allows easy visualization of expiry dates. The
+<code>ResultDisplay</code> provides feedback from Coupon Stash to the user after he runs a
+command.</p>
 </div>
 <div class="paragraph">
 <p>The <code>UI</code> component uses JavaFx UI framework.
@@ -926,14 +938,15 @@ location, logging level) through the configuration file (default:
 <div class="paragraph">
 <p>When physical coupons are expired or exhausted, they would usually be thrown away,
 or kept in the archive. Coupon Stash simulates this archive, storing these coupons
-in the app so that the user can still keep track of it, and the savings it generated.</p>
+in the app so that the user can still keep track of it, and the savings they
+generated.</p>
 </div>
 <div class="sect3">
 <h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">3.5.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The archiving of coupons is facilitated by the <code>Archived</code> attribute of a
 coupon. The following methods in the <code>CouponStash</code>,
-<code>Coupon</code>, <code>Usage</code> class and the <code>Model</code> interface facilitates this feature:</p>
+<code>Coupon</code>, <code>Usage</code>, <code>UsedCommand</code> class and the <code>Model</code> interface facilitates this feature:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -949,6 +962,9 @@ coupon. The following methods in the <code>CouponStash</code>,
 (abstracted by the <code>Limit</code> field).</p>
 </li>
 <li>
+<p><code>UsedCommand#execute()</code> - Executes the <code>used</code> command input by the user.</p>
+</li>
+<li>
 <p><code>Model#PREDICATE_SHOW_ALL_ACTIVE_COUPONS</code> - A <code>Predicate</code> function that filters
 out archived coupons from a given <code>CouponStash</code>.</p>
 </li>
@@ -962,15 +978,22 @@ out archived coupons from a given <code>CouponStash</code>.</p>
 </div>
 <div class="paragraph">
 <p>Given below is two example usage scenarios and how the archiving mechanism
-behaves at each step of each scenario.</p>
+behaves at each step of each scenario. An activity diagram is provided first to
+describe the general events that will lead to an automatic archiving of coupons
+by Coupon Stash.</p>
+</div>
+<div id="img-automaticarchiving" class="imageblock">
+<div class="content">
+<img src="images/ArchivingActivityDiagram.png" alt="ArchivingActivityDiagram">
+</div>
+<div class="title">Figure 9. Activity diagram representation of the general flow of archiving of coupons in Coupon Stash</div>
 </div>
 <div class="paragraph">
 <p><strong>Archiving of Expired Coupons</strong></p>
 </div>
 <div class="paragraph">
 <p>Expired coupons are automatically archived by Coupon Stash upon start up of the
-application. The following steps describe
-how this behaviour is implemented.</p>
+application. The following steps describe how this behaviour is implemented.</p>
 </div>
 <div class="paragraph">
 <p>Step 1. The user launches the application for the first time. The initiation of
@@ -981,7 +1004,8 @@ initiation of <code>CouponStash</code> with any available saved data.</p>
 <p>Step 2. The method <code>CouponStash#archiveExpiredCoupons</code> will be called from the
 newly initiated <code>CouponStash</code>, and have its
 <code>UniqueCouponList</code> mapped to a function that archive coupons that has expired
-before the date of opening the application, and returns a new updated <code>CouponStash</code>.</p>
+before the date of opening the application, and returns a new updated <code>CouponStash</code>.
+This mapping function is facilitated by <code>Coupon#hasExpired()</code> and <code>Coupon#archive()</code>.</p>
 </div>
 <div class="paragraph">
 <p>Step 3. The <code>ModelManager</code> will proceed to filter out the archived coupons from
@@ -993,7 +1017,7 @@ predicate <code>Model#PREDICATE_SHOW_ALL_ACTIVE_COUPONS</code>.</p>
 <div class="content">
 <img src="images/ArchiveExpiredSequenceDiagram.png" alt="ArchiveExpiredSequenceDiagram">
 </div>
-<div class="title">Figure 9. Sequence diagram representation of archiving expired coupons</div>
+<div class="title">Figure 10. Sequence diagram representation of archiving expired coupons</div>
 </div>
 <div class="paragraph">
 <p><strong>Archiving of Exhausted Coupons</strong></p>
@@ -1006,7 +1030,8 @@ this behaviour is implemented.</p>
 <div class="paragraph">
 <p>Step 1. The user uses a <code>Coupon</code> in the current observable <code>CouponStash</code> with the
 command <code>used 1</code>.
-The particular <code>Coupon</code> will then have its <code>Usage</code> increased by one.</p>
+<code>UsedCommand</code> is created with the parsed arguments, and executed. The particular <code>Coupon</code>
+will then have its <code>Usage</code> increased by one by calling <code>Coupon#increaseUsageByOne()</code>.</p>
 </div>
 <div class="paragraph">
 <p>Step 2. The <code>Coupon</code> will then be checked if its <code>Usage</code> has reached its <code>Limit</code>, using
@@ -1016,7 +1041,7 @@ with savings in <code>MonetaryAmount</code>.</p>
 </div>
 <div class="paragraph">
 <p>Step 3. The <code>Coupon</code> will have a new <code>Archived</code> value, which will be set to
-<code>true</code> if the <code>Usage</code> has indeed reached its <code>Limit</code>.</p>
+<code>true</code> if the <code>Usage</code> has indeed reached its <code>Limit</code>. This is facilitated by <code>Coupon#archive()</code>.</p>
 </div>
 <div class="paragraph">
 <p>Step 4. The <code>CouponStash</code> will be updated with this used <code>Coupon</code> with the
@@ -1029,7 +1054,7 @@ this method, the current <code>FilteredList</code> will be updated to show activ
 <div class="content">
 <img src="images/ArchiveExhaustedSequenceDiagram.png" alt="ArchiveExhaustedSequenceDiagram">
 </div>
-<div class="title">Figure 10. Sequence diagram representation of archiving exhausted coupons</div>
+<div class="title">Figure 11. Sequence diagram representation of archiving exhausted coupons</div>
 </div>
 </div>
 <div class="sect3">
@@ -1107,7 +1132,7 @@ class facilitates this feature:</p>
 <div class="content">
 <img src="images/UpDownClassDiagram.png" alt="UpDownClassDiagram">
 </div>
-<div class="title">Figure 11. Class diagram representation of the command history retrieving function.</div>
+<div class="title">Figure 12. Class diagram representation of the command history retrieving function.</div>
 </div>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the up/down button presses
@@ -1225,7 +1250,7 @@ presses a key.</p>
 <div class="content">
 <img src="images/UpDownSequenceDiagram.png" alt="UpDownSequenceDiagram">
 </div>
-<div class="title">Figure 12. Sequence diagram representing retrieval of command text history with the up and down arrow keys.</div>
+<div class="title">Figure 13. Sequence diagram representing retrieval of command text history with the up and down arrow keys.</div>
 </div>
 <div class="paragraph">
 <p>Below is a sequence diagram describing the events that happen when a executes
@@ -1236,7 +1261,7 @@ a command text, thus triggering the saving of a command text into
 <div class="content">
 <img src="images/UpDownSequenceDiagramAdd.png" alt="UpDownSequenceDiagramAdd">
 </div>
-<div class="title">Figure 13. Sequence diagram representing the saving of a command text.</div>
+<div class="title">Figure 14. Sequence diagram representing the saving of a command text.</div>
 </div>
 </div>
 <div class="sect3">
@@ -1315,7 +1340,7 @@ comparator that determines the order of the coupons inside the sorted list.</p>
 <div class="content">
 <img src="images/SortingClassDiagram.png" alt="SortingClassDiagram">
 </div>
-<div class="title">Figure 14. Overview of the class diagram representation of the coupon sorting implementation</div>
+<div class="title">Figure 15. Overview of the class diagram representation of the coupon sorting implementation</div>
 </div>
 <div class="paragraph">
 <p>When a <code>sort</code> command is executed, the field to sort by is indicated by the
@@ -1326,7 +1351,7 @@ inputted prefix. The sequence diagram below describes what happens when a
 <div class="content">
 <img src="images/SortCommandSeqDiagram.png" alt="SortCommandSeqDiagram">
 </div>
-<div class="title">Figure 15. Sequence diagram describing the process of sorting coupons</div>
+<div class="title">Figure 16. Sequence diagram describing the process of sorting coupons</div>
 </div>
 <div class="paragraph">
 <p>Depending on the prefix to sort by, <code>ModelManager#sortCoupons()</code> will be
@@ -2188,7 +2213,7 @@ Primary actor is the user.</p>
 <div class="content">
 <img src="images/usecase.png" alt="Use Case Diagram" width="1000" height="1000">
 </div>
-<div class="title">Figure 16. Use Cases Overview for Coupon Stash</div>
+<div class="title">Figure 17. Use Cases Overview for Coupon Stash</div>
 </div>
 <div class="sect2">
 <h3 id="strong-use-case-uc1-add-coupon-strong"><a class="link" href="#strong-use-case-uc1-add-coupon-strong">C.1. <strong>Use Case: UC1 -  Add Coupon</strong></a></h3>
@@ -3137,4 +3162,4 @@ larger than the list size) <em>{give more}</em><br>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 04:05:48 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 06:42:08 UTC</div></div></div></body></html>
