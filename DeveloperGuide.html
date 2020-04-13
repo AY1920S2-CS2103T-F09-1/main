@@ -24,13 +24,13 @@
 <ul class="sectlevel2">
 <li><a href="#undo-redo-feature">3.1. Undo/Redo feature</a></li>
 <li><a href="#calendar">3.2. Calendar</a></li>
-<li><a href="#logging">3.3. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.4. Configuration</a></li>
-<li><a href="#Implementation-Coupon-Archiving">3.5. Coupon Archiving</a></li>
-<li><a href="#up-down-arrow-retrieve-command-history">3.6. Up/down arrow retrieve command history</a></li>
-<li><a href="#coupon-sorting">3.7. Coupon Sorting</a></li>
-<li><a href="#coupon-reminder">3.8. Coupon Reminder</a></li>
-<li><a href="#savings-per-use-and-total-amount-saved">3.9. Savings per use and total amount saved</a></li>
+<li><a href="#Implementation-Coupon-Archiving">3.3. Coupon Archiving</a></li>
+<li><a href="#up-down-arrow-retrieve-command-history">3.4. Up/down arrow retrieve command history</a></li>
+<li><a href="#coupon-sorting">3.5. Coupon Sorting</a></li>
+<li><a href="#coupon-reminder">3.6. Coupon Reminder</a></li>
+<li><a href="#savings-per-use-and-total-amount-saved">3.7. Savings per use and total amount saved</a></li>
+<li><a href="#logging">3.8. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.9. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a></li>
@@ -615,7 +615,7 @@ by using the <code>goto</code> command.</p>
 <div class="paragraph">
 <p>Each <code>DateCell</code> represents each date of the month that is currently on display. Each <code>DateCell</code> uses the
 <code>ObservableList&lt;Coupon&gt;</code> to keep a list of the coupon(s) that expires on each date. A <code>DateCell</code> with coupon(s) expiring
-on the date are highlighted in red and a <code>Datecell</code> that represents today&#8217;s date is highlighted blue.</p>
+on the date are highlighted in red and a <code>Datecell</code> that represents the <code>system&#8217;s date</code> is highlighted blue.</p>
 </div>
 <div class="paragraph">
 <p>The <code>ObservableList&lt;Coupon&gt;</code> is the list of filtered coupons that are currently on display in the <code>CouponListPanel</code>.
@@ -641,12 +641,13 @@ the <code>Logic#getMonthView()</code> method.</p>
 <div class="content">
 <img src="images/CalendarSequenceDiagram.png" alt="CalendarSequenceDiagram">
 </div>
-<div class="title">Figure 9. Seqeunce diagram for calendar.</div>
+<div class="title">Figure 9. Sequence diagram representation of the Calendar on the start up of Coupon Stash</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/CalendarSequenceDiagram_Ref_SetDetailsOfDateCell.png" alt="CalendarSequenceDiagram Ref SetDetailsOfDateCell">
 </div>
+<div class="title">Figure 10. Sequence diagram representation of the Set details of DateCell ref frame of Calendar</div>
 </div>
 <div class="paragraph">
 <p>The two scenarios below are examples of how the Calendar mechanism behaves at
@@ -697,6 +698,7 @@ observable coupon list will not be altered and the calendar will not be altered.
 <div class="content">
 <img src="images/CalendarFindCommandSeqDiagram.png" alt="CalendarFindCommandSeqDiagram">
 </div>
+<div class="title">Figure 11. Sequence diagram representation of the Calendar for the "find chicken" Command</div>
 </div>
 </div>
 <div class="sect4">
@@ -711,7 +713,7 @@ implemented.</p>
 </div>
 <div class="paragraph">
 <p>The Calendar displayed will render the saved coupon data, triggered by the initiation of the UiManager. The default
-calendar display will be set to today&#8217;s month year.</p>
+calendar display will be set to the <code>system&#8217;s month year</code>.</p>
 </div>
 <div class="paragraph">
 <p>Step 2. The user executes a command that alters the <code>ObservableMonthView</code> (any command listed above).</p>
@@ -748,7 +750,7 @@ year on display to September 2020.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>For the <code>list</code> command, the Calendar will be updated to today&#8217;s month year.</p>
+<p>For the <code>list</code> command, the Calendar will be updated to the <code>system&#8217;s month year</code>.</p>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -879,59 +881,7 @@ highlighted date on the Calendar when there is no coupon expiring on that date i
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.3. Logging</a></h3>
-<div class="paragraph">
-<p>We are using <code>java.util.logging</code> package for logging.
-The <code>LogsCenter</code> class is used to manage the logging levels and logging
-destinations.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the
-configuration file (See <a href="#Implementation-Configuration">Section 3.4, &#8220;Configuration&#8221;</a>)</p>
-</li>
-<li>
-<p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code>
-which will log messages according to the specified logging level</p>
-</li>
-<li>
-<p>Currently log messages are output through: <code>Console</code> and to a <code>.log</code> file.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><strong>Logging Levels</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>SEVERE</code> : Critical problem detected which may possibly cause the termination
-of the application</p>
-</li>
-<li>
-<p><code>WARNING</code> : Can continue, but with caution</p>
-</li>
-<li>
-<p><code>INFO</code> : Information showing the noteworthy actions by the App</p>
-</li>
-<li>
-<p><code>FINE</code> : Details that is not usually noteworthy but may be useful in
-debugging e.g. print the actual list instead of just its size</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.4. Configuration</a></h3>
-<div class="paragraph">
-<p>Certain properties of the application can be controlled (e.g user prefs file
-location, logging level) through the configuration file (default:
-<code>config.json</code>).</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="Implementation-Coupon-Archiving"><a class="link" href="#Implementation-Coupon-Archiving">3.5. Coupon Archiving</a></h3>
+<h3 id="Implementation-Coupon-Archiving"><a class="link" href="#Implementation-Coupon-Archiving">3.3. Coupon Archiving</a></h3>
 <div class="paragraph">
 <p>When physical coupons are expired or exhausted, they would usually be thrown away,
 or kept in the archive. Coupon Stash simulates this archive, storing these coupons
@@ -939,7 +889,7 @@ in the app so that the user can still keep track of it, and the savings they
 generated.</p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">3.5.1. Current Implementation</a></h4>
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">3.3.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The archiving of coupons is facilitated by the <code>Archived</code> attribute of a
 coupon. The following methods in the <code>CouponStash</code>,
@@ -971,7 +921,7 @@ out archived coupons from a given <code>CouponStash</code>.</p>
 <div class="content">
 <img src="images/ArchivingClassDiagram.png" alt="ArchivingClassDiagram">
 </div>
-<div class="title">Figure 10. Overview class diagram representation of the the coupon archiving implementation.</div>
+<div class="title">Figure 12. Overview class diagram representation of the the coupon archiving implementation.</div>
 </div>
 <div class="paragraph">
 <p>Given below is two example usage scenarios and how the archiving mechanism
@@ -983,7 +933,7 @@ by Coupon Stash.</p>
 <div class="content">
 <img src="images/ArchivingActivityDiagram.png" alt="ArchivingActivityDiagram">
 </div>
-<div class="title">Figure 11. Activity diagram representation of the general flow of archiving of coupons in Coupon Stash</div>
+<div class="title">Figure 13. Activity diagram representation of the general flow of archiving of coupons in Coupon Stash</div>
 </div>
 <div class="paragraph">
 <p><strong>Archiving of Expired Coupons</strong></p>
@@ -1014,7 +964,7 @@ predicate <code>Model#PREDICATE_SHOW_ALL_ACTIVE_COUPONS</code>.</p>
 <div class="content">
 <img src="images/ArchiveExpiredSequenceDiagram.png" alt="ArchiveExpiredSequenceDiagram">
 </div>
-<div class="title">Figure 12. Sequence diagram representation of archiving expired coupons</div>
+<div class="title">Figure 14. Sequence diagram representation of archiving expired coupons</div>
 </div>
 <div class="paragraph">
 <p><strong>Archiving of Exhausted Coupons</strong></p>
@@ -1051,11 +1001,11 @@ this method, the current <code>FilteredList</code> will be updated to show activ
 <div class="content">
 <img src="images/ArchiveExhaustedSequenceDiagram.png" alt="ArchiveExhaustedSequenceDiagram">
 </div>
-<div class="title">Figure 13. Sequence diagram representation of archiving exhausted coupons</div>
+<div class="title">Figure 15. Sequence diagram representation of archiving exhausted coupons</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.5.2. Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.3.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-the-implementation-to-store-archived-coupons"><a class="link" href="#aspect-the-implementation-to-store-archived-coupons">Aspect: The implementation to store archived coupons</a></h5>
 <div class="ulist">
@@ -1095,9 +1045,9 @@ with two data files.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="up-down-arrow-retrieve-command-history"><a class="link" href="#up-down-arrow-retrieve-command-history">3.6. Up/down arrow retrieve command history</a></h3>
+<h3 id="up-down-arrow-retrieve-command-history"><a class="link" href="#up-down-arrow-retrieve-command-history">3.4. Up/down arrow retrieve command history</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">3.6.1. Current Implementation</a></h4>
+<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">3.4.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The retrieving of command history via the up and down arrow keys is facilitated
 by the <code>CommandTextHistory</code> class. The command history is stored internally as
@@ -1129,7 +1079,7 @@ class facilitates this feature:</p>
 <div class="content">
 <img src="images/UpDownClassDiagram.png" alt="UpDownClassDiagram">
 </div>
-<div class="title">Figure 14. Class diagram representation of the command history retrieving function.</div>
+<div class="title">Figure 16. Class diagram representation of the command history retrieving function.</div>
 </div>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the up/down button presses
@@ -1247,7 +1197,7 @@ presses a key.</p>
 <div class="content">
 <img src="images/UpDownSequenceDiagram.png" alt="UpDownSequenceDiagram">
 </div>
-<div class="title">Figure 15. Sequence diagram representing retrieval of command text history with the up and down arrow keys.</div>
+<div class="title">Figure 17. Sequence diagram representing retrieval of command text history with the up and down arrow keys.</div>
 </div>
 <div class="paragraph">
 <p>Below is a sequence diagram describing the events that happen when a executes
@@ -1258,11 +1208,11 @@ a command text, thus triggering the saving of a command text into
 <div class="content">
 <img src="images/UpDownSequenceDiagramAdd.png" alt="UpDownSequenceDiagramAdd">
 </div>
-<div class="title">Figure 16. Sequence diagram representing the saving of a command text.</div>
+<div class="title">Figure 18. Sequence diagram representing the saving of a command text.</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.6.2. Design Considerations</a></h4>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.4.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-data-structure-to-support-the-key-actions"><a class="link" href="#aspect-data-structure-to-support-the-key-actions">Aspect: Data structure to support the key actions</a></h5>
 <div class="ulist">
@@ -1300,9 +1250,9 @@ Java, thus reducing confusion.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="coupon-sorting"><a class="link" href="#coupon-sorting">3.7. Coupon Sorting</a></h3>
+<h3 id="coupon-sorting"><a class="link" href="#coupon-sorting">3.5. Coupon Sorting</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">3.7.1. Current implementation</a></h4>
+<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">3.5.1. Current implementation</a></h4>
 <div class="paragraph">
 <p>The sorting of coupons in the coupon stash is facilitated by the following
 static variables in the <code>SortCommand</code> class and this methods in the <code>Model</code>
@@ -1337,7 +1287,7 @@ comparator that determines the order of the coupons inside the sorted list.</p>
 <div class="content">
 <img src="images/SortingClassDiagram.png" alt="SortingClassDiagram">
 </div>
-<div class="title">Figure 17. Overview of the class diagram representation of the coupon sorting implementation</div>
+<div class="title">Figure 19. Overview of the class diagram representation of the coupon sorting implementation</div>
 </div>
 <div class="paragraph">
 <p>When a <code>sort</code> command is executed, the field to sort by is indicated by the
@@ -1348,7 +1298,7 @@ inputted prefix. The sequence diagram below describes what happens when a
 <div class="content">
 <img src="images/SortCommandSeqDiagram.png" alt="SortCommandSeqDiagram">
 </div>
-<div class="title">Figure 18. Sequence diagram describing the process of sorting coupons</div>
+<div class="title">Figure 20. Sequence diagram describing the process of sorting coupons</div>
 </div>
 <div class="paragraph">
 <p>Depending on the prefix to sort by, <code>ModelManager#sortCoupons()</code> will be
@@ -1360,7 +1310,7 @@ leads to a change of the comparator of the <code>SortedList</code> stored in
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">3.7.2. Design Considerations</a></h4>
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">3.5.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-persistent-or-non-persistent-sort"><a class="link" href="#aspect-persistent-or-non-persistent-sort">Aspect: Persistent or non - persistent sort?</a></h5>
 <div class="ulist">
@@ -1407,7 +1357,7 @@ ways to sort.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="coupon-reminder"><a class="link" href="#coupon-reminder">3.8. Coupon Reminder</a></h3>
+<h3 id="coupon-reminder"><a class="link" href="#coupon-reminder">3.6. Coupon Reminder</a></h3>
 <div class="paragraph">
 <p>To ensure users are aware of expiring coupons and maximise their saving,
 Coupon Stash reminds the user through a pop-up window, upon launching the
@@ -1426,7 +1376,7 @@ default, every coupons&#8217;s remind date are set to 3 days before the expiry d
 </li>
 <li>
 <p><code>RemindCommand#checkReminder()</code> - To evaluate all coupons' remind date against
-system&#8217;s current date.</p>
+<code>system&#8217;s date</code>.</p>
 </li>
 <li>
 <p><code>RemindWindow#displayRemind()</code>- To display the pop up box with coupons that
@@ -1446,7 +1396,7 @@ RemindDate
 class, RemindCommand class and RemindWindow class.</p>
 </div>
 <div class="sect3">
-<h4 id="class-structure-of-reminddate-field"><a class="link" href="#class-structure-of-reminddate-field">3.8.1. Class structure of RemindDate field</a></h4>
+<h4 id="class-structure-of-reminddate-field"><a class="link" href="#class-structure-of-reminddate-field">3.6.1. Class structure of RemindDate field</a></h4>
 <div class="paragraph">
 <p>It is mandatory that each Coupon has a <code>RemindDate</code> object, that
 represent a date to be reminded. <code>RemindDate</code> class is heavily reliant of
@@ -1484,7 +1434,7 @@ the default reminder will be set on 3 days before its expiry date.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="implementation-of-remindcommand"><a class="link" href="#implementation-of-remindcommand">3.8.2. Implementation of RemindCommand</a></h4>
+<h4 id="implementation-of-remindcommand"><a class="link" href="#implementation-of-remindcommand">3.6.2. Implementation of RemindCommand</a></h4>
 <div class="paragraph">
 <p>Depending of user&#8217;s preference, there are two ways to use the remind command to
 set a coupon&#8217;s remind date. The user can choose to input a specific remind date
@@ -1493,16 +1443,16 @@ input X amount of days before the expiry date.</p>
 </div>
 <div class="paragraph">
 <p>The following activity diagram depicts what happens when the user runs a
-<code>remind</code> command.</p>
+<code>edit</code> command to edit the <code>remind date</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/RemindActivityDiagram.png" alt="RemindActivityDiagram">
+<img src="images/EditRemindActivityDiagram.png" alt="EditRemindActivityDiagram">
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="implementation-of-reminder-pop-up"><a class="link" href="#implementation-of-reminder-pop-up">3.8.3. Implementation of reminder pop up</a></h4>
+<h4 id="implementation-of-reminder-pop-up"><a class="link" href="#implementation-of-reminder-pop-up">3.6.3. Implementation of reminder pop up</a></h4>
 <div class="paragraph">
 <p>After establishing the remind dates for all the coupons,
 the next step is ensure that there will be a reminder pop
@@ -1547,7 +1497,7 @@ of <code>Remind</code> class.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-consideration"><a class="link" href="#design-consideration">3.8.4. Design consideration</a></h4>
+<h4 id="design-consideration"><a class="link" href="#design-consideration">3.6.4. Design consideration</a></h4>
 <div class="paragraph">
 <p><strong>Aspect: The implementation of remind date for every
 coupon to facilitate coupon reminder</strong></p>
@@ -1591,7 +1541,7 @@ Very prone to error.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="savings-per-use-and-total-amount-saved"><a class="link" href="#savings-per-use-and-total-amount-saved">3.9. Savings per use and total amount saved</a></h3>
+<h3 id="savings-per-use-and-total-amount-saved"><a class="link" href="#savings-per-use-and-total-amount-saved">3.7. Savings per use and total amount saved</a></h3>
 <div class="paragraph">
 <p>To allow users to keep track of how much they have saved
 (after all, the whole point of coupons is to offer
@@ -1608,7 +1558,7 @@ fields:<br>
 from using a certain coupon</p>
 </div>
 <div class="sect3">
-<h4 id="class-structure-of-savings"><a class="link" href="#class-structure-of-savings">3.9.1. Class structure of Savings</a></h4>
+<h4 id="class-structure-of-savings"><a class="link" href="#class-structure-of-savings">3.7.1. Class structure of Savings</a></h4>
 <div class="paragraph">
 <p>Just for reference, the image below shows the class diagram
 for the Savings class. It is compulsory for each Coupon to
@@ -1695,7 +1645,7 @@ a voucher that says "10% and $5 off").</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="puremonetarysavings-and-datesavingssummap"><a class="link" href="#puremonetarysavings-and-datesavingssummap">3.9.2. PureMonetarySavings and DateSavingsSumMap</a></h4>
+<h4 id="puremonetarysavings-and-datesavingssummap"><a class="link" href="#puremonetarysavings-and-datesavingssummap">3.7.2. PureMonetarySavings and DateSavingsSumMap</a></h4>
 <div class="paragraph">
 <p>In order to calculate the total amount saved, Coupons also
 store information about how much the user saves, and storage
@@ -1736,7 +1686,7 @@ as "used" with the <code>used</code> command.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="implementation-of-used-command"><a class="link" href="#implementation-of-used-command">3.9.3. Implementation of used command</a></h4>
+<h4 id="implementation-of-used-command"><a class="link" href="#implementation-of-used-command">3.7.3. Implementation of used command</a></h4>
 <div class="paragraph">
 <p>When the user enters a <code>used</code> command, the actions taken by Coupon
 Stash change depending on whether the Coupon&#8217;s Savings stores
@@ -1801,7 +1751,7 @@ the <code>UsedCommand#execute()</code> method.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="implementation-of-saved-command"><a class="link" href="#implementation-of-saved-command">3.9.4. Implementation of saved command</a></h4>
+<h4 id="implementation-of-saved-command"><a class="link" href="#implementation-of-saved-command">3.7.4. Implementation of saved command</a></h4>
 <div class="paragraph">
 <p>Now that we have seen how the used command works,
 we can look at how the saved command works. While
@@ -1829,7 +1779,7 @@ or from all dates if no time period is specified.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">3.9.5. Design considerations</a></h4>
+<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">3.7.5. Design considerations</a></h4>
 <div class="paragraph">
 <p>Based on the User Stories, there is a desire for tracking
 how much one has saved by using Coupon Stash, as well
@@ -1901,6 +1851,58 @@ the Coupon to think in terms of an entire Savings
 object, rather than handle multiple different scenarios
 depending on which fields it has.</p>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="logging"><a class="link" href="#logging">3.8. Logging</a></h3>
+<div class="paragraph">
+<p>We are using <code>java.util.logging</code> package for logging.
+The <code>LogsCenter</code> class is used to manage the logging levels and logging
+destinations.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the
+configuration file (See <a href="#Implementation-Configuration">Section 3.9, &#8220;Configuration&#8221;</a>)</p>
+</li>
+<li>
+<p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code>
+which will log messages according to the specified logging level</p>
+</li>
+<li>
+<p>Currently log messages are output through: <code>Console</code> and to a <code>.log</code> file.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Logging Levels</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>SEVERE</code> : Critical problem detected which may possibly cause the termination
+of the application</p>
+</li>
+<li>
+<p><code>WARNING</code> : Can continue, but with caution</p>
+</li>
+<li>
+<p><code>INFO</code> : Information showing the noteworthy actions by the App</p>
+</li>
+<li>
+<p><code>FINE</code> : Details that is not usually noteworthy but may be useful in
+debugging e.g. print the actual list instead of just its size</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.9. Configuration</a></h3>
+<div class="paragraph">
+<p>Certain properties of the application can be controlled (e.g user prefs file
+location, logging level) through the configuration file (default:
+<code>config.json</code>).</p>
 </div>
 </div>
 </div>
@@ -2210,7 +2212,7 @@ Primary actor is the user.</p>
 <div class="content">
 <img src="images/usecase.png" alt="Use Case Diagram" width="1000" height="1000">
 </div>
-<div class="title">Figure 19. Use Cases Overview for Coupon Stash</div>
+<div class="title">Figure 21. Use Cases Overview for Coupon Stash</div>
 </div>
 <div class="sect2">
 <h3 id="strong-use-case-uc1-add-coupon-strong"><a class="link" href="#strong-use-case-uc1-add-coupon-strong">C.1. <strong>Use Case: UC1 -  Add Coupon</strong></a></h3>
@@ -3114,7 +3116,7 @@ Expected: The most recent window size and location is retained.</p>
 <li>
 <p>Test case: <code>add n/Popular Bookstore e/31-12-2020 s/10%</code><br>
 Expected: Coupon Popular Bookstore is added to the list. <code>Start Date</code> is set to
-today&#8217;s date, while the Remind Date is set to 3 days before the specified
+the <code>system&#8217;s date</code>, while the Remind Date is set to 3 days before the specified
 <code>Expiry Date</code>. In this case, it would be 28-12-2020.</p>
 </li>
 </ol>
@@ -3159,4 +3161,4 @@ larger than the list size) <em>{give more}</em><br>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 06:46:47 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 08:20:55 UTC</div></div></div></body></html>
